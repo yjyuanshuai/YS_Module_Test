@@ -16,6 +16,8 @@
 		397E78D21C28E09400A80E12 /* KeychainTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 397E78D11C28E09400A80E12 /* KeychainTestTests.m */; };
 		397E78DD1C28E09400A80E12 /* KeychainTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 397E78DC1C28E09400A80E12 /* KeychainTestUITests.m */; };
 		397E78EC1C28E7AA00A80E12 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 397E78EB1C28E7AA00A80E12 /* Security.framework */; };
+		397E78F01C28F9C500A80E12 /* KeychainItemWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = 397E78EF1C28F9C500A80E12 /* KeychainItemWrapper.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		397E78F31C28FADF00A80E12 /* MyKeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 397E78F21C28FADF00A80E12 /* MyKeyChainHelper.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +55,10 @@
 		397E78DC1C28E09400A80E12 /* KeychainTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KeychainTestUITests.m; sourceTree = "<group>"; };
 		397E78DE1C28E09400A80E12 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		397E78EB1C28E7AA00A80E12 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		397E78EE1C28F9C500A80E12 /* KeychainItemWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = KeychainItemWrapper.h; sourceTree = "<group>"; };
+		397E78EF1C28F9C500A80E12 /* KeychainItemWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = KeychainItemWrapper.m; sourceTree = "<group>"; };
+		397E78F11C28FADF00A80E12 /* MyKeyChainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKeyChainHelper.h; sourceTree = "<group>"; };
+		397E78F21C28FADF00A80E12 /* MyKeyChainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKeyChainHelper.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +90,7 @@
 		397E78AB1C28E09400A80E12 = {
 			isa = PBXGroup;
 			children = (
+				397E78ED1C28F9C500A80E12 /* MyKeyChainHelper */,
 				397E78B61C28E09400A80E12 /* KeychainTest */,
 				397E78D01C28E09400A80E12 /* KeychainTestTests */,
 				397E78DB1C28E09400A80E12 /* KeychainTestUITests */,
@@ -120,7 +127,6 @@
 		397E78B71C28E09400A80E12 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				397E78EB1C28E7AA00A80E12 /* Security.framework */,
 				397E78B81C28E09400A80E12 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -142,6 +148,19 @@
 				397E78DE1C28E09400A80E12 /* Info.plist */,
 			);
 			path = KeychainTestUITests;
+			sourceTree = "<group>";
+		};
+		397E78ED1C28F9C500A80E12 /* MyKeyChainHelper */ = {
+			isa = PBXGroup;
+			children = (
+				397E78EB1C28E7AA00A80E12 /* Security.framework */,
+				397E78EE1C28F9C500A80E12 /* KeychainItemWrapper.h */,
+				397E78EF1C28F9C500A80E12 /* KeychainItemWrapper.m */,
+				397E78F11C28FADF00A80E12 /* MyKeyChainHelper.h */,
+				397E78F21C28FADF00A80E12 /* MyKeyChainHelper.m */,
+			);
+			name = MyKeyChainHelper;
+			path = ../../Desktop/KeychainItemWrapper;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -211,6 +230,7 @@
 				TargetAttributes = {
 					397E78B31C28E09400A80E12 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = EBNJJGR464;
 					};
 					397E78CC1C28E09400A80E12 = {
 						CreatedOnToolsVersion = 7.1;
@@ -274,7 +294,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				397E78F01C28F9C500A80E12 /* KeychainItemWrapper.m in Sources */,
 				397E78BF1C28E09400A80E12 /* ViewController.m in Sources */,
+				397E78F31C28FADF00A80E12 /* MyKeyChainHelper.m in Sources */,
 				397E78BC1C28E09400A80E12 /* AppDelegate.m in Sources */,
 				397E78B91C28E09400A80E12 /* main.m in Sources */,
 			);
@@ -417,7 +439,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KeychainTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.KeychainTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -428,7 +452,9 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = KeychainTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.KeychainTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -502,6 +528,7 @@
 				397E78E31C28E09400A80E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		397E78E41C28E09400A80E12 /* Build configuration list for PBXNativeTarget "KeychainTestTests" */ = {
 			isa = XCConfigurationList;
@@ -510,6 +537,7 @@
 				397E78E61C28E09400A80E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		397E78E71C28E09400A80E12 /* Build configuration list for PBXNativeTarget "KeychainTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -518,6 +546,7 @@
 				397E78E91C28E09400A80E12 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
