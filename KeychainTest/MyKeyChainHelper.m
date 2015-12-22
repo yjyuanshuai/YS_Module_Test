@@ -15,11 +15,13 @@
 }
 
 
-- (void)saveAccountWithUserName:(NSString *)userName Password:(NSString *)userPassword
+- (void)saveAccountWithUserName:(NSString *)userName Password:(NSString *)userPassword Service:(NSString *)service
 {
-    _wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:ACCOUNT_NUMBER accessGroup:APPID];
+    _wrapper = [[KeychainItemWrapper alloc] initWithIdentifier:ACCOUNT_NUMBER accessGroup:nil];
+    
     [_wrapper setObject:userName forKey:(id)kSecAttrAccount];
     [_wrapper setObject:userPassword forKey:(id)kSecValueData];
+    [_wrapper setObject:service forKey:(id)kSecAttrService];
 }
 
 

@@ -13,7 +13,7 @@
 
 @interface MyKeyChainHelper : NSObject
 
-- (void)saveAccountWithUserName:(NSString *)userName Password:(NSString *)userPassword;
+- (void)saveAccountWithUserName:(NSString *)userName Password:(NSString *)userPassword Service:(NSString *)service;
 
 - (NSString *)getUserPassword;
 
