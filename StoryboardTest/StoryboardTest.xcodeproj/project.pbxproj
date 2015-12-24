@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39139FDD1C2BE426004E5465 /* OneTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39139FDC1C2BE426004E5465 /* OneTableViewCell.m */; };
+		39139FE01C2BE440004E5465 /* TWOTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39139FDF1C2BE440004E5465 /* TWOTableViewCell.m */; };
+		39139FE31C2BF418004E5465 /* ThreeTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39139FE21C2BF418004E5465 /* ThreeTableViewCell.m */; };
 		396D235A1C2A417B0044B6EE /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 396D23591C2A417B0044B6EE /* main.m */; };
 		396D235D1C2A417B0044B6EE /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 396D235C1C2A417B0044B6EE /* AppDelegate.m */; };
 		396D23601C2A417B0044B6EE /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396D235F1C2A417B0044B6EE /* ViewController.m */; };
@@ -35,6 +38,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39139FDB1C2BE426004E5465 /* OneTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = OneTableViewCell.h; path = views/OneTableViewCell.h; sourceTree = "<group>"; };
+		39139FDC1C2BE426004E5465 /* OneTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneTableViewCell.m; path = views/OneTableViewCell.m; sourceTree = "<group>"; };
+		39139FDE1C2BE440004E5465 /* TWOTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TWOTableViewCell.h; path = views/TWOTableViewCell.h; sourceTree = "<group>"; };
+		39139FDF1C2BE440004E5465 /* TWOTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TWOTableViewCell.m; path = views/TWOTableViewCell.m; sourceTree = "<group>"; };
+		39139FE11C2BF418004E5465 /* ThreeTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ThreeTableViewCell.h; path = views/ThreeTableViewCell.h; sourceTree = "<group>"; };
+		39139FE21C2BF418004E5465 /* ThreeTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ThreeTableViewCell.m; path = views/ThreeTableViewCell.m; sourceTree = "<group>"; };
 		396D23551C2A417B0044B6EE /* StoryboardTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = StoryboardTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		396D23591C2A417B0044B6EE /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		396D235B1C2A417B0044B6EE /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -78,9 +87,23 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39139FDA1C2BE3F7004E5465 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				39139FDB1C2BE426004E5465 /* OneTableViewCell.h */,
+				39139FDC1C2BE426004E5465 /* OneTableViewCell.m */,
+				39139FDE1C2BE440004E5465 /* TWOTableViewCell.h */,
+				39139FDF1C2BE440004E5465 /* TWOTableViewCell.m */,
+				39139FE11C2BF418004E5465 /* ThreeTableViewCell.h */,
+				39139FE21C2BF418004E5465 /* ThreeTableViewCell.m */,
+			);
+			name = views;
+			sourceTree = "<group>";
+		};
 		396D234C1C2A417B0044B6EE = {
 			isa = PBXGroup;
 			children = (
+				39139FDA1C2BE3F7004E5465 /* views */,
 				396D23571C2A417B0044B6EE /* StoryboardTest */,
 				396D23711C2A417B0044B6EE /* StoryboardTestTests */,
 				396D237C1C2A417B0044B6EE /* StoryboardTestUITests */,
@@ -272,6 +295,9 @@
 			files = (
 				396D23601C2A417B0044B6EE /* ViewController.m in Sources */,
 				396D235D1C2A417B0044B6EE /* AppDelegate.m in Sources */,
+				39139FDD1C2BE426004E5465 /* OneTableViewCell.m in Sources */,
+				39139FE01C2BE440004E5465 /* TWOTableViewCell.m in Sources */,
+				39139FE31C2BF418004E5465 /* ThreeTableViewCell.m in Sources */,
 				396D235A1C2A417B0044B6EE /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -414,6 +440,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StoryboardTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.StoryboardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -425,6 +452,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = StoryboardTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.StoryboardTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -498,6 +526,7 @@
 				396D23841C2A417B0044B6EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		396D23851C2A417B0044B6EE /* Build configuration list for PBXNativeTarget "StoryboardTestTests" */ = {
 			isa = XCConfigurationList;
@@ -506,6 +535,7 @@
 				396D23871C2A417B0044B6EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		396D23881C2A417B0044B6EE /* Build configuration list for PBXNativeTarget "StoryboardTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -514,6 +544,7 @@
 				396D238A1C2A417B0044B6EE /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
