@@ -9,8 +9,9 @@
 #import "ViewController.h"
 #import "OneTableViewCell.h"
 #import "TWOTableViewCell.h"
+#import "ThreeTableViewCell.h"
 
-@interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface ViewController ()<UITableViewDelegate, UITableViewDataSource, UIImagePickerControllerDelegate, UINavigationControllerDelegate, ThreeCellDelegate>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 
 @end
@@ -61,7 +62,8 @@
         cell.other.text = [NSString stringWithFormat:@"other information"];
         return cell;
     }else {
-        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CELLIDTHREE"];
+        ThreeTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CELLIDTHREE"];
+        cell.delegate = self;
         return cell;
     }
     
@@ -83,4 +85,122 @@
 {
     return 0.01;
 }
+
+#pragma mark - ThreeCellDelegate
+- (void)updateImageWithIndex:(NSInteger)index
+{
+    UIAlertController * alertCon = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction * cameraAlert = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 调用相机
+        [self takeCamera];
+        
+    }];
+//    cameraAlert.enabled= YES;
+    [alertCon addAction:cameraAlert];
+    
+    UIAlertAction * libraryAlert = [UIAlertAction actionWithTitle:@"相册" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        // 调用相册
+        
+    }];
+    [alertCon addAction:libraryAlert];
+    
+    UIAlertAction * cancel = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+        // 取消
+    }];
+    [alertCon addAction:cancel];
+    
+    [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+
+#pragma mark -
+
+- (void)takeCamera
+{
+    NSLog(@"--------- take camera");
+    /**
+     *
+     *  @param UIImagePickerControllerSourceType
+                    UIImagePickerControllerSourceTypePhotoLibrary,          // 相册
+                    UIImagePickerControllerSourceTypeCamera,                // 相机
+                    UIImagePickerControllerSourceTypeSavedPhotosAlbum
+     *  @return
+     */
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
+        
+        // 相机
+        UIImagePickerController * cameraPicker = [[UIImagePickerController alloc] init];
+        cameraPicker.delegate = self;
+        cameraPicker.sourceType = UIImagePickerControllerSourceTypeCamera;
+//        cameraPicker.mediaTypes = @[(NSString *)kUTTypeImage];
+//        cameraPicker.cameraDevice
+        [self presentViewController:cameraPicker animated:YES completion:nil];
+    }
+    
+    
+    
+    
+    /**
+     *  是否支持前置 / 后置摄像头
+     *
+     *  @param UIImagePickerControllerCameraDevice 
+                    UIImagePickerControllerCameraDeviceRear,
+                    UIImagePickerControllerCameraDeviceFront
+     *
+     *  @return
+     */
+//    [UIImagePickerController isCameraDeviceAvailable:UIImagePickerControllerCameraDeviceRear];
+    
+    
+    
+    /**
+     *  是否支持闪光灯
+     *
+     *  @param UIImagePickerControllerCameraDevice 
+                    UIImagePickerControllerCameraDeviceRear,
+                    UIImagePickerControllerCameraDeviceFront
+     *
+     *  @return
+     */
+//    [UIImagePickerController isFlashAvailableForCameraDevice:UIImagePickerControllerCameraDeviceRear];
+    
+    
+    
+    /**
+     *  返回拍摄类型
+     *  UIImagePickerControllerCameraCaptureMode
+                UIImagePickerControllerCameraCaptureModePhoto,
+                UIImagePickerControllerCameraCaptureModeVideo
+     */
+//    [UIImagePickerController availableCaptureModesForCameraDevice:UIImagePickerControllerCameraDeviceRear];
+    
+    
+    
+    
+}
+
+#pragma mark - UIImagePickerControllerDelegate & UINavigationControllerDelegate
+#pragma mark -
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
+{
+    [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
+{
+    // 取到照片
+    NSString * type = [info objectForKey:UIImagePickerControllerMediaType];
+    
+    
+}
+
+#pragma mark -
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    
+}
+
+
+
+
 @end

@@ -112,8 +112,6 @@
                                                     <exclude reference="Ybx-Gp-Jjt"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <exclude reference="bTz-LG-zoW"/>
-                                                    <exclude reference="l3L-LR-TsZ"/>
                                                     <exclude reference="63e-Pr-Qop"/>
                                                     <exclude reference="cva-rb-7cJ"/>
                                                     <exclude reference="ddL-km-hXX"/>
@@ -121,6 +119,8 @@
                                                     <exclude reference="XFZ-Ax-yQd"/>
                                                     <exclude reference="bf5-J0-STs"/>
                                                     <exclude reference="iKe-TJ-M4r"/>
+                                                    <exclude reference="bTz-LG-zoW"/>
+                                                    <exclude reference="l3L-LR-TsZ"/>
                                                 </mask>
                                             </variation>
                                             <variation key="heightClass=regular-widthClass=compact">
@@ -130,8 +130,6 @@
                                                     <include reference="Ybx-Gp-Jjt"/>
                                                 </mask>
                                                 <mask key="constraints">
-                                                    <include reference="bTz-LG-zoW"/>
-                                                    <include reference="l3L-LR-TsZ"/>
                                                     <include reference="63e-Pr-Qop"/>
                                                     <include reference="cva-rb-7cJ"/>
                                                     <include reference="ddL-km-hXX"/>
@@ -139,6 +137,8 @@
                                                     <include reference="XFZ-Ax-yQd"/>
                                                     <include reference="bf5-J0-STs"/>
                                                     <include reference="iKe-TJ-M4r"/>
+                                                    <include reference="bTz-LG-zoW"/>
+                                                    <include reference="l3L-LR-TsZ"/>
                                                 </mask>
                                             </variation>
                                         </tableViewCellContentView>
@@ -153,7 +153,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Kre-tE-x4s" id="It5-6n-Mve">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="43"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="99"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="GAG-1w-YrN">
@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="d2C-tB-oyJ" id="mfH-v3-OEi">
-                                            <rect key="frame" x="0.0" y="0.0" width="240" height="59"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="240" height="199"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ye5-pI-Qdw">
@@ -219,7 +219,7 @@
                                                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eAl-2P-HLQ">
                                                             <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                             <subviews>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="aZt-aS-HRA" userLabel="Image View1">
+                                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="aZt-aS-HRA" userLabel="Image View1">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                     <animations/>
                                                                     <constraints>
@@ -238,7 +238,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="qqK-Ek-2w1" userLabel="Image View2">
+                                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="qqK-Ek-2w1" userLabel="Image View2">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                     <animations/>
                                                                     <constraints>
@@ -257,7 +257,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="GSk-De-hni" userLabel="Image View3">
+                                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="GSk-De-hni" userLabel="Image View3">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                     <animations/>
                                                                     <constraints>
@@ -276,7 +276,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="CWc-1V-SUp" userLabel="Image View4">
+                                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image2" translatesAutoresizingMaskIntoConstraints="NO" id="CWc-1V-SUp" userLabel="Image View4">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                     <animations/>
                                                                     <constraints>
@@ -295,7 +295,7 @@
                                                                         </mask>
                                                                     </variation>
                                                                 </imageView>
-                                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-m3-4fM" userLabel="Image View5">
+                                                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image1" translatesAutoresizingMaskIntoConstraints="NO" id="9xp-m3-4fM" userLabel="Image View5">
                                                                     <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
                                                                     <animations/>
                                                                     <constraints>
@@ -324,7 +324,9 @@
                                                                 <constraint firstAttribute="bottom" secondItem="aZt-aS-HRA" secondAttribute="bottom" constant="5" id="7XQ-g5-5LM"/>
                                                                 <constraint firstItem="GSk-De-hni" firstAttribute="top" secondItem="eAl-2P-HLQ" secondAttribute="top" constant="5" id="BtO-HM-Pwx"/>
                                                                 <constraint firstAttribute="bottom" secondItem="9xp-m3-4fM" secondAttribute="bottom" constant="5" id="H5K-fR-g2L"/>
-                                                                <constraint firstAttribute="width" constant="700" id="PyO-6f-xku"/>
+                                                                <constraint firstAttribute="width" constant="700" id="PyO-6f-xku">
+                                                                    <variation key="heightClass=regular-widthClass=compact" constant="630"/>
+                                                                </constraint>
                                                                 <constraint firstItem="qqK-Ek-2w1" firstAttribute="leading" secondItem="aZt-aS-HRA" secondAttribute="trailing" constant="5" id="SGI-yG-W2u"/>
                                                                 <constraint firstAttribute="bottom" secondItem="qqK-Ek-2w1" secondAttribute="bottom" constant="5" id="SKQ-Wh-0qW"/>
                                                                 <constraint firstItem="CWc-1V-SUp" firstAttribute="leading" secondItem="GSk-De-hni" secondAttribute="trailing" constant="105" id="XWp-52-wim">
@@ -400,7 +402,9 @@
                                                         <constraint firstAttribute="bottom" secondItem="eAl-2P-HLQ" secondAttribute="bottom" id="6Zd-rE-P7M"/>
                                                         <constraint firstItem="eAl-2P-HLQ" firstAttribute="top" secondItem="Ye5-pI-Qdw" secondAttribute="top" id="AVQ-Le-ySu"/>
                                                         <constraint firstItem="eAl-2P-HLQ" firstAttribute="centerY" secondItem="Ye5-pI-Qdw" secondAttribute="centerY" id="Exe-uE-HxL"/>
-                                                        <constraint firstAttribute="trailing" secondItem="eAl-2P-HLQ" secondAttribute="trailing" constant="140" id="NaS-zw-xKu"/>
+                                                        <constraint firstAttribute="trailing" secondItem="eAl-2P-HLQ" secondAttribute="trailing" constant="140" id="NaS-zw-xKu">
+                                                            <variation key="heightClass=regular-widthClass=compact" constant="0.0"/>
+                                                        </constraint>
                                                         <constraint firstItem="eAl-2P-HLQ" firstAttribute="leading" secondItem="Ye5-pI-Qdw" secondAttribute="leading" id="hPg-Cp-xZH"/>
                                                     </constraints>
                                                     <variation key="default">
@@ -461,6 +465,14 @@
                                             </variation>
                                         </tableViewCellContentView>
                                         <animations/>
+                                        <connections>
+                                            <outlet property="imageView1" destination="aZt-aS-HRA" id="myu-v4-fxm"/>
+                                            <outlet property="imageView2" destination="qqK-Ek-2w1" id="FuR-N2-dpU"/>
+                                            <outlet property="imageView3" destination="GSk-De-hni" id="X7Y-yG-wia"/>
+                                            <outlet property="imageView4" destination="CWc-1V-SUp" id="60i-Gf-P5G"/>
+                                            <outlet property="imageView5" destination="9xp-m3-4fM" id="U5j-VO-cPI"/>
+                                            <outlet property="scrollView" destination="Ye5-pI-Qdw" id="5P8-5K-b4Y"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -508,7 +520,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="304.5" y="429"/>
+            <point key="canvasLocation" x="-112.5" y="-223.5"/>
         </scene>
     </scenes>
     <resources>
