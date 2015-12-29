@@ -25,10 +25,17 @@ typedef NS_ENUM(NSUInteger, YJLoadingViewType)
 @property (nonatomic, copy) NSString * message;         // 提示语，默认空
 
 
-- (void)showLoadingView;
-- (void)dismissLoadingView;
 
 //2
 - (instancetype)initWithFrame:(CGRect)frame;
+- (void)showLoadingView;
+- (void)dismissLoadingView;
+
+
+//3
++ (void)showImageLoadingViewToView:(UIViewController *)viewController;
++ (void)showTextLoadingViewToView:(UIViewController *)viewController text:(NSString *)text;
++ (void)showImageAndTextLoadingView:(UIViewController *)viewController text:(NSString *)text;
+
 
 @end

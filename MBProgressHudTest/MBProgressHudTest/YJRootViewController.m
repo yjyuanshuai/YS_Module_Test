@@ -21,7 +21,8 @@
     // Do any additional setup after loading the view.
     
 //    self.view.backgroundColor = [UIColor redColor];
-    [self initUI2];
+//    [self initUI2];
+    [self initUI3];
     
     
 }
@@ -35,10 +36,17 @@
 {
     YJLoadingView * loadingVC2 = [[YJLoadingView alloc] initWithFrame:self.view.frame];
     [loadingVC2 showLoadingView];
-//    loadingVC2.loadViewSize = CGSizeMake(300, 300);
+    loadingVC2.loadViewSize = CGSizeMake(300, 300);
     loadingVC2.timeOverInterval = 3;
-//    loadingVC2.loadViewType = YJLoadingViewTypeImage;
+    loadingVC2.loadViewType = YJLoadingViewTypeText;
     [self.view addSubview:loadingVC2];
+}
+
+- (void)initUI3
+{
+    [YJLoadingView showImageLoadingViewToView:self];
+//    [YJLoadingView showTextLoadingViewToView:self text:@"加载中。。。"];
+//    [YJLoadingView showImageAndTextLoadingView:self text:@"加载中..."];
 }
 
 @end
