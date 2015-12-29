@@ -44,9 +44,23 @@
 
 - (void)initUI3
 {
+    UIButton * but = [UIButton buttonWithType:UIButtonTypeCustom];
+    but.frame = CGRectMake(20, 80, 100, 40);
+    but.backgroundColor = [UIColor lightGrayColor];
+    [but setTitle:@"加载" forState:UIControlStateNormal];
+    [but setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [but addTarget:self action:@selector(click) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:but];
+    
+    
+}
+
+- (void)click
+{
     [YJLoadingView showImageLoadingViewToView:self];
 //    [YJLoadingView showTextLoadingViewToView:self text:@"加载中。。。"];
 //    [YJLoadingView showImageAndTextLoadingView:self text:@"加载中..."];
+
 }
 
 @end

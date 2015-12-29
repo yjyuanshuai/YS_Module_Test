@@ -49,6 +49,7 @@
     YJLoadingView * loadView = [YJLoadingView sharedInstance];
     loadView.frame = viewController.view.frame;
     [loadView initLoadView];
+    loadView.timeOverInterval = 3;
     loadView.loadViewType = YJLoadingViewTypeText;
     loadView.message = text;
     [loadView updateIndicatorView];
@@ -61,6 +62,7 @@
     YJLoadingView * loadView = [YJLoadingView sharedInstance];
     loadView.frame = viewController.view.frame;
     [loadView initLoadView];
+    loadView.timeOverInterval = 3;
     loadView.loadViewType = YJLoadingViewTypeTextAndImage;
     loadView.message = text;
     [loadView updateIndicatorView];
@@ -95,24 +97,19 @@
 - (void)dealloc
 {
     [self unRegisterKVO];
-    [self destroyIndictator];
-    [_imagesArray removeAllObjects];
-    _imagesArray = nil;
+    
 }
 
 
 - (void)initDate
 {
-    UIView * bgView = [[UIView alloc] initWithFrame:self.frame];
+    UIImageView * bgView = [[UIImageView alloc] initWithFrame:self.frame];
     bgView.backgroundColor = [UIColor blackColor];
     bgView.alpha = 0.5;
     [self addSubview:bgView];
     
-    self.userInteractionEnabled = NO;
-    
     _imagesArray = [NSMutableArray array];
     for (int i = 0; i < 8; i++) {
-//        [_imagesArray addObject:[UIImage imageNamed:[NSString stringWithFormat:@"%d", i+1]]];
         NSString * filePath = [[NSBundle mainBundle] pathForResource:[NSString stringWithFormat:@"%d", i+1] ofType:@"png"];
         [_imagesArray addObject:[UIImage imageWithContentsOfFile:filePath]];
     }
@@ -316,25 +313,22 @@
 
 - (void)dismissLoadingView
 {
-    [UIView animateWithDuration:0.3f animations:^{
-        
-        self.alpha = 0;
-        
-    } completion:^(BOOL finished) {
+    if (_imageView.isAnimating) {
         [_imageView stopAnimating];
+    }
     
-        if (_timer) {
-            [_timer invalidate];
-            _timer = nil;
-        }
-        
-        for (UIView * subView in self.subviews) {
-            [self destroyIndictator];
-            [subView removeFromSuperview];
-        }
-        [self removeFromSuperview];
-    }];
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
     
+    for (UIView * subView in self.subviews) {
+        [self destroyIndictator];
+        [subView removeFromSuperview];
+    }
+    
+    [self removeFromSuperview];
+    NSLog(@"----------- dismissLoadingView");
 }
 
 - (void)isTimeOver
@@ -353,25 +347,29 @@
     NSLog(@"----------- timer: %f", _timeAllInterval);
     
     if (_timeAllInterval >= _timeOverInterval) {    // 超时
-        
         [self whenTimeOver];
-
     }
 }
 
 - (void)whenTimeOver
 {
     // 超时
-    _loadViewType = YJLoadingViewTypeText;
     _message = @"操作超时";
-    [self updateIndicatorView];
+    if (_loadViewType != YJLoadingViewTypeText)
+    {
+        _loadViewType = YJLoadingViewTypeText;
+        [self updateIndicatorView];
+    }
     
-    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        sleep(1);
-        dispatch_async(dispatch_get_main_queue(), ^{
-            [self dismissLoadingView];
-        });
-
+    
+    if (_timer) {
+        [_timer invalidate];
+        _timer = nil;
+    }
+    
+    dispatch_time_t delayTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC));
+    dispatch_after(delayTime, dispatch_get_main_queue(), ^{
+        [self dismissLoadingView];
     });
     
 }
