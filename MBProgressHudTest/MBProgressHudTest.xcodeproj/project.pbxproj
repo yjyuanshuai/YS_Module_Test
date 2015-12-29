@@ -24,10 +24,8 @@
 		3933DA4B1C2D2F6E006C4857 /* 6.png in Resources */ = {isa = PBXBuildFile; fileRef = 3933DA431C2D2F6E006C4857 /* 6.png */; };
 		3933DA4C1C2D2F6E006C4857 /* 7.png in Resources */ = {isa = PBXBuildFile; fileRef = 3933DA441C2D2F6E006C4857 /* 7.png */; };
 		3933DA4D1C2D2F6E006C4857 /* 8.png in Resources */ = {isa = PBXBuildFile; fileRef = 3933DA451C2D2F6E006C4857 /* 8.png */; };
-		3933DA581C2D3492006C4857 /* FBShimmeringLayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933DA531C2D3492006C4857 /* FBShimmeringLayer.m */; };
-		3933DA591C2D3492006C4857 /* FBShimmeringView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933DA551C2D3492006C4857 /* FBShimmeringView.m */; };
-		3933DA5A1C2D3492006C4857 /* YXSpritesLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933DA571C2D3492006C4857 /* YXSpritesLoadingView.m */; };
 		3933DA5D1C2D3AE8006C4857 /* YJLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3933DA5C1C2D3AE8006C4857 /* YJLoadingView.m */; };
+		393929071C30D6C5003FDC6E /* YYAnimationIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 393929061C30D6C5003FDC6E /* YYAnimationIndicator.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -74,16 +72,10 @@
 		3933DA431C2D2F6E006C4857 /* 6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 6.png; sourceTree = "<group>"; };
 		3933DA441C2D2F6E006C4857 /* 7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 7.png; sourceTree = "<group>"; };
 		3933DA451C2D2F6E006C4857 /* 8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = 8.png; sourceTree = "<group>"; };
-		3933DA501C2D3492006C4857 /* FBShimmering-Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "FBShimmering-Prefix.pch"; sourceTree = "<group>"; };
-		3933DA511C2D3492006C4857 /* FBShimmering.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmering.h; sourceTree = "<group>"; };
-		3933DA521C2D3492006C4857 /* FBShimmeringLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringLayer.h; sourceTree = "<group>"; };
-		3933DA531C2D3492006C4857 /* FBShimmeringLayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringLayer.m; sourceTree = "<group>"; };
-		3933DA541C2D3492006C4857 /* FBShimmeringView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBShimmeringView.h; sourceTree = "<group>"; };
-		3933DA551C2D3492006C4857 /* FBShimmeringView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FBShimmeringView.m; sourceTree = "<group>"; };
-		3933DA561C2D3492006C4857 /* YXSpritesLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YXSpritesLoadingView.h; sourceTree = "<group>"; };
-		3933DA571C2D3492006C4857 /* YXSpritesLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YXSpritesLoadingView.m; sourceTree = "<group>"; };
 		3933DA5B1C2D3AE8006C4857 /* YJLoadingView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJLoadingView.h; sourceTree = "<group>"; };
 		3933DA5C1C2D3AE8006C4857 /* YJLoadingView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJLoadingView.m; sourceTree = "<group>"; };
+		393929051C30D6C5003FDC6E /* YYAnimationIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YYAnimationIndicator.h; sourceTree = "<group>"; };
+		393929061C30D6C5003FDC6E /* YYAnimationIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YYAnimationIndicator.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -179,6 +171,7 @@
 		3933DA301C2D2C90006C4857 /* HUD */ = {
 			isa = PBXGroup;
 			children = (
+				393929041C30D6C5003FDC6E /* YYAnimationIndicator */,
 				3933DA4E1C2D3492006C4857 /* YXSpritesLoadingView */,
 				3933DA3D1C2D2F30006C4857 /* images */,
 			);
@@ -222,26 +215,19 @@
 		3933DA4E1C2D3492006C4857 /* YXSpritesLoadingView */ = {
 			isa = PBXGroup;
 			children = (
-				3933DA4F1C2D3492006C4857 /* FBShimmering */,
-				3933DA561C2D3492006C4857 /* YXSpritesLoadingView.h */,
-				3933DA571C2D3492006C4857 /* YXSpritesLoadingView.m */,
 				3933DA5B1C2D3AE8006C4857 /* YJLoadingView.h */,
 				3933DA5C1C2D3AE8006C4857 /* YJLoadingView.m */,
 			);
 			path = YXSpritesLoadingView;
 			sourceTree = "<group>";
 		};
-		3933DA4F1C2D3492006C4857 /* FBShimmering */ = {
+		393929041C30D6C5003FDC6E /* YYAnimationIndicator */ = {
 			isa = PBXGroup;
 			children = (
-				3933DA501C2D3492006C4857 /* FBShimmering-Prefix.pch */,
-				3933DA511C2D3492006C4857 /* FBShimmering.h */,
-				3933DA521C2D3492006C4857 /* FBShimmeringLayer.h */,
-				3933DA531C2D3492006C4857 /* FBShimmeringLayer.m */,
-				3933DA541C2D3492006C4857 /* FBShimmeringView.h */,
-				3933DA551C2D3492006C4857 /* FBShimmeringView.m */,
+				393929051C30D6C5003FDC6E /* YYAnimationIndicator.h */,
+				393929061C30D6C5003FDC6E /* YYAnimationIndicator.m */,
 			);
-			path = FBShimmering;
+			path = YYAnimationIndicator;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -383,12 +369,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				3933DA021C2D2C20006C4857 /* AppDelegate.m in Sources */,
-				3933DA5A1C2D3492006C4857 /* YXSpritesLoadingView.m in Sources */,
-				3933DA591C2D3492006C4857 /* FBShimmeringView.m in Sources */,
 				3933DA3B1C2D2DDD006C4857 /* OneViewController.m in Sources */,
-				3933DA581C2D3492006C4857 /* FBShimmeringLayer.m in Sources */,
 				3933D9FF1C2D2C20006C4857 /* main.m in Sources */,
 				3933DA5D1C2D3AE8006C4857 /* YJLoadingView.m in Sources */,
+				393929071C30D6C5003FDC6E /* YYAnimationIndicator.m in Sources */,
 				3933DA381C2D2D4A006C4857 /* YJRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -617,6 +601,7 @@
 				3933DA291C2D2C20006C4857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3933DA2A1C2D2C20006C4857 /* Build configuration list for PBXNativeTarget "MBProgressHudTestTests" */ = {
 			isa = XCConfigurationList;
@@ -625,6 +610,7 @@
 				3933DA2C1C2D2C20006C4857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3933DA2D1C2D2C20006C4857 /* Build configuration list for PBXNativeTarget "MBProgressHudTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -633,6 +619,7 @@
 				3933DA2F1C2D2C20006C4857 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

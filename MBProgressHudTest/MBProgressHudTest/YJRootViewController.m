@@ -7,7 +7,8 @@
 //
 
 #import "YJRootViewController.h"
-#import "YXSpritesLoadingView.h"
+#import "YYAnimationIndicator.h"
+#import "YJLoadingView.h"
 
 @interface YJRootViewController ()
 
@@ -18,8 +19,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self initUI];
-    [self.view setBackgroundColor:[UIColor lightGrayColor]];
+    
+//    self.view.backgroundColor = [UIColor redColor];
+    [self initUI2];
     
     
 }
@@ -29,10 +31,14 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)initUI
+- (void)initUI2
 {
-    [self.view endEditing:YES];
-    [YXSpritesLoadingView showWithText:@"医宝" andShimmering:NO andBlurEffect:YES];
+    YJLoadingView * loadingVC2 = [[YJLoadingView alloc] initWithFrame:self.view.frame];
+    [loadingVC2 showLoadingView];
+//    loadingVC2.loadViewSize = CGSizeMake(300, 300);
+    loadingVC2.timeOverInterval = 3;
+//    loadingVC2.loadViewType = YJLoadingViewTypeImage;
+    [self.view addSubview:loadingVC2];
 }
 
 @end

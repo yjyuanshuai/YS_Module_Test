@@ -8,17 +8,27 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSUInteger, YJLoadingViewType)
+{
+    YJLoadingViewTypeText,
+    YJLoadingViewTypeImage,
+    YJLoadingViewTypeTextAndImage
+};
+
+
 @interface YJLoadingView : UIView
 
-@property (nonatomic, strong) NSArray * imageArray;     // 帧动画图片
-@property (nonatomic, copy) NSString * loadingText;     // 提示语
-@property (nonatomic, assign) NSUInteger animationDurtionTime;  // 动画时间
-@property (nonatomic, assign) CGSize viewSize;          // 尺寸
-@property (nonatomic, assign) CGFloat alphaValue;               // 透明度
+@property (nonatomic, assign) CGFloat alphaValue;       // 默认1
+@property (nonatomic, assign) CGSize loadViewSize;      // 默认是 150*150
+@property (nonatomic, assign) float timeOverInterval;   // 超时时间，默认30秒
+@property (nonatomic, assign) YJLoadingViewType loadViewType;   // 默认 YJLoadingViewTypeImage
+@property (nonatomic, copy) NSString * message;         // 提示语，默认空
 
-- (instancetype)init;
-//- (instancetype)initWithFrame:(CGRect)frame;
 
-+ (void)showWithImages:(NSArray *)imageArr andText:(NSString *)loadingText;
+- (void)showLoadingView;
+- (void)dismissLoadingView;
+
+//2
+- (instancetype)initWithFrame:(CGRect)frame;
 
 @end
