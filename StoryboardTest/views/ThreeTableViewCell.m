@@ -26,17 +26,14 @@
         [imgView addSubview:btn];
     }
     
-    
 }
 
 - (void)onClick:(UIButton *)btn
 {
-    NSLog(@"------------ btn : %d", (int)btn.tag);
     if (_delegate && [_delegate respondsToSelector:@selector(updateImageWithIndex:)]) {
-        [_delegate updateImageWithIndex:btn.tag - BUTTON_TAG];
+        [_delegate updateImageWithIndex:[_imageArr objectAtIndex:btn.tag - BUTTON_TAG] cell:self];
     }
 }
-
 
 
 
