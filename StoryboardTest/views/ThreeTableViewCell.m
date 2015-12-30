@@ -24,14 +24,30 @@
         btn.tag = BUTTON_TAG + i;
         [btn addTarget:self action:@selector(onClick:) forControlEvents:UIControlEventTouchUpInside];
         [imgView addSubview:btn];
+        
     }
+    UILongPressGestureRecognizer * longGesture = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longTouch:)];
+    [_scrollView addGestureRecognizer:longGesture];
     
 }
 
 - (void)onClick:(UIButton *)btn
 {
+    if (_delegate && [_delegate respondsToSelector:@selector(displayImageWithIndex:)]) {
+        [_delegate displayImageWithIndex:btn.tag - BUTTON_TAG];
+    }
+}
+
+- (void)longTouch:(id)gesture
+{
+    UILongPressGestureRecognizer * tempGesture = (UILongPressGestureRecognizer *)gesture;
+    
+    CGPoint point = [tempGesture locationInView:_scrollView];
+    NSLog(@"-------- %f", point.x);
+    int x = point.x / _imageView1.frame.size.width;
+    
     if (_delegate && [_delegate respondsToSelector:@selector(updateImageWithIndex:)]) {
-        [_delegate updateImageWithIndex:[_imageArr objectAtIndex:btn.tag - BUTTON_TAG] cell:self];
+        [_delegate updateImageWithIndex:[_imageArr objectAtIndex:x]];
     }
 }
 

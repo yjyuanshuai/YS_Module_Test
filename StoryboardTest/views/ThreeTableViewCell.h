@@ -10,7 +10,8 @@
 
 @protocol ThreeCellDelegate <NSObject>
 
-- (void)updateImageWithIndex:(UIImageView *)index cell:(id)cell;
+- (void)updateImageWithIndex:(UIImageView *)index;
+- (void)displayImageWithIndex:(NSInteger)index;
 
 @end
 

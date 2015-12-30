@@ -21,14 +21,11 @@
 
 @implementation ViewController
 {
-    ThreeTableViewCell * _threeCell;
+    UIImageView * _imageView;
 }
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
-    
-    
-
     
 }
 
@@ -40,11 +37,6 @@
 
 
 #pragma mark - UITableViewDelegate && UITableViewDataSource
-
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 5;
-//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
@@ -92,9 +84,9 @@
 }
 
 #pragma mark - ThreeCellDelegate
-- (void)updateImageWithIndex:(UIImageView *)indexImageView cell:(id)cell
+- (void)updateImageWithIndex:(UIImageView *)indexImageView
 {
-    _threeCell = (ThreeTableViewCell *)cell;
+    _imageView = indexImageView;
     
     UIAlertController * alertCon = [UIAlertController alertControllerWithTitle:nil message:nil preferredStyle:UIAlertControllerStyleActionSheet];
     UIAlertAction * cameraAlert = [UIAlertAction actionWithTitle:@"相机" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
@@ -116,6 +108,11 @@
     [alertCon addAction:cancel];
     
     [self presentViewController:alertCon animated:YES completion:nil];
+}
+
+- (void)displayImageWithIndex:(NSInteger)index
+{
+    // 显示选中照片
 }
 
 
@@ -182,7 +179,13 @@
 
 - (void)takeLabrary
 {
-    
+    if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypePhotoLibrary]) {
+        
+        UIImagePickerController * libraryPicker = [[UIImagePickerController alloc] init];
+        libraryPicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+        libraryPicker.delegate = self;
+        [self presentViewController:libraryPicker animated:YES completion:nil];
+    }
 }
 
 #pragma mark - UIImagePickerControllerDelegate & UINavigationControllerDelegate
@@ -194,11 +197,19 @@
 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    // 取到照片
-    UIImage * image = [info objectForKey:UIImagePickerControllerOriginalImage];
-    UIImageWriteToSavedPhotosAlbum(image, self, nil, nil);
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+        
+    }else if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
+        
+    }
     
-//    _threeCell.
+    // 取到照片
+    UIImage * obtainImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    UIImageWriteToSavedPhotosAlbum(obtainImage, self, nil, nil);      // 存到相册
+    
+    _imageView.image = obtainImage;
+    [_tableView reloadData];
+    [self dismissViewControllerAnimated:YES completion:nil];
 }
 
 #pragma mark -
