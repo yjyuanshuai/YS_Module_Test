@@ -87,7 +87,7 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		39139FDA1C2BE3F7004E5465 /* views */ = {
+		39139FDA1C2BE3F7004E5465 /* Views */ = {
 			isa = PBXGroup;
 			children = (
 				39139FDB1C2BE426004E5465 /* OneTableViewCell.h */,
@@ -97,13 +97,22 @@
 				39139FE11C2BF418004E5465 /* ThreeTableViewCell.h */,
 				39139FE21C2BF418004E5465 /* ThreeTableViewCell.m */,
 			);
-			name = views;
+			name = Views;
+			path = ..;
+			sourceTree = "<group>";
+		};
+		3953F87D1C33CB8300B60F84 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				396D235E1C2A417B0044B6EE /* ViewController.h */,
+				396D235F1C2A417B0044B6EE /* ViewController.m */,
+			);
+			name = ViewControllers;
 			sourceTree = "<group>";
 		};
 		396D234C1C2A417B0044B6EE = {
 			isa = PBXGroup;
 			children = (
-				39139FDA1C2BE3F7004E5465 /* views */,
 				396D23571C2A417B0044B6EE /* StoryboardTest */,
 				396D23711C2A417B0044B6EE /* StoryboardTestTests */,
 				396D237C1C2A417B0044B6EE /* StoryboardTestUITests */,
@@ -124,14 +133,8 @@
 		396D23571C2A417B0044B6EE /* StoryboardTest */ = {
 			isa = PBXGroup;
 			children = (
-				396D235B1C2A417B0044B6EE /* AppDelegate.h */,
-				396D235C1C2A417B0044B6EE /* AppDelegate.m */,
-				396D235E1C2A417B0044B6EE /* ViewController.h */,
-				396D235F1C2A417B0044B6EE /* ViewController.m */,
-				396D23611C2A417B0044B6EE /* Main.storyboard */,
-				396D23641C2A417B0044B6EE /* Assets.xcassets */,
-				396D23661C2A417B0044B6EE /* LaunchScreen.storyboard */,
-				396D23691C2A417B0044B6EE /* Info.plist */,
+				39139FDA1C2BE3F7004E5465 /* Views */,
+				3953F87D1C33CB8300B60F84 /* ViewControllers */,
 				396D23581C2A417B0044B6EE /* Supporting Files */,
 			);
 			path = StoryboardTest;
@@ -140,6 +143,12 @@
 		396D23581C2A417B0044B6EE /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				396D235B1C2A417B0044B6EE /* AppDelegate.h */,
+				396D235C1C2A417B0044B6EE /* AppDelegate.m */,
+				396D23611C2A417B0044B6EE /* Main.storyboard */,
+				396D23641C2A417B0044B6EE /* Assets.xcassets */,
+				396D23661C2A417B0044B6EE /* LaunchScreen.storyboard */,
+				396D23691C2A417B0044B6EE /* Info.plist */,
 				396D23591C2A417B0044B6EE /* main.m */,
 			);
 			name = "Supporting Files";
