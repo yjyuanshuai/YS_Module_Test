@@ -14,14 +14,6 @@
 		399BD0171C34FEFB00F3BDAA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0151C34FEFB00F3BDAA /* LaunchScreen.storyboard */; };
 		399BD0221C34FEFB00F3BDAA /* HUDTest2Tests.m in Sources */ = {isa = PBXBuildFile; fileRef = 399BD0211C34FEFB00F3BDAA /* HUDTest2Tests.m */; };
 		399BD02D1C34FEFB00F3BDAA /* HUDTest2UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 399BD02C1C34FEFB00F3BDAA /* HUDTest2UITests.m */; };
-		399BD04B1C3500D400F3BDAA /* patient_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0431C3500D400F3BDAA /* patient_1.png */; };
-		399BD04C1C3500D400F3BDAA /* patient_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0441C3500D400F3BDAA /* patient_2.png */; };
-		399BD04D1C3500D400F3BDAA /* patient_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0451C3500D400F3BDAA /* patient_3.png */; };
-		399BD04E1C3500D400F3BDAA /* patient_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0461C3500D400F3BDAA /* patient_4.png */; };
-		399BD04F1C3500D400F3BDAA /* patient_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0471C3500D400F3BDAA /* patient_5.png */; };
-		399BD0501C3500D400F3BDAA /* patient_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0481C3500D400F3BDAA /* patient_6.png */; };
-		399BD0511C3500D400F3BDAA /* patient_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0491C3500D400F3BDAA /* patient_7.png */; };
-		399BD0521C3500D400F3BDAA /* patient_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD04A1C3500D400F3BDAA /* patient_8.png */; };
 		399BD05C1C3500E900F3BDAA /* doctor_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0541C3500E900F3BDAA /* doctor_1.png */; };
 		399BD05D1C3500E900F3BDAA /* doctor_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0551C3500E900F3BDAA /* doctor_2.png */; };
 		399BD05E1C3500E900F3BDAA /* doctor_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0561C3500E900F3BDAA /* doctor_3.png */; };
@@ -33,6 +25,16 @@
 		399BD0671C3502F500F3BDAA /* ImageLoadingView.m in Sources */ = {isa = PBXBuildFile; fileRef = 399BD0661C3502F500F3BDAA /* ImageLoadingView.m */; };
 		399BD0691C3503F800F3BDAA /* ImageLoadingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0681C3503F800F3BDAA /* ImageLoadingView.xib */; };
 		399BD06C1C3505CE00F3BDAA /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 399BD06B1C3505CE00F3BDAA /* RootViewController.m */; };
+		399BD0711C35201700F3BDAA /* FeWifiManHub.m in Sources */ = {isa = PBXBuildFile; fileRef = 399BD06F1C35201700F3BDAA /* FeWifiManHub.m */; };
+		399BD0721C35201700F3BDAA /* FeWifiManHub.xib in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0701C35201700F3BDAA /* FeWifiManHub.xib */; };
+		399BD07C1C35224C00F3BDAA /* patient_1.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0741C35224C00F3BDAA /* patient_1.png */; };
+		399BD07D1C35224C00F3BDAA /* patient_2.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0751C35224C00F3BDAA /* patient_2.png */; };
+		399BD07E1C35224C00F3BDAA /* patient_3.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0761C35224C00F3BDAA /* patient_3.png */; };
+		399BD07F1C35224C00F3BDAA /* patient_4.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0771C35224C00F3BDAA /* patient_4.png */; };
+		399BD0801C35224C00F3BDAA /* patient_5.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0781C35224C00F3BDAA /* patient_5.png */; };
+		399BD0811C35224C00F3BDAA /* patient_6.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD0791C35224C00F3BDAA /* patient_6.png */; };
+		399BD0821C35224C00F3BDAA /* patient_7.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD07A1C35224C00F3BDAA /* patient_7.png */; };
+		399BD0831C35224C00F3BDAA /* patient_8.png in Resources */ = {isa = PBXBuildFile; fileRef = 399BD07B1C35224C00F3BDAA /* patient_8.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,14 +69,6 @@
 		399BD0281C34FEFB00F3BDAA /* HUDTest2UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HUDTest2UITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		399BD02C1C34FEFB00F3BDAA /* HUDTest2UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HUDTest2UITests.m; sourceTree = "<group>"; };
 		399BD02E1C34FEFB00F3BDAA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		399BD0431C3500D400F3BDAA /* patient_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_1.png; sourceTree = "<group>"; };
-		399BD0441C3500D400F3BDAA /* patient_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_2.png; sourceTree = "<group>"; };
-		399BD0451C3500D400F3BDAA /* patient_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_3.png; sourceTree = "<group>"; };
-		399BD0461C3500D400F3BDAA /* patient_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_4.png; sourceTree = "<group>"; };
-		399BD0471C3500D400F3BDAA /* patient_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_5.png; sourceTree = "<group>"; };
-		399BD0481C3500D400F3BDAA /* patient_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_6.png; sourceTree = "<group>"; };
-		399BD0491C3500D400F3BDAA /* patient_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_7.png; sourceTree = "<group>"; };
-		399BD04A1C3500D400F3BDAA /* patient_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_8.png; sourceTree = "<group>"; };
 		399BD0541C3500E900F3BDAA /* doctor_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doctor_1.png; sourceTree = "<group>"; };
 		399BD0551C3500E900F3BDAA /* doctor_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doctor_2.png; sourceTree = "<group>"; };
 		399BD0561C3500E900F3BDAA /* doctor_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = doctor_3.png; sourceTree = "<group>"; };
@@ -88,6 +82,17 @@
 		399BD0681C3503F800F3BDAA /* ImageLoadingView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ImageLoadingView.xib; sourceTree = "<group>"; };
 		399BD06A1C3505CE00F3BDAA /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		399BD06B1C3505CE00F3BDAA /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		399BD06E1C35201700F3BDAA /* FeWifiManHub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FeWifiManHub.h; sourceTree = "<group>"; };
+		399BD06F1C35201700F3BDAA /* FeWifiManHub.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FeWifiManHub.m; sourceTree = "<group>"; };
+		399BD0701C35201700F3BDAA /* FeWifiManHub.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FeWifiManHub.xib; sourceTree = "<group>"; };
+		399BD0741C35224C00F3BDAA /* patient_1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_1.png; sourceTree = "<group>"; };
+		399BD0751C35224C00F3BDAA /* patient_2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_2.png; sourceTree = "<group>"; };
+		399BD0761C35224C00F3BDAA /* patient_3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_3.png; sourceTree = "<group>"; };
+		399BD0771C35224C00F3BDAA /* patient_4.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_4.png; sourceTree = "<group>"; };
+		399BD0781C35224C00F3BDAA /* patient_5.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_5.png; sourceTree = "<group>"; };
+		399BD0791C35224C00F3BDAA /* patient_6.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_6.png; sourceTree = "<group>"; };
+		399BD07A1C35224C00F3BDAA /* patient_7.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_7.png; sourceTree = "<group>"; };
+		399BD07B1C35224C00F3BDAA /* patient_8.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = patient_8.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,8 +155,8 @@
 		399BD0071C34FEFB00F3BDAA /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				399BD0731C35224C00F3BDAA /* patientImages */,
 				399BD0531C3500E900F3BDAA /* doctorImages */,
-				399BD0421C3500D400F3BDAA /* patientImages */,
 				399BD00A1C34FEFB00F3BDAA /* AppDelegate.h */,
 				399BD00B1C34FEFB00F3BDAA /* AppDelegate.m */,
 				399BD0081C34FEFB00F3BDAA /* main.m */,
@@ -232,25 +237,10 @@
 		399BD0401C35003000F3BDAA /* Third */ = {
 			isa = PBXGroup;
 			children = (
+				399BD06D1C35201700F3BDAA /* WifiLoadingView */,
 			);
 			name = Third;
 			path = ThirdLibrary;
-			sourceTree = "<group>";
-		};
-		399BD0421C3500D400F3BDAA /* patientImages */ = {
-			isa = PBXGroup;
-			children = (
-				399BD0431C3500D400F3BDAA /* patient_1.png */,
-				399BD0441C3500D400F3BDAA /* patient_2.png */,
-				399BD0451C3500D400F3BDAA /* patient_3.png */,
-				399BD0461C3500D400F3BDAA /* patient_4.png */,
-				399BD0471C3500D400F3BDAA /* patient_5.png */,
-				399BD0481C3500D400F3BDAA /* patient_6.png */,
-				399BD0491C3500D400F3BDAA /* patient_7.png */,
-				399BD04A1C3500D400F3BDAA /* patient_8.png */,
-			);
-			name = patientImages;
-			path = pationtImages;
 			sourceTree = "<group>";
 		};
 		399BD0531C3500E900F3BDAA /* doctorImages */ = {
@@ -276,6 +266,31 @@
 				399BD0681C3503F800F3BDAA /* ImageLoadingView.xib */,
 			);
 			path = ImageLoadingView;
+			sourceTree = "<group>";
+		};
+		399BD06D1C35201700F3BDAA /* WifiLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				399BD06E1C35201700F3BDAA /* FeWifiManHub.h */,
+				399BD06F1C35201700F3BDAA /* FeWifiManHub.m */,
+				399BD0701C35201700F3BDAA /* FeWifiManHub.xib */,
+			);
+			path = WifiLoadingView;
+			sourceTree = "<group>";
+		};
+		399BD0731C35224C00F3BDAA /* patientImages */ = {
+			isa = PBXGroup;
+			children = (
+				399BD0741C35224C00F3BDAA /* patient_1.png */,
+				399BD0751C35224C00F3BDAA /* patient_2.png */,
+				399BD0761C35224C00F3BDAA /* patient_3.png */,
+				399BD0771C35224C00F3BDAA /* patient_4.png */,
+				399BD0781C35224C00F3BDAA /* patient_5.png */,
+				399BD0791C35224C00F3BDAA /* patient_6.png */,
+				399BD07A1C35224C00F3BDAA /* patient_7.png */,
+				399BD07B1C35224C00F3BDAA /* patient_8.png */,
+			);
+			path = patientImages;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -382,25 +397,26 @@
 			buildActionMask = 2147483647;
 			files = (
 				399BD05D1C3500E900F3BDAA /* doctor_2.png in Resources */,
-				399BD0521C3500D400F3BDAA /* patient_8.png in Resources */,
 				399BD0171C34FEFB00F3BDAA /* LaunchScreen.storyboard in Resources */,
 				399BD05F1C3500E900F3BDAA /* doctor_4.png in Resources */,
-				399BD04E1C3500D400F3BDAA /* patient_4.png in Resources */,
-				399BD04B1C3500D400F3BDAA /* patient_1.png in Resources */,
 				399BD0611C3500E900F3BDAA /* doctor_6.png in Resources */,
 				399BD0631C3500E900F3BDAA /* doctor_8.png in Resources */,
+				399BD07C1C35224C00F3BDAA /* patient_1.png in Resources */,
+				399BD07D1C35224C00F3BDAA /* patient_2.png in Resources */,
+				399BD0811C35224C00F3BDAA /* patient_6.png in Resources */,
+				399BD07E1C35224C00F3BDAA /* patient_3.png in Resources */,
 				399BD05E1C3500E900F3BDAA /* doctor_3.png in Resources */,
-				399BD0501C3500D400F3BDAA /* patient_6.png in Resources */,
+				399BD0721C35201700F3BDAA /* FeWifiManHub.xib in Resources */,
+				399BD0821C35224C00F3BDAA /* patient_7.png in Resources */,
+				399BD0831C35224C00F3BDAA /* patient_8.png in Resources */,
 				399BD0621C3500E900F3BDAA /* doctor_7.png in Resources */,
-				399BD04C1C3500D400F3BDAA /* patient_2.png in Resources */,
-				399BD04D1C3500D400F3BDAA /* patient_3.png in Resources */,
 				399BD0691C3503F800F3BDAA /* ImageLoadingView.xib in Resources */,
-				399BD04F1C3500D400F3BDAA /* patient_5.png in Resources */,
-				399BD0511C3500D400F3BDAA /* patient_7.png in Resources */,
 				399BD05C1C3500E900F3BDAA /* doctor_1.png in Resources */,
 				399BD0601C3500E900F3BDAA /* doctor_5.png in Resources */,
 				399BD0141C34FEFB00F3BDAA /* Assets.xcassets in Resources */,
+				399BD0801C35224C00F3BDAA /* patient_5.png in Resources */,
 				399BD0121C34FEFB00F3BDAA /* Main.storyboard in Resources */,
+				399BD07F1C35224C00F3BDAA /* patient_4.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -429,6 +445,7 @@
 				399BD0671C3502F500F3BDAA /* ImageLoadingView.m in Sources */,
 				399BD06C1C3505CE00F3BDAA /* RootViewController.m in Sources */,
 				399BD0091C34FEFB00F3BDAA /* main.m in Sources */,
+				399BD0711C35201700F3BDAA /* FeWifiManHub.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -570,6 +587,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HUDTest2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.HUDTest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -581,6 +599,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				INFOPLIST_FILE = HUDTest2/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.HUDTest2;
 				PRODUCT_NAME = "$(TARGET_NAME)";
