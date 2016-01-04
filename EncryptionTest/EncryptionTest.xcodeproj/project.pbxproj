@@ -16,6 +16,7 @@
 		39E9C3E51C3A160500F4A854 /* EncryptionTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3E41C3A160500F4A854 /* EncryptionTestTests.m */; };
 		39E9C3F01C3A160500F4A854 /* EncryptionTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3EF1C3A160500F4A854 /* EncryptionTestUITests.m */; };
 		39E9C4041C3A3FB200F4A854 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */; };
+		39E9C4291C3A589100F4A854 /* EncryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C4281C3A589100F4A854 /* EncryptionMethod.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +55,8 @@
 		39E9C3F11C3A160500F4A854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E9C4021C3A3FB200F4A854 /* NSString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
 		39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
+		39E9C4271C3A589100F4A854 /* EncryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionMethod.h; sourceTree = "<group>"; };
+		39E9C4281C3A589100F4A854 /* EncryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionMethod.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -157,6 +160,7 @@
 		39E9C3FE1C3A3ED600F4A854 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				39E9C4261C3A584900F4A854 /* EncryptTool */,
 				39E9C4011C3A3F0200F4A854 /* Category */,
 			);
 			path = Common;
@@ -183,6 +187,15 @@
 				39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		39E9C4261C3A584900F4A854 /* EncryptTool */ = {
+			isa = PBXGroup;
+			children = (
+				39E9C4271C3A589100F4A854 /* EncryptionMethod.h */,
+				39E9C4281C3A589100F4A854 /* EncryptionMethod.m */,
+			);
+			path = EncryptTool;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,6 +330,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				39E9C4041C3A3FB200F4A854 /* NSString+Utility.m in Sources */,
+				39E9C4291C3A589100F4A854 /* EncryptionMethod.m in Sources */,
 				39E9C3D21C3A160500F4A854 /* ViewController.m in Sources */,
 				39E9C3CF1C3A160500F4A854 /* AppDelegate.m in Sources */,
 				39E9C3CC1C3A160500F4A854 /* main.m in Sources */,
@@ -549,6 +563,7 @@
 				39E9C3F61C3A160500F4A854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39E9C3F71C3A160500F4A854 /* Build configuration list for PBXNativeTarget "EncryptionTestTests" */ = {
 			isa = XCConfigurationList;
@@ -557,6 +572,7 @@
 				39E9C3F91C3A160500F4A854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39E9C3FA1C3A160500F4A854 /* Build configuration list for PBXNativeTarget "EncryptionTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -565,6 +581,7 @@
 				39E9C3FC1C3A160500F4A854 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

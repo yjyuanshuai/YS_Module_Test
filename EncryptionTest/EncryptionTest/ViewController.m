@@ -7,8 +7,11 @@
 //
 
 #import "ViewController.h"
-#import "NSString+Utility.h"
-#import <CommonCrypto/CommonDigest.h>
+#import "EncryptionMethod.h"
+
+static NSString * des_key = @"DES_KEY";
+static NSString * aes_key = @"AES_KEY";
+
 
 @interface ViewController ()<UITextFieldDelegate>
 
@@ -43,7 +46,7 @@
 - (IBAction)md5Encrypte:(id)sender {
     NSString * textToEncrypte = _text.text;
     
-    NSString * encryptionStr = [NSString md5StringFromText:textToEncrypte];
+    NSString * encryptionStr = [EncryptionMethod md5StringFromText:textToEncrypte];
     _text.text = encryptionStr;
     
 }
@@ -56,55 +59,46 @@
 #pragma mark - Base64
 - (IBAction)base64Encrypte:(id)sender {
     
-    NSString * encryptionStr = [NSString base64StringFromText:_text.text];
+    NSString * encryptionStr = [EncryptionMethod base64StringFromText:_text.text];
     _text.text = encryptionStr;
 }
 
 - (IBAction)base64UnEncrypte:(id)sender {
     
-    NSString * decryptionStr = [NSString textFromBase64String:_text.text];
+    NSString * decryptionStr = [EncryptionMethod textFromBase64String:_text.text];
     _text.text = decryptionStr;
 }
 
+#pragma mark - DES
 - (IBAction)desEncrypt:(id)sender {
     
-    
+    NSString * encryptionStr = [EncryptionMethod encryptSting:_text.text key:des_key andDesiv:des_key];
+    _text.text = encryptionStr;
 }
 
 - (IBAction)desDecrypt:(id)sender {
+    NSString * decryptionStr = [EncryptionMethod decryptWithDESString:_text.text key:des_key andiV:des_key];
+    _text.text = decryptionStr;
 }
 
+#pragma mark - AES
 - (IBAction)aesEncrypt:(id)sender {
+    
+    NSData * encryptionData = [EncryptionMethod AES128EncryptWithKey:aes_key iv:aes_key withNSData:[_text.text dataUsingEncoding:NSUTF8StringEncoding]];
+    NSString * encryptionStr = [EncryptionMethod base64EncodedStringFrom:encryptionData];
+    _text.text = encryptionStr;
+    
 }
 
 - (IBAction)aesDecrypt:(id)sender {
+    
+    NSData * base64Data = [EncryptionMethod dataWithBase64EncodedString:_text.text];
+    NSData * decryptionData = [EncryptionMethod AES128DecryptWithKey:aes_key iv:aes_key withNSData:base64Data];
+    NSString * decrytionStr = [EncryptionMethod base64EncodedStringFrom:decryptionData];
+    NSString * result = [EncryptionMethod textFromBase64String:decrytionStr];
+    _text.text = result;
+
 }
-
-#pragma mark - 加密算法
-// 1、 MD5
-//+ (NSString *)md5WithString:(NSString *)str{
-//    
-//    /*
-//     1、导入头文件  <CommonCrypto/CommonDigest.h>
-//     2、CC_MD5 函数
-//     */
-//    if ([NSString isBlankString:str]) {
-//        return nil;
-//    }
-//    
-//    const char * cStr = [str UTF8String];
-//    unsigned char result[16];
-//    CC_MD5(cStr, (CC_LONG)strlen(cStr), result);
-//    return [NSString stringWithFormat:@"%X%X%X%X%X%X%X%X%X%X%X%X%X%X%X%X", result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
-//}
-
-
-// 2、Base64
-
-// 3、DES
-
-// 4、AES
-
 
 
 #pragma mark - UITextFeildDelegate
@@ -119,26 +113,10 @@
     return YES;
 }
 
-- (void)textFieldDidBeginEditing:(UITextField *)textField
-{
-
-}
-
 - (void)textFieldDidEndEditing:(UITextField *)textField
 {
     [textField resignFirstResponder];
 }
-
-#pragma mark -
-
-- (BOOL)isBlankString:(NSString *)str
-{
-    if ([str isEqualToString:@""] || [str isKindOfClass:[NSNull class]] || [str isEqual:nil]) {
-        return YES;
-    }
-    return NO;
-}
-
 
 
 @end

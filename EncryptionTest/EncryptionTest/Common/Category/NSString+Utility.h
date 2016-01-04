@@ -12,15 +12,5 @@
 
 + (BOOL)isBlankString:(NSString *)str;
 
-// 加密
-+ (NSString *)md5StringFromText:(NSString *)str;
-+ (NSString *)base64StringFromText:(NSString *)text;
-+ (NSString *)encryptSting:(NSString *)sText key:(NSString *)key andDesiv:(NSString *)ivDes;
-+ (NSData *)AES128EncryptWithKey:(NSString *)key iv:(NSString *)iv withNSData:(NSData *)data;
-
-// 解密
-+ (NSString *)textFromBase64String:(NSString *)base64;
-+(NSString *)decryptWithDESString:(NSString *)sText key:(NSString *)key andiV:(NSString *)iv;
-+ (NSData *)AES128DecryptWithKey:(NSString *)key iv:(NSString *)iv withNSData:(NSData *)data;
 
 @end
