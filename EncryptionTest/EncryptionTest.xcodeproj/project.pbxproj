@@ -17,6 +17,7 @@
 		39E9C3F01C3A160500F4A854 /* EncryptionTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3EF1C3A160500F4A854 /* EncryptionTestUITests.m */; };
 		39E9C4041C3A3FB200F4A854 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */; };
 		39E9C4291C3A589100F4A854 /* EncryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C4281C3A589100F4A854 /* EncryptionMethod.m */; };
+		39E9C42D1C3A637300F4A854 /* YJCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C42C1C3A637300F4A854 /* YJCookieManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -57,6 +58,8 @@
 		39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
 		39E9C4271C3A589100F4A854 /* EncryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionMethod.h; sourceTree = "<group>"; };
 		39E9C4281C3A589100F4A854 /* EncryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionMethod.m; sourceTree = "<group>"; };
+		39E9C42B1C3A637300F4A854 /* YJCookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCookieManager.h; sourceTree = "<group>"; };
+		39E9C42C1C3A637300F4A854 /* YJCookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCookieManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -160,6 +163,7 @@
 		39E9C3FE1C3A3ED600F4A854 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				39E9C42A1C3A630500F4A854 /* CookieManager */,
 				39E9C4261C3A584900F4A854 /* EncryptTool */,
 				39E9C4011C3A3F0200F4A854 /* Category */,
 			);
@@ -196,6 +200,15 @@
 				39E9C4281C3A589100F4A854 /* EncryptionMethod.m */,
 			);
 			path = EncryptTool;
+			sourceTree = "<group>";
+		};
+		39E9C42A1C3A630500F4A854 /* CookieManager */ = {
+			isa = PBXGroup;
+			children = (
+				39E9C42B1C3A637300F4A854 /* YJCookieManager.h */,
+				39E9C42C1C3A637300F4A854 /* YJCookieManager.m */,
+			);
+			path = CookieManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -331,6 +344,7 @@
 			files = (
 				39E9C4041C3A3FB200F4A854 /* NSString+Utility.m in Sources */,
 				39E9C4291C3A589100F4A854 /* EncryptionMethod.m in Sources */,
+				39E9C42D1C3A637300F4A854 /* YJCookieManager.m in Sources */,
 				39E9C3D21C3A160500F4A854 /* ViewController.m in Sources */,
 				39E9C3CF1C3A160500F4A854 /* AppDelegate.m in Sources */,
 				39E9C3CC1C3A160500F4A854 /* main.m in Sources */,
