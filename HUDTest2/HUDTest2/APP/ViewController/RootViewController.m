@@ -43,14 +43,13 @@
 {
     FeWifiManHub * loadingView = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyLoader];
     
-    [[UIApplication sharedApplication].keyWindow addSubview:loadingView];
-    [loadingView setNeedsDisplay];
-    
     [loadingView showWhileExecutingBlock:^{
         sleep(100);
     } completion:^{
         
     }];
+    
+    
 }
 
 @end
