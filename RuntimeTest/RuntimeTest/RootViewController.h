@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RootViewController.h
 //  RuntimeTest
 //
 //  Created by YJ on 16/1/5.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController
-
+@interface RootViewController : UIViewController
 
 @end
-
