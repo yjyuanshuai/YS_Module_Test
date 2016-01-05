@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		39C1C9BD1C3B58F2004529E3 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1C9BC1C3B58F2004529E3 /* main.m */; };
 		39C1C9C01C3B58F2004529E3 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1C9BF1C3B58F2004529E3 /* AppDelegate.m */; };
-		39C1C9C31C3B58F2004529E3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1C9C21C3B58F2004529E3 /* ViewController.m */; };
 		39C1C9C61C3B58F2004529E3 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C1C9C41C3B58F2004529E3 /* Main.storyboard */; };
 		39C1C9C81C3B58F2004529E3 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C1C9C71C3B58F2004529E3 /* Assets.xcassets */; };
 		39C1C9CB1C3B58F2004529E3 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C1C9C91C3B58F2004529E3 /* LaunchScreen.storyboard */; };
 		39C1C9D61C3B58F2004529E3 /* YiBaoHttpRequestTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1C9D51C3B58F2004529E3 /* YiBaoHttpRequestTestTests.m */; };
 		39C1C9E11C3B58F2004529E3 /* YiBaoHttpRequestTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1C9E01C3B58F2004529E3 /* YiBaoHttpRequestTestUITests.m */; };
+		39C1C9F31C3B594E004529E3 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C1C9F21C3B594E004529E3 /* RootViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,8 +39,6 @@
 		39C1C9BC1C3B58F2004529E3 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39C1C9BE1C3B58F2004529E3 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		39C1C9BF1C3B58F2004529E3 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		39C1C9C11C3B58F2004529E3 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		39C1C9C21C3B58F2004529E3 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		39C1C9C51C3B58F2004529E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39C1C9C71C3B58F2004529E3 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39C1C9CA1C3B58F2004529E3 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -51,6 +49,10 @@
 		39C1C9DC1C3B58F2004529E3 /* YiBaoHttpRequestTestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = YiBaoHttpRequestTestUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C1C9E01C3B58F2004529E3 /* YiBaoHttpRequestTestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = YiBaoHttpRequestTestUITests.m; sourceTree = "<group>"; };
 		39C1C9E21C3B58F2004529E3 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39C1C9F11C3B594E004529E3 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		39C1C9F21C3B594E004529E3 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		39C1C9F71C3B5B5E004529E3 /* YJPrefixHeader.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YJPrefixHeader.pch; sourceTree = "<group>"; };
+		39C1C9FA1C3B5E2C004529E3 /* NetInterface.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NetInterface.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,14 +103,10 @@
 		39C1C9BA1C3B58F2004529E3 /* YiBaoHttpRequestTest */ = {
 			isa = PBXGroup;
 			children = (
-				39C1C9BE1C3B58F2004529E3 /* AppDelegate.h */,
-				39C1C9BF1C3B58F2004529E3 /* AppDelegate.m */,
-				39C1C9C11C3B58F2004529E3 /* ViewController.h */,
-				39C1C9C21C3B58F2004529E3 /* ViewController.m */,
-				39C1C9C41C3B58F2004529E3 /* Main.storyboard */,
-				39C1C9C71C3B58F2004529E3 /* Assets.xcassets */,
-				39C1C9C91C3B58F2004529E3 /* LaunchScreen.storyboard */,
-				39C1C9CC1C3B58F2004529E3 /* Info.plist */,
+				39C1C9F61C3B5ACD004529E3 /* CustemView */,
+				39C1C9F51C3B5A99004529E3 /* Model */,
+				39C1C9F41C3B5A2C004529E3 /* Common */,
+				39C1C9EE1C3B5917004529E3 /* APP */,
 				39C1C9BB1C3B58F2004529E3 /* Supporting Files */,
 			);
 			path = YiBaoHttpRequestTest;
@@ -117,6 +115,13 @@
 		39C1C9BB1C3B58F2004529E3 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				39C1C9F71C3B5B5E004529E3 /* YJPrefixHeader.pch */,
+				39C1C9BE1C3B58F2004529E3 /* AppDelegate.h */,
+				39C1C9BF1C3B58F2004529E3 /* AppDelegate.m */,
+				39C1C9C41C3B58F2004529E3 /* Main.storyboard */,
+				39C1C9C71C3B58F2004529E3 /* Assets.xcassets */,
+				39C1C9C91C3B58F2004529E3 /* LaunchScreen.storyboard */,
+				39C1C9CC1C3B58F2004529E3 /* Info.plist */,
 				39C1C9BC1C3B58F2004529E3 /* main.m */,
 			);
 			name = "Supporting Files";
@@ -138,6 +143,61 @@
 				39C1C9E21C3B58F2004529E3 /* Info.plist */,
 			);
 			path = YiBaoHttpRequestTestUITests;
+			sourceTree = "<group>";
+		};
+		39C1C9EE1C3B5917004529E3 /* APP */ = {
+			isa = PBXGroup;
+			children = (
+				39C1C9EF1C3B5937004529E3 /* View */,
+				39C1C9F01C3B5937004529E3 /* ViewController */,
+			);
+			path = APP;
+			sourceTree = "<group>";
+		};
+		39C1C9EF1C3B5937004529E3 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		39C1C9F01C3B5937004529E3 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				39C1C9F11C3B594E004529E3 /* RootViewController.h */,
+				39C1C9F21C3B594E004529E3 /* RootViewController.m */,
+			);
+			path = ViewController;
+			sourceTree = "<group>";
+		};
+		39C1C9F41C3B5A2C004529E3 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				39C1C9F91C3B5DC9004529E3 /* NetWork */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		39C1C9F51C3B5A99004529E3 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		39C1C9F61C3B5ACD004529E3 /* CustemView */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustemView;
+			sourceTree = "<group>";
+		};
+		39C1C9F91C3B5DC9004529E3 /* NetWork */ = {
+			isa = PBXGroup;
+			children = (
+				39C1C9FA1C3B5E2C004529E3 /* NetInterface.h */,
+			);
+			path = NetWork;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -270,9 +330,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39C1C9C31C3B58F2004529E3 /* ViewController.m in Sources */,
 				39C1C9C01C3B58F2004529E3 /* AppDelegate.m in Sources */,
 				39C1C9BD1C3B58F2004529E3 /* main.m in Sources */,
+				39C1C9F31C3B594E004529E3 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -413,6 +473,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YiBaoHttpRequestTest/YJPrefixHeader.pch;
 				INFOPLIST_FILE = YiBaoHttpRequestTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.YiBaoHttpRequestTest;
@@ -424,6 +486,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = YiBaoHttpRequestTest/YJPrefixHeader.pch;
 				INFOPLIST_FILE = YiBaoHttpRequestTest/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.YiBaoHttpRequestTest;

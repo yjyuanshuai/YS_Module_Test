@@ -9,5 +9,9 @@
 #ifndef NetInterface_h
 #define NetInterface_h
 
+// 接口
+#define @"http://api.yibaomd.com/"
+
+
 
 #endif /* NetInterface_h */

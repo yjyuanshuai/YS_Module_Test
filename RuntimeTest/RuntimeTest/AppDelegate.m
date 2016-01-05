@@ -1,13 +1,12 @@
 //
 //  AppDelegate.m
-//  YiBaoHttpRequestTest
+//  RuntimeTest
 //
 //  Created by YJ on 16/1/5.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
 #import "AppDelegate.h"
-#import "RootViewController.h"
 
 @interface AppDelegate ()
 
@@ -18,18 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
-    [self initUI];
-    
     return YES;
-}
-
-- (void)initUI
-{
-    self.window.frame = [[UIScreen mainScreen] bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    RootViewController * rootVC = [[RootViewController alloc] init];
-    self.window.rootViewController = rootVC;
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {

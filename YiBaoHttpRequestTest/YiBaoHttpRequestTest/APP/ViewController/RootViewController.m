@@ -8,15 +8,21 @@
 
 #import "RootViewController.h"
 
-@interface RootViewController ()
+@interface RootViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @end
 
 @implementation RootViewController
+{
+    // test
+    UITableView * _doctorList;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -24,14 +30,29 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+- (void)initTableView
+{
+    _doctorList = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kScreenHeightNoStatus) style:UITableViewStylePlain];
+    _doctorList.delegate = self;
+    _doctorList.dataSource = self;
+    [self.view addSubview:_doctorList];
 }
-*/
+
+#pragma mark - test 获取我的大夫列表
+- (void)testForGetDoctor
+{
+    
+}
+
+#pragma mark - UITableViewDelegate & UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return nil;
+}
 
 @end
