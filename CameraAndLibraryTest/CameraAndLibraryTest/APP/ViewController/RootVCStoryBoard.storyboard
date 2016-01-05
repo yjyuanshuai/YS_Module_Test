@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A2301" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zz4-Fy-8D1">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+    </dependencies>
+    <scenes>
+        <!--Root View Controller-->
+        <scene sceneID="z0H-E2-ye3">
+            <objects>
+                <viewController id="zz4-Fy-8D1" customClass="RootViewController" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="WD9-JM-Lg9"/>
+                        <viewControllerLayoutGuide type="bottom" id="mC1-vn-y8m"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="HuP-jI-pd0">
+                        <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="QdM-qP-QZA">
+                                <rect key="frame" x="0.0" y="0.0" width="240" height="128"/>
+                                <animations/>
+                                <color key="backgroundColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="300" id="Wae-pt-5uB"/>
+                                    <constraint firstAttribute="height" constant="255" id="dcf-iy-W0f"/>
+                                </constraints>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="Wae-pt-5uB"/>
+                                        <exclude reference="dcf-iy-W0f"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="Wae-pt-5uB"/>
+                                        <include reference="dcf-iy-W0f"/>
+                                    </mask>
+                                </variation>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cYz-9q-n5w">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="120" id="AGO-I8-YMU"/>
+                                    <constraint firstAttribute="height" constant="30" id="meZ-4J-DIn"/>
+                                </constraints>
+                                <state key="normal" title="相机"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="AGO-I8-YMU"/>
+                                        <exclude reference="meZ-4J-DIn"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="AGO-I8-YMU"/>
+                                        <include reference="meZ-4J-DIn"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="takeCameraBtn:" destination="zz4-Fy-8D1" eventType="touchUpInside" id="NNj-W7-Bmh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eMm-w5-YDJ">
+                                <rect key="frame" x="-23" y="-15" width="46" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="PlM-Em-lPZ"/>
+                                    <constraint firstAttribute="width" constant="120" id="W5D-Hs-psD"/>
+                                </constraints>
+                                <state key="normal" title="相册"/>
+                                <variation key="default">
+                                    <mask key="constraints">
+                                        <exclude reference="PlM-Em-lPZ"/>
+                                        <exclude reference="W5D-Hs-psD"/>
+                                    </mask>
+                                </variation>
+                                <variation key="heightClass=regular-widthClass=compact">
+                                    <mask key="constraints">
+                                        <include reference="PlM-Em-lPZ"/>
+                                        <include reference="W5D-Hs-psD"/>
+                                    </mask>
+                                </variation>
+                                <connections>
+                                    <action selector="takePhotoLibraryBtn:" destination="zz4-Fy-8D1" eventType="touchUpInside" id="C51-V2-DPr"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <animations/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eMm-w5-YDJ" firstAttribute="top" secondItem="QdM-qP-QZA" secondAttribute="bottom" constant="90" id="85M-Ol-9j6"/>
+                            <constraint firstItem="QdM-qP-QZA" firstAttribute="top" secondItem="HuP-jI-pd0" secondAttribute="topMargin" constant="30" id="8rR-J7-WLT"/>
+                            <constraint firstItem="QdM-qP-QZA" firstAttribute="centerX" secondItem="HuP-jI-pd0" secondAttribute="centerX" id="9x5-h6-vZh"/>
+                            <constraint firstItem="cYz-9q-n5w" firstAttribute="top" secondItem="QdM-qP-QZA" secondAttribute="bottom" constant="90" id="Ihh-GJ-Ckr"/>
+                            <constraint firstItem="cYz-9q-n5w" firstAttribute="leading" secondItem="HuP-jI-pd0" secondAttribute="leadingMargin" constant="20" id="Jx9-yy-Ti5"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="eMm-w5-YDJ" secondAttribute="trailing" constant="15" id="nqE-jI-wVX"/>
+                        </constraints>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="QdM-qP-QZA"/>
+                                <exclude reference="cYz-9q-n5w"/>
+                                <exclude reference="eMm-w5-YDJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <exclude reference="8rR-J7-WLT"/>
+                                <exclude reference="9x5-h6-vZh"/>
+                                <exclude reference="Ihh-GJ-Ckr"/>
+                                <exclude reference="Jx9-yy-Ti5"/>
+                                <exclude reference="85M-Ol-9j6"/>
+                                <exclude reference="nqE-jI-wVX"/>
+                            </mask>
+                        </variation>
+                        <variation key="heightClass=regular-widthClass=compact">
+                            <mask key="subviews">
+                                <include reference="QdM-qP-QZA"/>
+                                <include reference="cYz-9q-n5w"/>
+                                <include reference="eMm-w5-YDJ"/>
+                            </mask>
+                            <mask key="constraints">
+                                <include reference="8rR-J7-WLT"/>
+                                <include reference="9x5-h6-vZh"/>
+                                <include reference="Ihh-GJ-Ckr"/>
+                                <include reference="Jx9-yy-Ti5"/>
+                                <include reference="85M-Ol-9j6"/>
+                                <include reference="nqE-jI-wVX"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <connections>
+                        <outlet property="imageShow" destination="QdM-qP-QZA" id="wV2-U7-ioK"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qBK-tz-Y7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-76.5" y="390.75"/>
+        </scene>
+    </scenes>
+</document>
