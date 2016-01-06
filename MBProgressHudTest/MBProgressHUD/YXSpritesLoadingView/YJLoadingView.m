@@ -31,13 +31,12 @@
     return sharedInstance;
 }
 
-#pragma mark - Class Methods
+#pragma mark - Class Methods --- 1
 + (void)showImageLoadingViewToView:(UIViewController *)viewController
 {
     YJLoadingView * loadView = [YJLoadingView sharedInstance];
     loadView.frame = viewController.view.frame;
     [loadView initLoadView];
-    loadView.timeOverInterval = 3;
     loadView.loadViewType = YJLoadingViewTypeImage;
     [loadView showLoadingView];
     [viewController.view addSubview:loadView];
@@ -49,7 +48,6 @@
     YJLoadingView * loadView = [YJLoadingView sharedInstance];
     loadView.frame = viewController.view.frame;
     [loadView initLoadView];
-    loadView.timeOverInterval = 3;
     loadView.loadViewType = YJLoadingViewTypeText;
     loadView.message = text;
     [loadView updateIndicatorView];
@@ -62,7 +60,6 @@
     YJLoadingView * loadView = [YJLoadingView sharedInstance];
     loadView.frame = viewController.view.frame;
     [loadView initLoadView];
-    loadView.timeOverInterval = 3;
     loadView.loadViewType = YJLoadingViewTypeTextAndImage;
     loadView.message = text;
     [loadView updateIndicatorView];
@@ -77,6 +74,23 @@
     [[YJLoadingView sharedInstance] initUI];
     [[YJLoadingView sharedInstance] registerKVO];
 }
+
+#pragma mark - Class Methods --- 2
++ (void)showImageLoadingViewToView:(UIViewController *)viewController whileBlock:(dispatch_block_t)block complitionBlock:(dispatch_block_t)complitionBlock
+{
+    
+}
+
++ (void)showTextLoadingViewToView:(UIViewController *)viewController text:(NSString *)text whileBlock:(dispatch_block_t)block complitionBlock:(dispatch_block_t)complitionBlock
+{
+    
+}
+
++ (void)showImageAndTextLoadingView:(UIViewController *)viewController text:(NSString *)text whileBlock:(dispatch_block_t)block complitionBlock:(dispatch_block_t)complitionBlock
+{
+    
+}
+
 
 #pragma mark - Instance Methods
 - (instancetype)initWithFrame:(CGRect)frame
@@ -307,8 +321,7 @@
     }
     
     
-    [self isTimeOver];
-    
+    [self createTimer];
 }
 
 - (void)dismissLoadingView
@@ -331,7 +344,7 @@
     NSLog(@"----------- dismissLoadingView");
 }
 
-- (void)isTimeOver
+- (void)createTimer
 {
     _timer = [NSTimer scheduledTimerWithTimeInterval:1.0
                                               target:self
@@ -382,6 +395,7 @@
     }
     [_indictatorView removeFromSuperview];
 }
+
 
 
 @end

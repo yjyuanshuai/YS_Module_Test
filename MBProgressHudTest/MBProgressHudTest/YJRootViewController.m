@@ -57,9 +57,16 @@
 
 - (void)click
 {
-    [YJLoadingView showImageLoadingViewToView:self];
+//    [YJLoadingView showImageLoadingViewToView:self];
 //    [YJLoadingView showTextLoadingViewToView:self text:@"加载中。。。"];
 //    [YJLoadingView showImageAndTextLoadingView:self text:@"加载中..."];
+    
+    [YJLoadingView showImageLoadingViewToView:self whileBlock:^{
+        sleep(3);
+    } complitionBlock:^{
+        
+    }];
+    
 
 }
 

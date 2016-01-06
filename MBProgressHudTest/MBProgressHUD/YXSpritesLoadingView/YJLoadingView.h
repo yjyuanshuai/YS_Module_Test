@@ -38,4 +38,10 @@ typedef NS_ENUM(NSUInteger, YJLoadingViewType)
 + (void)showImageAndTextLoadingView:(UIViewController *)viewController text:(NSString *)text;
 
 
+//4
++ (void)showImageLoadingViewToView:(UIViewController *)viewController whileBlock:(dispatch_block_t)block complitionBlock:(dispatch_block_t)complitionBlock;
++ (void)showTextLoadingViewToView:(UIViewController *)viewController text:(NSString *)text whileBlock:(dispatch_block_t)block complitionBlock:(dispatch_block_t)complitionBlock;
++ (void)showImageAndTextLoadingView:(UIViewController *)viewController text:(NSString *)text whileBlock:(dispatch_block_t)block complitionBlock:(dispatch_block_t)complitionBlock;
+
+
 @end
