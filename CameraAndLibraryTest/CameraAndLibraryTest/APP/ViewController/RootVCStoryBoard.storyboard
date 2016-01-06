@@ -1,12 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A2301" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="zz4-Fy-8D1">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="9059" systemVersion="15A2301" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="KjX-Dx-K64">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9049"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--相机/相册-->
         <scene sceneID="z0H-E2-ye3">
             <objects>
                 <viewController id="zz4-Fy-8D1" customClass="RootViewController" sceneMemberID="viewController">
@@ -92,7 +93,9 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="eMm-w5-YDJ" firstAttribute="top" secondItem="QdM-qP-QZA" secondAttribute="bottom" constant="90" id="85M-Ol-9j6"/>
-                            <constraint firstItem="QdM-qP-QZA" firstAttribute="top" secondItem="HuP-jI-pd0" secondAttribute="topMargin" constant="30" id="8rR-J7-WLT"/>
+                            <constraint firstItem="QdM-qP-QZA" firstAttribute="top" secondItem="HuP-jI-pd0" secondAttribute="topMargin" constant="30" id="8rR-J7-WLT">
+                                <variation key="heightClass=regular-widthClass=compact" constant="80"/>
+                            </constraint>
                             <constraint firstItem="QdM-qP-QZA" firstAttribute="centerX" secondItem="HuP-jI-pd0" secondAttribute="centerX" id="9x5-h6-vZh"/>
                             <constraint firstItem="cYz-9q-n5w" firstAttribute="top" secondItem="QdM-qP-QZA" secondAttribute="bottom" constant="90" id="Ihh-GJ-Ckr"/>
                             <constraint firstItem="cYz-9q-n5w" firstAttribute="leading" secondItem="HuP-jI-pd0" secondAttribute="leadingMargin" constant="20" id="Jx9-yy-Ti5"/>
@@ -105,12 +108,12 @@
                                 <exclude reference="eMm-w5-YDJ"/>
                             </mask>
                             <mask key="constraints">
-                                <exclude reference="8rR-J7-WLT"/>
-                                <exclude reference="9x5-h6-vZh"/>
                                 <exclude reference="Ihh-GJ-Ckr"/>
                                 <exclude reference="Jx9-yy-Ti5"/>
                                 <exclude reference="85M-Ol-9j6"/>
                                 <exclude reference="nqE-jI-wVX"/>
+                                <exclude reference="8rR-J7-WLT"/>
+                                <exclude reference="9x5-h6-vZh"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -120,22 +123,40 @@
                                 <include reference="eMm-w5-YDJ"/>
                             </mask>
                             <mask key="constraints">
-                                <include reference="8rR-J7-WLT"/>
-                                <include reference="9x5-h6-vZh"/>
                                 <include reference="Ihh-GJ-Ckr"/>
                                 <include reference="Jx9-yy-Ti5"/>
                                 <include reference="85M-Ol-9j6"/>
                                 <include reference="nqE-jI-wVX"/>
+                                <include reference="8rR-J7-WLT"/>
+                                <include reference="9x5-h6-vZh"/>
                             </mask>
                         </variation>
                     </view>
+                    <navigationItem key="navigationItem" title="相机/相册" id="BRM-hH-bDQ"/>
                     <connections>
                         <outlet property="imageShow" destination="QdM-qP-QZA" id="wV2-U7-ioK"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qBK-tz-Y7W" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-76.5" y="390.75"/>
+            <point key="canvasLocation" x="-609" y="61.5"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="h2z-Yh-KBZ">
+            <objects>
+                <navigationController id="KjX-Dx-K64" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="T2a-JS-iGA">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <animations/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="zz4-Fy-8D1" kind="relationship" relationship="rootViewController" id="9oe-Jo-z4Y"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zjk-8G-2kl" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1332" y="61.5"/>
         </scene>
     </scenes>
 </document>

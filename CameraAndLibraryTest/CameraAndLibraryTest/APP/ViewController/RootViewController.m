@@ -22,12 +22,43 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.title = @"相机/相册案例";
+    [self initUI];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
+
+
+- (void)initUI
+{
+#if 0
+    if (![self.title isEqualToString:@""] && ![self.title isEqual:nil]) {
+
+        UIView * CustomtitleView = [[UIView alloc] init];
+        CustomtitleView.bounds = CGRectMake(0, 0, 200, 44);
+        CustomtitleView.center = CGPointMake(self.navigationController.navigationBar.frame.size.width, self.navigationController.navigationBar.frame.size.height);
+        CustomtitleView.backgroundColor = [UIColor clearColor];
+        self.navigationItem.titleView = CustomtitleView;
+        
+        
+        UILabel * titleLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, CustomtitleView.frame.size.width, CustomtitleView.frame.size.height)];
+        titleLabel.text = self.title;
+        titleLabel.textAlignment = NSTextAlignmentCenter;
+        titleLabel.textColor = [UIColor whiteColor];
+        titleLabel.backgroundColor = [UIColor clearColor];
+        [CustomtitleView addSubview:titleLabel];
+        
+    }
+#else 
+    self.navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:16.0f], NSForegroundColorAttributeName:[UIColor whiteColor]};
+    
+#endif
+}
+
 
 - (IBAction)takeCameraBtn:(id)sender {
     
@@ -68,7 +99,7 @@
         UIImagePickerController * imagePicker = [[UIImagePickerController alloc] init];
         imagePicker.delegate = self;
         imagePicker.sourceType = UIImagePickerControllerSourceTypeCamera;
-        
+        imagePicker.allowsEditing = YES;
         [self presentViewController:imagePicker animated:YES completion:nil];
     }
     
@@ -108,15 +139,24 @@
 #pragma mark - 
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
-    NSLog(@"------ info : %@", info);
+//    NSLog(@"------ info : %@", info);
     UIImage * newImage = [info objectForKey:UIImagePickerControllerOriginalImage];
     self.imageShow.image = newImage;
+    
+    // 存到相册
+//    UIImageWriteToSavedPhotosAlbum(newImage, nil, nil, nil);
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker
 {
     [picker dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (void)navigationController:(UINavigationController *)navigationController willShowViewController:(UIViewController *)viewController animated:(BOOL)animated
+{
+    navigationController.navigationBar.titleTextAttributes = @{NSFontAttributeName:[UIFont fontWithName:@"Helvetica" size:16.0f], NSForegroundColorAttributeName:[UIColor whiteColor]};
 }
 
 
