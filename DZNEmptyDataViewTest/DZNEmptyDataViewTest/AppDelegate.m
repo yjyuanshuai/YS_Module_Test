@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "YSLoadViewController.h"
+#import "YSRootViewController.h"
 
 @interface AppDelegate ()
 

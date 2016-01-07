@@ -15,7 +15,9 @@
 #define kMainScreenWidth  [[UIScreen mainScreen] bounds].size.width
 #define HEL_16  [UIFont fontWithName:@"Helvetica" size:16]
 
-@interface YSRootViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate>
+
+
+@interface YSRootViewController ()<DZNEmptyDataSetSource, DZNEmptyDataSetDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @end
 
@@ -39,8 +41,11 @@
 - (void)initTableView
 {
     _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kScreenHeightNoStatusAndNoNaviBarHeight) style:UITableViewStylePlain];
+    _tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _tableView.emptyDataSetSource = self;
     _tableView.emptyDataSetDelegate = self;
+    _tableView.delegate = self;
+    _tableView.dataSource = self;
     [self.view addSubview:_tableView];
 }
 
@@ -74,16 +79,27 @@
     return YES;
 }
 
-- (BOOL)emptyDataSetShouldAllowTouch:(UIScrollView *)scrollView
-{
-    return YES;
-}
-
 - (BOOL)emptyDataSetShouldAllowScroll:(UIScrollView *)scrollView
 {
     return YES;
 }
 
+#pragma mark - 
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    NSString * cell_id = @"CELL_ID";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+    }
+    cell.textLabel.text = @"111111111111111";
+    return cell;
+}
 
 
 @end
