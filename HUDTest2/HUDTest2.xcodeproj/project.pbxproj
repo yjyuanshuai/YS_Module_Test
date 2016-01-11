@@ -673,6 +673,7 @@
 				399BD0331C34FEFB00F3BDAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		399BD0341C34FEFB00F3BDAA /* Build configuration list for PBXNativeTarget "HUDTest2Tests" */ = {
 			isa = XCConfigurationList;
@@ -681,6 +682,7 @@
 				399BD0361C34FEFB00F3BDAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		399BD0371C34FEFB00F3BDAA /* Build configuration list for PBXNativeTarget "HUDTest2UITests" */ = {
 			isa = XCConfigurationList;
@@ -689,6 +691,7 @@
 				399BD0391C34FEFB00F3BDAA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

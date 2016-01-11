@@ -15,6 +15,9 @@
 @end
 
 @implementation RootViewController
+{
+    FeWifiManHub * _loadView;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -31,7 +34,15 @@
     label.textAlignment = NSTextAlignmentCenter;
     [self.view addSubview:label];
     
-    [self startAnimation];
+//    [self startAnimation1];
+    
+    
+    
+//    [self startAnimation2];
+    
+    
+    
+    [self showWithMode:FeWifiManHubModeOnlyLoader];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -39,17 +50,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)startAnimation
+
+- (void)showWithMode:(FeWifiManHubMode)mode
 {
-    FeWifiManHub * loadingView = [[FeWifiManHub alloc] initWithView:self.view withMode:FeWifiManHubModeOnlyLoader];
-    
-    [loadingView showWhileExecutingBlock:^{
-        sleep(100);
-    } completion:^{
-        
-    }];
-    
-    
+    _loadView = [FeWifiManHub showInView:self mode:FeWifiManHubModeOnlyLoader];
+}
+
+- (void)hide
+{
+    [_loadView dismiss];
 }
 
 @end

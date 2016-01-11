@@ -259,4 +259,22 @@
     
     
 }
+
+#pragma mark - class method
+
++ (instancetype)showInView:(UIViewController *)viewController mode:(FeWifiManHubMode)mode
+{
+    FeWifiManHub * loadView = [[FeWifiManHub alloc] initWithView:viewController.view withMode:mode];
+    
+    [loadView showWhileExecutingBlock:^{
+        sleep(3);
+    } completion:^{
+        
+    }];
+    
+    [viewController.view addSubview:loadView];
+    
+    return loadView;
+}
+
 @end

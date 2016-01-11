@@ -17,6 +17,11 @@ typedef NS_ENUM(NSInteger, FeWifiManHubMode){
 @property (assign, nonatomic) CGFloat percent;
 @property (assign, readonly, nonatomic) FeWifiManHubMode currentMode;
 
+/**
+ *
+ *
+ */
+
 -(id) initWithView:(UIView *) view withMode:(FeWifiManHubMode) mode;
 
 -(void) show;
@@ -30,5 +35,10 @@ typedef NS_ENUM(NSInteger, FeWifiManHubMode){
 -(void) showWhileExecutingSelector:(SEL)selector onTarget:(id)target withObject:(id)object completion:(dispatch_block_t) completion;
 
 -(void) dismiss;
+
+/**
+ *
+ */
++ (instancetype)showInView:(UIViewController *)viewController mode:(FeWifiManHubMode)mode;
 
 @end
