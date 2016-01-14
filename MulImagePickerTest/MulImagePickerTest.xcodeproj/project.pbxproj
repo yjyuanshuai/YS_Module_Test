@@ -91,7 +91,7 @@
 		3947B2CD1C4779DB00BC6B2D /* preview_original_def@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "preview_original_def@2x.png"; sourceTree = "<group>"; };
 		3947B2CE1C4779DB00BC6B2D /* TableViewArrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "TableViewArrow@2x.png"; sourceTree = "<group>"; };
 		3947B2CF1C4779DB00BC6B2D /* TZAlbumCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TZAlbumCell.xib; sourceTree = "<group>"; };
-		3947B2D01C4779DB00BC6B2D /* TZAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TZAssetCell.xib; sourceTree = "<group>"; };
+		3947B2D01C4779DB00BC6B2D /* TZAssetCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = TZAssetCell.xib; path = Resource/TZAssetCell.xib; sourceTree = "<group>"; };
 		3947B2D11C4779DB00BC6B2D /* VideoSendIcon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "VideoSendIcon@2x.png"; sourceTree = "<group>"; };
 		3947B2D21C4779DB00BC6B2D /* TZAssetCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TZAssetCell.h; sourceTree = "<group>"; };
 		3947B2D31C4779DB00BC6B2D /* TZAssetCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZAssetCell.m; sourceTree = "<group>"; };
@@ -269,7 +269,6 @@
 			isa = PBXGroup;
 			children = (
 				3947B2B81C474C3000BC6B2D /* Main */,
-				3947B3031C47892600BC6B2D /* FirstItem */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -313,24 +312,20 @@
 			isa = PBXGroup;
 			children = (
 				3947B2C11C4779DB00BC6B2D /* Resource */,
-				3947B2D21C4779DB00BC6B2D /* TZAssetCell.h */,
-				3947B2D31C4779DB00BC6B2D /* TZAssetCell.m */,
+				3947B3131C47A7BB00BC6B2D /* TZPhotoPreview */,
+				3947B3141C47A7DA00BC6B2D /* TZAssetCell */,
+				3947B2E21C4779DB00BC6B2D /* UIView+Layout.h */,
+				3947B2E31C4779DB00BC6B2D /* UIView+Layout.m */,
 				3947B2D41C4779DB00BC6B2D /* TZAssetModel.h */,
 				3947B2D51C4779DB00BC6B2D /* TZAssetModel.m */,
 				3947B2D61C4779DB00BC6B2D /* TZImageManager.h */,
 				3947B2D71C4779DB00BC6B2D /* TZImageManager.m */,
-				3947B2D81C4779DB00BC6B2D /* TZImagePickerController.h */,
-				3947B2D91C4779DB00BC6B2D /* TZImagePickerController.m */,
 				3947B2DA1C4779DB00BC6B2D /* TZPhotoPickerController.h */,
 				3947B2DB1C4779DB00BC6B2D /* TZPhotoPickerController.m */,
-				3947B2DC1C4779DB00BC6B2D /* TZPhotoPreviewCell.h */,
-				3947B2DD1C4779DB00BC6B2D /* TZPhotoPreviewCell.m */,
-				3947B2DE1C4779DB00BC6B2D /* TZPhotoPreviewController.h */,
-				3947B2DF1C4779DB00BC6B2D /* TZPhotoPreviewController.m */,
+				3947B2D81C4779DB00BC6B2D /* TZImagePickerController.h */,
+				3947B2D91C4779DB00BC6B2D /* TZImagePickerController.m */,
 				3947B2E01C4779DB00BC6B2D /* TZVideoPlayerController.h */,
 				3947B2E11C4779DB00BC6B2D /* TZVideoPlayerController.m */,
-				3947B2E21C4779DB00BC6B2D /* UIView+Layout.h */,
-				3947B2E31C4779DB00BC6B2D /* UIView+Layout.m */,
 			);
 			path = TZImagePickerController;
 			sourceTree = "<group>";
@@ -353,17 +348,30 @@
 				3947B2CD1C4779DB00BC6B2D /* preview_original_def@2x.png */,
 				3947B2CE1C4779DB00BC6B2D /* TableViewArrow@2x.png */,
 				3947B2CF1C4779DB00BC6B2D /* TZAlbumCell.xib */,
-				3947B2D01C4779DB00BC6B2D /* TZAssetCell.xib */,
 				3947B2D11C4779DB00BC6B2D /* VideoSendIcon@2x.png */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
 		};
-		3947B3031C47892600BC6B2D /* FirstItem */ = {
+		3947B3131C47A7BB00BC6B2D /* TZPhotoPreview */ = {
 			isa = PBXGroup;
 			children = (
+				3947B2DC1C4779DB00BC6B2D /* TZPhotoPreviewCell.h */,
+				3947B2DD1C4779DB00BC6B2D /* TZPhotoPreviewCell.m */,
+				3947B2DE1C4779DB00BC6B2D /* TZPhotoPreviewController.h */,
+				3947B2DF1C4779DB00BC6B2D /* TZPhotoPreviewController.m */,
 			);
-			path = FirstItem;
+			name = TZPhotoPreview;
+			sourceTree = "<group>";
+		};
+		3947B3141C47A7DA00BC6B2D /* TZAssetCell */ = {
+			isa = PBXGroup;
+			children = (
+				3947B2D21C4779DB00BC6B2D /* TZAssetCell.h */,
+				3947B2D31C4779DB00BC6B2D /* TZAssetCell.m */,
+				3947B2D01C4779DB00BC6B2D /* TZAssetCell.xib */,
+			);
+			name = TZAssetCell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
