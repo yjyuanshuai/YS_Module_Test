@@ -62,19 +62,20 @@ static NSString * edit_cell_id = @"EDIT_CELL_ID";
 #pragma mark - UITableViewDataSource
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    
     UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:edit_cell_id];
+    return cell;
+     
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // 在这个里面，实现数据绑定。对变高的cell可用但没有意义。
     if (indexPath.section < [_dataArray count]) {
         if (indexPath.row < [[_dataArray objectAtIndex:indexPath.section] count]) {
             cell.textLabel.text = [[_dataArray objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
         }
     }
-    return cell;
-}
-
-- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    // 在这个里面，实现数据绑定
-    
 }
 
 #pragma mark - UITableViewDelegate
