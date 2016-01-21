@@ -38,6 +38,7 @@
 		391770661C4F85FA0048809C /* zbar-helpicons.png in Resources */ = {isa = PBXBuildFile; fileRef = 391770611C4F85FA0048809C /* zbar-helpicons.png */; };
 		391770671C4F85FA0048809C /* zbar-samples.png in Resources */ = {isa = PBXBuildFile; fileRef = 391770621C4F85FA0048809C /* zbar-samples.png */; };
 		3917706B1C4F8C070048809C /* QRCodeReaderScanning@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3917706A1C4F8C070048809C /* QRCodeReaderScanning@2x.png */; };
+		39449A101C50857B009B2D31 /* QRCodeReaderLine@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39449A0F1C50857B009B2D31 /* QRCodeReaderLine@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -131,6 +132,7 @@
 		391770611C4F85FA0048809C /* zbar-helpicons.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-helpicons.png"; sourceTree = "<group>"; };
 		391770621C4F85FA0048809C /* zbar-samples.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zbar-samples.png"; sourceTree = "<group>"; };
 		3917706A1C4F8C070048809C /* QRCodeReaderScanning@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QRCodeReaderScanning@2x.png"; sourceTree = "<group>"; };
+		39449A0F1C50857B009B2D31 /* QRCodeReaderLine@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "QRCodeReaderLine@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -466,6 +468,7 @@
 		391770691C4F8C070048809C /* images */ = {
 			isa = PBXGroup;
 			children = (
+				39449A0F1C50857B009B2D31 /* QRCodeReaderLine@2x.png */,
 				3917706A1C4F8C070048809C /* QRCodeReaderScanning@2x.png */,
 			);
 			path = images;
@@ -538,6 +541,7 @@
 				TargetAttributes = {
 					39176FA01C4F582A0048809C = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = MNH692X4AB;
 					};
 					39176FB91C4F582B0048809C = {
 						CreatedOnToolsVersion = 7.1;
@@ -577,6 +581,7 @@
 				39176FB41C4F582A0048809C /* LaunchScreen.storyboard in Resources */,
 				391770651C4F85FA0048809C /* zbar-help.html in Resources */,
 				391770671C4F85FA0048809C /* zbar-samples.png in Resources */,
+				39449A101C50857B009B2D31 /* QRCodeReaderLine@2x.png in Resources */,
 				391770661C4F85FA0048809C /* zbar-helpicons.png in Resources */,
 				3917706B1C4F8C070048809C /* QRCodeReaderScanning@2x.png in Resources */,
 				391770641C4F85FA0048809C /* zbar-back.png in Resources */,
@@ -761,12 +766,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$SRCROOT/二维码生成与扫描Test/Classes/Tools/YSGlobalSetting.pch";
 				INFOPLIST_FILE = "二维码生成与扫描Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -782,12 +788,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				ENABLE_BITCODE = NO;
 				GCC_ENABLE_BUILTIN_FUNCTIONS = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$SRCROOT/二维码生成与扫描Test/Classes/Tools/YSGlobalSetting.pch";
 				INFOPLIST_FILE = "二维码生成与扫描Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
@@ -866,6 +873,7 @@
 				39176FD01C4F582B0048809C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39176FD11C4F582B0048809C /* Build configuration list for PBXNativeTarget "二维码生成与扫描TestTests" */ = {
 			isa = XCConfigurationList;
@@ -874,6 +882,7 @@
 				39176FD31C4F582B0048809C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39176FD41C4F582B0048809C /* Build configuration list for PBXNativeTarget "二维码生成与扫描TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -882,6 +891,7 @@
 				39176FD61C4F582B0048809C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

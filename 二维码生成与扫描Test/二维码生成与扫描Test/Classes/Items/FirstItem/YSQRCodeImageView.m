@@ -51,13 +51,6 @@
     CGFloat originX = frame.origin.x;
     CGFloat originY = frame.origin.y;
     
-//    if (width   <= 0 ||
-//        height  <= 0 ||
-//        width   > 200 ||
-//        height  > 200) {
-//        
-//        return CGRectMake(originX, originY, 200, 200);
-//    }
     CGFloat size = (width <= height) ? width : height;
     return CGRectMake(originX, originY, size, size);
 }

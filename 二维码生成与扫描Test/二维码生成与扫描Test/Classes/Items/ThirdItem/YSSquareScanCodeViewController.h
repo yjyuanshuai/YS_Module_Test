@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-typedef void (^YSSquareScanBlock) (NSString *);
+typedef void (^YSSquareScanBlock) (NSString * codeStr);
 
 @interface YSSquareScanCodeViewController : UIViewController
 
