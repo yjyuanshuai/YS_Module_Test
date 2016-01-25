@@ -18,6 +18,10 @@
 		3918FAA81C55AC9C008187E8 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAA71C55AC9C008187E8 /* TwoViewController.m */; };
 		3918FAAB1C55ACB0008187E8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAAA1C55ACB0008187E8 /* RootViewController.m */; };
 		3918FAAF1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAAE1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m */; };
+		3918FAB51C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAB41C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m */; };
+		3918FAB81C55D4C8008187E8 /* YSDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAB71C55D4C8008187E8 /* YSDataSourceAndDelegate.m */; };
+		3918FABC1C55FF1A008187E8 /* ly_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3918FABA1C55FF1A008187E8 /* ly_click@2x.png */; };
+		3918FABD1C55FF1A008187E8 /* ly_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3918FABB1C55FF1A008187E8 /* ly_default@2x.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +64,12 @@
 		3918FAAA1C55ACB0008187E8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		3918FAAD1C55AE17008187E8 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
 		3918FAAE1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		3918FAB31C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSEmptyDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		3918FAB41C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSEmptyDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		3918FAB61C55D4C8008187E8 /* YSDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		3918FAB71C55D4C8008187E8 /* YSDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		3918FABA1C55FF1A008187E8 /* ly_click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ly_click@2x.png"; sourceTree = "<group>"; };
+		3918FABB1C55FF1A008187E8 /* ly_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ly_default@2x.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -183,6 +193,10 @@
 				3918FA661C55ABD0008187E8 /* AppDelegate.m */,
 				3918FAA91C55ACB0008187E8 /* RootViewController.h */,
 				3918FAAA1C55ACB0008187E8 /* RootViewController.m */,
+				3918FAB31C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.h */,
+				3918FAB41C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m */,
+				3918FAB61C55D4C8008187E8 /* YSDataSourceAndDelegate.h */,
+				3918FAB71C55D4C8008187E8 /* YSDataSourceAndDelegate.m */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -230,6 +244,8 @@
 		3918FA9E1C55ABEC008187E8 /* iamges */ = {
 			isa = PBXGroup;
 			children = (
+				3918FABA1C55FF1A008187E8 /* ly_click@2x.png */,
+				3918FABB1C55FF1A008187E8 /* ly_default@2x.png */,
 			);
 			path = iamges;
 			sourceTree = "<group>";
@@ -380,6 +396,8 @@
 			files = (
 				3918FA721C55ABD0008187E8 /* LaunchScreen.storyboard in Resources */,
 				3918FA6F1C55ABD0008187E8 /* Assets.xcassets in Resources */,
+				3918FABC1C55FF1A008187E8 /* ly_click@2x.png in Resources */,
+				3918FABD1C55FF1A008187E8 /* ly_default@2x.png in Resources */,
 				3918FA6D1C55ABD0008187E8 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -406,10 +424,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				3918FAA51C55AC8A008187E8 /* OneViewController.m in Sources */,
+				3918FAB81C55D4C8008187E8 /* YSDataSourceAndDelegate.m in Sources */,
 				3918FA671C55ABD0008187E8 /* AppDelegate.m in Sources */,
 				3918FA641C55ABD0008187E8 /* main.m in Sources */,
 				3918FAA81C55AC9C008187E8 /* TwoViewController.m in Sources */,
 				3918FAAF1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m in Sources */,
+				3918FAB51C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m in Sources */,
 				3918FAAB1C55ACB0008187E8 /* RootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -636,6 +656,7 @@
 				3918FA8E1C55ABD0008187E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3918FA8F1C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离TestTests" */ = {
 			isa = XCConfigurationList;
@@ -644,6 +665,7 @@
 				3918FA911C55ABD0008187E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3918FA921C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -652,6 +674,7 @@
 				3918FA941C55ABD0008187E8 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

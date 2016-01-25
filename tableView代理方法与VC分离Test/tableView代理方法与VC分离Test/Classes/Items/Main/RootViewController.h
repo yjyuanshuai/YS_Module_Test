@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "UIScrollView+EmptyDataSet.h"
 
 @interface RootViewController : UIViewController
 
