@@ -21,6 +21,7 @@
 @property (nonatomic, strong) NSArray * toolBarImageArr;    //toolBar图片
 //@property (nonatomic, )
 
+- (instancetype)init;
 - (void)addInViewController:(UIViewController *)viewController;
 
 @end

@@ -17,6 +17,8 @@
 		39F94E741C5F32580005E202 /* ___emoji__UITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F94E731C5F32580005E202 /* ___emoji__UITests.m */; };
 		39F94E8F1C5F36840005E202 /* YSQQKeyBoard.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F94E8E1C5F36840005E202 /* YSQQKeyBoard.m */; };
 		39F94E931C5F49BF0005E202 /* toolBar.png in Resources */ = {isa = PBXBuildFile; fileRef = 39F94E921C5F49BF0005E202 /* toolBar.png */; };
+		39F94E9B1C5F59020005E202 /* UIImage+ToolForImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F94E9A1C5F59020005E202 /* UIImage+ToolForImage.m */; };
+		39F94E9E1C5F5B5E0005E202 /* YSToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F94E9D1C5F5B5E0005E202 /* YSToolBar.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -56,6 +58,10 @@
 		39F94E8D1C5F36840005E202 /* YSQQKeyBoard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSQQKeyBoard.h; sourceTree = "<group>"; };
 		39F94E8E1C5F36840005E202 /* YSQQKeyBoard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSQQKeyBoard.m; sourceTree = "<group>"; };
 		39F94E921C5F49BF0005E202 /* toolBar.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = toolBar.png; sourceTree = "<group>"; };
+		39F94E991C5F59020005E202 /* UIImage+ToolForImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+ToolForImage.h"; sourceTree = "<group>"; };
+		39F94E9A1C5F59020005E202 /* UIImage+ToolForImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+ToolForImage.m"; sourceTree = "<group>"; };
+		39F94E9C1C5F5B5E0005E202 /* YSToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSToolBar.h; sourceTree = "<group>"; };
+		39F94E9D1C5F5B5E0005E202 /* YSToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSToolBar.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -187,6 +193,10 @@
 				39F94E8D1C5F36840005E202 /* YSQQKeyBoard.h */,
 				39F94E8E1C5F36840005E202 /* YSQQKeyBoard.m */,
 				39F94E921C5F49BF0005E202 /* toolBar.png */,
+				39F94E991C5F59020005E202 /* UIImage+ToolForImage.h */,
+				39F94E9A1C5F59020005E202 /* UIImage+ToolForImage.m */,
+				39F94E9C1C5F5B5E0005E202 /* YSToolBar.h */,
+				39F94E9D1C5F5B5E0005E202 /* YSToolBar.m */,
 			);
 			path = Libs;
 			sourceTree = "<group>";
@@ -379,7 +389,9 @@
 				39F94E8F1C5F36840005E202 /* YSQQKeyBoard.m in Sources */,
 				39F94E561C5F32580005E202 /* ViewController.m in Sources */,
 				39F94E531C5F32580005E202 /* AppDelegate.m in Sources */,
+				39F94E9E1C5F5B5E0005E202 /* YSToolBar.m in Sources */,
 				39F94E501C5F32580005E202 /* main.m in Sources */,
+				39F94E9B1C5F59020005E202 /* UIImage+ToolForImage.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -522,7 +534,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "自定义emoji键盘/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuai.custemKeyboardDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -535,7 +547,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "自定义emoji键盘/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuai.custemKeyboardDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -609,6 +621,7 @@
 				39F94E7A1C5F32580005E202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39F94E7B1C5F32580005E202 /* Build configuration list for PBXNativeTarget "自定义emoji键盘Tests" */ = {
 			isa = XCConfigurationList;
@@ -617,6 +630,7 @@
 				39F94E7D1C5F32580005E202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39F94E7E1C5F32580005E202 /* Build configuration list for PBXNativeTarget "自定义emoji键盘UITests" */ = {
 			isa = XCConfigurationList;
@@ -625,6 +639,7 @@
 				39F94E801C5F32580005E202 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

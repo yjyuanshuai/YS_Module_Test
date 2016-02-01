@@ -16,8 +16,8 @@
 static CGFloat YSKeyBoard_BGImageView_Origin_Height = 49 * 2;
 static CGFloat YSKeyBoard_ToolBar_Height = 49;
 static CGFloat YSKeyBoard_TextView_Origin_Height = 49;
-static CGFloat padding_x = 5;
-static CGFloat padding_y = 5;
+static CGFloat padding_x = 10;
+static CGFloat padding_y = 7;
 
 @implementation YSQQKeyBoard
 {
@@ -38,7 +38,7 @@ static CGFloat padding_y = 5;
         
         [self initUI];
         [self addObserverOfKeyBoard];
-        
+    
     }
     return self;
 }
@@ -59,12 +59,18 @@ static CGFloat padding_y = 5;
 #pragma mark - UITextViewDelegate -
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
+    [textView becomeFirstResponder];
     return YES;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
 
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView
+{
+    [textView resignFirstResponder];
 }
 
 #pragma mark - toolBar上的功能方法 -
@@ -137,11 +143,16 @@ static CGFloat padding_y = 5;
     
     // toolBar
     self.ysToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, YSKeyBoard_BGImageView_Origin_Height - YSKeyBoard_ToolBar_Height, YSKeyBoard_Screen_Width, YSKeyBoard_ToolBar_Height)];
-    self.ysToolBar.backgroundColor = [UIColor clearColor];
+    self.ysToolBar.barStyle = UIBarStyleDefault;
+    self.ysToolBar.barTintColor = [UIColor clearColor];
+    self.ysToolBar.translucent = NO;
+//    self.ysToolBar.backgroundColor = [UIColor clearColor];
+    
+    
     // -- 占位
     UIBarButtonItem * spaceItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:self action:nil];
     
-    UIImage * commonImage = [UIImage imageNamed:@"toolBar"];
+    UIImage * commonImage = [self getOriginImage:@"toolBar"];
     // -- 语音
     _voiceItem = [[UIBarButtonItem alloc] initWithImage:commonImage style:UIBarButtonItemStylePlain target:self action:@selector(sendVoice)];
     
@@ -165,10 +176,16 @@ static CGFloat padding_y = 5;
     
 }
 
+- (UIImage *)getOriginImage:(NSString *)imageStr
+{
+    UIImage * image = [UIImage imageNamed:imageStr];
+    return [image imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+}
+
 - (void)addObserverOfKeyBoard
 {
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow) name:UIKeyboardWillShowNotification object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide) name:UIKeyboardWillHideNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillShow:) name:UIKeyboardWillShowNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyBoardWillHide:) name:UIKeyboardWillHideNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(textViewDidChange:) name:UITextViewTextDidChangeNotification object:nil];
 }
 
@@ -185,21 +202,37 @@ static CGFloat padding_y = 5;
     }
 }
 
-- (void)updateFrame
+- (void)updateFrameWithKeyBoardRect:(CGRect)keyBoardRect
 {
-
+    if (keyBoardRect.origin.x == 0 && keyBoardRect.origin.y && keyBoardRect.size.width == 0 && keyBoardRect.size.height == 0) {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            self.bgImageView.frame = CGRectMake(0, YSKeyBoard_Screen_Height - YSKeyBoard_BGImageView_Origin_Height, YSKeyBoard_Screen_Width, YSKeyBoard_BGImageView_Origin_Height);
+        });
+        
+    }else {
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+           self.bgImageView.frame = CGRectMake(0, YSKeyBoard_Screen_Height - YSKeyBoard_BGImageView_Origin_Height - keyBoardRect.size.height, YSKeyBoard_Screen_Width, YSKeyBoard_BGImageView_Origin_Height);
+        });
+        
+    }
 }
 
 #pragma mark - 键盘通知方法 -
-- (void)keyBoardWillShow
+- (void)keyBoardWillShow:(NSNotification *)keyBoard
 {
     // 键盘将出，调整frame
     
+    // 得到键盘 rect
+    CGRect keyBoardRect = [[[keyBoard userInfo] objectForKey:UIKeyboardFrameEndUserInfoKey] CGRectValue];
+    
+    [self updateFrameWithKeyBoardRect:keyBoardRect];
 }
 
-- (void)keyBoardWillHide
+- (void)keyBoardWillHide:(NSNotification *)keyBoard
 {
-
+    [self updateFrameWithKeyBoardRect:CGRectZero];
 }
 
 @end
