@@ -11,11 +11,14 @@
 
 @interface ViewController ()
 - (IBAction)animation:(UIButton *)sender;
+- (IBAction)stop:(UIButton *)sender;
 
 @end
 
 @implementation ViewController
-
+{
+    YSAliPayXiuXiuAnimation * an;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
@@ -31,8 +34,17 @@
 
 - (IBAction)animation:(UIButton *)sender {
     
-    YSAliPayXiuXiuAnimation * an = [[YSAliPayXiuXiuAnimation alloc] init];
-    [an showYSAliPayAnimationInViewController:self];
+    an = [[YSAliPayXiuXiuAnimation alloc] init];
+    an.ysColor = [UIColor colorWithRed:1 green:0 blue:0 alpha:1];
+    an.ysRadius = 200;
+    [an showYSAliPayAnimationInViewController:self repeat:NO];
+//    [YSAliPayXiuXiuAnimation ysAliPayXiuXiuInViewController:self repeat:NO radius:100 color:nil];
     
+}
+
+- (IBAction)stop:(UIButton *)sender {
+    
+//    [an dismissYSAliPayXiuXiu];
+    [YSAliPayXiuXiuAnimation ysAliPayXiuXiuDismiss];
 }
 @end

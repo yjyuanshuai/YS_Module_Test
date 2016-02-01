@@ -16,16 +16,76 @@
     UIViewController * _viewController;
 }
 
-- (void)showYSAliPayAnimationInViewController:(UIViewController *)viewController
+- (instancetype)init
+{
+    if (self = [super init]) {
+        self.ysRadius = [[UIScreen mainScreen] bounds].size.width / 2;
+        self.ysColor = [UIColor colorWithRed:arc4random()%10*0.1 green:arc4random()%10*0.1 blue:arc4random()%10*0.1 alpha:1];
+    }
+    return self;
+}
+
++ (instancetype)shareYSAliPayXiuXiu
+{
+    static dispatch_once_t onceToken;
+    static YSAliPayXiuXiuAnimation * sharedYSAliPayXiuXiu;
+    dispatch_once(&onceToken, ^{
+        sharedYSAliPayXiuXiu = [[self alloc] init];
+    });
+    return sharedYSAliPayXiuXiu;
+}
+
+#pragma mark - instance method -
+- (void)showYSAliPayAnimationInViewController:(UIViewController *)viewController repeat:(BOOL)repeat
 {
     _viewController = viewController;
     
-    _disPlayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(delayAnimation)];
-    _disPlayLink.frameInterval = 40;
-    [_disPlayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    //处理属性
+    // --- 半径
+    if (!(self.ysRadius > 0 && self.ysRadius <= [UIScreen mainScreen].bounds.size.height/2)) {
+        self.ysRadius = [UIScreen mainScreen].bounds.size.width/2;
+    }
+    
+    // --- 颜色
+    if (self.ysColor == nil) {
+        self.ysColor = [UIColor colorWithRed:arc4random()%10*0.1 green:arc4random()%10*0.1 blue:arc4random()%10*0.1 alpha:1];
+    }
+    
+    if (repeat) {    // 无限循环
+        _disPlayLink = [CADisplayLink displayLinkWithTarget:self selector:@selector(delayAnimation)];
+        _disPlayLink.frameInterval = 40;
+        [_disPlayLink addToRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    }else {         // 只执行一次
+        [self delayAnimation];
+    }
+    
 }
 
-#pragma mark - 内部方法
+- (void)dismissYSAliPayXiuXiu
+{
+    if (_disPlayLink) {
+        [_disPlayLink invalidate];
+        _disPlayLink = nil;
+    }
+}
+
+#pragma mark - class method -
++ (void)ysAliPayXiuXiuInViewController:(UIViewController *)viewController repeat:(BOOL)repeat radius:(float)ysRadius color:(UIColor *)ysColor
+{
+    YSAliPayXiuXiuAnimation * ysXiuXiu = [YSAliPayXiuXiuAnimation shareYSAliPayXiuXiu];
+    ysXiuXiu.ysRadius = ysRadius;
+    ysXiuXiu.ysColor = ysColor;
+    [ysXiuXiu showYSAliPayAnimationInViewController:viewController repeat:repeat];
+}
+
++ (void)ysAliPayXiuXiuDismiss
+{
+    YSAliPayXiuXiuAnimation * ysXiuXiu = [YSAliPayXiuXiuAnimation shareYSAliPayXiuXiu];
+    [ysXiuXiu dismissYSAliPayXiuXiu];
+}
+
+
+#pragma mark - 内部方法 -
 - (void)delayAnimation
 {
     [self startAnimationInViewController];
@@ -34,10 +94,10 @@
 - (void)startAnimationInViewController
 {
     CALayer *layer = [[CALayer alloc] init];
-    layer.cornerRadius = [UIScreen mainScreen].bounds.size.width/2;
+    layer.cornerRadius = self.ysRadius;
     layer.frame = CGRectMake(0, 0, layer.cornerRadius * 2, layer.cornerRadius * 2);
     layer.position = _viewController.view.layer.position;
-    UIColor *color = [UIColor colorWithRed:arc4random()%10*0.1 green:arc4random()%10*0.1 blue:arc4random()%10*0.1 alpha:1];
+    UIColor * color = self.ysColor;
     layer.backgroundColor = color.CGColor;
     [_viewController.view.layer addSublayer:layer];
     

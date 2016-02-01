@@ -12,11 +12,14 @@
 @interface YSAliPayXiuXiuAnimation : NSObject
 
 @property (nonatomic, assign) float ysRadius;     //动画的半径
-//@property (nonatomic, assign) 
+@property (nonatomic, strong) UIColor * ysColor;  //颜色
 
 #pragma mark - instance method
-- (void)showYSAliPayAnimationInViewController:(UIViewController *)viewController;
+- (void)showYSAliPayAnimationInViewController:(UIViewController *)viewController repeat:(BOOL)repeat;
+- (void)dismissYSAliPayXiuXiu;
 
 #pragma mark - class method
++ (void)ysAliPayXiuXiuInViewController:(UIViewController *)viewController repeat:(BOOL)repeat radius:(float)ysRadius color:(UIColor *)ysColor;
++ (void)ysAliPayXiuXiuDismiss;
 
 @end
