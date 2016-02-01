@@ -26,8 +26,22 @@
 #pragma mark - 内部方法 -
 - (void)setYsItems:(NSArray<UIButton *> *)ysItems
 {
-    for (int i = 0; i < [ysItems count]; i++) {
-        
+    CGFloat miniBtnWidth = [[ysItems objectAtIndex:0] bounds].size.width;
+    CGFloat allBtnWidth = miniBtnWidth;
+    for (int i = 1; i < [ysItems count]; i++) {
+        CGFloat width = [[ysItems objectAtIndex:i] bounds].size.width;
+        allBtnWidth += width;
+        if (miniBtnWidth > width) {
+            miniBtnWidth = width;
+        }
+    }
+    
+    if (allBtnWidth > ysToolBarWidth) {
+        //设置所有btn宽为最小
+        CGFloat pad_x = (ysToolBarWidth - allBtnWidth)/(ysItems.count + 1);
+        for (int i = 0; i < [ysItems count]; i++) {
+            
+        }
     }
 }
 
