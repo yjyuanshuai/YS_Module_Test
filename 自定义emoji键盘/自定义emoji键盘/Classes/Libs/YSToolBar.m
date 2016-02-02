@@ -40,7 +40,7 @@
         }
     }
     
-    if (allBtnWidth > ysToolBarWidth) {
+    if (allBtnWidth > ysToolBarWidth && miniBtnWidth * (_ysItems.count + 1) < ysToolBarWidth) {
         //总宽 大于 控件宽
         //设置所有btn宽为最小
         CGFloat pad_x = (ysToolBarWidth - allBtnWidth)/(ysItems.count + 1);
