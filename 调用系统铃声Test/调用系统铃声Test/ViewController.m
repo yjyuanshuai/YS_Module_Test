@@ -10,7 +10,6 @@
 #import <AudioToolbox/AudioToolbox.h>
 
 @interface ViewController ()
-- (IBAction)voiceBtn:(id)sender;
 
 
 @end
@@ -23,15 +22,22 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    
+    
+    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(100, 100, 80, 40);
+    [btn setTitle:@"调用" forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(onclick) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:btn];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (IBAction)voiceBtn:(id)sender {
-    
+- (void)onclick
+{
     [self systemShake];
     [self createSystemSoundWithName:@"alarm" soundType:@"caf"];
 }
@@ -49,7 +55,6 @@
     if (path) {
         AudioServicesCreateSystemSoundID((__bridge CFURLRef)[NSURL fileURLWithPath:path], &soundID);
         AudioServicesPlaySystemSound(soundID);
-        
     }
 }
 @end
