@@ -6,9 +6,7 @@
 	<string>二维动画</string>
 	<string>三维动画</string>
 	<string>页面翻页动画</string>
-	<string>UIView Block</string>
-	<string>UIView begin</string>
+	<string>UIKit 动画</string>
 	<string>Core Animation</string>
-	<string>Core Animation类</string>
 </array>
 </plist>

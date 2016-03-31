@@ -13,6 +13,7 @@
 #import "ThreeDemotionViewController.h"
 #import "TurnPageViewController.h"
 #import "ViewSimpleViewController.h"
+#import "CoreAnimationViewController.h"
 
 static NSString * cell_id = @"CELL_ID";
 
@@ -126,7 +127,8 @@ static NSString * cell_id = @"CELL_ID";
         case 5:
         {
             // 核心动画
-            
+            CoreAnimationViewController * coreAnimationVC = [[CoreAnimationViewController alloc] init];
+            [self.navigationController pushViewController:coreAnimationVC animated:YES];
         }
             break;
         default:

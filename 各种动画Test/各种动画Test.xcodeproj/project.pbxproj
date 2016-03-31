@@ -37,6 +37,7 @@
 		39528D3F1CA5361300CE2914 /* ThreeDemotionViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39528D3E1CA5361300CE2914 /* ThreeDemotionViewController.m */; };
 		39528D431CA53A4B00CE2914 /* TurnPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39528D421CA53A4B00CE2914 /* TurnPageViewController.m */; };
 		39528D4B1CA53E4F00CE2914 /* ViewSimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39528D4A1CA53E4F00CE2914 /* ViewSimpleViewController.m */; };
+		3970EB491CAA707D00488A29 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970EB481CAA707D00488A29 /* CoreAnimationViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -117,6 +118,8 @@
 		39528D421CA53A4B00CE2914 /* TurnPageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TurnPageViewController.m; sourceTree = "<group>"; };
 		39528D491CA53E4F00CE2914 /* ViewSimpleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewSimpleViewController.h; sourceTree = "<group>"; };
 		39528D4A1CA53E4F00CE2914 /* ViewSimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSimpleViewController.m; sourceTree = "<group>"; };
+		3970EB471CAA707D00488A29 /* CoreAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationViewController.h; sourceTree = "<group>"; };
+		3970EB481CAA707D00488A29 /* CoreAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -414,6 +417,8 @@
 		39528D451CA53DE700CE2914 /* CALayer核心动画 */ = {
 			isa = PBXGroup;
 			children = (
+				3970EB471CAA707D00488A29 /* CoreAnimationViewController.h */,
+				3970EB481CAA707D00488A29 /* CoreAnimationViewController.m */,
 			);
 			name = "CALayer核心动画";
 			sourceTree = "<group>";
@@ -567,6 +572,7 @@
 				39528CF01CA4CE6C00CE2914 /* RootViewController.m in Sources */,
 				39528D211CA4D81F00CE2914 /* ViewController+MASAdditions.m in Sources */,
 				39528D201CA4D81F00CE2914 /* View+MASAdditions.m in Sources */,
+				3970EB491CAA707D00488A29 /* CoreAnimationViewController.m in Sources */,
 				39528D3F1CA5361300CE2914 /* ThreeDemotionViewController.m in Sources */,
 				39528D4B1CA53E4F00CE2914 /* ViewSimpleViewController.m in Sources */,
 				39528D351CA51F8700CE2914 /* TwoDemotionViewController.m in Sources */,
@@ -807,6 +813,7 @@
 				39528CD91CA4CDDA00CE2914 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39528CDA1CA4CDDA00CE2914 /* Build configuration list for PBXNativeTarget "各种动画TestTests" */ = {
 			isa = XCConfigurationList;
@@ -815,6 +822,7 @@
 				39528CDC1CA4CDDA00CE2914 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39528CDD1CA4CDDA00CE2914 /* Build configuration list for PBXNativeTarget "各种动画TestUITests" */ = {
 			isa = XCConfigurationList;
@@ -823,6 +831,7 @@
 				39528CDF1CA4CDDA00CE2914 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
