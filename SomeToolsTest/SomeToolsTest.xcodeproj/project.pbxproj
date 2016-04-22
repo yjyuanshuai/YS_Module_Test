@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		391F43CE1CC8674100D526BD /* NSString+YSStringTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F43CD1CC8674100D526BD /* NSString+YSStringTool.m */; };
+		391F43D11CC8694100D526BD /* NSDate+YSDateTool.m in Sources */ = {isa = PBXBuildFile; fileRef = 391F43D01CC8694100D526BD /* NSDate+YSDateTool.m */; };
 		39FFB6511CC72B8700DF031D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FFB6501CC72B8700DF031D /* main.m */; };
 		39FFB6541CC72B8700DF031D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FFB6531CC72B8700DF031D /* AppDelegate.m */; };
 		39FFB6571CC72B8700DF031D /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FFB6561CC72B8700DF031D /* ViewController.m */; };
@@ -36,6 +38,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		391F43CC1CC8674100D526BD /* NSString+YSStringTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YSStringTool.h"; sourceTree = "<group>"; };
+		391F43CD1CC8674100D526BD /* NSString+YSStringTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YSStringTool.m"; sourceTree = "<group>"; };
+		391F43CF1CC8694100D526BD /* NSDate+YSDateTool.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+YSDateTool.h"; sourceTree = "<group>"; };
+		391F43D01CC8694100D526BD /* NSDate+YSDateTool.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+YSDateTool.m"; sourceTree = "<group>"; };
 		39FFB64C1CC72B8700DF031D /* SomeToolsTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SomeToolsTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FFB6501CC72B8700DF031D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39FFB6521CC72B8700DF031D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
@@ -262,6 +268,8 @@
 		39FFB6901CC72BF900DF031D /* NSdateTool */ = {
 			isa = PBXGroup;
 			children = (
+				391F43CF1CC8694100D526BD /* NSDate+YSDateTool.h */,
+				391F43D01CC8694100D526BD /* NSDate+YSDateTool.m */,
 			);
 			path = NSdateTool;
 			sourceTree = "<group>";
@@ -269,6 +277,8 @@
 		39FFB6911CC72BF900DF031D /* NSStringTool */ = {
 			isa = PBXGroup;
 			children = (
+				391F43CC1CC8674100D526BD /* NSString+YSStringTool.h */,
+				391F43CD1CC8674100D526BD /* NSString+YSStringTool.m */,
 			);
 			path = NSStringTool;
 			sourceTree = "<group>";
@@ -405,8 +415,10 @@
 			files = (
 				39FFB6571CC72B8700DF031D /* ViewController.m in Sources */,
 				39FFB6941CC72C4500DF031D /* DeviceInfoTool.m in Sources */,
+				391F43D11CC8694100D526BD /* NSDate+YSDateTool.m in Sources */,
 				39FFB6541CC72B8700DF031D /* AppDelegate.m in Sources */,
 				39FFB6511CC72B8700DF031D /* main.m in Sources */,
+				391F43CE1CC8674100D526BD /* NSString+YSStringTool.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -632,6 +644,7 @@
 				39FFB67B1CC72B8700DF031D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39FFB67C1CC72B8700DF031D /* Build configuration list for PBXNativeTarget "SomeToolsTestTests" */ = {
 			isa = XCConfigurationList;
@@ -640,6 +653,7 @@
 				39FFB67E1CC72B8700DF031D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39FFB67F1CC72B8700DF031D /* Build configuration list for PBXNativeTarget "SomeToolsTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -648,6 +662,7 @@
 				39FFB6811CC72B8700DF031D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
