@@ -8,60 +8,94 @@
 
 #import "YSVoiceObject.h"
 
-const static NSTimeInterval updateTimeInterval = 0.05;
+#pragma mark - YSAudioModel -
+
+@implementation YSAudioModel
+
+
+
+@end
+
+
+
+#pragma mark - YSVoiceObject -
+const static NSTimeInterval updateTimeInterval = 0.1f;
 
 @implementation YSVoiceObject
 
-#pragma mark - 录音机操作
-#pragma mark - 开始录音
-- (void)startAudioRecorderWithPath:(NSString *)fileName
+- (instancetype)init
 {
-    [self createAudioSession];
-    [self getAudioSetting];
-    [self getSaveAudioFilePath:fileName];
-    [self audioRecorder];
-    
-    if ([_audioRecorder isRecording]) {
-        [self stopAudioRecorder];
+    if (self = [super init]) {
+        
     }
-    [_audioRecorder record];
-    _audioTimer.fireDate = [NSDate distantPast];
+    return self;
 }
 
-#pragma mark - 暂停
+#pragma mark - 录音机使用
+#pragma mark - 开始 / 暂停 / 恢复 / 取消 / 停止
+- (void)startAudioRecorder
+{
+    if (_audioRecorder == nil) {
+        [self initAudioRecorder];
+    }
+    
+    if (![_audioRecorder isRecording]) {
+        [_audioRecorder record];
+        _audioRecorderTimer.fireDate = [NSDate distantPast];
+    }
+}
+
 - (void)pauseAudioRecorder
 {
     if ([_audioRecorder isRecording]) {
         [_audioRecorder pause];
-        _audioTimer.fireDate = [NSDate distantFuture];
+        _audioRecorderTimer.fireDate = [NSDate distantFuture];
     }
 }
 
-#pragma mark - 恢复
 - (void)resumeAudioRecorder
 {
     // 恢复录音只需要再次调用record，AVAudioSession会帮助你记录上次录音位置并追加录音
+    [self startAudioRecorder];
 }
 
-#pragma mark - 取消
 - (void)cancleAudioRecorder
 {
     if ([_audioRecorder isRecording]) {
-        [self invalidTimer];
+        [self invalidRecordTimer];
         [_audioRecorder stop];
         _audioRecorder = nil;
+        _audioModel = nil;
     }
 }
 
-#pragma mark - 停止
 - (void)stopAudioRecorder
 {
     [_audioRecorder stop];
-    _audioTimer.fireDate = [NSDate distantFuture];
+    _audioRecorderTimer.fireDate = [NSDate distantFuture];
 }
 
 #pragma mark - 录音机设置
-#pragma mark - 设置音频会话
+#pragma mark - 初始化录音机 / 设置音频会话 / 获取录音文件保存路径 / 设置录音文件设置 / 获取录音对象
+- (void)initAudioRecorder
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyyMMddHHmmssSSS"];
+    
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [formatter setTimeZone:timeZone];
+    NSString * dateStr = [formatter stringFromDate:[NSDate date]];
+    
+    _audioModel = [[YSAudioModel alloc] init];
+    _audioModel.audioFilePath = [NSString stringWithFormat:@"%@.caf", dateStr];
+    
+    [self createAudioSession];
+    [self createAudioRecorder];
+    [self createAudioRecorderTimer];
+}
+
 - (void)createAudioSession
 {
     /*************  检测麦克风是否可用   ************************/
@@ -115,23 +149,25 @@ const static NSTimeInterval updateTimeInterval = 0.05;
     }
 }
 
-#pragma mark - 获取录音文件保存路径
-- (NSURL *)getSaveAudioFilePath:(NSString *)path
+- (NSURL *)getSaveAudioFilePath
 {
     NSString *urlStr=[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) lastObject];
-    
-    urlStr = [urlStr stringByAppendingPathComponent:path];
+    if (_audioModel != nil) {
+        urlStr = [urlStr stringByAppendingPathComponent:_audioModel.audioFilePath];
+    } else {
+        urlStr = @"";
+    }
     NSLog(@"YSAudioLog --------------- file path:%@",urlStr);
-    _audioFileUrl = [NSURL fileURLWithPath:urlStr];
-    return _audioFileUrl;
+    
+    NSURL * audioFileUrl = [NSURL fileURLWithPath:urlStr];
+    return audioFileUrl;
 }
 
-#pragma mark - 设置录音文件设置
 - (NSDictionary *)getAudioSetting
 {
     NSMutableDictionary * recordSetting = [NSMutableDictionary dictionary];
     // 录音格式
-    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatAppleIMA4] forKey:AVFormatIDKey];
+    [recordSetting setValue:[NSNumber numberWithInt:kAudioFormatLinearPCM] forKey:AVFormatIDKey];
     // 录音采样率，8000是电话采样率
     [recordSetting setValue:[NSNumber numberWithFloat:16000.0] forKey:AVSampleRateKey];
     // 通道，1 表示单声道
@@ -140,56 +176,40 @@ const static NSTimeInterval updateTimeInterval = 0.05;
     [recordSetting setValue:@(8) forKey:AVLinearPCMBitDepthKey];
     // 是否使用浮点数采样
     [recordSetting setValue:@(YES) forKey:AVLinearPCMIsFloatKey];
+    // 其他设置……
+    
     return recordSetting;
 }
 
-#pragma mark - 获取录音对象
-- (AVAudioRecorder *)audioRecorder
+- (AVAudioRecorder *)createAudioRecorder
 {
-    if (_audioRecorder) {
-        [_audioRecorder stop];
-        _audioRecorder = nil;
+    if (!_audioRecorder) {
+       
+        // 录音文件保存路径  _audioFileUrl
+        NSURL * audioFileUrl = [self getSaveAudioFilePath];
+        
+        // 创建录音格式设置
+        NSDictionary * settingDict = [self getAudioSetting];
+        
+        // 创建录音机
+        NSError * error = nil;
+        
+        _audioRecorder = [[AVAudioRecorder alloc] initWithURL:audioFileUrl settings:settingDict error:&error];
+        
+        if(error){
+            NSLog(@"YSAudioLog ------------ AudioRecorder:%@    errorCode:%d    errorDesc:%@", [error domain], (int)[error code], [[error userInfo] description]);
+            return nil;
+        }
+        
+        _audioRecorder.delegate = self;
+        _audioRecorder.meteringEnabled = YES;   // 监控声波
     }
-
-    NSError * error = nil;
-    
-    _audioRecorder = [[AVAudioRecorder alloc] initWithURL:_audioFileUrl settings:[self getAudioSetting] error:&error];
-    if(!_audioRecorder){
-        NSLog(@"YSAudioLog ------------ AudioRecorder:%@    errorCode:%d    errorDesc:%@", [error domain], (int)[error code], [[error userInfo] description]);
-        return nil;
-    }
-    _audioRecorder.delegate = self;
-    _audioRecorder.meteringEnabled = YES;   // 监控声波
-    
     return _audioRecorder;
 }
 
-#pragma mark - AVAudioRecorderDelegate -
-- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
-{
-    // 录音完成
-    
-}
-
-#pragma mark - 播放器设置
-#pragma mark - 播放器
-- (AVAudioPlayer *)audioPlayer
-{
-    if (!_audioPlayer) {
-        NSError * error = nil;
-        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:_audioFileUrl error:&error];
-        _audioPlayer.numberOfLoops = 0;
-        [_audioPlayer prepareToPlay];
-        
-        if (error) {
-            NSLog(@"YSAudioLog ------------ AudioPlayer:%@    errorCode:%d    errorDesc:%@", [error domain], (int)[error code], [[error userInfo] description]);
-            return nil;
-        }
-    }
-    return _audioPlayer;
-}
-
-#pragma mark - 判断麦克风是否可用 -
+/**
+ *  判断麦克风是否可用
+ */
 - (BOOL)microPhoneIsValid
 {
     __block BOOL microPhoneValid = NO;
@@ -210,32 +230,124 @@ const static NSTimeInterval updateTimeInterval = 0.05;
 }
 
 #pragma mark - 录音声波监控定时器创建/消除 -
-- (NSTimer *)getAudioTimer
+- (NSTimer *)createAudioRecorderTimer
 {
-    [self invalidTimer];
-    
-    _audioTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimeInterval
-                                                   target:self
-                                                 selector:@selector(uptateAudioPowerChange)
-                                                 userInfo:nil
-                                                  repeats:YES];
-    return _audioTimer;
-}
-
-- (void)invalidTimer
-{
-    if (_audioTimer) {
-        [_audioTimer invalidate];
-        _audioTimer = nil;
+    if (!_audioRecorderTimer) {
+        _audioRecorderTimer = [NSTimer scheduledTimerWithTimeInterval:updateTimeInterval
+                                                               target:self
+                                                             selector:@selector(uptateAudioPowerChange)
+                                                             userInfo:nil
+                                                              repeats:YES];
     }
+    return _audioRecorderTimer;
 }
 
 - (float)uptateAudioPowerChange
 {
-    _audioTimeInterval += updateTimeInterval;
+    if (_audioModel != nil) {
+        _audioModel.audioTimeInterval += updateTimeInterval;
+    }
+    
     [_audioRecorder updateMeters];  // 更新测量值
-    _audioPower = [_audioRecorder averagePowerForChannel:0];    //取得第一个通道的音频，注意音频强度范围是 -160到0
+    float power = [_audioRecorder averagePowerForChannel:0];    //取得第一个通道的音频，注意音频强度范围是 -160到0
+    _audioPower = (1.0 / 160.0)*(power + 160.0);
     return _audioPower;
+}
+
+- (void)invalidRecordTimer
+{
+    if (_audioRecorderTimer != nil) {
+        [_audioRecorderTimer invalidate];
+        _audioRecorderTimer = nil;
+    }
+}
+
+#pragma mark - AVAudioRecorderDelegate -
+- (void)audioRecorderDidFinishRecording:(AVAudioRecorder *)recorder successfully:(BOOL)flag
+{
+    // 录音完成
+    
+}
+
+#pragma mark -
+#pragma mark - 播放器
+#pragma mark - 播放 / 暂停
+- (void)playAudio
+{
+    if (_audioPlayer == nil) {
+        [self createAudioPlayer];
+        [self createAudioPlayTimer];
+    }
+    
+    if (![_audioPlayer isPlaying]) {
+        [_audioPlayer play];
+        _audioPlayTimer.fireDate = [NSDate distantPast];    // 恢复定时器
+    }
+}
+
+- (void)pauseAudio
+{
+    if ([_audioPlayer isPlaying]) {
+        [_audioPlayer pause];
+        _audioPlayTimer.fireDate = [NSDate distantFuture];  // 暂停定时器
+    }
+}
+
+- (void)stopAudio
+{
+    [_audioPlayer stop];
+    [self initValidPlayerTimer];
+}
+
+#pragma mark - 创建播放器
+- (AVAudioPlayer *)createAudioPlayer
+{
+    if (!_audioPlayer) {
+        NSError * error = nil;
+        _audioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[self getSaveAudioFilePath] error:&error];
+        
+        if (error) {
+            NSLog(@"YSAudioLog ------------ AudioPlayer:%@    errorCode:%d    errorDesc:%@", [error domain], (int)[error code], [[error userInfo] description]);
+            return nil;
+        }
+        
+        _audioPlayer.numberOfLoops = 0;     // 0 为不循环
+        _audioPlayer.delegate = self;
+        [_audioPlayer prepareToPlay];       // 加载音频文件到缓存
+    }
+    return _audioPlayer;
+}
+
+#pragma mark - 播放进度定时器
+- (NSTimer *)createAudioPlayTimer
+{
+    if (!_audioPlayer) {
+        _audioPlayTimer = [NSTimer scheduledTimerWithTimeInterval:0.5
+                                                           target:self
+                                                         selector:@selector(updateProgress)
+                                                         userInfo:nil
+                                                          repeats:YES];
+    }
+    return _audioPlayTimer;
+}
+
+- (void)updateProgress
+{
+    _audioPlayProgress = _audioPlayer.currentTime / _audioPlayer.duration;
+}
+
+- (void)initValidPlayerTimer
+{
+    if (_audioPlayTimer != nil) {
+        [_audioPlayTimer invalidate];
+        _audioPlayTimer = nil;
+    }
+}
+
+#pragma mark - AVAudioPlayerDelegate -
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    // 音频播放完毕
 }
 
 @end

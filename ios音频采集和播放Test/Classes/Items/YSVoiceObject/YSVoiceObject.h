@@ -14,21 +14,46 @@
 #import <AVFoundation/AVFoundation.h>
 #import <UIKit/UIKit.h>
 
-@interface YSVoiceObject : NSObject <AVAudioRecorderDelegate>
 
-@property (nonatomic, copy)   NSString *        audioCategoryType;  // 音频会话类型  AVAudioSessionCategoryRecord
-@property (nonatomic, strong) AVAudioRecorder * audioRecorder;      // 音频录音机
-@property (nonatomic, strong) AVAudioPlayer *   audioPlayer;        // 音频播放器
-@property (nonatomic, strong) NSURL *           audioFileUrl;       // 音频文件的url
-@property (nonatomic, assign) NSTimeInterval    audioTimeInterval;  // 录音时长
-@property (nonatomic, strong) NSTimer *         audioTimer;         // 录音声波监控
-@property (nonatomic, assign) float             audioPower;         // 录音声波值
 
-#pragma mark - instance method -
-- (void)startAudioRecorderWithPath:(NSString *)fileName;
-- (void)cancleAudioRecorder;
-- (void)stopAudioRecorder;
-- (void)pauseAudioRecorder;
-- (void)resumeAudioRecorder;
+#pragma mark - 音频 model -
+@interface YSAudioModel : NSObject
+
+@property (nonatomic, copy)     NSString *          audioFilePath;      //路径
+@property (nonatomic, assign)   NSTimeInterval      audioTimeInterval;  //时长
 
 @end
+
+
+
+@interface YSVoiceObject : NSObject <AVAudioRecorderDelegate, AVAudioPlayerDelegate>
+
+@property (nonatomic, copy)   NSString *        audioCategoryType;  // 音频会话类型
+@property (nonatomic, strong) AVAudioRecorder * audioRecorder;      // 音频录音机
+@property (nonatomic, strong) NSTimer *         audioRecorderTimer; // 录音声波监控
+@property (nonatomic, assign) float             audioPower;         // 录音声波值
+@property (nonatomic, strong) YSAudioModel *    audioModel;
+
+
+/**********************   播放器   **************************/
+@property (nonatomic, strong) AVAudioPlayer *   audioPlayer;        // 音频播放器
+@property (nonatomic, strong) NSTimer *         audioPlayTimer;     // 播放进度
+@property (nonatomic, assign) float             audioPlayProgress;  // 播放进度
+
+
+
+#pragma mark - 录音 -
+- (void)startAudioRecorder;
+- (void)pauseAudioRecorder;
+- (void)resumeAudioRecorder;
+- (void)cancleAudioRecorder;
+- (void)stopAudioRecorder;
+
+#pragma mark - 播放 -
+- (void)playAudio;
+- (void)pauseAudio;
+- (void)stopAudio;
+
+@end
+
+

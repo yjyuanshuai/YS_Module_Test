@@ -21,7 +21,6 @@
 		39299ECD1CDB326600FFA496 /* two.png in Resources */ = {isa = PBXBuildFile; fileRef = 39299ECB1CDB326600FFA496 /* two.png */; };
 		39299ED11CDB46FE00FFA496 /* YSVoiceObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 39299ED01CDB46FE00FFA496 /* YSVoiceObject.m */; };
 		39BA06341CDCA1BA0071AD1C /* YSWindow.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BA06331CDCA1BA0071AD1C /* YSWindow.m */; };
-		39BA06381CDCA9380071AD1C /* UIImage+YSImageProgress.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BA06371CDCA9380071AD1C /* UIImage+YSImageProgress.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,8 +67,6 @@
 		39299ED01CDB46FE00FFA496 /* YSVoiceObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSVoiceObject.m; sourceTree = "<group>"; };
 		39BA06321CDCA1BA0071AD1C /* YSWindow.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSWindow.h; sourceTree = "<group>"; };
 		39BA06331CDCA1BA0071AD1C /* YSWindow.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSWindow.m; sourceTree = "<group>"; };
-		39BA06361CDCA9380071AD1C /* UIImage+YSImageProgress.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YSImageProgress.h"; sourceTree = "<group>"; };
-		39BA06371CDCA9380071AD1C /* UIImage+YSImageProgress.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YSImageProgress.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -311,8 +308,6 @@
 		39BA06351CDCA8F90071AD1C /* YSImageProgress */ = {
 			isa = PBXGroup;
 			children = (
-				39BA06361CDCA9380071AD1C /* UIImage+YSImageProgress.h */,
-				39BA06371CDCA9380071AD1C /* UIImage+YSImageProgress.m */,
 			);
 			path = YSImageProgress;
 			sourceTree = "<group>";
@@ -451,7 +446,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				39299EC91CDB30E000FFA496 /* SecondViewController.m in Sources */,
-				39BA06381CDCA9380071AD1C /* UIImage+YSImageProgress.m in Sources */,
 				39BA06341CDCA1BA0071AD1C /* YSWindow.m in Sources */,
 				39299ED11CDB46FE00FFA496 /* YSVoiceObject.m in Sources */,
 				39299E8A1CDB265500FFA496 /* ViewController.m in Sources */,
