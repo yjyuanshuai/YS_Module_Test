@@ -18,6 +18,7 @@
 		3938CAF31CF7EB0700BE5BC3 /* YSAudioModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938CAF21CF7EB0700BE5BC3 /* YSAudioModel.m */; };
 		3938CAF61CF7EBF900BE5BC3 /* YSAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938CAF51CF7EBF900BE5BC3 /* YSAudioRecorder.m */; };
 		3938CAF91CF7EC0B00BE5BC3 /* YSAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938CAF81CF7EC0B00BE5BC3 /* YSAudioPlayer.m */; };
+		3938CAFD1CF7F68A00BE5BC3 /* SecordViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3938CAFC1CF7F68A00BE5BC3 /* SecordViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,6 +61,8 @@
 		3938CAF51CF7EBF900BE5BC3 /* YSAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAudioRecorder.m; sourceTree = "<group>"; };
 		3938CAF71CF7EC0B00BE5BC3 /* YSAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAudioPlayer.h; sourceTree = "<group>"; };
 		3938CAF81CF7EC0B00BE5BC3 /* YSAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAudioPlayer.m; sourceTree = "<group>"; };
+		3938CAFB1CF7F68A00BE5BC3 /* SecordViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecordViewController.h; sourceTree = "<group>"; };
+		3938CAFC1CF7F68A00BE5BC3 /* SecordViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecordViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,6 +180,7 @@
 		3938CAE51CF7E1F600BE5BC3 /* Items */ = {
 			isa = PBXGroup;
 			children = (
+				3938CAFA1CF7F66A00BE5BC3 /* SecondItem */,
 				3938CAEF1CF7E20E00BE5BC3 /* FirstItem */,
 				3938CAE61CF7E1F600BE5BC3 /* Main */,
 			);
@@ -265,6 +269,15 @@
 				3938CAB61CF7E1D000BE5BC3 /* ViewController.m */,
 			);
 			name = FirstItem;
+			sourceTree = "<group>";
+		};
+		3938CAFA1CF7F66A00BE5BC3 /* SecondItem */ = {
+			isa = PBXGroup;
+			children = (
+				3938CAFB1CF7F68A00BE5BC3 /* SecordViewController.h */,
+				3938CAFC1CF7F68A00BE5BC3 /* SecordViewController.m */,
+			);
+			name = SecondItem;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -401,6 +414,7 @@
 				3938CAF91CF7EC0B00BE5BC3 /* YSAudioPlayer.m in Sources */,
 				3938CAF31CF7EB0700BE5BC3 /* YSAudioModel.m in Sources */,
 				3938CAB71CF7E1D000BE5BC3 /* ViewController.m in Sources */,
+				3938CAFD1CF7F68A00BE5BC3 /* SecordViewController.m in Sources */,
 				3938CAB41CF7E1D000BE5BC3 /* AppDelegate.m in Sources */,
 				3938CAB11CF7E1D000BE5BC3 /* main.m in Sources */,
 			);
