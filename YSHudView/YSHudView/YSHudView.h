@@ -24,12 +24,21 @@
 @property (nonatomic, strong, readonly) MBProgressHUD * mbProgressHud;
 @property (nonatomic, strong) UIView * hudView;
 
+#pragma mark - class method -
+
 + (instancetype)sharedYSHudView;
 
++ (void)yiBaoHUDShowWithUserEnable;
++ (void)yiBaoHUDShowWithUserUnenable;
++ (void)yiBaoHUDStopOrShowWithMsg:(NSString*)msg finsh:(void (^)(void))finshBlock;
 
-- (void)showYiBaoHUD;
+#pragma mark - instance method -
+- (void)showYiBaoHUDWithUserEnable;
+- (void)showYiBaoHUDWithUserUnenable;
+- (void)stopOrShowHUDWithMsg:(NSString*)msg finsh:(void (^)(void))finshBlock;
+
+
+#pragma mark -
 - (void)hideHUD;
-- (void)stopOrDisplayMBHudWithmsg:(NSString*)msg finsh:(void (^)(void))finshBlock;
-
 
 @end

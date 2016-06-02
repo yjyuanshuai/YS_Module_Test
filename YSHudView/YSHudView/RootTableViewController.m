@@ -11,8 +11,6 @@
 
 @interface RootTableViewController ()
 
-@property (nonatomic, strong) YSHudView * hudView;
-
 @end
 
 @implementation RootTableViewController
@@ -22,8 +20,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    _hudView = [YSHudView sharedYSHudView];
     
     clickNmuber = 0;
     
@@ -59,11 +55,15 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    [_hudView showYiBaoHUD];
-    
+    if (indexPath.section == 0) {
+        [YSHudView yiBaoHUDShowWithUserEnable];
+    } else {
+        [YSHudView yiBaoHUDShowWithUserUnenable];
+    }
+
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [_hudView stopOrDisplayMBHudWithmsg:@"这是一条提示" finsh:^{
+        [YSHudView yiBaoHUDStopOrShowWithMsg:nil finsh:^{
             NSLog(@"-------------- 这是提示之后的");
         }];
         
