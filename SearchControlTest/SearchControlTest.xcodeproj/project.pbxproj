@@ -425,7 +425,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SearchControlTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuaiTest.SearchControlTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -440,7 +440,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = SearchControlTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuaiTest.SearchControlTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -513,6 +513,7 @@
 				39A9112E1CC9D5C4003B5151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A9112F1CC9D5C4003B5151 /* Build configuration list for PBXNativeTarget "SearchControlTestTests" */ = {
 			isa = XCConfigurationList;
@@ -521,6 +522,7 @@
 				39A911311CC9D5C4003B5151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		39A911321CC9D5C4003B5151 /* Build configuration list for PBXNativeTarget "SearchControlTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -529,6 +531,7 @@
 				39A911341CC9D5C4003B5151 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

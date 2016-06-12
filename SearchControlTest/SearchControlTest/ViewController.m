@@ -70,7 +70,6 @@
 - (void)createSearchControl
 {
     SearchResultTableViewController * searchResultVC = [[SearchResultTableViewController alloc] init];
-    searchResultVC.view.backgroundColor = [UIColor redColor];
     
     _searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
     _searchController.searchResultsUpdater = self;
