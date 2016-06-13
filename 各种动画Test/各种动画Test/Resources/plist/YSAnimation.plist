@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<array>
+	<string>帧动画</string>
+	<string>二维动画</string>
+	<string>三维动画</string>
+	<string>页面翻页动画</string>
+	<string>UIKit 动画</string>
+	<string>Core Animation</string>
+</array>
+</plist>

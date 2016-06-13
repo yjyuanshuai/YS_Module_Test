@@ -1,0 +1,631 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		395E84CC1C5CBA2C009E059F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E84CB1C5CBA2C009E059F /* main.m */; };
+		395E84CF1C5CBA2C009E059F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E84CE1C5CBA2C009E059F /* AppDelegate.m */; };
+		395E84D21C5CBA2C009E059F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E84D11C5CBA2C009E059F /* ViewController.m */; };
+		395E84D51C5CBA2C009E059F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 395E84D31C5CBA2C009E059F /* Main.storyboard */; };
+		395E84D71C5CBA2C009E059F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 395E84D61C5CBA2C009E059F /* Assets.xcassets */; };
+		395E84DA1C5CBA2C009E059F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 395E84D81C5CBA2C009E059F /* LaunchScreen.storyboard */; };
+		395E84E51C5CBA2C009E059F /* ________TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E84E41C5CBA2C009E059F /* ________TestTests.m */; };
+		395E84F01C5CBA2C009E059F /* ________TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E84EF1C5CBA2C009E059F /* ________TestUITests.m */; };
+		395E850C1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E850B1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		395E84E11C5CBA2C009E059F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 395E84BF1C5CBA2C009E059F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 395E84C61C5CBA2C009E059F;
+			remoteInfo = "支付宝咻一咻动画Test";
+		};
+		395E84EC1C5CBA2C009E059F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 395E84BF1C5CBA2C009E059F /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 395E84C61C5CBA2C009E059F;
+			remoteInfo = "支付宝咻一咻动画Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		395E84C71C5CBA2C009E059F /* 支付宝咻一咻动画Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "支付宝咻一咻动画Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		395E84CB1C5CBA2C009E059F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		395E84CD1C5CBA2C009E059F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
+		395E84CE1C5CBA2C009E059F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../../AppDelegate.m; sourceTree = "<group>"; };
+		395E84D01C5CBA2C009E059F /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../../../ViewController.h; sourceTree = "<group>"; };
+		395E84D11C5CBA2C009E059F /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../../../ViewController.m; sourceTree = "<group>"; };
+		395E84D41C5CBA2C009E059F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		395E84D61C5CBA2C009E059F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		395E84D91C5CBA2C009E059F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		395E84DB1C5CBA2C009E059F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		395E84E01C5CBA2C009E059F /* 支付宝咻一咻动画TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "支付宝咻一咻动画TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		395E84E41C5CBA2C009E059F /* ________TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________TestTests.m"; sourceTree = "<group>"; };
+		395E84E61C5CBA2C009E059F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		395E84EB1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "支付宝咻一咻动画TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		395E84EF1C5CBA2C009E059F /* ________TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "________TestUITests.m"; sourceTree = "<group>"; };
+		395E84F11C5CBA2C009E059F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		395E850A1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAliPayXiuXiuAnimation.h; sourceTree = "<group>"; };
+		395E850B1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAliPayXiuXiuAnimation.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		395E84C41C5CBA2C009E059F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		395E84DD1C5CBA2C009E059F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		395E84E81C5CBA2C009E059F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		395E84BE1C5CBA2C009E059F = {
+			isa = PBXGroup;
+			children = (
+				395E84C91C5CBA2C009E059F /* 支付宝咻一咻动画Test */,
+				395E84E31C5CBA2C009E059F /* 支付宝咻一咻动画TestTests */,
+				395E84EE1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests */,
+				395E84C81C5CBA2C009E059F /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		395E84C81C5CBA2C009E059F /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				395E84C71C5CBA2C009E059F /* 支付宝咻一咻动画Test.app */,
+				395E84E01C5CBA2C009E059F /* 支付宝咻一咻动画TestTests.xctest */,
+				395E84EB1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		395E84C91C5CBA2C009E059F /* 支付宝咻一咻动画Test */ = {
+			isa = PBXGroup;
+			children = (
+				395E84FD1C5CBA3B009E059F /* Classes */,
+				395E85041C5CBA3B009E059F /* Resources */,
+				395E84CA1C5CBA2C009E059F /* Supporting Files */,
+			);
+			path = "支付宝咻一咻动画Test";
+			sourceTree = "<group>";
+		};
+		395E84CA1C5CBA2C009E059F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				395E84D31C5CBA2C009E059F /* Main.storyboard */,
+				395E84D61C5CBA2C009E059F /* Assets.xcassets */,
+				395E84D81C5CBA2C009E059F /* LaunchScreen.storyboard */,
+				395E84DB1C5CBA2C009E059F /* Info.plist */,
+				395E84CB1C5CBA2C009E059F /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		395E84E31C5CBA2C009E059F /* 支付宝咻一咻动画TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				395E84E41C5CBA2C009E059F /* ________TestTests.m */,
+				395E84E61C5CBA2C009E059F /* Info.plist */,
+			);
+			path = "支付宝咻一咻动画TestTests";
+			sourceTree = "<group>";
+		};
+		395E84EE1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				395E84EF1C5CBA2C009E059F /* ________TestUITests.m */,
+				395E84F11C5CBA2C009E059F /* Info.plist */,
+			);
+			path = "支付宝咻一咻动画TestUITests";
+			sourceTree = "<group>";
+		};
+		395E84FD1C5CBA3B009E059F /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				395E84FE1C5CBA3B009E059F /* Categories */,
+				395E84FF1C5CBA3B009E059F /* Items */,
+				395E85011C5CBA3B009E059F /* Libs */,
+				395E85021C5CBA3B009E059F /* Models */,
+				395E85031C5CBA3B009E059F /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		395E84FE1C5CBA3B009E059F /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		395E84FF1C5CBA3B009E059F /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				395E85091C5CBA85009E059F /* FirstItem */,
+				395E85001C5CBA3B009E059F /* Main */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		395E85001C5CBA3B009E059F /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				395E84CD1C5CBA2C009E059F /* AppDelegate.h */,
+				395E84CE1C5CBA2C009E059F /* AppDelegate.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		395E85011C5CBA3B009E059F /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				395E850A1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.h */,
+				395E850B1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.m */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		395E85021C5CBA3B009E059F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		395E85031C5CBA3B009E059F /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		395E85041C5CBA3B009E059F /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				395E85051C5CBA3B009E059F /* audios */,
+				395E85061C5CBA3B009E059F /* iamges */,
+				395E85071C5CBA3B009E059F /* plist */,
+				395E85081C5CBA3B009E059F /* video */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		395E85051C5CBA3B009E059F /* audios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = audios;
+			sourceTree = "<group>";
+		};
+		395E85061C5CBA3B009E059F /* iamges */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = iamges;
+			sourceTree = "<group>";
+		};
+		395E85071C5CBA3B009E059F /* plist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
+		395E85081C5CBA3B009E059F /* video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		395E85091C5CBA85009E059F /* FirstItem */ = {
+			isa = PBXGroup;
+			children = (
+				395E84D01C5CBA2C009E059F /* ViewController.h */,
+				395E84D11C5CBA2C009E059F /* ViewController.m */,
+			);
+			path = FirstItem;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		395E84C61C5CBA2C009E059F /* 支付宝咻一咻动画Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 395E84F41C5CBA2C009E059F /* Build configuration list for PBXNativeTarget "支付宝咻一咻动画Test" */;
+			buildPhases = (
+				395E84C31C5CBA2C009E059F /* Sources */,
+				395E84C41C5CBA2C009E059F /* Frameworks */,
+				395E84C51C5CBA2C009E059F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "支付宝咻一咻动画Test";
+			productName = "支付宝咻一咻动画Test";
+			productReference = 395E84C71C5CBA2C009E059F /* 支付宝咻一咻动画Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		395E84DF1C5CBA2C009E059F /* 支付宝咻一咻动画TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 395E84F71C5CBA2C009E059F /* Build configuration list for PBXNativeTarget "支付宝咻一咻动画TestTests" */;
+			buildPhases = (
+				395E84DC1C5CBA2C009E059F /* Sources */,
+				395E84DD1C5CBA2C009E059F /* Frameworks */,
+				395E84DE1C5CBA2C009E059F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				395E84E21C5CBA2C009E059F /* PBXTargetDependency */,
+			);
+			name = "支付宝咻一咻动画TestTests";
+			productName = "支付宝咻一咻动画TestTests";
+			productReference = 395E84E01C5CBA2C009E059F /* 支付宝咻一咻动画TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		395E84EA1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 395E84FA1C5CBA2C009E059F /* Build configuration list for PBXNativeTarget "支付宝咻一咻动画TestUITests" */;
+			buildPhases = (
+				395E84E71C5CBA2C009E059F /* Sources */,
+				395E84E81C5CBA2C009E059F /* Frameworks */,
+				395E84E91C5CBA2C009E059F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				395E84ED1C5CBA2C009E059F /* PBXTargetDependency */,
+			);
+			name = "支付宝咻一咻动画TestUITests";
+			productName = "支付宝咻一咻动画TestUITests";
+			productReference = 395E84EB1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		395E84BF1C5CBA2C009E059F /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = YJ;
+				TargetAttributes = {
+					395E84C61C5CBA2C009E059F = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					395E84DF1C5CBA2C009E059F = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 395E84C61C5CBA2C009E059F;
+					};
+					395E84EA1C5CBA2C009E059F = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 395E84C61C5CBA2C009E059F;
+					};
+				};
+			};
+			buildConfigurationList = 395E84C21C5CBA2C009E059F /* Build configuration list for PBXProject "支付宝咻一咻动画Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 395E84BE1C5CBA2C009E059F;
+			productRefGroup = 395E84C81C5CBA2C009E059F /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				395E84C61C5CBA2C009E059F /* 支付宝咻一咻动画Test */,
+				395E84DF1C5CBA2C009E059F /* 支付宝咻一咻动画TestTests */,
+				395E84EA1C5CBA2C009E059F /* 支付宝咻一咻动画TestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		395E84C51C5CBA2C009E059F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				395E84DA1C5CBA2C009E059F /* LaunchScreen.storyboard in Resources */,
+				395E84D71C5CBA2C009E059F /* Assets.xcassets in Resources */,
+				395E84D51C5CBA2C009E059F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		395E84DE1C5CBA2C009E059F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		395E84E91C5CBA2C009E059F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		395E84C31C5CBA2C009E059F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				395E850C1C5CBB8B009E059F /* YSAliPayXiuXiuAnimation.m in Sources */,
+				395E84D21C5CBA2C009E059F /* ViewController.m in Sources */,
+				395E84CF1C5CBA2C009E059F /* AppDelegate.m in Sources */,
+				395E84CC1C5CBA2C009E059F /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		395E84DC1C5CBA2C009E059F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				395E84E51C5CBA2C009E059F /* ________TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		395E84E71C5CBA2C009E059F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				395E84F01C5CBA2C009E059F /* ________TestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		395E84E21C5CBA2C009E059F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 395E84C61C5CBA2C009E059F /* 支付宝咻一咻动画Test */;
+			targetProxy = 395E84E11C5CBA2C009E059F /* PBXContainerItemProxy */;
+		};
+		395E84ED1C5CBA2C009E059F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 395E84C61C5CBA2C009E059F /* 支付宝咻一咻动画Test */;
+			targetProxy = 395E84EC1C5CBA2C009E059F /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		395E84D31C5CBA2C009E059F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				395E84D41C5CBA2C009E059F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		395E84D81C5CBA2C009E059F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				395E84D91C5CBA2C009E059F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		395E84F21C5CBA2C009E059F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		395E84F31C5CBA2C009E059F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		395E84F51C5CBA2C009E059F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "支付宝咻一咻动画Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.--------Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		395E84F61C5CBA2C009E059F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "支付宝咻一咻动画Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.--------Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		395E84F81C5CBA2C009E059F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "支付宝咻一咻动画TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.--------TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/支付宝咻一咻动画Test.app/支付宝咻一咻动画Test";
+			};
+			name = Debug;
+		};
+		395E84F91C5CBA2C009E059F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "支付宝咻一咻动画TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.--------TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/支付宝咻一咻动画Test.app/支付宝咻一咻动画Test";
+			};
+			name = Release;
+		};
+		395E84FB1C5CBA2C009E059F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "支付宝咻一咻动画TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.--------TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "支付宝咻一咻动画Test";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		395E84FC1C5CBA2C009E059F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "支付宝咻一咻动画TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.--------TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "支付宝咻一咻动画Test";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		395E84C21C5CBA2C009E059F /* Build configuration list for PBXProject "支付宝咻一咻动画Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				395E84F21C5CBA2C009E059F /* Debug */,
+				395E84F31C5CBA2C009E059F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		395E84F41C5CBA2C009E059F /* Build configuration list for PBXNativeTarget "支付宝咻一咻动画Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				395E84F51C5CBA2C009E059F /* Debug */,
+				395E84F61C5CBA2C009E059F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		395E84F71C5CBA2C009E059F /* Build configuration list for PBXNativeTarget "支付宝咻一咻动画TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				395E84F81C5CBA2C009E059F /* Debug */,
+				395E84F91C5CBA2C009E059F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		395E84FA1C5CBA2C009E059F /* Build configuration list for PBXNativeTarget "支付宝咻一咻动画TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				395E84FB1C5CBA2C009E059F /* Debug */,
+				395E84FC1C5CBA2C009E059F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 395E84BF1C5CBA2C009E059F /* Project object */;
+}

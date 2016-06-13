@@ -1,0 +1,682 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3918FA641C55ABD0008187E8 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FA631C55ABD0008187E8 /* main.m */; };
+		3918FA671C55ABD0008187E8 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FA661C55ABD0008187E8 /* AppDelegate.m */; };
+		3918FA6D1C55ABD0008187E8 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3918FA6B1C55ABD0008187E8 /* Main.storyboard */; };
+		3918FA6F1C55ABD0008187E8 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 3918FA6E1C55ABD0008187E8 /* Assets.xcassets */; };
+		3918FA721C55ABD0008187E8 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 3918FA701C55ABD0008187E8 /* LaunchScreen.storyboard */; };
+		3918FA7D1C55ABD0008187E8 /* tableView_____VC__TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FA7C1C55ABD0008187E8 /* tableView_____VC__TestTests.m */; };
+		3918FA881C55ABD0008187E8 /* tableView_____VC__TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FA871C55ABD0008187E8 /* tableView_____VC__TestUITests.m */; };
+		3918FAA51C55AC8A008187E8 /* OneViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAA41C55AC8A008187E8 /* OneViewController.m */; };
+		3918FAA81C55AC9C008187E8 /* TwoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAA71C55AC9C008187E8 /* TwoViewController.m */; };
+		3918FAAB1C55ACB0008187E8 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAAA1C55ACB0008187E8 /* RootViewController.m */; };
+		3918FAAF1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAAE1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m */; };
+		3918FAB51C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAB41C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m */; };
+		3918FAB81C55D4C8008187E8 /* YSDataSourceAndDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 3918FAB71C55D4C8008187E8 /* YSDataSourceAndDelegate.m */; };
+		3918FABC1C55FF1A008187E8 /* ly_click@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3918FABA1C55FF1A008187E8 /* ly_click@2x.png */; };
+		3918FABD1C55FF1A008187E8 /* ly_default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3918FABB1C55FF1A008187E8 /* ly_default@2x.png */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		3918FA791C55ABD0008187E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3918FA571C55ABD0008187E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3918FA5E1C55ABD0008187E8;
+			remoteInfo = "tableView代理方法与VC分离Test";
+		};
+		3918FA841C55ABD0008187E8 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3918FA571C55ABD0008187E8 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 3918FA5E1C55ABD0008187E8;
+			remoteInfo = "tableView代理方法与VC分离Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		3918FA5F1C55ABD0008187E8 /* tableView代理方法与VC分离Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tableView代理方法与VC分离Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3918FA631C55ABD0008187E8 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		3918FA651C55ABD0008187E8 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
+		3918FA661C55ABD0008187E8 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../../AppDelegate.m; sourceTree = "<group>"; };
+		3918FA6C1C55ABD0008187E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		3918FA6E1C55ABD0008187E8 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		3918FA711C55ABD0008187E8 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		3918FA731C55ABD0008187E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3918FA781C55ABD0008187E8 /* tableView代理方法与VC分离TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tableView代理方法与VC分离TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3918FA7C1C55ABD0008187E8 /* tableView_____VC__TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "tableView_____VC__TestTests.m"; sourceTree = "<group>"; };
+		3918FA7E1C55ABD0008187E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3918FA831C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tableView代理方法与VC分离TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		3918FA871C55ABD0008187E8 /* tableView_____VC__TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "tableView_____VC__TestUITests.m"; sourceTree = "<group>"; };
+		3918FA891C55ABD0008187E8 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		3918FAA31C55AC8A008187E8 /* OneViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneViewController.h; sourceTree = "<group>"; };
+		3918FAA41C55AC8A008187E8 /* OneViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneViewController.m; sourceTree = "<group>"; };
+		3918FAA61C55AC9C008187E8 /* TwoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoViewController.h; sourceTree = "<group>"; };
+		3918FAA71C55AC9C008187E8 /* TwoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoViewController.m; sourceTree = "<group>"; };
+		3918FAA91C55ACB0008187E8 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		3918FAAA1C55ACB0008187E8 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
+		3918FAAD1C55AE17008187E8 /* UIScrollView+EmptyDataSet.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+EmptyDataSet.h"; sourceTree = "<group>"; };
+		3918FAAE1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+EmptyDataSet.m"; sourceTree = "<group>"; };
+		3918FAB31C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSEmptyDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		3918FAB41C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSEmptyDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		3918FAB61C55D4C8008187E8 /* YSDataSourceAndDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDataSourceAndDelegate.h; sourceTree = "<group>"; };
+		3918FAB71C55D4C8008187E8 /* YSDataSourceAndDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDataSourceAndDelegate.m; sourceTree = "<group>"; };
+		3918FABA1C55FF1A008187E8 /* ly_click@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ly_click@2x.png"; sourceTree = "<group>"; };
+		3918FABB1C55FF1A008187E8 /* ly_default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "ly_default@2x.png"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		3918FA5C1C55ABD0008187E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3918FA751C55ABD0008187E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3918FA801C55ABD0008187E8 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3918FA561C55ABD0008187E8 = {
+			isa = PBXGroup;
+			children = (
+				3918FA611C55ABD0008187E8 /* tableView代理方法与VC分离Test */,
+				3918FA7B1C55ABD0008187E8 /* tableView代理方法与VC分离TestTests */,
+				3918FA861C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests */,
+				3918FA601C55ABD0008187E8 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		3918FA601C55ABD0008187E8 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA5F1C55ABD0008187E8 /* tableView代理方法与VC分离Test.app */,
+				3918FA781C55ABD0008187E8 /* tableView代理方法与VC分离TestTests.xctest */,
+				3918FA831C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		3918FA611C55ABD0008187E8 /* tableView代理方法与VC分离Test */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA951C55ABEC008187E8 /* Classes */,
+				3918FA9C1C55ABEC008187E8 /* Resources */,
+				3918FA621C55ABD0008187E8 /* Supporting Files */,
+			);
+			path = "tableView代理方法与VC分离Test";
+			sourceTree = "<group>";
+		};
+		3918FA621C55ABD0008187E8 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA6B1C55ABD0008187E8 /* Main.storyboard */,
+				3918FA6E1C55ABD0008187E8 /* Assets.xcassets */,
+				3918FA701C55ABD0008187E8 /* LaunchScreen.storyboard */,
+				3918FA731C55ABD0008187E8 /* Info.plist */,
+				3918FA631C55ABD0008187E8 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		3918FA7B1C55ABD0008187E8 /* tableView代理方法与VC分离TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA7C1C55ABD0008187E8 /* tableView_____VC__TestTests.m */,
+				3918FA7E1C55ABD0008187E8 /* Info.plist */,
+			);
+			path = "tableView代理方法与VC分离TestTests";
+			sourceTree = "<group>";
+		};
+		3918FA861C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA871C55ABD0008187E8 /* tableView_____VC__TestUITests.m */,
+				3918FA891C55ABD0008187E8 /* Info.plist */,
+			);
+			path = "tableView代理方法与VC分离TestUITests";
+			sourceTree = "<group>";
+		};
+		3918FA951C55ABEC008187E8 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA961C55ABEC008187E8 /* Categories */,
+				3918FA971C55ABEC008187E8 /* Items */,
+				3918FA991C55ABEC008187E8 /* Libs */,
+				3918FA9A1C55ABEC008187E8 /* Models */,
+				3918FA9B1C55ABEC008187E8 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		3918FA961C55ABEC008187E8 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		3918FA971C55ABEC008187E8 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA981C55ABEC008187E8 /* Main */,
+				3918FAA11C55AC70008187E8 /* ItemOne */,
+				3918FAA21C55AC70008187E8 /* ItemTwo */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		3918FA981C55ABEC008187E8 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA651C55ABD0008187E8 /* AppDelegate.h */,
+				3918FA661C55ABD0008187E8 /* AppDelegate.m */,
+				3918FAA91C55ACB0008187E8 /* RootViewController.h */,
+				3918FAAA1C55ACB0008187E8 /* RootViewController.m */,
+				3918FAB31C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.h */,
+				3918FAB41C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m */,
+				3918FAB61C55D4C8008187E8 /* YSDataSourceAndDelegate.h */,
+				3918FAB71C55D4C8008187E8 /* YSDataSourceAndDelegate.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		3918FA991C55ABEC008187E8 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+				3918FAAC1C55AE17008187E8 /* DZNEmptyDataSet */,
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		3918FA9A1C55ABEC008187E8 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		3918FA9B1C55ABEC008187E8 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		3918FA9C1C55ABEC008187E8 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3918FA9D1C55ABEC008187E8 /* audios */,
+				3918FA9E1C55ABEC008187E8 /* iamges */,
+				3918FA9F1C55ABEC008187E8 /* plist */,
+				3918FAA01C55ABEC008187E8 /* video */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		3918FA9D1C55ABEC008187E8 /* audios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = audios;
+			sourceTree = "<group>";
+		};
+		3918FA9E1C55ABEC008187E8 /* iamges */ = {
+			isa = PBXGroup;
+			children = (
+				3918FABA1C55FF1A008187E8 /* ly_click@2x.png */,
+				3918FABB1C55FF1A008187E8 /* ly_default@2x.png */,
+			);
+			path = iamges;
+			sourceTree = "<group>";
+		};
+		3918FA9F1C55ABEC008187E8 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
+		3918FAA01C55ABEC008187E8 /* video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		3918FAA11C55AC70008187E8 /* ItemOne */ = {
+			isa = PBXGroup;
+			children = (
+				3918FAA31C55AC8A008187E8 /* OneViewController.h */,
+				3918FAA41C55AC8A008187E8 /* OneViewController.m */,
+			);
+			path = ItemOne;
+			sourceTree = "<group>";
+		};
+		3918FAA21C55AC70008187E8 /* ItemTwo */ = {
+			isa = PBXGroup;
+			children = (
+				3918FAA61C55AC9C008187E8 /* TwoViewController.h */,
+				3918FAA71C55AC9C008187E8 /* TwoViewController.m */,
+			);
+			path = ItemTwo;
+			sourceTree = "<group>";
+		};
+		3918FAAC1C55AE17008187E8 /* DZNEmptyDataSet */ = {
+			isa = PBXGroup;
+			children = (
+				3918FAAD1C55AE17008187E8 /* UIScrollView+EmptyDataSet.h */,
+				3918FAAE1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m */,
+			);
+			path = DZNEmptyDataSet;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		3918FA5E1C55ABD0008187E8 /* tableView代理方法与VC分离Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3918FA8C1C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离Test" */;
+			buildPhases = (
+				3918FA5B1C55ABD0008187E8 /* Sources */,
+				3918FA5C1C55ABD0008187E8 /* Frameworks */,
+				3918FA5D1C55ABD0008187E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tableView代理方法与VC分离Test";
+			productName = "tableView代理方法与VC分离Test";
+			productReference = 3918FA5F1C55ABD0008187E8 /* tableView代理方法与VC分离Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		3918FA771C55ABD0008187E8 /* tableView代理方法与VC分离TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3918FA8F1C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离TestTests" */;
+			buildPhases = (
+				3918FA741C55ABD0008187E8 /* Sources */,
+				3918FA751C55ABD0008187E8 /* Frameworks */,
+				3918FA761C55ABD0008187E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3918FA7A1C55ABD0008187E8 /* PBXTargetDependency */,
+			);
+			name = "tableView代理方法与VC分离TestTests";
+			productName = "tableView代理方法与VC分离TestTests";
+			productReference = 3918FA781C55ABD0008187E8 /* tableView代理方法与VC分离TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		3918FA821C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 3918FA921C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离TestUITests" */;
+			buildPhases = (
+				3918FA7F1C55ABD0008187E8 /* Sources */,
+				3918FA801C55ABD0008187E8 /* Frameworks */,
+				3918FA811C55ABD0008187E8 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				3918FA851C55ABD0008187E8 /* PBXTargetDependency */,
+			);
+			name = "tableView代理方法与VC分离TestUITests";
+			productName = "tableView代理方法与VC分离TestUITests";
+			productReference = 3918FA831C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		3918FA571C55ABD0008187E8 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = YJ;
+				TargetAttributes = {
+					3918FA5E1C55ABD0008187E8 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					3918FA771C55ABD0008187E8 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 3918FA5E1C55ABD0008187E8;
+					};
+					3918FA821C55ABD0008187E8 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 3918FA5E1C55ABD0008187E8;
+					};
+				};
+			};
+			buildConfigurationList = 3918FA5A1C55ABD0008187E8 /* Build configuration list for PBXProject "tableView代理方法与VC分离Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 3918FA561C55ABD0008187E8;
+			productRefGroup = 3918FA601C55ABD0008187E8 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				3918FA5E1C55ABD0008187E8 /* tableView代理方法与VC分离Test */,
+				3918FA771C55ABD0008187E8 /* tableView代理方法与VC分离TestTests */,
+				3918FA821C55ABD0008187E8 /* tableView代理方法与VC分离TestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3918FA5D1C55ABD0008187E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3918FA721C55ABD0008187E8 /* LaunchScreen.storyboard in Resources */,
+				3918FA6F1C55ABD0008187E8 /* Assets.xcassets in Resources */,
+				3918FABC1C55FF1A008187E8 /* ly_click@2x.png in Resources */,
+				3918FABD1C55FF1A008187E8 /* ly_default@2x.png in Resources */,
+				3918FA6D1C55ABD0008187E8 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3918FA761C55ABD0008187E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3918FA811C55ABD0008187E8 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		3918FA5B1C55ABD0008187E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3918FAA51C55AC8A008187E8 /* OneViewController.m in Sources */,
+				3918FAB81C55D4C8008187E8 /* YSDataSourceAndDelegate.m in Sources */,
+				3918FA671C55ABD0008187E8 /* AppDelegate.m in Sources */,
+				3918FA641C55ABD0008187E8 /* main.m in Sources */,
+				3918FAA81C55AC9C008187E8 /* TwoViewController.m in Sources */,
+				3918FAAF1C55AE17008187E8 /* UIScrollView+EmptyDataSet.m in Sources */,
+				3918FAB51C55B78A008187E8 /* YSEmptyDataSourceAndDelegate.m in Sources */,
+				3918FAAB1C55ACB0008187E8 /* RootViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3918FA741C55ABD0008187E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3918FA7D1C55ABD0008187E8 /* tableView_____VC__TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		3918FA7F1C55ABD0008187E8 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3918FA881C55ABD0008187E8 /* tableView_____VC__TestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3918FA7A1C55ABD0008187E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3918FA5E1C55ABD0008187E8 /* tableView代理方法与VC分离Test */;
+			targetProxy = 3918FA791C55ABD0008187E8 /* PBXContainerItemProxy */;
+		};
+		3918FA851C55ABD0008187E8 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 3918FA5E1C55ABD0008187E8 /* tableView代理方法与VC分离Test */;
+			targetProxy = 3918FA841C55ABD0008187E8 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		3918FA6B1C55ABD0008187E8 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3918FA6C1C55ABD0008187E8 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		3918FA701C55ABD0008187E8 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				3918FA711C55ABD0008187E8 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		3918FA8A1C55ABD0008187E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		3918FA8B1C55ABD0008187E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		3918FA8D1C55ABD0008187E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "tableView代理方法与VC分离Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.tableView-----VC--Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		3918FA8E1C55ABD0008187E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "tableView代理方法与VC分离Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.tableView-----VC--Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		3918FA901C55ABD0008187E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "tableView代理方法与VC分离TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.tableView-----VC--TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tableView代理方法与VC分离Test.app/tableView代理方法与VC分离Test";
+			};
+			name = Debug;
+		};
+		3918FA911C55ABD0008187E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "tableView代理方法与VC分离TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.tableView-----VC--TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tableView代理方法与VC分离Test.app/tableView代理方法与VC分离Test";
+			};
+			name = Release;
+		};
+		3918FA931C55ABD0008187E8 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "tableView代理方法与VC分离TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.tableView-----VC--TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "tableView代理方法与VC分离Test";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		3918FA941C55ABD0008187E8 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "tableView代理方法与VC分离TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.tableView-----VC--TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "tableView代理方法与VC分离Test";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		3918FA5A1C55ABD0008187E8 /* Build configuration list for PBXProject "tableView代理方法与VC分离Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3918FA8A1C55ABD0008187E8 /* Debug */,
+				3918FA8B1C55ABD0008187E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3918FA8C1C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3918FA8D1C55ABD0008187E8 /* Debug */,
+				3918FA8E1C55ABD0008187E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3918FA8F1C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3918FA901C55ABD0008187E8 /* Debug */,
+				3918FA911C55ABD0008187E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		3918FA921C55ABD0008187E8 /* Build configuration list for PBXNativeTarget "tableView代理方法与VC分离TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				3918FA931C55ABD0008187E8 /* Debug */,
+				3918FA941C55ABD0008187E8 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 3918FA571C55ABD0008187E8 /* Project object */;
+}

@@ -1,0 +1,633 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		39FEE15C1CBB385E00C59597 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEE15B1CBB385E00C59597 /* main.m */; };
+		39FEE15F1CBB385E00C59597 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEE15E1CBB385E00C59597 /* AppDelegate.m */; };
+		39FEE1621CBB385E00C59597 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEE1611CBB385E00C59597 /* ViewController.m */; };
+		39FEE1651CBB385E00C59597 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FEE1631CBB385E00C59597 /* Main.storyboard */; };
+		39FEE1671CBB385E00C59597 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FEE1661CBB385E00C59597 /* Assets.xcassets */; };
+		39FEE16A1CBB385E00C59597 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FEE1681CBB385E00C59597 /* LaunchScreen.storyboard */; };
+		39FEE1751CBB385E00C59597 /* ______TestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEE1741CBB385E00C59597 /* ______TestTests.m */; };
+		39FEE1801CBB385E00C59597 /* ______TestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEE17F1CBB385E00C59597 /* ______TestUITests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		39FEE1711CBB385E00C59597 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39FEE14F1CBB385E00C59597 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39FEE1561CBB385E00C59597;
+			remoteInfo = "检测耳机插拔Test";
+		};
+		39FEE17C1CBB385E00C59597 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 39FEE14F1CBB385E00C59597 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 39FEE1561CBB385E00C59597;
+			remoteInfo = "检测耳机插拔Test";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		39FEE1571CBB385E00C59597 /* 检测耳机插拔Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "检测耳机插拔Test.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FEE15B1CBB385E00C59597 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		39FEE15D1CBB385E00C59597 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../../../AppDelegate.h; sourceTree = "<group>"; };
+		39FEE15E1CBB385E00C59597 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../../../AppDelegate.m; sourceTree = "<group>"; };
+		39FEE1601CBB385E00C59597 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../../ViewController.h; sourceTree = "<group>"; };
+		39FEE1611CBB385E00C59597 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../../ViewController.m; sourceTree = "<group>"; };
+		39FEE1641CBB385E00C59597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		39FEE1661CBB385E00C59597 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		39FEE1691CBB385E00C59597 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		39FEE16B1CBB385E00C59597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FEE1701CBB385E00C59597 /* 检测耳机插拔TestTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "检测耳机插拔TestTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FEE1741CBB385E00C59597 /* ______TestTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "______TestTests.m"; sourceTree = "<group>"; };
+		39FEE1761CBB385E00C59597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39FEE17B1CBB385E00C59597 /* 检测耳机插拔TestUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "检测耳机插拔TestUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		39FEE17F1CBB385E00C59597 /* ______TestUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "______TestUITests.m"; sourceTree = "<group>"; };
+		39FEE1811CBB385E00C59597 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		39FEE1541CBB385E00C59597 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FEE16D1CBB385E00C59597 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FEE1781CBB385E00C59597 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		39FEE14E1CBB385E00C59597 = {
+			isa = PBXGroup;
+			children = (
+				39FEE1591CBB385E00C59597 /* 检测耳机插拔Test */,
+				39FEE1731CBB385E00C59597 /* 检测耳机插拔TestTests */,
+				39FEE17E1CBB385E00C59597 /* 检测耳机插拔TestUITests */,
+				39FEE1581CBB385E00C59597 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		39FEE1581CBB385E00C59597 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE1571CBB385E00C59597 /* 检测耳机插拔Test.app */,
+				39FEE1701CBB385E00C59597 /* 检测耳机插拔TestTests.xctest */,
+				39FEE17B1CBB385E00C59597 /* 检测耳机插拔TestUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		39FEE1591CBB385E00C59597 /* 检测耳机插拔Test */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE18D1CBB38B400C59597 /* Classes */,
+				39FEE1951CBB38B400C59597 /* Resources */,
+				39FEE15A1CBB385E00C59597 /* Supporting Files */,
+			);
+			path = "检测耳机插拔Test";
+			sourceTree = "<group>";
+		};
+		39FEE15A1CBB385E00C59597 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE1631CBB385E00C59597 /* Main.storyboard */,
+				39FEE1661CBB385E00C59597 /* Assets.xcassets */,
+				39FEE1681CBB385E00C59597 /* LaunchScreen.storyboard */,
+				39FEE16B1CBB385E00C59597 /* Info.plist */,
+				39FEE15B1CBB385E00C59597 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39FEE1731CBB385E00C59597 /* 检测耳机插拔TestTests */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE1741CBB385E00C59597 /* ______TestTests.m */,
+				39FEE1761CBB385E00C59597 /* Info.plist */,
+			);
+			path = "检测耳机插拔TestTests";
+			sourceTree = "<group>";
+		};
+		39FEE17E1CBB385E00C59597 /* 检测耳机插拔TestUITests */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE17F1CBB385E00C59597 /* ______TestUITests.m */,
+				39FEE1811CBB385E00C59597 /* Info.plist */,
+			);
+			path = "检测耳机插拔TestUITests";
+			sourceTree = "<group>";
+		};
+		39FEE18D1CBB38B400C59597 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE18E1CBB38B400C59597 /* Categories */,
+				39FEE18F1CBB38B400C59597 /* Globalheader */,
+				39FEE1901CBB38B400C59597 /* Items */,
+				39FEE1921CBB38B400C59597 /* Libs */,
+				39FEE1931CBB38B400C59597 /* Models */,
+				39FEE1941CBB38B400C59597 /* Tools */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		39FEE18E1CBB38B400C59597 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Categories;
+			sourceTree = "<group>";
+		};
+		39FEE18F1CBB38B400C59597 /* Globalheader */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Globalheader;
+			sourceTree = "<group>";
+		};
+		39FEE1901CBB38B400C59597 /* Items */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE19A1CBB38C700C59597 /* First */,
+				39FEE1911CBB38B400C59597 /* Main */,
+			);
+			path = Items;
+			sourceTree = "<group>";
+		};
+		39FEE1911CBB38B400C59597 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE15D1CBB385E00C59597 /* AppDelegate.h */,
+				39FEE15E1CBB385E00C59597 /* AppDelegate.m */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		39FEE1921CBB38B400C59597 /* Libs */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Libs;
+			sourceTree = "<group>";
+		};
+		39FEE1931CBB38B400C59597 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		39FEE1941CBB38B400C59597 /* Tools */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Tools;
+			sourceTree = "<group>";
+		};
+		39FEE1951CBB38B400C59597 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE1961CBB38B400C59597 /* audios */,
+				39FEE1971CBB38B400C59597 /* images */,
+				39FEE1981CBB38B400C59597 /* plist */,
+				39FEE1991CBB38B400C59597 /* video */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		39FEE1961CBB38B400C59597 /* audios */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = audios;
+			sourceTree = "<group>";
+		};
+		39FEE1971CBB38B400C59597 /* images */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		39FEE1981CBB38B400C59597 /* plist */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = plist;
+			sourceTree = "<group>";
+		};
+		39FEE1991CBB38B400C59597 /* video */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = video;
+			sourceTree = "<group>";
+		};
+		39FEE19A1CBB38C700C59597 /* First */ = {
+			isa = PBXGroup;
+			children = (
+				39FEE1601CBB385E00C59597 /* ViewController.h */,
+				39FEE1611CBB385E00C59597 /* ViewController.m */,
+			);
+			name = First;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		39FEE1561CBB385E00C59597 /* 检测耳机插拔Test */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39FEE1841CBB385E00C59597 /* Build configuration list for PBXNativeTarget "检测耳机插拔Test" */;
+			buildPhases = (
+				39FEE1531CBB385E00C59597 /* Sources */,
+				39FEE1541CBB385E00C59597 /* Frameworks */,
+				39FEE1551CBB385E00C59597 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "检测耳机插拔Test";
+			productName = "检测耳机插拔Test";
+			productReference = 39FEE1571CBB385E00C59597 /* 检测耳机插拔Test.app */;
+			productType = "com.apple.product-type.application";
+		};
+		39FEE16F1CBB385E00C59597 /* 检测耳机插拔TestTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39FEE1871CBB385E00C59597 /* Build configuration list for PBXNativeTarget "检测耳机插拔TestTests" */;
+			buildPhases = (
+				39FEE16C1CBB385E00C59597 /* Sources */,
+				39FEE16D1CBB385E00C59597 /* Frameworks */,
+				39FEE16E1CBB385E00C59597 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39FEE1721CBB385E00C59597 /* PBXTargetDependency */,
+			);
+			name = "检测耳机插拔TestTests";
+			productName = "检测耳机插拔TestTests";
+			productReference = 39FEE1701CBB385E00C59597 /* 检测耳机插拔TestTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		39FEE17A1CBB385E00C59597 /* 检测耳机插拔TestUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 39FEE18A1CBB385E00C59597 /* Build configuration list for PBXNativeTarget "检测耳机插拔TestUITests" */;
+			buildPhases = (
+				39FEE1771CBB385E00C59597 /* Sources */,
+				39FEE1781CBB385E00C59597 /* Frameworks */,
+				39FEE1791CBB385E00C59597 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				39FEE17D1CBB385E00C59597 /* PBXTargetDependency */,
+			);
+			name = "检测耳机插拔TestUITests";
+			productName = "检测耳机插拔TestUITests";
+			productReference = 39FEE17B1CBB385E00C59597 /* 检测耳机插拔TestUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		39FEE14F1CBB385E00C59597 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0710;
+				ORGANIZATIONNAME = YJ;
+				TargetAttributes = {
+					39FEE1561CBB385E00C59597 = {
+						CreatedOnToolsVersion = 7.1;
+					};
+					39FEE16F1CBB385E00C59597 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 39FEE1561CBB385E00C59597;
+					};
+					39FEE17A1CBB385E00C59597 = {
+						CreatedOnToolsVersion = 7.1;
+						TestTargetID = 39FEE1561CBB385E00C59597;
+					};
+				};
+			};
+			buildConfigurationList = 39FEE1521CBB385E00C59597 /* Build configuration list for PBXProject "检测耳机插拔Test" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 39FEE14E1CBB385E00C59597;
+			productRefGroup = 39FEE1581CBB385E00C59597 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				39FEE1561CBB385E00C59597 /* 检测耳机插拔Test */,
+				39FEE16F1CBB385E00C59597 /* 检测耳机插拔TestTests */,
+				39FEE17A1CBB385E00C59597 /* 检测耳机插拔TestUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		39FEE1551CBB385E00C59597 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39FEE16A1CBB385E00C59597 /* LaunchScreen.storyboard in Resources */,
+				39FEE1671CBB385E00C59597 /* Assets.xcassets in Resources */,
+				39FEE1651CBB385E00C59597 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FEE16E1CBB385E00C59597 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FEE1791CBB385E00C59597 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		39FEE1531CBB385E00C59597 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39FEE1621CBB385E00C59597 /* ViewController.m in Sources */,
+				39FEE15F1CBB385E00C59597 /* AppDelegate.m in Sources */,
+				39FEE15C1CBB385E00C59597 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FEE16C1CBB385E00C59597 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39FEE1751CBB385E00C59597 /* ______TestTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		39FEE1771CBB385E00C59597 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				39FEE1801CBB385E00C59597 /* ______TestUITests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		39FEE1721CBB385E00C59597 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39FEE1561CBB385E00C59597 /* 检测耳机插拔Test */;
+			targetProxy = 39FEE1711CBB385E00C59597 /* PBXContainerItemProxy */;
+		};
+		39FEE17D1CBB385E00C59597 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 39FEE1561CBB385E00C59597 /* 检测耳机插拔Test */;
+			targetProxy = 39FEE17C1CBB385E00C59597 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		39FEE1631CBB385E00C59597 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39FEE1641CBB385E00C59597 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		39FEE1681CBB385E00C59597 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				39FEE1691CBB385E00C59597 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		39FEE1821CBB385E00C59597 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		39FEE1831CBB385E00C59597 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		39FEE1851CBB385E00C59597 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "检测耳机插拔Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.------Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		39FEE1861CBB385E00C59597 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				INFOPLIST_FILE = "检测耳机插拔Test/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.------Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		39FEE1881CBB385E00C59597 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "检测耳机插拔TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.------TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/检测耳机插拔Test.app/检测耳机插拔Test";
+			};
+			name = Debug;
+		};
+		39FEE1891CBB385E00C59597 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				INFOPLIST_FILE = "检测耳机插拔TestTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.------TestTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/检测耳机插拔Test.app/检测耳机插拔Test";
+			};
+			name = Release;
+		};
+		39FEE18B1CBB385E00C59597 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "检测耳机插拔TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.------TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "检测耳机插拔Test";
+				USES_XCTRUNNER = YES;
+			};
+			name = Debug;
+		};
+		39FEE18C1CBB385E00C59597 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				INFOPLIST_FILE = "检测耳机插拔TestUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.------TestUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_TARGET_NAME = "检测耳机插拔Test";
+				USES_XCTRUNNER = YES;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		39FEE1521CBB385E00C59597 /* Build configuration list for PBXProject "检测耳机插拔Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39FEE1821CBB385E00C59597 /* Debug */,
+				39FEE1831CBB385E00C59597 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		39FEE1841CBB385E00C59597 /* Build configuration list for PBXNativeTarget "检测耳机插拔Test" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39FEE1851CBB385E00C59597 /* Debug */,
+				39FEE1861CBB385E00C59597 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39FEE1871CBB385E00C59597 /* Build configuration list for PBXNativeTarget "检测耳机插拔TestTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39FEE1881CBB385E00C59597 /* Debug */,
+				39FEE1891CBB385E00C59597 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		39FEE18A1CBB385E00C59597 /* Build configuration list for PBXNativeTarget "检测耳机插拔TestUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				39FEE18B1CBB385E00C59597 /* Debug */,
+				39FEE18C1CBB385E00C59597 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 39FEE14F1CBB385E00C59597 /* Project object */;
+}
