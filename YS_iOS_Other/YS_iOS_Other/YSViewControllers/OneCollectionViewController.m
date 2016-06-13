@@ -52,12 +52,13 @@ static NSString * collection_cell_id = @"collection_cell_id";
 #pragma mark -
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    
+    return 0;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    OneCollectionCollectionViewCell * cell = [collectionView dequeueReusableSupplementaryViewOfKind:<#(nonnull NSString *)#> withReuseIdentifier:<#(nonnull NSString *)#> forIndexPath:<#(nonnull NSIndexPath *)#>];
+//    OneCollectionCollectionViewCell * cell = [collectionView dequeueReusableSupplementaryViewOfKind:<#(nonnull NSString *)#> withReuseIdentifier:<#(nonnull NSString *)#> forIndexPath:<#(nonnull NSIndexPath *)#>];
+    return nil;
 }
 
 
