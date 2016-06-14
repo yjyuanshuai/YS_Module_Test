@@ -13,6 +13,7 @@
 - (instancetype)initWithImageName:(NSString *)imageName title:(NSString *)title desc:(NSString *)desc
 {
     if (self = [self init]) {
+        
         NSString * imagePath = [[NSBundle mainBundle] pathForResource:imageName ofType:@"jpg"];
 
         self.collectionImage = [UIImage imageNamed:imagePath];
@@ -21,5 +22,7 @@
     }
     return self;
 }
+
+
 
 @end

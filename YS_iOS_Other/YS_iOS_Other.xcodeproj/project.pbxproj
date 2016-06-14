@@ -30,6 +30,8 @@
 		39214A7F1D056A600019422D /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A731D056A600019422D /* 7.jpg */; };
 		39214A801D056A600019422D /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A741D056A600019422D /* 8.jpg */; };
 		39214A811D056A600019422D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A751D056A600019422D /* 9.jpg */; };
+		396CCBD21D0F95E200C57543 /* OneHorizontalTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBD11D0F95E200C57543 /* OneHorizontalTableViewController.m */; };
+		396CCBD51D0F974100C57543 /* OneHorizontalTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 396CCBD41D0F974100C57543 /* OneHorizontalTableViewCell.m */; };
 		39C6219B1D0E9AE200A34040 /* OneCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219A1D0E9AE200A34040 /* OneCollectionReusableView.m */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
 /* End PBXBuildFile section */
@@ -86,6 +88,10 @@
 		39214A731D056A600019422D /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		39214A741D056A600019422D /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		39214A751D056A600019422D /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		396CCBD01D0F95E200C57543 /* OneHorizontalTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneHorizontalTableViewController.h; sourceTree = "<group>"; };
+		396CCBD11D0F95E200C57543 /* OneHorizontalTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneHorizontalTableViewController.m; sourceTree = "<group>"; };
+		396CCBD31D0F974100C57543 /* OneHorizontalTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneHorizontalTableViewCell.h; sourceTree = "<group>"; };
+		396CCBD41D0F974100C57543 /* OneHorizontalTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneHorizontalTableViewCell.m; sourceTree = "<group>"; };
 		39C621991D0E9AE200A34040 /* OneCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneCollectionReusableView.h; sourceTree = "<group>"; };
 		39C6219A1D0E9AE200A34040 /* OneCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneCollectionReusableView.m; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
@@ -196,6 +202,7 @@
 			children = (
 				39C621981D0E9A7500A34040 /* OnePicker */,
 				39C621971D0E9A6600A34040 /* OneCollection */,
+				396CCBCF1D0F93ED00C57543 /* OneHorizontalTableView */,
 			);
 			name = One;
 			sourceTree = "<group>";
@@ -224,6 +231,17 @@
 				39214A751D056A600019422D /* 9.jpg */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		396CCBCF1D0F93ED00C57543 /* OneHorizontalTableView */ = {
+			isa = PBXGroup;
+			children = (
+				396CCBD01D0F95E200C57543 /* OneHorizontalTableViewController.h */,
+				396CCBD11D0F95E200C57543 /* OneHorizontalTableViewController.m */,
+				396CCBD31D0F974100C57543 /* OneHorizontalTableViewCell.h */,
+				396CCBD41D0F974100C57543 /* OneHorizontalTableViewCell.m */,
+			);
+			name = OneHorizontalTableView;
 			sourceTree = "<group>";
 		};
 		39C621971D0E9A6600A34040 /* OneCollection */ = {
@@ -404,7 +422,9 @@
 				39214A4E1D0568F60019422D /* OneCollectionCollectionViewCell.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				39214A4A1D0564420019422D /* OneCollectionViewController.m in Sources */,
+				396CCBD51D0F974100C57543 /* OneHorizontalTableViewCell.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
+				396CCBD21D0F95E200C57543 /* OneHorizontalTableViewController.m in Sources */,
 				39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */,
 				39C6219B1D0E9AE200A34040 /* OneCollectionReusableView.m in Sources */,
 				39214A451D05465F0019422D /* OnePickerViewController.m in Sources */,

@@ -8,6 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
+typedef NS_ENUM(NSInteger, ComeFromType)
+{
+    ComeFromTypeOneCollection,
+    ComeFromTypeTwoDocument,            // 沙盒
+    ComeFromTypeTwoFile,                // 文件
+    ComeFromTypeTwoArchive,             // 归档
+    ComeFromTypeTwoSqlite,              // sqlite
+    ComeFromTypeTwoCoreData             // CoreData
+};
+
+
 @interface OneCollectionViewController : UIViewController
+
+- (instancetype)initWithType:(ComeFromType)type;
 
 @end

@@ -7,8 +7,12 @@
 //
 
 #import "ViewController.h"
+
 #import "OnePickerViewController.h"
 #import "OneCollectionViewController.h"
+#import "OneHorizontalTableViewController.h"
+
+
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -31,14 +35,14 @@
     _sectionTitle = @[@"1 控件", @"2 数据持久化", @"3 iCloud", @"4 GCD", @"5 Quartz/OpenGL", @"6 手势/触摸", @"7 Location", @"8 陀螺仪/加速器", @"9 照相机/相片库", @"10 本地化"];
     
     
-    NSArray * sectionOne    = @[@"Picker", @"CollectionView"];
+    NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView"];
     NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData"];
     NSArray * sectionThree  = @[@"使用UIDocument管理文件存储", @"添加iCloud支持"];
     NSArray * sectionFour   = @[@"GCD"];
     NSArray * sectionFive   = @[@"Quartz", @"OpenGL"];
     NSArray * sectionSix    = @[@"手势", @"触摸"];
     NSArray * sectionSeven  = @[@"原生", @"百度", @"高德"];
-    NSArray * sectionEight  = @[@"陀螺仪", @"照片库"];
+    NSArray * sectionEight  = @[@"陀螺仪", @"加速器"];
     NSArray * sectionNine   = @[@"照相机", @"相片库"];
     NSArray * sectionTen    = @[@"本地化"];
     
@@ -99,29 +103,69 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-    
     int sectionIndex = (int)indexPath.section;
     switch (sectionIndex) {
         case 0:
         {
             if (indexPath.row == 0) {
+                
                 // "Picker"
                 OnePickerViewController * pickerVC = [[OnePickerViewController alloc] init];
                 pickerVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:pickerVC animated:YES];
                 
             } else if (indexPath.row == 1) {
+                
                 // “CollectionView”
-                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] init];
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeOneCollection];
                 collectionVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:collectionVC animated:YES];
+            } else if (indexPath.row == 2) {
+                
+                // 横向 tableview
+                OneHorizontalTableViewController * horizontalVC = [[OneHorizontalTableViewController alloc] init];
+                [self.navigationController pushViewController:horizontalVC animated:YES];
             }
         }
             break;
         case 1:
         {
+            if (indexPath.row == 0) {
+                
+                // “沙盒”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoDocument];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 1) {
+                
+                // “文件”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoFile];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
             
+            } else if (indexPath.row == 2) {
+                
+                // “归档”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoArchive];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 3) {
+                
+                // “sqlite”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoSqlite];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 4) {
+                
+                // “CoreData”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoCoreData];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            }
         }
             break;
         case 2:
