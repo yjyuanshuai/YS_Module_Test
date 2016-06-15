@@ -10,6 +10,9 @@
 #import "CollectionTestModel.h"
 
 @implementation OneHorizontalTableViewCell
+{
+    NSIndexPath * _indexPath;
+}
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier
 {
@@ -33,16 +36,30 @@
         _itemDesc.textAlignment = NSTextAlignmentCenter;
         _itemDesc.font = [UIFont systemFontOfSize:14.0];
         [self.contentView addSubview:_itemDesc];
+        
+        _longGesure = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(clickLongGesure:)];
+        _longGesure.minimumNumberOfTouches = 1;
+        _longGesure.maximumNumberOfTouches = 1;
+        [self addGestureRecognizer:_longGesure];
 
     }
     return self;
 }
 
-- (void)setCellContent:(CollectionTestModel *)model
+- (void)setCellContent:(CollectionTestModel *)model indexPath:(NSIndexPath *)indexPath
 {
     _ysImageView.image = model.collectionImage;
     _itemTitle.text = model.itemTitle;
     _itemDesc.text = model.itemDesc;
+    
+    _indexPath = indexPath;
+}
+
+- (void)clickLongGesure:(UIPanGestureRecognizer *)longGesure
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(panGesureWithView:panGesure:view:)]) {
+        [_delegate panGesureWithView:_indexPath panGesure:longGesure view:self];
+    }
 }
 
 @end

@@ -124,6 +124,7 @@
                 
                 // 横向 tableview
                 OneHorizontalTableViewController * horizontalVC = [[OneHorizontalTableViewController alloc] init];
+                horizontalVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:horizontalVC animated:YES];
             }
         }
