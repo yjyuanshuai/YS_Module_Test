@@ -36,11 +36,6 @@
         _itemDesc.textAlignment = NSTextAlignmentCenter;
         _itemDesc.font = [UIFont systemFontOfSize:14.0];
         [self.contentView addSubview:_itemDesc];
-        
-        _longGesure = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(clickLongGesure:)];
-        _longGesure.minimumNumberOfTouches = 1;
-        _longGesure.maximumNumberOfTouches = 1;
-        [self addGestureRecognizer:_longGesure];
 
     }
     return self;
@@ -53,13 +48,6 @@
     _itemDesc.text = model.itemDesc;
     
     _indexPath = indexPath;
-}
-
-- (void)clickLongGesure:(UIPanGestureRecognizer *)longGesure
-{
-    if (_delegate && [_delegate respondsToSelector:@selector(panGesureWithView:panGesure:view:)]) {
-        [_delegate panGesureWithView:_indexPath panGesure:longGesure view:self];
-    }
 }
 
 @end

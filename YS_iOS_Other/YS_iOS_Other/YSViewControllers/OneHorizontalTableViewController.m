@@ -12,7 +12,7 @@
 
 static NSString * cell_id = @"one_horizontal_tableView_cell_id";
 
-@interface OneHorizontalTableViewController ()<UITableViewDelegate, UITableViewDataSource, OneHorizontalTableViewCellDelegate>
+@interface OneHorizontalTableViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * horizontalTableView;
 
@@ -60,11 +60,67 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
     
     // 转向
     _horizontalTableView.transform = CGAffineTransformMakeRotation(-M_PI/2);
+    
+    
+    // 添加长按手势
+    UILongPressGestureRecognizer * longGesure = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesure:)];
+    longGesure.numberOfTouchesRequired = 1;
+    [_horizontalTableView addGestureRecognizer:longGesure];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 
+- (void)longPressGesure:(UILongPressGestureRecognizer *)longGesure
+{
+    CGPoint point = [longGesure locationInView:self.view];
+    NSIndexPath * indexPath = [_horizontalTableView indexPathForRowAtPoint:point];      // 当前手指所在indexPath
+    
+    NSInteger state = longGesure.state;
+    
+    NSIndexPath * sourceIndexPath = nil;
+    UIView * movingView = nil;
+    
+    switch (state) {
+        case UIGestureRecognizerStateBegan:
+        {
+            if (indexPath) {
+                OneHorizontalTableViewCell * cell = [_horizontalTableView cellForRowAtIndexPath:indexPath];
+                movingView = [self movingViewWithCell:cell];
+                
+                [self.view addSubview:movingView];
+                
+                sourceIndexPath = indexPath;
+            }
+        }
+            break;
+        case UIGestureRecognizerStateChanged:
+        {
+            
+        }
+            break;
+        case UIGestureRecognizerStateEnded:
+        {
+            
+        }
+            break;
+        default:
+            break;
+    }
+}
+
+- (UIView *)movingViewWithCell:(UIView *)cellView
+{
+    UIView * movingView = [cellView snapshotViewAfterScreenUpdates:YES];
+    movingView.layer.masksToBounds = NO;
+    movingView.layer.cornerRadius = 0.0;
+    movingView.layer.shadowOffset = CGSizeMake(-0.5, 0);
+    movingView.layer.shadowRadius = 5.0;
+    movingView.layer.shadowOpacity = 0.4;
+    return movingView;
 }
 
 #pragma mark - 
@@ -84,10 +140,7 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     OneHorizontalTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
-    
     CollectionTestModel * model = [_modelsArr objectAtIndex:indexPath.row];
-    
-    cell.delegate = self;
     [cell setCellContent:model indexPath:indexPath];
     
     return cell;
@@ -104,27 +157,32 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
     
 }
 
-#pragma mark - OneHorizontalTableViewCellDelegate -
-- (void)panGesureWithView:(NSIndexPath *)indexPath panGesure:(UIGestureRecognizer *)gesure view:(UIView *)view
+/**********
+#pragma mark - 
+// 1、设置可编辑
+- (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    UIPanGestureRecognizer * panGesure = (UIPanGestureRecognizer *)gesure;
-    OneHorizontalTableViewCell * cellView = (OneHorizontalTableViewCell *)view;
-    
-    if (panGesure.state != UIGestureRecognizerStateEnded &&
-        panGesure.state != UIGestureRecognizerStateFailed) {
-        
-        CGPoint panPoint = [panGesure locationInView:self.view];
-//        NSLog(@"----------- x: %f ----- y: %f ---------", panPoint.x, panPoint.y);
-        
-        
-    }
-    
-    if (panGesure.state == UIGestureRecognizerStateEnded ||
-        panGesure.state == UIGestureRecognizerStateFailed ||
-        panGesure.state == UIGestureRecognizerStateCancelled) {
-        // 移动结束
-        CGPoint panPoint = [panGesure locationInView:self.view];
-    }
+    return YES;
 }
+
+// 2、允许拖动
+- (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+// 3、移动风格
+- (UITableViewCellEditingStyle)tableView:(UITableView *)tableView editingStyleForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return UITableViewCellEditingStyleNone;
+}
+
+// 4、交换数据
+- (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)sourceIndexPath toIndexPath:(NSIndexPath *)destinationIndexPath
+{
+
+}
+*/
+
 
 @end
