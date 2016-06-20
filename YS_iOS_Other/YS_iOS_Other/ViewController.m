@@ -15,6 +15,9 @@
 #import "OneSearchController.h"
 
 
+#import "SevenBaiduViewController.h"
+
+
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * otherTableView;
@@ -209,7 +212,14 @@
             break;
         case 6:
         {
-            
+            if (indexPath.row == 0) {
+                
+            } else if (indexPath.row == 1) {
+                
+                // 百度地图
+                SevenBaiduViewController * baiduMapVC = [[SevenBaiduViewController alloc] init];
+                [self.navigationController pushViewController:baiduMapVC animated:YES];
+            }
         }
             break;
         case 7:

@@ -18,8 +18,7 @@
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
     
-    
-    
+    [self startBaiduMap];
     
     return YES;
 }
@@ -45,5 +44,18 @@
 - (void)applicationWillTerminate:(UIApplication *)application {
     // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 }
+
+#pragma mark - 百度地图
+- (void)startBaiduMap
+{
+    // 启动BaiduMapManager
+    _mapManager = [[BMKMapManager alloc] init];
+    // 如果要关注网络及授权验证事件，请设置 generalDelegate
+    BOOL ret = [_mapManager start:kBaiduMapAK generalDelegate:nil];
+    if (!ret) {
+        NSLog(@"Baidu Map Manager start failed!");
+    }
+}
+
 
 @end

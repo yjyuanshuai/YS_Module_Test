@@ -7,8 +7,11 @@
 //
 
 #import "SevenBaiduViewController.h"
+#import <BaiduMapAPI_Map/BMKMapComponent.h>
 
-@interface SevenBaiduViewController ()
+@interface SevenBaiduViewController () <BMKMapViewDelegate>
+
+@property (nonatomic, strong) BMKMapView * mapView;
 
 @end
 
@@ -20,22 +23,29 @@
     
     self.title = @"百度地图";
     
+    _mapView = [[BMKMapView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64)];
+    _mapView.mapType = BMKMapTypeNone;
+    self.view = _mapView;
+    
+    
+    UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"操作" style:UIBarButtonItemStylePlain target:self action:@selector(MoreDoAction)];
+    self.navigationItem.rightBarButtonItem = rightBarBtn;
 }
 
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
     
-//    [_baiduMapView viewWillAppear];
-//    _baiduMapView.delegate = self;  // 此处记得不用的时候需要置nil，否则影响内存的释放
+    [_mapView viewWillAppear];
+    _mapView.delegate = self;  // 此处记得不用的时候需要置nil，否则影响内存的释放
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-//    [_mapView viewWillDisappear];
-//    _mapView.delegate = nil; // 不用时，置nil
+    [_mapView viewWillDisappear];
+    _mapView.delegate = nil; // 不用时，置nil
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,14 +53,13 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+#pragma mark - BMKMapViewDelegate
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+
+#pragma mark - 
+- (void)MoreDoAction
+{
+    
 }
-*/
 
 @end
