@@ -9,7 +9,20 @@
 #ifndef GlobalString_h
 #define GlobalString_h
 
-#define kBaiduMapAK     @"0o1W98wXRSCK6dgQoxl2T6XMEnGQIK2L"
+/*********  一些全局定义 **********************/
 
+#define kScreenWidth    [UIScreen mainScreen].bounds.size.width
+#define kScreenHeight   [UIScreen mainScreen].bounds.size.height
+
+#define kAPPKeyWindow   [UIApplication sharedApplication].keyWindow
+
+
+
+
+
+
+/*********  百度地图 *******************/
+
+#define kBaiduMapAK     @"0o1W98wXRSCK6dgQoxl2T6XMEnGQIK2L"
 
 #endif /* GlobalString_h */

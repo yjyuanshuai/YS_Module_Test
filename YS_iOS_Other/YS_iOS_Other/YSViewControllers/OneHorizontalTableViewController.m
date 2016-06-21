@@ -44,8 +44,8 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
                                                   [self getCollectionModle:@"9" title:@"主题" desc:@"详情"]]];
     
     
-    NSLog(@"--------- screen width: %f ---------- screen height: %f -----------", [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-    NSLog(@"--------- screen width: %f ---------- screen height: %f -----------", self.view.frame.size.width, self.view.frame.size.height);
+//    NSLog(@"--------- screen width: %f ---------- screen height: %f -----------", [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
+//    NSLog(@"--------- screen width: %f ---------- screen height: %f -----------", self.view.frame.size.width, self.view.frame.size.height);
     
     
     _horizontalTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 130, [[UIScreen mainScreen] bounds].size.width) style:UITableViewStylePlain];

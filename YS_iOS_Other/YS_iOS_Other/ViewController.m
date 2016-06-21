@@ -13,6 +13,10 @@
 #import "OneHorizontalTableViewController.h"
 #import "OneSearchDisplayController.h"
 #import "OneSearchController.h"
+#import "ApplicationSettingViewController.h"
+
+
+#import "TwoDocumentViewController.h"
 
 
 #import "SevenBaiduViewController.h"
@@ -39,7 +43,7 @@
     _sectionTitle = @[@"1 控件", @"2 数据持久化", @"3 iCloud", @"4 GCD", @"5 Quartz/OpenGL", @"6 手势/触摸", @"7 Location", @"8 陀螺仪/加速器", @"9 照相机/相片库", @"10 本地化", @"11 一些效果"];
     
     
-    NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView", @"UISearchDisplayController", @"UISearchController"];
+    NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView", @"UISearchDisplayController", @"UISearchController", @"UIApplicaton一些设置"];
     NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData"];
     NSArray * sectionThree  = @[@"使用UIDocument管理文件存储", @"添加iCloud支持"];
     NSArray * sectionFour   = @[@"GCD"];
@@ -145,7 +149,9 @@
                 
             } else if (indexPath.row == 5) {
                 
-                // 
+                // UIApplicaton一些设置
+                ApplicationSettingViewController * appVC = [[ApplicationSettingViewController alloc] init];
+                [self.navigationController pushViewController:appVC animated:YES];
                 
             }
         }
@@ -155,7 +161,7 @@
             if (indexPath.row == 0) {
                 
                 // “沙盒”
-                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoDocument];
+                TwoDocumentViewController * collectionVC = [[TwoDocumentViewController alloc] init];
                 collectionVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:collectionVC animated:YES];
                 
