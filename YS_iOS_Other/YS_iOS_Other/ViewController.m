@@ -7,8 +7,21 @@
 //
 
 #import "ViewController.h"
+
 #import "OnePickerViewController.h"
 #import "OneCollectionViewController.h"
+#import "OneHorizontalTableViewController.h"
+#import "OneSearchDisplayController.h"
+#import "OneSearchController.h"
+#import "ApplicationSettingViewController.h"
+
+
+#import "TwoDocumentViewController.h"
+#import "YSDefaultsViewController.h"
+
+
+#import "SevenBaiduViewController.h"
+
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -28,25 +41,26 @@
     
     self.title = @"其他";
     
-    _sectionTitle = @[@"1 控件", @"2 数据持久化", @"3 iCloud", @"4 GCD", @"5 Quartz/OpenGL", @"6 手势/触摸", @"7 Location", @"8 陀螺仪/加速器", @"9 照相机/相片库", @"10 本地化"];
+    _sectionTitle = @[@"1 控件", @"2 数据持久化", @"3 iCloud", @"4 GCD", @"5 Quartz/OpenGL", @"6 手势/触摸", @"7 Location", @"8 陀螺仪/加速器", @"9 照相机/相片库", @"10 本地化", @"11 一些效果"];
     
     
-    NSArray * sectionOne    = @[@"Picker", @"CollectionView"];
-    NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData"];
+    NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView", @"UISearchDisplayController", @"UISearchController", @"UIApplicaton一些设置"];
+    NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData", @"偏好设置"];
     NSArray * sectionThree  = @[@"使用UIDocument管理文件存储", @"添加iCloud支持"];
     NSArray * sectionFour   = @[@"GCD"];
     NSArray * sectionFive   = @[@"Quartz", @"OpenGL"];
     NSArray * sectionSix    = @[@"手势", @"触摸"];
     NSArray * sectionSeven  = @[@"原生", @"百度", @"高德"];
-    NSArray * sectionEight  = @[@"陀螺仪", @"照片库"];
+    NSArray * sectionEight  = @[@"陀螺仪", @"加速器"];
     NSArray * sectionNine   = @[@"照相机", @"相片库"];
     NSArray * sectionTen    = @[@"本地化"];
+    NSArray * sectionElven  = @[@"简书导航栏上下拉动画"];
     
     if (_sectionCellContent == nil) {
         _sectionCellContent = [NSMutableArray array];
     }
     
-    _sectionCellContent = [NSMutableArray arrayWithArray:@[sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix, sectionSeven, sectionEight, sectionNine, sectionTen]];
+    _sectionCellContent = [NSMutableArray arrayWithArray:@[sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix, sectionSeven, sectionEight, sectionNine, sectionTen, sectionElven]];
     
     
     [self initTableView];
@@ -99,29 +113,94 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-//    UITableViewCell * cell = [tableView cellForRowAtIndexPath:indexPath];
-    
     int sectionIndex = (int)indexPath.section;
     switch (sectionIndex) {
         case 0:
         {
             if (indexPath.row == 0) {
+                
                 // "Picker"
                 OnePickerViewController * pickerVC = [[OnePickerViewController alloc] init];
                 pickerVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:pickerVC animated:YES];
                 
             } else if (indexPath.row == 1) {
+                
                 // “CollectionView”
-                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] init];
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeOneCollection];
                 collectionVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:collectionVC animated:YES];
+            } else if (indexPath.row == 2) {
+                
+                // 横向 tableview
+                OneHorizontalTableViewController * horizontalVC = [[OneHorizontalTableViewController alloc] init];
+                horizontalVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:horizontalVC animated:YES];
+            } else if (indexPath.row == 3) {
+                
+                // UISearchDisplayController
+                OneSearchDisplayController * searchVC = [[OneSearchDisplayController alloc] init];
+                [self.navigationController pushViewController:searchVC animated:YES];
+                
+            } else if (indexPath.row == 4) {
+                
+                // UISearchController
+                OneSearchController * searchVC = [[OneSearchController alloc] init];
+                [self.navigationController pushViewController:searchVC animated:YES];
+                
+            } else if (indexPath.row == 5) {
+                
+                // UIApplicaton一些设置
+                ApplicationSettingViewController * appVC = [[ApplicationSettingViewController alloc] init];
+                [self.navigationController pushViewController:appVC animated:YES];
+                
             }
         }
             break;
         case 1:
         {
+            if (indexPath.row == 0) {
+                
+                // “沙盒”
+                TwoDocumentViewController * collectionVC = [[TwoDocumentViewController alloc] init];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 1) {
+                
+                // “文件”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoFile];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
             
+            } else if (indexPath.row == 2) {
+                
+                // “归档”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoArchive];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 3) {
+                
+                // “sqlite”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoSqlite];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 4) {
+                
+                // “CoreData”
+                OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoCoreData];
+                collectionVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 5) {
+            
+                // “偏好设置”
+                YSDefaultsViewController * defaultVC = [[YSDefaultsViewController alloc] init];
+                [self.navigationController pushViewController:defaultVC animated:YES];
+                
+            }
         }
             break;
         case 2:
@@ -146,7 +225,14 @@
             break;
         case 6:
         {
-            
+            if (indexPath.row == 0) {
+                
+            } else if (indexPath.row == 1) {
+                
+                // 百度地图
+                SevenBaiduViewController * baiduMapVC = [[SevenBaiduViewController alloc] init];
+                [self.navigationController pushViewController:baiduMapVC animated:YES];
+            }
         }
             break;
         case 7:

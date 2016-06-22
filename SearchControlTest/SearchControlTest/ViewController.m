@@ -28,6 +28,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
+//    self.navigationController.navigationBar.translucent = NO;
+    
     [self initData];
     [self createSearchControl];
     [self createTableView];
@@ -37,10 +39,10 @@
 {
     [super viewWillDisappear:animated];
     
-    if (_searchController.active) {
-        _searchController.active = NO;
-        [_searchController.searchBar removeFromSuperview];
-    }
+//    if (_searchController.active) {
+//        _searchController.active = NO;
+//        [_searchController.searchBar removeFromSuperview];
+//    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -57,7 +59,7 @@
 
 - (void)createTableView
 {
-    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, self.view.frame.size.width, self.view.frame.size.height - 64) style:UITableViewStylePlain];
+    _tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
     _tableView.delegate = self;
     _tableView.dataSource = self;
     [self.view addSubview:_tableView];
@@ -74,16 +76,14 @@
     _searchController = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
     _searchController.searchResultsUpdater = self;
     
-    
     //搜索时，背景变暗色，默认是 YES
-    _searchController.dimsBackgroundDuringPresentation = NO;
+//    _searchController.dimsBackgroundDuringPresentation = NO;
     //搜索时，背景变模糊，默认是 YES
 //    _searchController.obscuresBackgroundDuringPresentation = NO;
     //隐藏导航栏，默认是 YES
-    _searchController.hidesNavigationBarDuringPresentation = NO;
-    
+//    _searchController.hidesNavigationBarDuringPresentation = NO;
+
     [_searchController.searchBar sizeToFit];
-    
     _searchController.searchBar.delegate = self;
 }
 

@@ -20,9 +20,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.view.backgroundColor = [UIColor redColor];
+    self.navigationController.navigationBar.translucent = NO;
     
     _resultTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _resultTableView.backgroundColor = [UIColor orangeColor];
     _resultTableView.delegate = self;
     _resultTableView.dataSource = self;
     [self.view addSubview:_resultTableView];

@@ -24,16 +24,60 @@ static NSString * collection_footer = @"collection_footer";
 
 @implementation OneCollectionViewController
 {
+    ComeFromType _comefromType;
     NSArray * _collectionSectionTitles;
     NSMutableArray * _collectionArr;
+}
+
+- (instancetype)initWithType:(ComeFromType)type
+{
+    if (self = [super init]) {
+        _comefromType = type;
+    }
+    return self;
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.title = @"Collection";
     self.view.backgroundColor = [UIColor whiteColor];
+    
+    switch (_comefromType) {
+        case ComeFromTypeOneCollection:
+        {
+            self.title = @"Collection";
+        }
+            break;
+        case ComeFromTypeTwoDocument:
+        {
+            self.title = @"沙盒";
+        }
+            break;
+        case ComeFromTypeTwoFile:
+        {
+            self.title = @"文件";
+        }
+            break;
+        case ComeFromTypeTwoArchive:
+        {
+            self.title = @"归档";
+        }
+            break;
+        case ComeFromTypeTwoSqlite:
+        {
+            self.title = @"Sqlite";
+        }
+            break;
+        case ComeFromTypeTwoCoreData:
+        {
+            self.title = @"CoreData";
+        }
+            break;
+            
+        default:
+            break;
+    }
     
     [self initUIAndData];
     [self initCollectionView];
