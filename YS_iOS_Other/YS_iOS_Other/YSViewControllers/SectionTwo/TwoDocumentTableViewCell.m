@@ -46,7 +46,7 @@
 {
     UIFont * font = [UIFont systemFontOfSize:14.0];
     CGFloat height = [str calculateHeightWithMaxWidth:kScreenWidth - 50 font:font miniHeight:20];
-    return 10 + 20 + height + 10;
+    return 10 + 20 + height + 10 + 20;
 }
 
 

@@ -20,6 +20,7 @@
     // app 启动完成时调用
     
     [self startBaiduMap];
+    [self notificationApplyToUser];
     
     return YES;
 }
@@ -72,7 +73,15 @@
     }
 }
 
-#pragma mark - 
+#pragma mark - 程序启动时，向用户获取发通知的权限
+- (void)notificationApplyToUser
+{
+    if (kSystemVersion >= 8.0) {
+        UIUserNotificationType type = UIUserNotificationTypeBadge | UIUserNotificationTypeAlert | UIUserNotificationTypeSound;
+        UIUserNotificationSettings *setting=[UIUserNotificationSettings settingsForTypes:type categories:nil];
+        [[UIApplication sharedApplication] registerUserNotificationSettings:setting];
+    }
+}
 
 
 @end

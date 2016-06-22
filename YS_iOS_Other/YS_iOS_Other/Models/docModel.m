@@ -15,7 +15,16 @@
 {
     if (self = [super init]) {
         _title = dic[@"title"];
-        _detail = [dic[@"detail"] analyseBreakLine];//dic[@"detail"];
+        NSMutableString * tempMutStr = [NSMutableString string];
+        NSArray * tempArr = [dic[@"detail"] componentsSeparatedByString:@"@@@@"];
+        for (NSString * subStr in tempArr) {
+            if ([subStr isEqualToString:[tempArr lastObject]]) {
+                [tempMutStr appendString:subStr];
+            } else {
+                [tempMutStr appendFormat:@"%@\n", subStr];
+            }
+        }
+        _detail = [tempMutStr analyseBreakLine];
     }
     return self;
 }

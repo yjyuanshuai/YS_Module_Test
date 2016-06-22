@@ -30,6 +30,10 @@
 		39214A7F1D056A600019422D /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A731D056A600019422D /* 7.jpg */; };
 		39214A801D056A600019422D /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A741D056A600019422D /* 8.jpg */; };
 		39214A811D056A600019422D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A751D056A600019422D /* 9.jpg */; };
+		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
+		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
+		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
+		3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */; };
 		395E69591D128BE900CBDFE0 /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 395E69581D128BE900CBDFE0 /* btn1.png */; };
 		395E695F1D12A12700CBDFE0 /* OneSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E695E1D12A12700CBDFE0 /* OneSearchDisplayController.m */; };
 		395E69621D12A4AC00CBDFE0 /* OneSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395E69611D12A4AC00CBDFE0 /* OneSearchController.m */; };
@@ -108,6 +112,14 @@
 		39214A731D056A600019422D /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		39214A741D056A600019422D /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		39214A751D056A600019422D /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		3949E26E1D1A2DA30016BFF6 /* YSUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSUserDefaults.h; sourceTree = "<group>"; };
+		3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSUserDefaults.m; sourceTree = "<group>"; };
+		3949E2721D1A327D0016BFF6 /* YSDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDefaultsViewController.h; sourceTree = "<group>"; };
+		3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDefaultsViewController.m; sourceTree = "<group>"; };
+		3949E2751D1A3B890016BFF6 /* YSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSUserModel.h; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.h; sourceTree = SOURCE_ROOT; };
+		3949E2761D1A3B890016BFF6 /* YSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSUserModel.m; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.m; sourceTree = SOURCE_ROOT; };
+		3949E2791D1A3D9E0016BFF6 /* CodeAndFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeAndFileViewController.h; sourceTree = "<group>"; };
+		3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeAndFileViewController.m; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
 		395E695E1D12A12700CBDFE0 /* OneSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OneSearchDisplayController.m; sourceTree = "<group>"; };
 		395E69601D12A4AC00CBDFE0 /* OneSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OneSearchController.h; sourceTree = "<group>"; };
@@ -296,6 +308,26 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
+		3949E26D1D1A2D6E0016BFF6 /* UserDefaults */ = {
+			isa = PBXGroup;
+			children = (
+				3949E26E1D1A2DA30016BFF6 /* YSUserDefaults.h */,
+				3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */,
+				3949E2721D1A327D0016BFF6 /* YSDefaultsViewController.h */,
+				3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */,
+			);
+			name = UserDefaults;
+			sourceTree = "<group>";
+		};
+		3949E2781D1A3D660016BFF6 /* CodingAndFile */ = {
+			isa = PBXGroup;
+			children = (
+				3949E2791D1A3D9E0016BFF6 /* CodeAndFileViewController.h */,
+				3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */,
+			);
+			name = CodingAndFile;
+			sourceTree = "<group>";
+		};
 		395E694F1D12774300CBDFE0 /* OneSearchDisplayViewController */ = {
 			isa = PBXGroup;
 			children = (
@@ -391,6 +423,8 @@
 		39B218B11D1911A4008DD042 /* SectionTwo */ = {
 			isa = PBXGroup;
 			children = (
+				3949E2781D1A3D660016BFF6 /* CodingAndFile */,
+				3949E26D1D1A2D6E0016BFF6 /* UserDefaults */,
 				39B218D41D193AEB008DD042 /* Doc */,
 			);
 			path = SectionTwo;
@@ -479,6 +513,8 @@
 				39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */,
 				39B218BB1D191DC4008DD042 /* docModel.h */,
 				39B218BC1D191DC4008DD042 /* docModel.m */,
+				3949E2751D1A3B890016BFF6 /* YSUserModel.h */,
+				3949E2761D1A3B890016BFF6 /* YSUserModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -700,6 +736,7 @@
 			files = (
 				39214A171D05203B0019422D /* ViewController.m in Sources */,
 				39214A4E1D0568F60019422D /* OneCollectionCollectionViewCell.m in Sources */,
+				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
 				398594461D13CD0000863A14 /* SixGestureViewController.m in Sources */,
 				395E69651D12A64200CBDFE0 /* SearchResultViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
@@ -712,13 +749,16 @@
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				396CCBD51D0F974100C57543 /* OneHorizontalTableViewCell.m in Sources */,
+				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
+				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
 				395E69621D12A4AC00CBDFE0 /* OneSearchController.m in Sources */,
 				39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */,
 				395E695F1D12A12700CBDFE0 /* OneSearchDisplayController.m in Sources */,
 				396CCBD21D0F95E200C57543 /* OneHorizontalTableViewController.m in Sources */,
 				39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */,
+				3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */,
 				39C6219B1D0E9AE200A34040 /* OneCollectionReusableView.m in Sources */,
 				39214A451D05465F0019422D /* OnePickerViewController.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,

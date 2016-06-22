@@ -17,6 +17,7 @@
 
 
 #import "TwoDocumentViewController.h"
+#import "YSDefaultsViewController.h"
 
 
 #import "SevenBaiduViewController.h"
@@ -44,7 +45,7 @@
     
     
     NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView", @"UISearchDisplayController", @"UISearchController", @"UIApplicaton一些设置"];
-    NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData"];
+    NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData", @"偏好设置"];
     NSArray * sectionThree  = @[@"使用UIDocument管理文件存储", @"添加iCloud支持"];
     NSArray * sectionFour   = @[@"GCD"];
     NSArray * sectionFive   = @[@"Quartz", @"OpenGL"];
@@ -192,6 +193,12 @@
                 OneCollectionViewController * collectionVC = [[OneCollectionViewController alloc] initWithType:ComeFromTypeTwoCoreData];
                 collectionVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:collectionVC animated:YES];
+                
+            } else if (indexPath.row == 5) {
+            
+                // “偏好设置”
+                YSDefaultsViewController * defaultVC = [[YSDefaultsViewController alloc] init];
+                [self.navigationController pushViewController:defaultVC animated:YES];
                 
             }
         }

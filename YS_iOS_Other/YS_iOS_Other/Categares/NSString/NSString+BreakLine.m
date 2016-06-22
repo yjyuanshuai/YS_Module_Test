@@ -12,13 +12,8 @@
 
 - (instancetype)analyseBreakLine
 {
-    NSMutableString * retStr = [NSMutableString string];
-    NSArray * retArr = [self componentsSeparatedByString:@"\n"];
-    for (NSString * temp in retArr) {
-        [retStr appendFormat:@"%@\n", temp];
-    }
+    NSString * retStr = self;
     return [retStr stringByReplacingOccurrencesOfString:@"\\n" withString:retStr];
-//    return retStr;
 }
 
 /**
