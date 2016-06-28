@@ -25,6 +25,8 @@
     
     UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"item" style:UIBarButtonItemStylePlain target:self action:@selector(click)];
     self.navigationItem.rightBarButtonItem = rightBarBtn;
+    
+    self.view.backgroundColor = [UIColor blackColor];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -61,9 +63,9 @@
         [YSHudView yiBaoHUDShowWithUserUnenable];
     }
 
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         
-        [YSHudView yiBaoHUDStopOrShowWithMsg:nil finsh:^{
+        [YSHudView yiBaoHUDStopOrShowWithMsg:@"这是提示这是提示这是提示这是提示这是提示这是提示这是提示" finsh:^{
             NSLog(@"-------------- 这是提示之后的");
         }];
         
