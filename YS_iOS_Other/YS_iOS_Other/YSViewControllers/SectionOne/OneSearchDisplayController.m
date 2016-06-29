@@ -10,6 +10,8 @@
 
 @interface OneSearchDisplayController ()<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, strong) UITableView * currentTableView;
+
 @property (nonatomic, strong) UISearchBar * ysSearchBar;
 @property (nonatomic, strong) UISearchDisplayController * ysSearchDisplayVC;
 
@@ -24,10 +26,46 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = NO;
     
+    // 通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(KeyBoardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(KeyBoardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    
+    [self createTableView];
+    [self createSearchBarInNav];
+    [self createSearchInTableView];
+    
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)createTableView
+{
+    _currentTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _currentTableView.delegate = self;
+    _currentTableView.dataSource = self;
+    [self.view addSubview:_currentTableView];
+    
+    [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+    }];
+}
+
+- (void)createSearchBarInNav
+{
     _ysSearchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
     _ysSearchBar.delegate = self;
     _ysSearchBar.showsCancelButton = NO;
@@ -41,8 +79,10 @@
     _ysSearchDisplayVC.searchResultsDelegate = self;
     _ysSearchDisplayVC.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _ysSearchDisplayVC.displaysSearchBarInNavigationBar = YES;
-    
-    
+}
+
+- (void)createSearchInTableView
+{
     _ysNoNavSearchBar = [[UISearchBar alloc] init];
     _ysNoNavSearchBar.delegate = self;
     _ysNoNavSearchBar.showsCancelButton = YES;
@@ -56,24 +96,7 @@
     _ysNoNavSearchDisplayVC.searchResultsDataSource = self;
     _ysNoNavSearchDisplayVC.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    
-    // 通知
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(KeyBoardWillShow)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(KeyBoardWillHide)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
-    
-    //
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    _currentTableView.tableHeaderView = _ysNoNavSearchBar;
 }
 
 #pragma mark - 

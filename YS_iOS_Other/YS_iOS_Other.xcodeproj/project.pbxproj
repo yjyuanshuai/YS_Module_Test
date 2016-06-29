@@ -27,6 +27,11 @@
 		39214A7F1D056A600019422D /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A731D056A600019422D /* 7.jpg */; };
 		39214A801D056A600019422D /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A741D056A600019422D /* 8.jpg */; };
 		39214A811D056A600019422D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A751D056A600019422D /* 9.jpg */; };
+		3926218F1D23638900CF4C90 /* YSSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926218E1D23638900CF4C90 /* YSSearchBarView.m */; };
+		392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */; };
+		392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621961D2365D700CF4C90 /* UIColor+Image.m */; };
+		3926219A1D239F0400CF4C90 /* NavHideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621991D239F0400CF4C90 /* NavHideViewController.m */; };
+		3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */; };
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
@@ -57,7 +62,6 @@
 		39FEC0B41D1B71310036DAB3 /* OneSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEC0B01D1B71310036DAB3 /* OneSearchDisplayController.m */; };
 		39FEC0B51D1B71310036DAB3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEC0B21D1B71310036DAB3 /* SearchResultViewController.m */; };
 		39FEC0B81D1B726A0036DAB3 /* CustemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEC0B71D1B726A0036DAB3 /* CustemSearchViewController.m */; };
-		39FEC0C71D1B8E430036DAB3 /* YSSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FEC0C61D1B8E430036DAB3 /* YSSearchBarView.m */; };
 		50D75D14D975D3AE20792831 /* libPods-YS_iOS_Other.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */; };
 /* End PBXBuildFile section */
 
@@ -108,6 +112,16 @@
 		39214A731D056A600019422D /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		39214A741D056A600019422D /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		39214A751D056A600019422D /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		3926218D1D23638900CF4C90 /* YSSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSSearchBarView.h; path = SectionOne/YSSearchBarView.h; sourceTree = "<group>"; };
+		3926218E1D23638900CF4C90 /* YSSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSSearchBarView.m; path = SectionOne/YSSearchBarView.m; sourceTree = "<group>"; };
+		392621911D2363DA00CF4C90 /* JianShuNavAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianShuNavAnimationViewController.h; sourceTree = "<group>"; };
+		392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianShuNavAnimationViewController.m; sourceTree = "<group>"; };
+		392621951D2365D700CF4C90 /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
+		392621961D2365D700CF4C90 /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
+		392621981D239F0400CF4C90 /* NavHideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavHideViewController.h; sourceTree = "<group>"; };
+		392621991D239F0400CF4C90 /* NavHideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavHideViewController.m; sourceTree = "<group>"; };
+		3926219B1D23B19100CF4C90 /* NavHeadViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavHeadViewViewController.h; sourceTree = "<group>"; };
+		3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavHeadViewViewController.m; sourceTree = "<group>"; };
 		3949E26E1D1A2DA30016BFF6 /* YSUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSUserDefaults.h; sourceTree = "<group>"; };
 		3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSUserDefaults.m; sourceTree = "<group>"; };
 		3949E2721D1A327D0016BFF6 /* YSDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDefaultsViewController.h; sourceTree = "<group>"; };
@@ -167,8 +181,6 @@
 		39FEC0B21D1B71310036DAB3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultViewController.m; path = SectionOne/SearchResultViewController.m; sourceTree = "<group>"; };
 		39FEC0B61D1B726A0036DAB3 /* CustemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustemSearchViewController.h; path = SectionOne/CustemSearchViewController.h; sourceTree = "<group>"; };
 		39FEC0B71D1B726A0036DAB3 /* CustemSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustemSearchViewController.m; path = SectionOne/CustemSearchViewController.m; sourceTree = "<group>"; };
-		39FEC0C51D1B8E430036DAB3 /* YSSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSSearchBarView.h; sourceTree = "<group>"; };
-		39FEC0C61D1B8E430036DAB3 /* YSSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSSearchBarView.m; sourceTree = "<group>"; };
 		63927F4C004D73FD33E1F045 /* Pods-YS_iOS_Other.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.release.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.release.xcconfig"; sourceTree = "<group>"; };
 		9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YS_iOS_Other.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -279,6 +291,7 @@
 				39B218B11D1911A4008DD042 /* SectionTwo */,
 				398594431D13CCB100863A14 /* SectionSix */,
 				3985944B1D13F06A00863A14 /* SectionSeven */,
+				392621901D2363A400CF4C90 /* SectionEleven */,
 			);
 			path = YSViewControllers;
 			sourceTree = "<group>";
@@ -313,6 +326,28 @@
 				39214A751D056A600019422D /* 9.jpg */,
 			);
 			path = Image;
+			sourceTree = "<group>";
+		};
+		392621901D2363A400CF4C90 /* SectionEleven */ = {
+			isa = PBXGroup;
+			children = (
+				392621911D2363DA00CF4C90 /* JianShuNavAnimationViewController.h */,
+				392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */,
+				392621981D239F0400CF4C90 /* NavHideViewController.h */,
+				392621991D239F0400CF4C90 /* NavHideViewController.m */,
+				3926219B1D23B19100CF4C90 /* NavHeadViewViewController.h */,
+				3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */,
+			);
+			path = SectionEleven;
+			sourceTree = "<group>";
+		};
+		392621941D2365B400CF4C90 /* UIColor */ = {
+			isa = PBXGroup;
+			children = (
+				392621951D2365D700CF4C90 /* UIColor+Image.h */,
+				392621961D2365D700CF4C90 /* UIColor+Image.m */,
+			);
+			path = UIColor;
 			sourceTree = "<group>";
 		};
 		3949E26D1D1A2D6E0016BFF6 /* UserDefaults */ = {
@@ -351,6 +386,7 @@
 		395E69531D1279E600CBDFE0 /* Categares */ = {
 			isa = PBXGroup;
 			children = (
+				392621941D2365B400CF4C90 /* UIColor */,
 				39B218CF1D192C7E008DD042 /* UILabel */,
 				39B218C21D1920DB008DD042 /* NSString */,
 				39B218BE1D1920C4008DD042 /* NSObject+RNSwizzle */,
@@ -529,10 +565,10 @@
 		39FEC0B91D1B73080036DAB3 /* CustemSearchBar */ = {
 			isa = PBXGroup;
 			children = (
+				3926218D1D23638900CF4C90 /* YSSearchBarView.h */,
+				3926218E1D23638900CF4C90 /* YSSearchBarView.m */,
 				39FEC0B61D1B726A0036DAB3 /* CustemSearchViewController.h */,
 				39FEC0B71D1B726A0036DAB3 /* CustemSearchViewController.m */,
-				39FEC0C51D1B8E430036DAB3 /* YSSearchBarView.h */,
-				39FEC0C61D1B8E430036DAB3 /* YSSearchBarView.m */,
 			);
 			name = CustemSearchBar;
 			sourceTree = "<group>";
@@ -752,6 +788,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3926219A1D239F0400CF4C90 /* NavHideViewController.m in Sources */,
+				3926218F1D23638900CF4C90 /* YSSearchBarView.m in Sources */,
 				39214A171D05203B0019422D /* ViewController.m in Sources */,
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
 				398594461D13CD0000863A14 /* SixGestureViewController.m in Sources */,
@@ -761,6 +799,7 @@
 				398594491D13CE8B00863A14 /* YSCustemGesureRecognizer.m in Sources */,
 				39FEC0B41D1B71310036DAB3 /* OneSearchDisplayController.m in Sources */,
 				39FEC0AA1D1B71180036DAB3 /* OneCollectionCollectionViewCell.m in Sources */,
+				3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */,
 				39FEC0B31D1B71310036DAB3 /* OneSearchController.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
 				39FEC0B51D1B71310036DAB3 /* SearchResultViewController.m in Sources */,
@@ -770,9 +809,9 @@
 				39FEC0AC1D1B71180036DAB3 /* OneCollectionViewController.m in Sources */,
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
-				39FEC0C71D1B8E430036DAB3 /* YSSearchBarView.m in Sources */,
 				39FEC0A21D1B70EC0036DAB3 /* OneHorizontalTableViewCell.m in Sources */,
 				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
+				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
 				39FEC0B81D1B726A0036DAB3 /* CustemSearchViewController.m in Sources */,
 				39FEC09A1D1B70B00036DAB3 /* ApplicationSettingViewController.m in Sources */,
@@ -781,6 +820,7 @@
 				39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */,
 				3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
+				392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */,
 				39FEC09D1D1B70CA0036DAB3 /* OnePickerViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

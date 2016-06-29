@@ -27,11 +27,19 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    
+    [self initUIAndData];
+    [self initHorizonTableView];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
+}
+
+- (void)initUIAndData
+{
     self.title = @"横向Tableview";
     self.view.backgroundColor = [UIColor whiteColor];
-    self.navigationController.navigationBar.translucent = NO;   // 防止导航栏遮挡self.view
-    
     
     _modelsArr = [NSMutableArray arrayWithArray:@[[self getCollectionModle:@"1" title:@"主题" desc:@"详情"],
                                                   [self getCollectionModle:@"2" title:@"主题" desc:@"详情"],
@@ -42,14 +50,12 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
                                                   [self getCollectionModle:@"7" title:@"主题" desc:@"详情"],
                                                   [self getCollectionModle:@"8" title:@"主题" desc:@"详情"],
                                                   [self getCollectionModle:@"9" title:@"主题" desc:@"详情"]]];
-    
-    
-//    NSLog(@"--------- screen width: %f ---------- screen height: %f -----------", [UIScreen mainScreen].bounds.size.width, [UIScreen mainScreen].bounds.size.height);
-//    NSLog(@"--------- screen width: %f ---------- screen height: %f -----------", self.view.frame.size.width, self.view.frame.size.height);
-    
-    
-    _horizontalTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 130, [[UIScreen mainScreen] bounds].size.width) style:UITableViewStylePlain];
-    _horizontalTableView.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, 130/2);
+}
+
+- (void)initHorizonTableView
+{
+    _horizontalTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 130, kScreenWidth) style:UITableViewStylePlain];
+    _horizontalTableView.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, 64 + 130/2);
     _horizontalTableView.backgroundColor = [UIColor yellowColor];
     _horizontalTableView.delegate = self;
     _horizontalTableView.dataSource = self;
@@ -61,16 +67,14 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
     // 转向
     _horizontalTableView.transform = CGAffineTransformMakeRotation(-M_PI/2);
     
-    
     // 添加长按手势
     UILongPressGestureRecognizer * longGesure = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesure:)];
     longGesure.numberOfTouchesRequired = 1;
     [_horizontalTableView addGestureRecognizer:longGesure];
-}
-
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
+    
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 #pragma mark - 
