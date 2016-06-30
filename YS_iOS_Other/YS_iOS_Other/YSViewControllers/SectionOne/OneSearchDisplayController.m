@@ -12,6 +12,8 @@
 
 @property (nonatomic, strong) UITableView * currentTableView;
 
+@property (nonatomic, strong) UIView * custemView;
+
 @property (nonatomic, strong) UISearchBar * ysSearchBar;
 @property (nonatomic, strong) UISearchDisplayController * ysSearchDisplayVC;
 
@@ -21,23 +23,17 @@
 @end
 
 @implementation OneSearchDisplayController
+{
+    UITapGestureRecognizer * _tapGesure;
+    
+    NSArray * _historyArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
-    // 通知
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(KeyBoardWillShow)
-                                                 name:UIKeyboardWillShowNotification
-                                               object:nil];
-    [[NSNotificationCenter defaultCenter] addObserver:self
-                                             selector:@selector(KeyBoardWillHide)
-                                                 name:UIKeyboardWillHideNotification
-                                               object:nil];
-    
+    [self initUIAndData];
     [self createTableView];
     [self createSearchBarInNav];
     [self createSearchInTableView];
@@ -50,6 +46,27 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)initUIAndData
+{
+    self.view.backgroundColor = [UIColor whiteColor];
+    UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
+    self.navigationItem.rightBarButtonItem = rightBarBtn;
+
+    [self ysCustemView];
+    _tapGesure = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyWindow:)];
+    
+    // 通知
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(KeyBoardWillShow)
+                                                 name:UIKeyboardWillShowNotification
+                                               object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self
+                                             selector:@selector(KeyBoardWillHide)
+                                                 name:UIKeyboardWillHideNotification
+                                               object:nil];
+    _historyArr = @[@"搜索历史 1", @"搜索历史 2", @"搜索历史 3"];
 }
 
 - (void)createTableView
@@ -85,7 +102,7 @@
 {
     _ysNoNavSearchBar = [[UISearchBar alloc] init];
     _ysNoNavSearchBar.delegate = self;
-    _ysNoNavSearchBar.showsCancelButton = YES;
+    _ysNoNavSearchBar.showsCancelButton = NO;
     _ysNoNavSearchBar.placeholder = @"一般搜索";
     [_ysNoNavSearchBar sizeToFit];
     [self.view addSubview:_ysNoNavSearchBar];
@@ -99,18 +116,28 @@
     _currentTableView.tableHeaderView = _ysNoNavSearchBar;
 }
 
+- (void)clickRightBarBtn
+{
+
+}
+
 #pragma mark - 
 - (void)KeyBoardWillShow
 {
     if (_ysSearchBar.isFirstResponder) {
         
         // 导航栏
+        if ([self respondsToSelector:@selector(searchDisplayControllerWillBeginSearch:)]) {
+            [self searchDisplayControllerWillBeginSearch:_ysSearchDisplayVC];
+        }
         
         
     } else if (_ysNoNavSearchBar.isFirstResponder) {
     
         // 非导航栏
-        
+        if ([self respondsToSelector:@selector(searchDisplayControllerWillBeginSearch:)]) {
+            [self searchDisplayControllerWillBeginSearch:_ysNoNavSearchDisplayVC];
+        }
         
     }
 }
@@ -128,87 +155,96 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    NSString * cell_id = @"cell_id";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+    if (tableView == _currentTableView) {
+        NSString * cell_id = @"cell_id";
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+        }
+        cell.textLabel.text = @"测试测试测试测试";
+        return cell;
+    } else {
+        NSString * cell_id = @"cell_history_id";
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+        }
+        cell.textLabel.text = @"搜索中0";
+        return cell;
+
     }
-    cell.textLabel.text = @"测试测试测试测试";
-    return cell;
 }
 
-#pragma mark -
+#pragma mark - UISearchBarDelegate
+- (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = YES;
+    return YES;
+}
+
+- (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = NO;
+    return YES;
+}
+
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
+{
+    searchBar.showsCancelButton = NO;
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
+{
+    if ([searchText isEqualToString:@""]) {
+        _custemView.hidden = NO;
+    } else {
+        _custemView.hidden = YES;
+    }
+}
 
 #pragma mark -
 - (void)searchDisplayControllerWillBeginSearch:(UISearchDisplayController *)controller {
     
-
-    
+    [self resetSearchDisplayView:controller];
     
 }
 
-- (void)resetSearchDisplayView:(id)searchDisplayController custemView:(UIView *)view
+- (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
+{
+    [_custemView removeFromSuperview];
+}
+
+- (void)resetSearchDisplayView:(id)searchDisplayController
 {
     if ([searchDisplayController isKindOfClass:[UISearchDisplayController class]]) {
         
         UISearchDisplayController * ysSearchDisplayView = (UISearchDisplayController *)searchDisplayController;
         
-        UITapGestureRecognizer * tapGesure = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyWindow:)];
+        UIView * supSupView = ysSearchDisplayView.searchResultsTableView.superview.superview;
         
-        ysSearchDisplayView.searchResultsTableView.superview.backgroundColor = [UIColor yellowColor];
-        
-        UIView * disViewSuperView = nil;
-        
-        if (ysSearchDisplayView.displaysSearchBarInNavigationBar) {
-            
-            disViewSuperView = ysSearchDisplayView.searchResultsTableView.superview.superview;
-            
-            
-            [disViewSuperView addGestureRecognizer:tapGesure];
-            
-            for (UIView * subView in disViewSuperView.subviews) {
-                for (UIView * subsubView in subView.subviews) {
-                    if ([subsubView isKindOfClass:NSClassFromString(@"_UISearchDisplayControllerDimmingView")]) {
-                        NSLog(@"+++++++++++++++ ");
-                        subView.frame = CGRectZero;
-                        subView.hidden = YES;
-                        
-                        if (![view isDescendantOfView:disViewSuperView]) {
-                            [disViewSuperView addSubview:view];
-                        }
-                    }
+        for (UIView * subView in supSupView.subviews) {
+            for (UIView * subsubView in subView.subviews) {
+                if ([subsubView isKindOfClass:NSClassFromString(@"_UISearchDisplayControllerDimmingView")]) {
                     
+                    subsubView.superview.hidden = YES;
                 }
             }
-            
-        } else {
-            
-            disViewSuperView = ysSearchDisplayView.searchResultsTableView.superview;
-            [disViewSuperView addGestureRecognizer:tapGesure];
-            
-            for (UIView * subView in disViewSuperView.subviews) {
-                
-                if ([subView isKindOfClass:NSClassFromString(@"_UISearchDisplayControllerDimmingView")]) {
-                    
-                    NSLog(@"--------------- ");
-                    subView.frame = CGRectZero;
-                    subView.hidden = YES;
-                    
-                    if (![view isDescendantOfView:disViewSuperView]) {
-                        [disViewSuperView addSubview:view];
-                    }
-                }
-            }
-            
         }
         
+        UIView * disViewSuperView = ysSearchDisplayView.searchResultsTableView.superview;
+        disViewSuperView.backgroundColor = [UIColor orangeColor];
+        
+        if (![_custemView isDescendantOfView:disViewSuperView]) {
+            [_custemView addGestureRecognizer:_tapGesure];
+            [disViewSuperView addSubview:_custemView];
+        }
     }
 }
 
-- (UIView *)ysCustemView
+- (void)ysCustemView
 {
-    UIView * tempView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
-    
+    _custemView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(100, 100, 100, 100);
     [btn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
@@ -216,20 +252,42 @@
     btn.layer.borderColor = [UIColor blackColor].CGColor;
     btn.layer.borderWidth = 1.0;
     [btn setBackgroundImage:[UIImage imageNamed:@"btn1"] forState:UIControlStateNormal];
-    [tempView addSubview:btn];
+    [_custemView addSubview:btn];
+     
+    /*
+    UILabel * historyLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 64 + 6, kScreenWidth - 20 - 30, 20)];
+    historyLabel.textColor = [UIColor blackColor];
+    historyLabel.font = [UIFont systemFontOfSize:16.0];
+    historyLabel.text = @"搜索历史";
+    [_custemView addSubview:historyLabel];
     
-    return tempView;
+    UIButton * deletBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    deletBtn.frame = CGRectMake(kScreenWidth - 10 - 20, 70, 20, 20);
+    [deletBtn setImage:[UIImage imageNamed:@"trash"] forState:UIControlStateNormal];
+    [deletBtn addTarget:self action:@selector(deleteHistory) forControlEvents:UIControlEventTouchUpInside];
+    [_custemView addSubview:deletBtn];
+     */
+}
+
+- (void)deleteHistory
+{
+    
 }
 
 - (void)clickBtn
 {
-    NSLog(@"+++++++++++++++++++++++");
+    NSLog(@"================ ");
 }
 
 - (void)hideKeyWindow:(UITapGestureRecognizer *)tapGesure
 {
-    [self.view endEditing:YES];
-    [self.navigationController.navigationBar endEditing:YES];
+    if ([_ysSearchBar isFirstResponder]) {
+        [_ysSearchBar resignFirstResponder];
+        _ysSearchBar.showsCancelButton = YES;
+    } else if ([_ysNoNavSearchBar isFirstResponder]) {
+        [_ysNoNavSearchBar resignFirstResponder];
+        _ysNoNavSearchBar.showsCancelButton = YES;
+    }
 }
 
 @end
