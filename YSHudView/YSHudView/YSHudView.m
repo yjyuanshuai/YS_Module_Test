@@ -78,7 +78,9 @@
         if (_isUserEnable == YES) {
             _hudView.userInteractionEnabled = NO;
         }
-    }
+    
+//        _hudView.backgroundColor = [UIColor yellowColor];
+//        _hudView.alpha = 0.6;
     
     _mbProgressHud = [MBProgressHUD showHUDAddedTo:_hudSubView animated:YES];
     _mbProgressHud.mode = MBProgressHUDModeCustomView;
@@ -105,6 +107,7 @@
     [custemImageView startAnimating];
     
     _mbProgressHud.customView = custemImageView;
+    }
 }
 
 - (void)showHUDWithNetWorkUnavailable {
@@ -130,6 +133,8 @@
         _mbProgressHud = [MBProgressHUD showHUDAddedTo:_APP_KEYWINDOW animated:YES];
         _mbProgressHud.mode = MBProgressHUDModeText;
         _mbProgressHud.detailsLabel.text = msg;
+        _mbProgressHud.backgroundView.backgroundColor = [UIColor redColor];
+        _mbProgressHud.backgroundView.alpha = 0.5;
         
         if (msg.length > 12) {
             _mbProgressHud.detailsLabel.font = [UIFont fontWithName:@"Helvetica" size:14];
@@ -137,11 +142,18 @@
             _mbProgressHud.detailsLabel.font = [UIFont fontWithName:@"Helvetica" size:16];
         }
     
-        [_mbProgressHud hideAnimated:YES afterDelay:1.5];
-    }
-    
-    if (finshBlock) {
-        finshBlock();
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.5 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            
+            [MBProgressHUD hideHUDForView:_APP_KEYWINDOW animated:YES];
+            
+            if (finshBlock) {
+                finshBlock();
+            }
+        });
+    } else {
+        if (finshBlock) {
+            finshBlock();
+        }
     }
 }
 
@@ -155,6 +167,13 @@
         _hudView = nil;
         [_mbProgressHud hideAnimated:YES];
     }
+    
+    [self hideAllMBProHUD];
+}
+
+- (void)hideAllMBProHUD
+{
+    [MBProgressHUD hideHUDForView:_APP_KEYWINDOW animated:YES];
 }
 
 #pragma mark - 定时器 -

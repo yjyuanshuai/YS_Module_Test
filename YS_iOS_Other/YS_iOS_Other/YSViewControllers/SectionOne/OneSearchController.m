@@ -11,6 +11,7 @@
 
 @interface OneSearchController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating>
 
+@property (nonatomic, strong) UITableView * currentTableView;
 @property (nonatomic, strong) UISearchController * navigationSearchCon;
 @property (nonatomic, strong) UISearchController * ysSearchCon;
 
@@ -23,39 +24,14 @@
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-//    self.navigationController.navigationBar.translucent = NO;
     
-    SearchResultViewController * searchResultVC = [[SearchResultViewController alloc] init];
-
-    // 导航栏上的搜索
-    _navigationSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
-    _navigationSearchCon.searchResultsUpdater = self;
-    _navigationSearchCon.dimsBackgroundDuringPresentation = NO;
-    _navigationSearchCon.hidesNavigationBarDuringPresentation = NO;
-//    _navigationSearchCon.searchBar.frame = CGRectMake(0, 0, kScreenWidth, 44);
-    [_navigationSearchCon.searchBar sizeToFit];
-    _navigationSearchCon.searchBar.backgroundColor = [UIColor redColor];
-    self.navigationItem.titleView = _navigationSearchCon.searchBar;
-
+    [self createTableView];
+    [self createSearchBarInNavBar];
+    [self createSearchBarInTableView];
     
-
-    // view上的搜索
-    _ysSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
-    _ysSearchCon.searchResultsUpdater = self;
-    _ysSearchCon.searchBar.delegate = self;
-//    _ysSearchCon.dimsBackgroundDuringPresentation = NO;         //搜索时，背景变暗色，默认是 YES
-//    _ysSearchCon.obscuresBackgroundDuringPresentation = NO;     //搜索时，背景变模糊，默认是 YES
-//    _ysSearchCon.hidesNavigationBarDuringPresentation = NO;     //隐藏导航栏，默认是 YES
-//    [_ysSearchCon.searchBar sizeToFit];
-    _ysSearchCon.searchBar.frame = CGRectMake(0, 64, kScreenWidth, 44);
-    [self.view addSubview:_ysSearchCon.searchBar];
-    self.definesPresentationContext = YES;
-    
-    
-    
-    UILabel * tempLable = [[UILabel alloc] initWithFrame:CGRectMake(0, 44+64, kScreenWidth, 90)];
-    tempLable.backgroundColor = [UIColor greenColor];
-    [self.view addSubview:tempLable];
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -67,6 +43,49 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)createTableView
+{
+    _currentTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _currentTableView.delegate = self;
+    _currentTableView.dataSource = self;
+     [self.view addSubview:_currentTableView];
+    
+    [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+    }];
+}
+
+- (void)createSearchBarInNavBar
+{
+    SearchResultViewController * searchResultVC = [[SearchResultViewController alloc] init];
+    
+    // 导航栏上的搜索
+    _navigationSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
+    _navigationSearchCon.searchResultsUpdater = self;
+    _navigationSearchCon.dimsBackgroundDuringPresentation = NO;
+    _navigationSearchCon.hidesNavigationBarDuringPresentation = NO;
+    [_navigationSearchCon.searchBar sizeToFit];
+    self.navigationItem.titleView = _navigationSearchCon.searchBar;
+}
+
+- (void)createSearchBarInTableView
+{
+    SearchResultViewController * searchResultVC = [[SearchResultViewController alloc] init];
+    // view上的搜索
+    _ysSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
+    _ysSearchCon.searchResultsUpdater = self;
+    _ysSearchCon.searchBar.delegate = self;
+    //    _ysSearchCon.dimsBackgroundDuringPresentation = NO;         //搜索时，背景变暗色，默认是 YES
+    //    _ysSearchCon.obscuresBackgroundDuringPresentation = NO;     //搜索时，背景变模糊，默认是 YES
+    //    _ysSearchCon.hidesNavigationBarDuringPresentation = NO;     //隐藏导航栏，默认是 YES
+    //    [_ysSearchCon.searchBar sizeToFit];
+    _ysSearchCon.searchBar.frame = CGRectMake(0, 64, kScreenWidth, 44);
+//    [self.view addSubview:_ysSearchCon.searchBar];
+//    self.definesPresentationContext = YES;
+    
+    _currentTableView.tableHeaderView = _ysSearchCon.searchBar;
 }
 
 #pragma mark - UITableViewDataSource -

@@ -14,6 +14,7 @@
 #import "OneSearchDisplayController.h"
 #import "OneSearchController.h"
 #import "ApplicationSettingViewController.h"
+#import "CustemSearchViewController.h"
 
 
 #import "TwoDocumentViewController.h"
@@ -21,6 +22,10 @@
 
 
 #import "SevenBaiduViewController.h"
+
+
+// 11
+#import "JianShuNavAnimationViewController.h"
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -39,12 +44,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    self.title = @"其他";
+    self.title = @"目录";
     
     _sectionTitle = @[@"1 控件", @"2 数据持久化", @"3 iCloud", @"4 GCD", @"5 Quartz/OpenGL", @"6 手势/触摸", @"7 Location", @"8 陀螺仪/加速器", @"9 照相机/相片库", @"10 本地化", @"11 一些效果"];
     
     
-    NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView", @"UISearchDisplayController", @"UISearchController", @"UIApplicaton一些设置"];
+    NSArray * sectionOne    = @[@"Picker", @"CollectionView", @"横向tableView", @"UISearchDisplayController", @"UISearchController", @"UIApplicaton一些设置", @"仿微信SearchBar"];
     NSArray * sectionTwo    = @[@"沙盒", @"文件", @"归档", @"sqlite", @"CoreData", @"偏好设置"];
     NSArray * sectionThree  = @[@"使用UIDocument管理文件存储", @"添加iCloud支持"];
     NSArray * sectionFour   = @[@"GCD"];
@@ -54,7 +59,7 @@
     NSArray * sectionEight  = @[@"陀螺仪", @"加速器"];
     NSArray * sectionNine   = @[@"照相机", @"相片库"];
     NSArray * sectionTen    = @[@"本地化"];
-    NSArray * sectionElven  = @[@"简书导航栏上下拉动画"];
+    NSArray * sectionElven  = @[@"导航栏效果"];
     
     if (_sectionCellContent == nil) {
         _sectionCellContent = [NSMutableArray array];
@@ -64,6 +69,11 @@
     
     
     [self initTableView];
+    
+    //
+    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+        self.automaticallyAdjustsScrollViewInsets = NO;
+    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,7 +83,7 @@
 
 - (void)initTableView
 {
-    _otherTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStyleGrouped];
+    _otherTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, kScreenHeight - 64) style:UITableViewStyleGrouped];
     _otherTableView.delegate = self;
     _otherTableView.dataSource = self;
     [self.view addSubview:_otherTableView];
@@ -153,6 +163,12 @@
                 // UIApplicaton一些设置
                 ApplicationSettingViewController * appVC = [[ApplicationSettingViewController alloc] init];
                 [self.navigationController pushViewController:appVC animated:YES];
+                
+            } else if (indexPath.row == 6) {
+                
+                // 仿微信SearchBar
+                CustemSearchViewController * searchBarVC = [[CustemSearchViewController alloc] init];
+                [self.navigationController pushViewController:searchBarVC animated:YES];
                 
             }
         }
@@ -248,6 +264,19 @@
         case 9:
         {
             
+        }
+            break;
+        case 10:
+        {
+            if (indexPath.row == 0) {
+                JianShuNavAnimationViewController * jianshuNavVC = [[JianShuNavAnimationViewController alloc] init];
+                [self.navigationController pushViewController:jianshuNavVC animated:YES];
+            }
+        }
+            break;
+        case 11:
+        {
+        
         }
             break;
         default:
