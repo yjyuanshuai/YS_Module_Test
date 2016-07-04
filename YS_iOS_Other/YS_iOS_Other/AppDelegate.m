@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "OneSearchDisplayController.h"
 
 @interface AppDelegate ()
 
@@ -21,6 +22,14 @@
     
     [self startBaiduMap];
     [self notificationApplyToUser];
+    
+    self.window.frame = [[UIScreen mainScreen] bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    OneSearchDisplayController * searchDisControler = [[OneSearchDisplayController alloc] init];
+    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:searchDisControler];
+    self.window.rootViewController = nav;
     
     return YES;
 }

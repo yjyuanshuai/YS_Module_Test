@@ -27,6 +27,8 @@
     UITapGestureRecognizer * _tapGesure;
     
     NSArray * _historyArr;
+    
+    UIBarButtonItem * _rightBarBtn;
 }
 
 - (void)viewDidLoad {
@@ -36,7 +38,7 @@
     [self initUIAndData];
     [self createTableView];
     [self createSearchBarInNav];
-    [self createSearchInTableView];
+//    [self createSearchInTableView];
     
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
@@ -50,12 +52,23 @@
 
 - (void)initUIAndData
 {
+//    self.navigationController.navigationBar.translucent = NO;
+//    if (kSystemVersion >= 7.0)
+//    {
+//        self.extendedLayoutIncludesOpaqueBars = NO;
+//        self.edgesForExtendedLayout           = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
+//    }
+//    
+//    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:20.0], NSFontAttributeName, nil]];
+    
+    
+    
+    
     self.view.backgroundColor = [UIColor whiteColor];
-    UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
-    self.navigationItem.rightBarButtonItem = rightBarBtn;
+//    UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
+//    self.navigationItem.rightBarButtonItem = rightBarBtn;
 
     [self ysCustemView];
-    _tapGesure = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyWindow:)];
     
     // 通知
     [[NSNotificationCenter defaultCenter] addObserver:self
@@ -83,19 +96,23 @@
 
 - (void)createSearchBarInNav
 {
-    _ysSearchBar = [[UISearchBar alloc] initWithFrame:CGRectZero];
+    _ysSearchBar = [[UISearchBar alloc] init];
     _ysSearchBar.delegate = self;
     _ysSearchBar.showsCancelButton = NO;
     _ysSearchBar.placeholder = @"导航栏搜索";
     [_ysSearchBar sizeToFit];
-    self.navigationItem.titleView = _ysSearchBar;
+//    self.navigationItem.titleView = _ysSearchBar;
     
     _ysSearchDisplayVC = [[UISearchDisplayController alloc] initWithSearchBar:_ysSearchBar contentsController:self];
     _ysSearchDisplayVC.delegate = self;
     _ysSearchDisplayVC.searchResultsDataSource = self;
     _ysSearchDisplayVC.searchResultsDelegate = self;
     _ysSearchDisplayVC.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+//    _ysSearchDisplayVC.searchResultsTableView.backgroundColor = [UIColor yellowColor];
     _ysSearchDisplayVC.displaysSearchBarInNavigationBar = YES;
+    
+    _rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
+    _ysSearchDisplayVC.navigationItem.rightBarButtonItem = _rightBarBtn;
 }
 
 - (void)createSearchInTableView
@@ -169,7 +186,7 @@
         if (cell == nil) {
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
         }
-        cell.textLabel.text = @"搜索中0";
+        cell.textLabel.text = @"搜索中";
         return cell;
 
     }
@@ -178,19 +195,26 @@
 #pragma mark - UISearchBarDelegate
 - (BOOL)searchBarShouldBeginEditing:(UISearchBar *)searchBar
 {
+    _custemView.hidden = NO;
     searchBar.showsCancelButton = YES;
+//    _ysSearchDisplayVC.navigationItem.rightBarButtonItem = nil;
     return YES;
 }
 
 - (BOOL)searchBarShouldEndEditing:(UISearchBar *)searchBar
 {
-    searchBar.showsCancelButton = NO;
+    searchBar.showsCancelButton = YES;
     return YES;
 }
 
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar
 {
     searchBar.showsCancelButton = NO;
+}
+
+- (void)searchBarSearchButtonClicked:(UISearchBar *)searchBar
+{
+
 }
 
 - (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText
@@ -211,9 +235,21 @@
 
 - (void)searchDisplayControllerDidEndSearch:(UISearchDisplayController *)controller
 {
-    [_custemView removeFromSuperview];
+//    _ysSearchDisplayVC.navigationItem.rightBarButtonItem = _rightBarBtn;
 }
 
+- (void)searchDisplayController:(UISearchDisplayController *)controller willShowSearchResultsTableView:(UITableView *)tableView
+{
+    [tableView setContentInset:UIEdgeInsetsZero];
+    [tableView setScrollIndicatorInsets:UIEdgeInsetsZero];
+}
+
+- (void)searchDisplayController:(UISearchDisplayController *)controller didShowSearchResultsTableView:(UITableView *)tableView
+{
+    
+}
+
+#pragma mark -
 - (void)resetSearchDisplayView:(id)searchDisplayController
 {
     if ([searchDisplayController isKindOfClass:[UISearchDisplayController class]]) {
@@ -227,23 +263,28 @@
                 if ([subsubView isKindOfClass:NSClassFromString(@"_UISearchDisplayControllerDimmingView")]) {
                     
                     subsubView.superview.hidden = YES;
+                    subsubView.hidden = YES;
+                    
                 }
             }
         }
         
         UIView * disViewSuperView = ysSearchDisplayView.searchResultsTableView.superview;
-        disViewSuperView.backgroundColor = [UIColor orangeColor];
-        
+//        disViewSuperView.backgroundColor = [UIColor orangeColor];
         if (![_custemView isDescendantOfView:disViewSuperView]) {
-            [_custemView addGestureRecognizer:_tapGesure];
             [disViewSuperView addSubview:_custemView];
         }
+        
     }
 }
 
 - (void)ysCustemView
 {
+    _tapGesure = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(hideKeyWindow:)];
+    
     _custemView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height)];
+    _custemView.backgroundColor = [UIColor yellowColor];
+    [_custemView addGestureRecognizer:_tapGesure];
 
     UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(100, 100, 100, 100);

@@ -19,6 +19,7 @@
 #define kSystemVersion  [[[UIDevice currentDevice] systemVersion] floatValue]
 
 
+
 /*********  用户偏好设置有关 *******************/
 #define UserRememberPassWord    @"UserRememberPassWord"
 #define UserName                @"UserName"
