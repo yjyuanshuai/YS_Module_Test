@@ -27,9 +27,9 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    OneSearchDisplayController * searchDisControler = [[OneSearchDisplayController alloc] init];
-    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:searchDisControler];
-    self.window.rootViewController = nav;
+//    OneSearchDisplayController * searchDisControler = [[OneSearchDisplayController alloc] init];
+//    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:searchDisControler];
+//    self.window.rootViewController = nav;
     
     return YES;
 }

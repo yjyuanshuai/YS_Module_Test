@@ -34,12 +34,13 @@
 		3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */; };
 		39399A0F1D24B57100409871 /* YSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A0E1D24B57100409871 /* YSFileManager.m */; };
 		39399A111D24B97400409871 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 39399A101D24B97400409871 /* trash.png */; };
-		39399A161D24BA4C00409871 /* YSHistoryBtn.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A151D24BA4C00409871 /* YSHistoryBtn.m */; };
 		39399A191D24BB5700409871 /* YSHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A181D24BB5700409871 /* YSHistoryView.m */; };
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
 		3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */; };
+		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
+		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
 		395E69591D128BE900CBDFE0 /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 395E69581D128BE900CBDFE0 /* btn1.png */; };
 		398594461D13CD0000863A14 /* SixGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594451D13CD0000863A14 /* SixGestureViewController.m */; };
 		398594491D13CE8B00863A14 /* YSCustemGesureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594481D13CE8B00863A14 /* YSCustemGesureRecognizer.m */; };
@@ -129,8 +130,6 @@
 		39399A0D1D24B57100409871 /* YSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSFileManager.h; sourceTree = "<group>"; };
 		39399A0E1D24B57100409871 /* YSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSFileManager.m; sourceTree = "<group>"; };
 		39399A101D24B97400409871 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
-		39399A141D24BA4C00409871 /* YSHistoryBtn.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHistoryBtn.h; sourceTree = "<group>"; };
-		39399A151D24BA4C00409871 /* YSHistoryBtn.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHistoryBtn.m; sourceTree = "<group>"; };
 		39399A171D24BB5700409871 /* YSHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHistoryView.h; sourceTree = "<group>"; };
 		39399A181D24BB5700409871 /* YSHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHistoryView.m; sourceTree = "<group>"; };
 		3949E26E1D1A2DA30016BFF6 /* YSUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSUserDefaults.h; sourceTree = "<group>"; };
@@ -141,6 +140,8 @@
 		3949E2761D1A3B890016BFF6 /* YSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSUserModel.m; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.m; sourceTree = SOURCE_ROOT; };
 		3949E2791D1A3D9E0016BFF6 /* CodeAndFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeAndFileViewController.h; sourceTree = "<group>"; };
 		3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeAndFileViewController.m; sourceTree = "<group>"; };
+		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
+		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
 		398594411D138EDE00863A14 /* YSSetting.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSSetting.pch; sourceTree = "<group>"; };
 		398594441D13CD0000863A14 /* SixGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixGestureViewController.h; sourceTree = "<group>"; };
@@ -266,8 +267,7 @@
 				39B218B81D19172C008DD042 /* ysPlist */,
 				39B218B51D19125A008DD042 /* otherImage */,
 				398594571D13F41400863A14 /* Header File */,
-				395E69571D128BD700CBDFE0 /* btnImage */,
-				39214A691D056A600019422D /* Image */,
+				394FF77A1D34C9FC00B80D24 /* Images */,
 				39214A181D05203B0019422D /* Main.storyboard */,
 				39214A1B1D05203B0019422D /* Assets.xcassets */,
 				39214A1D1D05203B0019422D /* LaunchScreen.storyboard */,
@@ -382,8 +382,6 @@
 		39399A131D24BA3C00409871 /* YSHistoryBtn */ = {
 			isa = PBXGroup;
 			children = (
-				39399A141D24BA4C00409871 /* YSHistoryBtn.h */,
-				39399A151D24BA4C00409871 /* YSHistoryBtn.m */,
 				39399A171D24BB5700409871 /* YSHistoryView.h */,
 				39399A181D24BB5700409871 /* YSHistoryView.m */,
 			);
@@ -408,6 +406,26 @@
 				3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */,
 			);
 			name = CodingAndFile;
+			sourceTree = "<group>";
+		};
+		394FF77A1D34C9FC00B80D24 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				394FF77B1D34CA1300B80D24 /* historyViewImage */,
+				395E69571D128BD700CBDFE0 /* btnImage */,
+				39214A691D056A600019422D /* Image */,
+			);
+			name = Images;
+			sourceTree = "<group>";
+		};
+		394FF77B1D34CA1300B80D24 /* historyViewImage */ = {
+			isa = PBXGroup;
+			children = (
+				394FF77E1D34DBAF00B80D24 /* editBtn.png */,
+				394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */,
+			);
+			name = historyViewImage;
+			path = Image/historyViewImage;
 			sourceTree = "<group>";
 		};
 		395E694F1D12774300CBDFE0 /* OneSearchDisplayViewController */ = {
@@ -743,11 +761,13 @@
 				39214A7D1D056A600019422D /* 5.jpg in Resources */,
 				39214A7C1D056A600019422D /* 4.jpg in Resources */,
 				39214A7B1D056A600019422D /* 3.jpg in Resources */,
+				394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */,
 				39214A811D056A600019422D /* 9.jpg in Resources */,
 				39214A771D056A600019422D /* 10.jpg in Resources */,
 				39214A1F1D05203B0019422D /* LaunchScreen.storyboard in Resources */,
 				39B218BA1D19175E008DD042 /* homeDirectiory.plist in Resources */,
 				39214A791D056A600019422D /* 12.jpg in Resources */,
+				394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */,
 				39214A801D056A600019422D /* 8.jpg in Resources */,
 				39214A7E1D056A600019422D /* 6.jpg in Resources */,
 				39214A761D056A600019422D /* 1.jpg in Resources */,
@@ -851,7 +871,6 @@
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
-				39399A161D24BA4C00409871 /* YSHistoryBtn.m in Sources */,
 				39FEC0AC1D1B71180036DAB3 /* OneCollectionViewController.m in Sources */,
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
@@ -1012,8 +1031,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yjyuanshuai@icloud.com (E8PJRRYD9L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yjyuanshuai@icloud.com (E8PJRRYD9L)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YS_iOS_Other/YSSetting.pch";
 				INFOPLIST_FILE = YS_iOS_Other/Info.plist;
@@ -1031,8 +1050,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: yjyuanshuai@icloud.com (E8PJRRYD9L)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: yjyuanshuai@icloud.com (E8PJRRYD9L)";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/YS_iOS_Other/YSSetting.pch";
 				INFOPLIST_FILE = YS_iOS_Other/Info.plist;

@@ -64,4 +64,21 @@
 }
 
 
+- (CGFloat)calculateWidthWithMaxHeight:(CGFloat)maxHeight font:(UIFont *)font miniWidth:(CGFloat)miniWidth
+{
+    UIFont * curFont = font;
+    if (font == nil) {
+        curFont = [UIFont systemFontOfSize:16.0];
+    }
+    CGSize rect = [self boundingRectWithSize:CGSizeMake(CGFLOAT_MAX, maxHeight)
+                                     options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading
+                                  attributes:@{NSFontAttributeName:curFont}
+                                     context:nil].size;
+    if (rect.width < miniWidth) {
+        return miniWidth;
+    }
+    return rect.width;
+}
+
+
 @end

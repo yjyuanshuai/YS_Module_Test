@@ -33,6 +33,15 @@
 /**
  *  返回高度
  */
-- (CGFloat)calculateHeightWithMaxWidth:(CGFloat)maxWidth font:(UIFont *)font miniHeight:(CGFloat)miniHeight;
+- (CGFloat)calculateHeightWithMaxWidth:(CGFloat)maxWidth
+                                  font:(UIFont *)font
+                            miniHeight:(CGFloat)miniHeight;
+
+/**
+ *  返回宽度
+ */
+- (CGFloat)calculateWidthWithMaxHeight:(CGFloat)maxHeight
+                                 font:(UIFont *)font
+                            miniWidth:(CGFloat)miniWidth;
 
 @end
