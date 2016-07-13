@@ -10,10 +10,21 @@
 #import "NavHideViewController.h"
 #import "NavHeadViewViewController.h"
 
+static NSString * const preNavBarTitleTextAttributes = @"preNavBarTitleTextAttributes";
+static NSString * const preNavBarStyle = @"preNavBarStyle";
+static NSString * const preNavBarTintColor = @"preNavBarTintColor";
+static NSString * const preNavBarbarTintColor = @"preNavBarbarTintColor";
+static NSString * const preNavBarTranslucent = @"preNavBarTranslucent";
+static NSString * const preNavBarShadowImage = @"preNavBarShadowImage";
+static NSString * const preNavBarBackIndicatorImage = @"preNavBarBackIndicatorImage";
+static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarBackIndicatorTransitionMaskImage";
+static NSString * const preNavBarHidden = @"preNavBarHidden";
+
 @interface JianShuNavAnimationViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView * jianshuTableView;
 @property (nonatomic, strong) UIImageView * navBarBackImageView;
+@property (nonatomic, strong) NSMutableDictionary * preNavigationBarDic;
 
 @end
 
@@ -27,11 +38,8 @@
     // Do any additional setup after loading the view.
     
     [self initUIAndData];
+    [self savePreNavigationBar];
     [self initTableView];
-    
-    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
 }
 
 - (void)didReceiveMemoryWarning {
@@ -44,6 +52,8 @@
     [super viewWillAppear:animated];
     
     _jianshuTableView.delegate = self;  //
+    
+    [self setNavigationBar];
 }
 
 - (void)viewDidDisappear:(BOOL)animated
@@ -52,24 +62,102 @@
     
     _jianshuTableView.delegate = nil;   // 释放delegate
     
-    // 消除此页面设置的navigationBar
-    self.navigationController.navigationBar.shadowImage = nil;
-    [self.navigationController.navigationBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
-    _navBarBackImageView.backgroundColor = [UIColor clearColor];
+    [self resetNavigationBar];
 }
 
-- (void)initUIAndData
+#pragma mark -
+// 存储上一个页面的
+- (void)savePreNavigationBar
 {
-    self.view.backgroundColor = [UIColor whiteColor];
+    UINavigationBar * navBar = self.navigationController.navigationBar;
     
+    BOOL preHidden = navBar.isHidden;
+    BOOL preTranslucent = navBar.translucent;
+    UIBarStyle preBarStyle = navBar.barStyle;
+    NSDictionary * preTitleTextAttributes = navBar.titleTextAttributes;
+    UIColor * preTintColor = navBar.tintColor ;
+    UIColor * preBarTintColor = navBar.barTintColor;
+    UIImage * preShaowImage = navBar.shadowImage;
+    UIImage * preBackIndicatorImage = navBar.backIndicatorImage;
+    UIImage * preBackIndicatorTransitionMaskImage = navBar.backIndicatorTransitionMaskImage;
     
+    /*
+    if ([navBar respondsToSelector:@selector(shadowImage)]) {
+        UIImage * preShaowImage = navBar.shadowImage;
+    }
+    if ([navBar respondsToSelector:@selector(backIndicatorImage)]) {
+        UIImage * preBackIndicatorImage = navBar.backIndicatorImage;
+    }
+    if ([navBar respondsToSelector:@selector(backIndicatorTransitionMaskImage)]) {
+        UIImage * preBackIndicatorTransitionMaskImage = navBar.backIndicatorTransitionMaskImage;
+    }
+     */
+
+    if (_preNavigationBarDic == nil) {
+        _preNavigationBarDic = [@{preNavBarHidden : @(preHidden),
+                                  preNavBarTranslucent : @(preTranslucent),
+                                  preNavBarStyle : @(preBarStyle)} mutableCopy];
+    }
+    
+    [self insertIntoDicWithValidData:preTitleTextAttributes key:preNavBarTitleTextAttributes];
+    [self insertIntoDicWithValidData:preTintColor key:preNavBarTintColor];
+    [self insertIntoDicWithValidData:preBarTintColor key:preNavBarbarTintColor];
+    [self insertIntoDicWithValidData:preShaowImage key:preNavBarShadowImage];
+    [self insertIntoDicWithValidData:preBackIndicatorImage key:preNavBarBackIndicatorImage];
+    [self insertIntoDicWithValidData:preBackIndicatorTransitionMaskImage key:preNavBarBackIndicatorTransitionMaskImage];
+}
+
+- (void)insertIntoDicWithValidData:(id)navProperty key:(NSString *)navKey
+{
+    if (navProperty != nil) {
+        [_preNavigationBarDic setObject:navProperty forKey:navKey];
+    }
+    
+}
+
+// 设置当前页面的
+- (void)setNavigationBar
+{
+    [self.navigationController setNavigationBarHidden:NO];
     [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]  forBarMetrics:UIBarMetricsDefault];
     self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     
     _navBarBackImageView = self.navigationController.navigationBar.subviews.firstObject;
     _navBarBackImageView.backgroundColor = [UIColor orangeColor];
     _navBarBackImageView.alpha = 0.0;
+}
+
+// 重置
+- (void)resetNavigationBar
+{
+    self.navigationController.navigationBar.hidden = [_preNavigationBarDic[preNavBarHidden] boolValue];
+    self.navigationController.navigationBar.barStyle = [_preNavigationBarDic[preNavBarStyle] integerValue];
+    self.navigationController.navigationBar.translucent = [_preNavigationBarDic[preNavBarTranslucent] boolValue];
     
+    if (_preNavigationBarDic[preNavBarTitleTextAttributes] != nil) {
+        self.navigationController.navigationBar.titleTextAttributes = _preNavigationBarDic[preNavBarTitleTextAttributes];
+    }
+    if (_preNavigationBarDic[preNavBarbarTintColor] != nil) {
+        self.navigationController.navigationBar.barTintColor = _preNavigationBarDic[preNavBarbarTintColor];
+    }
+    if (_preNavigationBarDic[preNavBarTintColor] != nil) {
+        self.navigationController.navigationBar.tintColor = _preNavigationBarDic[preNavBarTintColor];
+    }
+    if (_preNavigationBarDic[preNavBarShadowImage] != nil) {
+        self.navigationController.navigationBar.shadowImage = _preNavigationBarDic[preNavBarShadowImage];
+    }
+    if (_preNavigationBarDic[preNavBarBackIndicatorImage] != nil) {
+        self.navigationController.navigationBar.backIndicatorImage = _preNavigationBarDic[preNavBarBackIndicatorImage];
+    }
+    if (_preNavigationBarDic[preNavBarBackIndicatorTransitionMaskImage] != nil) {
+        self.navigationController.navigationBar.backIndicatorTransitionMaskImage = _preNavigationBarDic[preNavBarBackIndicatorTransitionMaskImage];
+    }
+}
+
+#pragma mark -
+- (void)initUIAndData
+{
+    self.view.backgroundColor = [UIColor whiteColor];
     
     _navAnimationArr = @[@"导航栏隐藏", @"导航栏头像缩放", @"导航栏隐藏"];
 }
@@ -83,7 +171,7 @@
     [self.view addSubview:_jianshuTableView];
     
     [_jianshuTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
     UIView * tempView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];

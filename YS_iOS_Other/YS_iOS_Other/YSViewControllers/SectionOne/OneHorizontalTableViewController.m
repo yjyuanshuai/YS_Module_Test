@@ -55,11 +55,12 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
 - (void)initHorizonTableView
 {
     _horizontalTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, 130, kScreenWidth) style:UITableViewStylePlain];
-    _horizontalTableView.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, 64 + 130/2);
+    _horizontalTableView.center = CGPointMake([[UIScreen mainScreen] bounds].size.width/2, 130/2);
     _horizontalTableView.backgroundColor = [UIColor yellowColor];
     _horizontalTableView.delegate = self;
     _horizontalTableView.dataSource = self;
     _horizontalTableView.showsHorizontalScrollIndicator = NO;
+    _horizontalTableView.showsVerticalScrollIndicator = NO;
     _horizontalTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_horizontalTableView];
     [_horizontalTableView registerClass:[OneHorizontalTableViewCell class] forCellReuseIdentifier:cell_id];

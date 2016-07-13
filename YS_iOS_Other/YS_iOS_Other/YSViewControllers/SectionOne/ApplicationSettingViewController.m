@@ -58,7 +58,7 @@ static NSString * const cell_id_openurl = @"cell_id_openurl";
 
 - (void)createTableView
 {
-    _appSettingTableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth - 120, 64, 120, kScreenHeight - 64) style:UITableViewStylePlain];
+    _appSettingTableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth - 120, 0, 120, kScreenHeight - 64) style:UITableViewStylePlain];
     _appSettingTableView.delegate = self;
     _appSettingTableView.dataSource = self;
     _appSettingTableView.showsVerticalScrollIndicator = NO;
@@ -67,7 +67,8 @@ static NSString * const cell_id_openurl = @"cell_id_openurl";
     
     [_appSettingTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:cell_id];
     
-    _openUrlTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth - 120, kScreenHeight - 64) style:UITableViewStylePlain];
+    
+    _openUrlTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth - 120, kScreenHeight - 64) style:UITableViewStylePlain];
     _openUrlTableView.delegate = self;
     _openUrlTableView.dataSource = self;
     _openUrlTableView.hidden = YES;

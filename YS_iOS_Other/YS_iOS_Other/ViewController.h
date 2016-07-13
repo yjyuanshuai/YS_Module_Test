@@ -6,9 +6,9 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YSRootViewController.h"
 
-@interface ViewController : UIViewController
+@interface ViewController : YSRootViewController
 
 
 @end

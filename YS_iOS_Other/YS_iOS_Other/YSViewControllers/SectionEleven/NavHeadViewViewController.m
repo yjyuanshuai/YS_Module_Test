@@ -25,6 +25,16 @@
     [self createHeadImageView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+}
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -33,8 +43,9 @@
 - (void)createHeadImageView
 {
     NSString * path = [[NSBundle mainBundle] pathForResource:@"11" ofType:@"jpg"];
-    _headImageView = [[UIImageView alloc] initWithImage:[UIImage imageWithContentsOfFile:path]];
-    _headImageView.frame = CGRectMake(0, 0, 44, 44);
+    
+    _headImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    _headImageView.image = [UIImage imageWithContentsOfFile:path];
     
     self.navigationItem.titleView = _headImageView;
 }
@@ -45,7 +56,7 @@
     [self.view addSubview:_scrollView];
     
     [_scrollView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
 

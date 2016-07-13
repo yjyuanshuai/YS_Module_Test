@@ -39,7 +39,6 @@
 - (void)initUIAndData
 {
     self.title = @"沙盒";
-    self.navigationController.navigationBar.translucent = NO;
     
     NSString * plistPath = [[NSBundle mainBundle] pathForResource:@"homeDirectiory" ofType:@"plist"];
     NSArray * arr = [NSArray arrayWithContentsOfFile:plistPath];

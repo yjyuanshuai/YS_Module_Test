@@ -6,8 +6,8 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YSRootViewController.h"
 
-@interface OneSearchController : UIViewController
+@interface OneSearchController : YSRootViewController
 
 @end

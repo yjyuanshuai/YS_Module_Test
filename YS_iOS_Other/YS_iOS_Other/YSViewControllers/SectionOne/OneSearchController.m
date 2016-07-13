@@ -28,10 +28,6 @@
     [self createTableView];
     [self createSearchBarInNavBar];
     [self createSearchBarInTableView];
-    
-    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -53,7 +49,7 @@
      [self.view addSubview:_currentTableView];
     
     [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
 

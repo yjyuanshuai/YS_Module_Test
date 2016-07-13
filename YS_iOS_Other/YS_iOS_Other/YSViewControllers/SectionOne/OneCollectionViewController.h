@@ -6,7 +6,7 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YSRootViewController.h"
 
 typedef NS_ENUM(NSInteger, ComeFromType)
 {
@@ -19,7 +19,7 @@ typedef NS_ENUM(NSInteger, ComeFromType)
 };
 
 
-@interface OneCollectionViewController : UIViewController
+@interface OneCollectionViewController : YSRootViewController
 
 - (instancetype)initWithType:(ComeFromType)type;
 

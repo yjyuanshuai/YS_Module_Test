@@ -38,11 +38,7 @@
     [self initUIAndData];
     [self createTableView];
     [self createSearchBarInNav];
-//    [self createSearchInTableView];
-    
-    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+    [self createSearchInTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,21 +48,12 @@
 
 - (void)initUIAndData
 {
-//    self.navigationController.navigationBar.translucent = NO;
-//    if (kSystemVersion >= 7.0)
-//    {
-//        self.extendedLayoutIncludesOpaqueBars = NO;
-//        self.edgesForExtendedLayout           = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
-//    }
-//    
 //    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:20.0], NSFontAttributeName, nil]];
     
-    
-    
-    
     self.view.backgroundColor = [UIColor whiteColor];
-//    UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
-//    self.navigationItem.rightBarButtonItem = rightBarBtn;
+    
+    UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
+    self.navigationItem.rightBarButtonItem = rightBarBtn;
 
     [self ysCustemView];
     
@@ -90,7 +77,7 @@
     [self.view addSubview:_currentTableView];
     
     [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
 }
 
@@ -100,15 +87,15 @@
     _ysSearchBar.delegate = self;
     _ysSearchBar.showsCancelButton = NO;
     _ysSearchBar.placeholder = @"导航栏搜索";
+    _ysSearchBar.barTintColor = [UIColor lightGrayColor];
     [_ysSearchBar sizeToFit];
-//    self.navigationItem.titleView = _ysSearchBar;
+    self.navigationItem.titleView = _ysSearchBar;
     
     _ysSearchDisplayVC = [[UISearchDisplayController alloc] initWithSearchBar:_ysSearchBar contentsController:self];
     _ysSearchDisplayVC.delegate = self;
     _ysSearchDisplayVC.searchResultsDataSource = self;
     _ysSearchDisplayVC.searchResultsDelegate = self;
     _ysSearchDisplayVC.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-//    _ysSearchDisplayVC.searchResultsTableView.backgroundColor = [UIColor yellowColor];
     _ysSearchDisplayVC.displaysSearchBarInNavigationBar = YES;
     
     _rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
@@ -121,6 +108,7 @@
     _ysNoNavSearchBar.delegate = self;
     _ysNoNavSearchBar.showsCancelButton = NO;
     _ysNoNavSearchBar.placeholder = @"一般搜索";
+    _ysNoNavSearchBar.barTintColor = [UIColor lightGrayColor];
     [_ysNoNavSearchBar sizeToFit];
     [self.view addSubview:_ysNoNavSearchBar];
     

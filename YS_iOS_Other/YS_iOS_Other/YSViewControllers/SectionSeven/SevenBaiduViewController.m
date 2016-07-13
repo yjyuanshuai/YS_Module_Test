@@ -45,7 +45,7 @@ static NSString * cell_id = @"cell_id";
     _mapView.mapType = BMKMapTypeStandard;
     self.view = _mapView;
     
-    _modeDoTableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth - 100, 64, 100, kScreenHeight - 64) style:UITableViewStylePlain];
+    _modeDoTableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth - 100, 0, 100, kScreenHeight - 64) style:UITableViewStylePlain];
     _modeDoTableView.hidden = YES;
     _modeDoTableView.delegate = self;
     _modeDoTableView.dataSource = self;

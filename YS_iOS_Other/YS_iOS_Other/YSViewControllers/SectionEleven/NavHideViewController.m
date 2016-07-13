@@ -25,10 +25,6 @@
     
     [self initUIAndData];
     [self initTableView];
-    
-    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
 }
 
 - (void)viewWillAppear:(BOOL)animated
@@ -43,6 +39,8 @@
     [super viewDidAppear:animated];
     
     _navHideTableView.delegate = nil;
+    
+    [self.navigationController setNavigationBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -65,7 +63,7 @@
     [self.view addSubview:_navHideTableView];
     
     [_navHideTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
     UIView * tempView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
@@ -117,7 +115,6 @@
             
         } else {
             [self.navigationController setNavigationBarHidden:YES animated:YES];
-            
         }
     } else {
         [self.navigationController setNavigationBarHidden:NO animated:YES];

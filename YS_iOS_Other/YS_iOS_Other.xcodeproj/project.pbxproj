@@ -41,6 +41,7 @@
 		3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */; };
 		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
 		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
+		395219EA1D3611E0000DEA63 /* YSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395219E91D3611E0000DEA63 /* YSRootViewController.m */; };
 		395E69591D128BE900CBDFE0 /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 395E69581D128BE900CBDFE0 /* btn1.png */; };
 		398594461D13CD0000863A14 /* SixGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594451D13CD0000863A14 /* SixGestureViewController.m */; };
 		398594491D13CE8B00863A14 /* YSCustemGesureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594481D13CE8B00863A14 /* YSCustemGesureRecognizer.m */; };
@@ -91,10 +92,10 @@
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
 		39214A0C1D05203B0019422D /* YS_iOS_Other.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YS_iOS_Other.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39214A101D05203B0019422D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		39214A121D05203B0019422D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		39214A131D05203B0019422D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		39214A151D05203B0019422D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		39214A161D05203B0019422D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		39214A121D05203B0019422D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
+		39214A131D05203B0019422D /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = AppDelegate.m; path = ../AppDelegate.m; sourceTree = "<group>"; };
+		39214A151D05203B0019422D /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = ../ViewController.h; sourceTree = "<group>"; };
+		39214A161D05203B0019422D /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ViewController.m; path = ../ViewController.m; sourceTree = "<group>"; };
 		39214A191D05203B0019422D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39214A1B1D05203B0019422D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39214A1E1D05203B0019422D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -142,6 +143,8 @@
 		3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeAndFileViewController.m; sourceTree = "<group>"; };
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
+		395219E81D3611E0000DEA63 /* YSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSRootViewController.h; path = ../YSRootViewController.h; sourceTree = "<group>"; };
+		395219E91D3611E0000DEA63 /* YSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSRootViewController.m; path = ../YSRootViewController.m; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
 		398594411D138EDE00863A14 /* YSSetting.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSSetting.pch; sourceTree = "<group>"; };
 		398594441D13CD0000863A14 /* SixGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixGestureViewController.h; sourceTree = "<group>"; };
@@ -252,10 +255,6 @@
 				3966393E1D1781C20069E0E8 /* Libs */,
 				395E69531D1279E600CBDFE0 /* Categares */,
 				39214A421D05449D0019422D /* YSViewControllers */,
-				39214A121D05203B0019422D /* AppDelegate.h */,
-				39214A131D05203B0019422D /* AppDelegate.m */,
-				39214A151D05203B0019422D /* ViewController.h */,
-				39214A161D05203B0019422D /* ViewController.m */,
 				39214A0F1D05203B0019422D /* Supporting Files */,
 			);
 			path = YS_iOS_Other;
@@ -298,6 +297,12 @@
 		39214A421D05449D0019422D /* YSViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				39214A121D05203B0019422D /* AppDelegate.h */,
+				39214A131D05203B0019422D /* AppDelegate.m */,
+				395219E81D3611E0000DEA63 /* YSRootViewController.h */,
+				395219E91D3611E0000DEA63 /* YSRootViewController.m */,
+				39214A151D05203B0019422D /* ViewController.h */,
+				39214A161D05203B0019422D /* ViewController.m */,
 				39C6219C1D0EABA400A34040 /* Models */,
 				39214A471D0548D90019422D /* SectionOne */,
 				39B218B11D1911A4008DD042 /* SectionTwo */,
@@ -311,12 +316,12 @@
 		39214A471D0548D90019422D /* SectionOne */ = {
 			isa = PBXGroup;
 			children = (
-				39B218AD1D18E0BE008DD042 /* OneUIapplicationSeting */,
 				39C621981D0E9A7500A34040 /* OnePicker */,
 				39C621971D0E9A6600A34040 /* OneCollection */,
 				396CCBCF1D0F93ED00C57543 /* OneHorizontalTableView */,
 				395E694F1D12774300CBDFE0 /* OneSearchDisplayViewController */,
 				39FEC0B91D1B73080036DAB3 /* CustemSearchBar */,
+				39B218AD1D18E0BE008DD042 /* OneUIapplicationSeting */,
 			);
 			name = SectionOne;
 			sourceTree = "<group>";
@@ -525,9 +530,9 @@
 		39B218B11D1911A4008DD042 /* SectionTwo */ = {
 			isa = PBXGroup;
 			children = (
+				39B218D41D193AEB008DD042 /* Doc */,
 				3949E2781D1A3D660016BFF6 /* CodingAndFile */,
 				3949E26D1D1A2D6E0016BFF6 /* UserDefaults */,
-				39B218D41D193AEB008DD042 /* Doc */,
 			);
 			path = SectionTwo;
 			sourceTree = "<group>";
@@ -887,6 +892,7 @@
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
 				392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */,
 				39FEC09D1D1B70CA0036DAB3 /* OnePickerViewController.m in Sources */,
+				395219EA1D3611E0000DEA63 /* YSRootViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
