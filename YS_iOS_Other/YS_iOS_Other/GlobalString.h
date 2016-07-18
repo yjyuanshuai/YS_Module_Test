@@ -13,8 +13,13 @@
 
 #define kScreenWidth    [UIScreen mainScreen].bounds.size.width
 #define kScreenHeight   [UIScreen mainScreen].bounds.size.height
+#define kScreenHeightNo20       [UIScreen mainScreen].bounds.size.height - 20
+#define kScreenHeightNo64       [UIScreen mainScreen].bounds.size.height - 64
+#define kScreenHeightNo113      [UIScreen mainScreen].bounds.size.height - 64 - 49
+
 
 #define kAPPKeyWindow   [UIApplication sharedApplication].keyWindow
+
 
 #define kSystemVersion  [[[UIDevice currentDevice] systemVersion] floatValue]
 

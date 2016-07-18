@@ -1,15 +1,13 @@
 //
-//  ViewController.h
+//  YSWebViewController.h
 //  YS_iOS_Other
 //
-//  Created by YJ on 16/6/6.
+//  Created by YJ on 16/7/15.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
 #import "YSRootViewController.h"
 
-@interface ViewController : YSRootViewController
-
+@interface YSWebViewController : YSRootViewController
 
 @end
-

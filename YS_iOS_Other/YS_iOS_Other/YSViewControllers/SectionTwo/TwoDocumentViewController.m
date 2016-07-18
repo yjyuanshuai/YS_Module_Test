@@ -60,7 +60,7 @@
     [self.view addSubview:_docTableView];
     
     [_docTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeight - 64));
+        make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     

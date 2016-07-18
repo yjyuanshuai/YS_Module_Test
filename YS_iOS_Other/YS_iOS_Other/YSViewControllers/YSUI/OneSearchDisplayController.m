@@ -48,8 +48,6 @@
 
 - (void)initUIAndData
 {
-//    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor], NSForegroundColorAttributeName, [UIFont systemFontOfSize:20.0], NSFontAttributeName, nil]];
-    
     self.view.backgroundColor = [UIColor whiteColor];
     
     UIBarButtonItem * rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
@@ -77,8 +75,11 @@
     [self.view addSubview:_currentTableView];
     
     [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, -64, 0));
     }];
+    
+    // 将 tableview 无数据横线去掉
+    _currentTableView.tableFooterView = [[UIView alloc] init];
 }
 
 - (void)createSearchBarInNav

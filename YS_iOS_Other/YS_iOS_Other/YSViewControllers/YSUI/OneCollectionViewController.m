@@ -24,17 +24,8 @@ static NSString * collection_footer = @"collection_footer";
 
 @implementation OneCollectionViewController
 {
-    ComeFromType _comefromType;
     NSArray * _collectionSectionTitles;
     NSMutableArray * _collectionArr;
-}
-
-- (instancetype)initWithType:(ComeFromType)type
-{
-    if (self = [super init]) {
-        _comefromType = type;
-    }
-    return self;
 }
 
 - (void)viewDidLoad {
@@ -42,43 +33,7 @@ static NSString * collection_footer = @"collection_footer";
     // Do any additional setup after loading the view.
     
     self.view.backgroundColor = [UIColor whiteColor];
-    
-    switch (_comefromType) {
-        case ComeFromTypeOneCollection:
-        {
-            self.title = @"Collection";
-        }
-            break;
-        case ComeFromTypeTwoDocument:
-        {
-            self.title = @"沙盒";
-        }
-            break;
-        case ComeFromTypeTwoFile:
-        {
-            self.title = @"文件";
-        }
-            break;
-        case ComeFromTypeTwoArchive:
-        {
-            self.title = @"归档";
-        }
-            break;
-        case ComeFromTypeTwoSqlite:
-        {
-            self.title = @"Sqlite";
-        }
-            break;
-        case ComeFromTypeTwoCoreData:
-        {
-            self.title = @"CoreData";
-        }
-            break;
-            
-        default:
-            break;
-    }
-    
+
     [self initUIAndData];
     [self initCollectionView];
 }
@@ -124,7 +79,7 @@ static NSString * collection_footer = @"collection_footer";
     // 自定义布局
     UICollectionViewFlowLayout * collectionLayout = [[UICollectionViewFlowLayout alloc] init];
     
-    _collecionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) collectionViewLayout:collectionLayout];
+    _collecionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeightNo64) collectionViewLayout:collectionLayout];
     _collecionView.backgroundColor = [UIColor whiteColor];
     _collecionView.delegate = self;
     _collecionView.dataSource = self;

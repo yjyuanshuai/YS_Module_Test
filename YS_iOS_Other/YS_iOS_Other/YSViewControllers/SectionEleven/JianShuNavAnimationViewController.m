@@ -112,7 +112,6 @@ static NSString * const preNavBarHidden = @"preNavBarHidden";
     if (navProperty != nil) {
         [_preNavigationBarDic setObject:navProperty forKey:navKey];
     }
-    
 }
 
 // 设置当前页面的

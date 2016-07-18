@@ -58,7 +58,7 @@ static NSString * const cell_id_openurl = @"cell_id_openurl";
 
 - (void)createTableView
 {
-    _appSettingTableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth - 120, 0, 120, kScreenHeight - 64) style:UITableViewStylePlain];
+    _appSettingTableView = [[UITableView alloc] initWithFrame:CGRectMake(kScreenWidth - 120, 0, 120, kScreenHeightNo113) style:UITableViewStylePlain];
     _appSettingTableView.delegate = self;
     _appSettingTableView.dataSource = self;
     _appSettingTableView.showsVerticalScrollIndicator = NO;

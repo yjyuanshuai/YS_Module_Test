@@ -55,7 +55,7 @@
 //    _ysSearchObject.isShowInNavigationBar = YES;
     
     
-    _ysSearchBar2 = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 100, kScreenWidth, 40)];
+    _ysSearchBar2 = [[UISearchBar alloc] initWithFrame:CGRectMake(0, 64, kScreenWidth, 40)];
     _ysSearchBar2.placeholder = @"searchbar2";
     _ysSearchBar2.showsCancelButton = NO;
     _ysSearchBar2.delegate = self;

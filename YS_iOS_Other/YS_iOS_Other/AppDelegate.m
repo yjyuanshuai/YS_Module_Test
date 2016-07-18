@@ -7,7 +7,7 @@
 //
 
 #import "AppDelegate.h"
-#import "OneSearchDisplayController.h"
+#import "YSTabBarController.h"
 
 @interface AppDelegate ()
 
@@ -20,16 +20,16 @@
     
     // app 启动完成时调用
     
-    [self startBaiduMap];
-    [self notificationApplyToUser];
-    
     self.window.frame = [[UIScreen mainScreen] bounds];
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-//    OneSearchDisplayController * searchDisControler = [[OneSearchDisplayController alloc] init];
-//    UINavigationController * nav = [[UINavigationController alloc] initWithRootViewController:searchDisControler];
-//    self.window.rootViewController = nav;
+    [self login];
+    [self startBaiduMap];
+    [self notificationApplyToUser];
+    
+    
+    
     
     return YES;
 }
@@ -68,6 +68,14 @@
 {
     // 应用程序接收到内存警告的时候就会调用
     // 一般在该方法中释放掉不需要的内存
+}
+
+#pragma mark - 登录逻辑
+- (void)login
+{
+    YSTabBarController * ysTabBarCon = [[YSTabBarController alloc] init];
+    ysTabBarCon.selectedIndex = 0;
+    self.window.rootViewController = ysTabBarCon;
 }
 
 #pragma mark - 百度地图
