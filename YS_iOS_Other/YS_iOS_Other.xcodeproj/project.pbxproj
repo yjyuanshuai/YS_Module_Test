@@ -141,6 +141,10 @@
 		39399A101D24B97400409871 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		39399A171D24BB5700409871 /* YSHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHistoryView.h; sourceTree = "<group>"; };
 		39399A181D24BB5700409871 /* YSHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHistoryView.m; sourceTree = "<group>"; };
+		393E98C81D3F10A800D10561 /* GlobalString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalString.h; path = HeaderFile/GlobalString.h; sourceTree = "<group>"; };
+		393E98C91D3F10A800D10561 /* YSLogControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSLogControl.h; path = HeaderFile/YSLogControl.h; sourceTree = "<group>"; };
+		393E98CE1D3F1A2700D10561 /* IntroduceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroduceFile.h; path = HeaderFile/IntroduceFile.h; sourceTree = "<group>"; };
+		393E98CF1D3F1A4D00D10561 /* YSSetting.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSSetting.pch; path = HeaderFile/YSSetting.pch; sourceTree = "<group>"; };
 		3945944C1D3875A70017F4A3 /* YSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRootViewController.h; sourceTree = "<group>"; };
 		3945944D1D3875A70017F4A3 /* YSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRootViewController.m; sourceTree = "<group>"; };
 		3945944E1D3875A70017F4A3 /* YSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTabBarController.h; sourceTree = "<group>"; };
@@ -198,7 +202,6 @@
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
-		398594411D138EDE00863A14 /* YSSetting.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSSetting.pch; sourceTree = "<group>"; };
 		398594441D13CD0000863A14 /* SixGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixGestureViewController.h; sourceTree = "<group>"; };
 		398594451D13CD0000863A14 /* SixGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixGestureViewController.m; sourceTree = "<group>"; };
 		398594471D13CE8B00863A14 /* YSCustemGesureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustemGesureRecognizer.h; sourceTree = "<group>"; };
@@ -209,8 +212,6 @@
 		398594501D13F0D900863A14 /* SevenBaiduViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenBaiduViewController.m; sourceTree = "<group>"; };
 		398594521D13F11900863A14 /* SevenGaoDeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenGaoDeViewController.h; sourceTree = "<group>"; };
 		398594531D13F11900863A14 /* SevenGaoDeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenGaoDeViewController.m; sourceTree = "<group>"; };
-		398594551D13F3B800863A14 /* GlobalString.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GlobalString.h; sourceTree = "<group>"; };
-		39B218AC1D18DDD5008DD042 /* YSLogControl.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSLogControl.h; sourceTree = "<group>"; };
 		39B218B21D1911BE008DD042 /* TwoDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDocumentViewController.h; sourceTree = "<group>"; };
 		39B218B31D1911BE008DD042 /* TwoDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDocumentViewController.m; sourceTree = "<group>"; };
 		39B218B61D19126C008DD042 /* docImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docImage.png; sourceTree = "<group>"; };
@@ -606,9 +607,10 @@
 		398594571D13F41400863A14 /* Header File */ = {
 			isa = PBXGroup;
 			children = (
-				398594411D138EDE00863A14 /* YSSetting.pch */,
-				398594551D13F3B800863A14 /* GlobalString.h */,
-				39B218AC1D18DDD5008DD042 /* YSLogControl.h */,
+				393E98CF1D3F1A4D00D10561 /* YSSetting.pch */,
+				393E98CE1D3F1A2700D10561 /* IntroduceFile.h */,
+				393E98C81D3F10A800D10561 /* GlobalString.h */,
+				393E98C91D3F10A800D10561 /* YSLogControl.h */,
 			);
 			name = "Header File";
 			sourceTree = "<group>";
@@ -1150,7 +1152,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/YS_iOS_Other/YSSetting.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YS_iOS_Other/HeaderFile/YSSetting.pch";
 				INFOPLIST_FILE = YS_iOS_Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -1169,7 +1171,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = "$(SRCROOT)/YS_iOS_Other/YSSetting.pch";
+				GCC_PREFIX_HEADER = "$(SRCROOT)/YS_iOS_Other/HeaderFile/YSSetting.pch";
 				INFOPLIST_FILE = YS_iOS_Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";

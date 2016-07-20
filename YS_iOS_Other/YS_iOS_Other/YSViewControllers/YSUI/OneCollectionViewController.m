@@ -46,6 +46,7 @@ static NSString * collection_footer = @"collection_footer";
 #pragma mark -
 - (void)initUIAndData
 {
+    self.title = @"CollectionView";
     _collectionSectionTitles = @[@"第一段", @"第二段", @"第三段"];
     
     // 4    6    3
@@ -79,7 +80,7 @@ static NSString * collection_footer = @"collection_footer";
     // 自定义布局
     UICollectionViewFlowLayout * collectionLayout = [[UICollectionViewFlowLayout alloc] init];
     
-    _collecionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenHeightNo64) collectionViewLayout:collectionLayout];
+    _collecionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeightNo64) collectionViewLayout:collectionLayout];
     _collecionView.backgroundColor = [UIColor whiteColor];
     _collecionView.delegate = self;
     _collecionView.dataSource = self;

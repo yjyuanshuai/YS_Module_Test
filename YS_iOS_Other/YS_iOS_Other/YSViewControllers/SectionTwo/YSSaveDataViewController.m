@@ -61,6 +61,7 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
 
 - (void)createTableView
 {
+    /*
     _savedateTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _savedateTableView.delegate = self;
     _savedateTableView.dataSource = self;
@@ -69,11 +70,109 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
-    
-//    _savedateTableView.sectionHeaderHeight = 40;
-//    _savedateTableView.sectionFooterHeight = 0.01;
+    */
+    _savedateTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
+    _savedateTableView.delegate = self;
+    _savedateTableView.dataSource = self;
+    [self.view addSubview:_savedateTableView];
     
     [_savedateTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SaveDataCellID];
+    
+//    [self addConstraintWithClassMethod];
+    [self addConstraintWithVFL];
+}
+
+- (void)addConstraintWithClassMethod
+{
+    _savedateTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSLayoutConstraint * top_c = [NSLayoutConstraint constraintWithItem:_savedateTableView
+                                                              attribute:NSLayoutAttributeTop
+                                                              relatedBy:NSLayoutRelationEqual
+                                                                 toItem:self.view
+                                                              attribute:NSLayoutAttributeTop
+                                                             multiplier:1.0
+                                                               constant:0];
+    NSLayoutConstraint * left_c = [NSLayoutConstraint constraintWithItem:_savedateTableView
+                                                               attribute:NSLayoutAttributeLeft
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.view
+                                                               attribute:NSLayoutAttributeLeft
+                                                              multiplier:1.0
+                                                                constant:0];
+    NSLayoutConstraint * bottem_c = [NSLayoutConstraint constraintWithItem:_savedateTableView
+                                                               attribute:NSLayoutAttributeBottom
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.view
+                                                               attribute:NSLayoutAttributeBottom
+                                                              multiplier:1.0
+                                                                constant:0];
+    NSLayoutConstraint * right_c = [NSLayoutConstraint constraintWithItem:_savedateTableView
+                                                               attribute:NSLayoutAttributeRight
+                                                               relatedBy:NSLayoutRelationEqual
+                                                                  toItem:self.view
+                                                               attribute:NSLayoutAttributeRight
+                                                              multiplier:1.0
+                                                                constant:0];
+    
+    [self.view addConstraints:@[top_c, left_c, bottem_c, right_c]];
+}
+
+- (void)addConstraintWithVFL
+{
+    /**
+     *  水平方向        H:
+     *  垂直方向        V:
+     *  Views         [view]
+     *  SuperView     |
+     *  关系           >=,==,<=
+     *  空间,间隙       -
+     *  优先级         @value
+     */
+    NSString * top_VFL = @"V:|-topDistence-[_savedateTableView]";
+    NSString * left_VFL = @"H:|-leftDistance-[_savedateTableView]";
+    NSString * bottem_VFL = @"V:[_savedateTableView]-bottemDistance-|";
+    NSString * right_VFL = @"H:[_savedateTableView]-rightDistance-|";
+    
+    // _savedateTableView 是目标控件
+    // customWidth 设置的宽度（NSNumber类型）
+    NSString * width_VFL = @"H:[_savedateTableView(== customWidth)]";
+    NSString * height_VFL = @"V:[_savedateTableView(== customHeight)]";
+    
+    // metrics Dic
+    NSDictionary * metricsDic = @{@"topDistence":@0, @"leftDistance":@0, @"bottemDistance":@0, @"rightDistance":@0};
+    
+    // views Dic
+    NSDictionary * viewsDic = @{@"_savedateTableView":_savedateTableView};
+    
+    
+    
+    
+    _savedateTableView.translatesAutoresizingMaskIntoConstraints = NO;
+    
+    NSArray * top_c = [NSLayoutConstraint constraintsWithVisualFormat:top_VFL
+                                                               options:0
+                                                               metrics:metricsDic
+                                                                 views:viewsDic];
+    
+    NSArray * left_c = [NSLayoutConstraint constraintsWithVisualFormat:left_VFL
+                                                               options:0
+                                                               metrics:metricsDic
+                                                                 views:viewsDic];
+    
+    NSArray * bottem_c = [NSLayoutConstraint constraintsWithVisualFormat:bottem_VFL
+                                                                 options:0
+                                                                 metrics:metricsDic
+                                                                   views:viewsDic];
+    
+    NSArray * right_c = [NSLayoutConstraint constraintsWithVisualFormat:right_VFL
+                                                                options:0
+                                                                metrics:metricsDic
+                                                                  views:viewsDic];
+    [self.view addConstraints:top_c];
+    [self.view addConstraints:left_c];
+    [self.view addConstraints:bottem_c];
+    [self.view addConstraints:right_c];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
