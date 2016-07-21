@@ -25,6 +25,9 @@ static NSString * const WebCellID = @"WebCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initUIAndData];
+    [self createTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,6 +37,8 @@ static NSString * const WebCellID = @"WebCellID";
 
 - (void)initUIAndData
 {
+    self.title = @"网络";
+    
     _sectionTitleArr = @[];
     _sectionCellContent = [@[] mutableCopy];
 }

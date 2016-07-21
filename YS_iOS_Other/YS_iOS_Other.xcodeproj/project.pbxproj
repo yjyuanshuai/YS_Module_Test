@@ -80,6 +80,9 @@
 		39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */; };
 		39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
+		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
+		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
+		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
 		50D75D14D975D3AE20792831 /* libPods-YS_iOS_Other.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */; };
 /* End PBXBuildFile section */
 
@@ -227,6 +230,12 @@
 		39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDocumentTableViewCell.xib; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
 		39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionTestModel.m; path = YS_iOS_Other/Models/CollectionTestModel.m; sourceTree = SOURCE_ROOT; };
+		39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLoginViewController.h; sourceTree = "<group>"; };
+		39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLoginViewController.m; sourceTree = "<group>"; };
+		39EA8ECB1D40BB7D0053EE02 /* YSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRegisterViewController.h; sourceTree = "<group>"; };
+		39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRegisterViewController.m; sourceTree = "<group>"; };
+		39EA8ECF1D40BC060053EE02 /* YSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSScrollView.h; sourceTree = "<group>"; };
+		39EA8ED01D40BC060053EE02 /* YSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSScrollView.m; sourceTree = "<group>"; };
 		63927F4C004D73FD33E1F045 /* Pods-YS_iOS_Other.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.release.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.release.xcconfig"; sourceTree = "<group>"; };
 		9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YS_iOS_Other.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -331,6 +340,7 @@
 				39214A131D05203B0019422D /* AppDelegate.m */,
 				39C6219C1D0EABA400A34040 /* Models */,
 				3945944B1D3875A70017F4A3 /* GlobalCustemController */,
+				39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */,
 				39214A471D0548D90019422D /* YSUI */,
 				39B218B11D1911A4008DD042 /* YSSaveData */,
 				394594551D38762E0017F4A3 /* YSLanguage */,
@@ -409,6 +419,7 @@
 		39399A121D24BA2300409871 /* CustemView */ = {
 			isa = PBXGroup;
 			children = (
+				39EA8ECE1D40BBC50053EE02 /* YSScrollView */,
 				39399A131D24BA3C00409871 /* YSHistoryBtn */,
 			);
 			path = CustemView;
@@ -727,6 +738,26 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */ = {
+			isa = PBXGroup;
+			children = (
+				39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */,
+				39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */,
+				39EA8ECB1D40BB7D0053EE02 /* YSRegisterViewController.h */,
+				39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */,
+			);
+			path = LoginAndRegisterVC;
+			sourceTree = "<group>";
+		};
+		39EA8ECE1D40BBC50053EE02 /* YSScrollView */ = {
+			isa = PBXGroup;
+			children = (
+				39EA8ECF1D40BC060053EE02 /* YSScrollView.h */,
+				39EA8ED01D40BC060053EE02 /* YSScrollView.m */,
+			);
+			path = YSScrollView;
+			sourceTree = "<group>";
+		};
 		39FEC0B91D1B73080036DAB3 /* CustemSearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -972,6 +1003,9 @@
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
 				394594971D3878850017F4A3 /* OneCollectionReusableView.m in Sources */,
 				394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */,
+				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,
+				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
+				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				398594491D13CE8B00863A14 /* YSCustemGesureRecognizer.m in Sources */,

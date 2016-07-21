@@ -21,6 +21,7 @@ NSInteger const TabBarTag = 20160715;
 
 @property (nonatomic, strong) NSArray * tabbarItemTitles;
 @property (nonatomic, strong) NSArray * navItemTitles;
+
 @property (nonatomic, strong) UINavigationController * uiNavCon;
 @property (nonatomic, strong) UINavigationController * saveDataNavCon;
 @property (nonatomic, strong) UINavigationController * languageNavCon;
@@ -31,6 +32,14 @@ NSInteger const TabBarTag = 20160715;
 @end
 
 @implementation YSTabBarController
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,37 +64,54 @@ NSInteger const TabBarTag = 20160715;
 - (void)createViewController
 {
     ViewController * uiVC = [[ViewController alloc] init];
-    uiVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[0] image:[self deleteMaskImage:@"ui"] tag:TabBarTag];
+    uiVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[0]
+                                                    image:[self deleteMaskImage:@"ui"]
+                                            selectedImage:[UIImage imageNamed:@"ui"]];
+    uiVC.tabBarItem.title = _tabbarItemTitles[0];
     _uiNavCon = [[UINavigationController alloc] initWithRootViewController:uiVC];
     _uiNavCon.navigationItem.title = _navItemTitles[0];
     
     YSSaveDataViewController * savedataVC = [[YSSaveDataViewController alloc] init];
-    savedataVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[1] image:[self deleteMaskImage:@"savedata"] tag:TabBarTag + 1];
+    savedataVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[1]
+                                                          image:[self deleteMaskImage:@"savedata"]
+                                                  selectedImage:[UIImage imageNamed:@"savedata"]];
+    savedataVC.tabBarItem.title = _tabbarItemTitles[1];
     _saveDataNavCon = [[UINavigationController alloc] initWithRootViewController:savedataVC];
     _saveDataNavCon.navigationItem.title = _navItemTitles[1];
     
     YSLanguageViewController * languageVC = [[YSLanguageViewController alloc] init];
-    languageVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[2] image:[self deleteMaskImage:@"language"] tag:TabBarTag + 2];
+    languageVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[2]
+                                                          image:[self deleteMaskImage:@"language"]
+                                                  selectedImage:[UIImage imageNamed:@"language"]];
+    languageVC.tabBarItem.title = _tabbarItemTitles[2];
     _languageNavCon = [[UINavigationController alloc] initWithRootViewController:languageVC];
     _languageNavCon.navigationItem.title = _navItemTitles[2];
     
     YSWebViewController * webVC = [[YSWebViewController alloc] init];
-    webVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[3] image:[self deleteMaskImage:@"web"] tag:TabBarTag + 3];
+    webVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[3]
+                                                     image:[self deleteMaskImage:@"web"]
+                                             selectedImage:[UIImage imageNamed:@"web"]];
+    webVC.tabBarItem.title = _tabbarItemTitles[3];
     _webNavCon = [[UINavigationController alloc] initWithRootViewController:webVC];
     _webNavCon.navigationItem.title = _navItemTitles[3];
     
     YSHarewareViewController * harewareVC = [[YSHarewareViewController alloc] init];
-    harewareVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[4] image:[self deleteMaskImage:@"hareware"] tag:TabBarTag + 4];
+    harewareVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[4]
+                                                          image:[self deleteMaskImage:@"hareware"]
+                                                  selectedImage:[UIImage imageNamed:@"hareware"]];
+    harewareVC.tabBarItem.title = _tabbarItemTitles[4];
     _harewareNavCon = [[UINavigationController alloc] initWithRootViewController:harewareVC];
     _harewareNavCon.navigationItem.title = _navItemTitles[4];
     
     YSOtherViewController * otherVC = [[YSOtherViewController alloc] init];
-    otherVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[5] image:[self deleteMaskImage:@"other"] tag:TabBarTag + 5];
+    otherVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[5]
+                                                       image:[self deleteMaskImage:@"other"]
+                                               selectedImage:[UIImage imageNamed:@"other"]];
+    otherVC.tabBarItem.title = _tabbarItemTitles[5];
     _otherNavCon = [[UINavigationController alloc] initWithRootViewController:otherVC];
     _otherNavCon.navigationItem.title = _navItemTitles[5];
     
     self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon];
-    
 }
 
 - (void)setTabbarItemTitle
