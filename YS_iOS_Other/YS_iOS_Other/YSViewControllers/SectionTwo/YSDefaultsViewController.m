@@ -66,6 +66,7 @@
 {
     _ysNameTextFeild = [UITextField new];
     [_contentView addSubview:_ysNameTextFeild];
+    _ysNameTextFeild.placeholder = @"账号";
     _ysNameTextFeild.delegate = self;
     _ysNameTextFeild.borderStyle = UITextBorderStyleRoundedRect;
     /*
@@ -78,6 +79,7 @@
     
     _ysPassTextFeild = [UITextField new];
     [_contentView addSubview:_ysPassTextFeild];
+    _ysPassTextFeild.placeholder = @"密码";
     _ysPassTextFeild.delegate = self;
     _ysPassTextFeild.borderStyle = UITextBorderStyleRoundedRect;
     /*

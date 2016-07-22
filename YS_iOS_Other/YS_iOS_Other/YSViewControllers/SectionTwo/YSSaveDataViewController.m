@@ -11,6 +11,7 @@
 // 1 存储
 #import "TwoDocumentViewController.h"
 #import "YSDefaultsViewController.h"
+#import "YSKeyChainViewController.h"
 
 // 2 数据库
 
@@ -238,7 +239,9 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
             }
             else if (indexPath.row == 4)
             {
-            
+                // “钥匙串”
+                YSKeyChainViewController * keychainVC = [[YSKeyChainViewController alloc] init];
+                [self.navigationController pushViewController:keychainVC animated:YES];
             }
         }
             break;
