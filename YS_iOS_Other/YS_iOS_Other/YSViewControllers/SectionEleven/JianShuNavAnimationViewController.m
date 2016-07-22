@@ -10,15 +10,15 @@
 #import "NavHideViewController.h"
 #import "NavHeadViewViewController.h"
 
-static NSString * const preNavBarTitleTextAttributes = @"preNavBarTitleTextAttributes";
-static NSString * const preNavBarStyle = @"preNavBarStyle";
-static NSString * const preNavBarTintColor = @"preNavBarTintColor";
-static NSString * const preNavBarbarTintColor = @"preNavBarbarTintColor";
-static NSString * const preNavBarTranslucent = @"preNavBarTranslucent";
-static NSString * const preNavBarShadowImage = @"preNavBarShadowImage";
-static NSString * const preNavBarBackIndicatorImage = @"preNavBarBackIndicatorImage";
+static NSString * const preNavBarTitleTextAttributes    = @"preNavBarTitleTextAttributes";
+static NSString * const preNavBarStyle                  = @"preNavBarStyle";
+static NSString * const preNavBarTintColor              = @"preNavBarTintColor";
+static NSString * const preNavBarbarTintColor           = @"preNavBarbarTintColor";
+static NSString * const preNavBarTranslucent            = @"preNavBarTranslucent";
+static NSString * const preNavBarShadowImage            = @"preNavBarShadowImage";
+static NSString * const preNavBarBackIndicatorImage     = @"preNavBarBackIndicatorImage";
+static NSString * const preNavBarHidden                 = @"preNavBarHidden";
 static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarBackIndicatorTransitionMaskImage";
-static NSString * const preNavBarHidden = @"preNavBarHidden";
 
 @interface JianShuNavAnimationViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
@@ -71,40 +71,48 @@ static NSString * const preNavBarHidden = @"preNavBarHidden";
 {
     UINavigationBar * navBar = self.navigationController.navigationBar;
     
-    BOOL preHidden = navBar.isHidden;
-    BOOL preTranslucent = navBar.translucent;
-    UIBarStyle preBarStyle = navBar.barStyle;
-    NSDictionary * preTitleTextAttributes = navBar.titleTextAttributes;
-    UIColor * preTintColor = navBar.tintColor ;
-    UIColor * preBarTintColor = navBar.barTintColor;
-    UIImage * preShaowImage = navBar.shadowImage;
-    UIImage * preBackIndicatorImage = navBar.backIndicatorImage;
-    UIImage * preBackIndicatorTransitionMaskImage = navBar.backIndicatorTransitionMaskImage;
+    if ([navBar respondsToSelector:@selector(isHidden)]) {
+        BOOL preHidden          = navBar.isHidden;
+        [self insertIntoDicWithValidData:@(preHidden) key:preNavBarHidden];
+    }
     
-    /*
+    if ([navBar respondsToSelector:@selector(isTranslucent)]) {
+        BOOL preTranslucent     = navBar.translucent;
+        [self insertIntoDicWithValidData:@(preTranslucent) key:preNavBarTranslucent];
+    }
+    
+    if ([navBar respondsToSelector:@selector(barStyle)]) {
+        UIBarStyle preBarStyle  = navBar.barStyle;
+        [self insertIntoDicWithValidData:@(preBarStyle) key:preNavBarStyle];
+    }
+    
+    if ([navBar respondsToSelector:@selector(titleTextAttributes)]) {
+        NSDictionary * preTitleTextAttributes = navBar.titleTextAttributes;
+        [self insertIntoDicWithValidData:preTitleTextAttributes key:preNavBarTranslucent];
+    }
+    
+    if ([navBar respondsToSelector:@selector(tintColor)]) {
+        UIColor * preTintColor          = navBar.tintColor ;
+        [self insertIntoDicWithValidData:preTintColor key:preNavBarTintColor];
+    }
+    
+    if ([navBar respondsToSelector:@selector(barTintColor)]) {
+        UIColor * preBarTintColor       = navBar.barTintColor;
+        [self insertIntoDicWithValidData:preBarTintColor key:preNavBarbarTintColor];
+    }
+    
     if ([navBar respondsToSelector:@selector(shadowImage)]) {
         UIImage * preShaowImage = navBar.shadowImage;
+        [self insertIntoDicWithValidData:preShaowImage key:preNavBarShadowImage];
     }
     if ([navBar respondsToSelector:@selector(backIndicatorImage)]) {
         UIImage * preBackIndicatorImage = navBar.backIndicatorImage;
+        [self insertIntoDicWithValidData:preBackIndicatorImage key:preNavBarBackIndicatorImage];
     }
     if ([navBar respondsToSelector:@selector(backIndicatorTransitionMaskImage)]) {
         UIImage * preBackIndicatorTransitionMaskImage = navBar.backIndicatorTransitionMaskImage;
+        [self insertIntoDicWithValidData:preBackIndicatorTransitionMaskImage key:preNavBarBackIndicatorTransitionMaskImage];
     }
-     */
-
-    if (_preNavigationBarDic == nil) {
-        _preNavigationBarDic = [@{preNavBarHidden : @(preHidden),
-                                  preNavBarTranslucent : @(preTranslucent),
-                                  preNavBarStyle : @(preBarStyle)} mutableCopy];
-    }
-    
-    [self insertIntoDicWithValidData:preTitleTextAttributes key:preNavBarTitleTextAttributes];
-    [self insertIntoDicWithValidData:preTintColor key:preNavBarTintColor];
-    [self insertIntoDicWithValidData:preBarTintColor key:preNavBarbarTintColor];
-    [self insertIntoDicWithValidData:preShaowImage key:preNavBarShadowImage];
-    [self insertIntoDicWithValidData:preBackIndicatorImage key:preNavBarBackIndicatorImage];
-    [self insertIntoDicWithValidData:preBackIndicatorTransitionMaskImage key:preNavBarBackIndicatorTransitionMaskImage];
 }
 
 - (void)insertIntoDicWithValidData:(id)navProperty key:(NSString *)navKey

@@ -49,6 +49,8 @@
 #pragma mark -
 - (void)commonSetting
 {
+    self.navigationController.navigationBar.translucent = YES;
+    
     //
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
         self.automaticallyAdjustsScrollViewInsets = NO;
