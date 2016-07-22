@@ -305,7 +305,7 @@
     YSUserDefaults * ysdefault = [YSUserDefaults shareUserDefualts];
     [ysdefault readUserDefaults];
     NSMutableString * tempStr = [NSMutableString string];
-    [tempStr appendFormat:@"userName: %@\npassword: %@", ysdefault.userName, ysdefault.passWord];
+    [tempStr appendFormat:@" userName: %@\n password: %@", ysdefault.userName, ysdefault.passWord];
     
     _detailLabel.text = [tempStr analyseBreakLine];
 }

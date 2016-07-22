@@ -14,6 +14,7 @@
 #import "YSKeyChainViewController.h"
 
 // 2 数据库
+#import "SQLViewController.h"
 
 // 3 其他
 
@@ -249,7 +250,8 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                SQLViewController * sqlVC = [[SQLViewController alloc] init];
+                [self.navigationController pushViewController:sqlVC animated:YES];
             }
             else if (indexPath.row == 1)
             {

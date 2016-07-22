@@ -36,8 +36,19 @@
 
 
 
+/*********  keychain *******************/
+#define KeyChainUserAccount     @"KeyChainUserAccount"
+#define KeyChainUserPassword    @"KeyChainUserPassword"
+
+
+
+
+
 /*********  百度地图 *******************/
 
 #define kBaiduMapAK     @"0o1W98wXRSCK6dgQoxl2T6XMEnGQIK2L"
+
+
+
 
 #endif /* GlobalString_h */
