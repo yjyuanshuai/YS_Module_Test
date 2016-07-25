@@ -52,6 +52,7 @@
 - (void)initUI
 {
     self.title = @"UI控件";
+    self.tabBarItem.title = @"UI";
     
     _sectionTitle = @[@"1 选择", @"2 滚动", @"3 搜索", @"4 Application"];
     NSArray * sectionOne    = @[@"Picker"];
@@ -145,18 +146,21 @@
             {
                 // UISearchDisplayController
                 OneSearchDisplayController * searchVC = [[OneSearchDisplayController alloc] init];
+                searchVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:searchVC animated:YES];
             }
             else if (indexPath.row == 1)
             {
                 // UISearchController
                 OneSearchController * searchVC = [[OneSearchController alloc] init];
+                searchVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:searchVC animated:YES];
             }
             else if (indexPath.row == 2)
             {
                 // 自定义SearchBar
                 CustemSearchViewController * searchBarVC = [[CustemSearchViewController alloc] init];
+                searchBarVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:searchBarVC animated:YES];
             }
         }
@@ -167,6 +171,7 @@
             {
                 // UIApplicaton一些设置
                 ApplicationSettingViewController * appVC = [[ApplicationSettingViewController alloc] init];
+                appVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:appVC animated:YES];
             }
         }

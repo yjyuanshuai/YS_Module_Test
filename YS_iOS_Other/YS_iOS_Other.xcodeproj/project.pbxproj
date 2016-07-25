@@ -59,6 +59,9 @@
 		394594C11D387E310017F4A3 /* savedata.png in Resources */ = {isa = PBXBuildFile; fileRef = 394594BB1D387E310017F4A3 /* savedata.png */; };
 		394594C21D387E310017F4A3 /* ui.png in Resources */ = {isa = PBXBuildFile; fileRef = 394594BC1D387E310017F4A3 /* ui.png */; };
 		394594C31D387E310017F4A3 /* web.png in Resources */ = {isa = PBXBuildFile; fileRef = 394594BD1D387E310017F4A3 /* web.png */; };
+		394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394640421D45AE5700124587 /* SQLDetailViewController.m */; };
+		394640451D45BB0500124587 /* sqlKnowledge.plist in Resources */ = {isa = PBXBuildFile; fileRef = 394640441D45BB0500124587 /* sqlKnowledge.plist */; };
+		394640491D45FFC600124587 /* CoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394640481D45FFC600124587 /* CoreDataViewController.m */; };
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
@@ -198,6 +201,11 @@
 		394594BB1D387E310017F4A3 /* savedata.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = savedata.png; sourceTree = "<group>"; };
 		394594BC1D387E310017F4A3 /* ui.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = ui.png; sourceTree = "<group>"; };
 		394594BD1D387E310017F4A3 /* web.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = web.png; sourceTree = "<group>"; };
+		394640411D45AE5700124587 /* SQLDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLDetailViewController.h; sourceTree = "<group>"; };
+		394640421D45AE5700124587 /* SQLDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLDetailViewController.m; sourceTree = "<group>"; };
+		394640441D45BB0500124587 /* sqlKnowledge.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sqlKnowledge.plist; sourceTree = "<group>"; };
+		394640471D45FFC600124587 /* CoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataViewController.h; sourceTree = "<group>"; };
+		394640481D45FFC600124587 /* CoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataViewController.m; sourceTree = "<group>"; };
 		3949E26E1D1A2DA30016BFF6 /* YSUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSUserDefaults.h; sourceTree = "<group>"; };
 		3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSUserDefaults.m; sourceTree = "<group>"; };
 		3949E2721D1A327D0016BFF6 /* YSDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDefaultsViewController.h; sourceTree = "<group>"; };
@@ -511,6 +519,15 @@
 			path = Image/tabbarImage;
 			sourceTree = "<group>";
 		};
+		394640461D45FF8F00124587 /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				394640471D45FFC600124587 /* CoreDataViewController.h */,
+				394640481D45FFC600124587 /* CoreDataViewController.m */,
+			);
+			name = CoreData;
+			sourceTree = "<group>";
+		};
 		3949E26D1D1A2D6E0016BFF6 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -592,6 +609,8 @@
 			children = (
 				3955628C1D420A7D0079CF6B /* SQLViewController.h */,
 				3955628D1D420A7D0079CF6B /* SQLViewController.m */,
+				394640411D45AE5700124587 /* SQLDetailViewController.h */,
+				394640421D45AE5700124587 /* SQLDetailViewController.m */,
 			);
 			name = Sqlite;
 			sourceTree = "<group>";
@@ -703,6 +722,7 @@
 				3949E26D1D1A2D6E0016BFF6 /* UserDefaults */,
 				395562511D41C0040079CF6B /* YSKeyChain */,
 				3955628B1D420A3F0079CF6B /* Sqlite */,
+				394640461D45FF8F00124587 /* CoreData */,
 			);
 			name = YSSaveData;
 			path = SectionTwo;
@@ -722,6 +742,7 @@
 			isa = PBXGroup;
 			children = (
 				39B218B91D19175E008DD042 /* homeDirectiory.plist */,
+				394640441D45BB0500124587 /* sqlKnowledge.plist */,
 			);
 			path = ysPlist;
 			sourceTree = "<group>";
@@ -970,6 +991,7 @@
 				39214A801D056A600019422D /* 8.jpg in Resources */,
 				394594C01D387E310017F4A3 /* other.png in Resources */,
 				39214A7E1D056A600019422D /* 6.jpg in Resources */,
+				394640451D45BB0500124587 /* sqlKnowledge.plist in Resources */,
 				39214A761D056A600019422D /* 1.jpg in Resources */,
 				39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */,
 				39214A7A1D056A600019422D /* 2.jpg in Resources */,
@@ -1080,6 +1102,7 @@
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
+				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
@@ -1097,6 +1120,7 @@
 				394594A71D3878A50017F4A3 /* SearchResultViewController.m in Sources */,
 				394594A51D3878A50017F4A3 /* OneSearchController.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
+				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,
 				392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */,
 				3945945B1D38777F0017F4A3 /* YSLanguageViewController.m in Sources */,
 				3945949E1D3878950017F4A3 /* OneHorizontalTableViewController.m in Sources */,

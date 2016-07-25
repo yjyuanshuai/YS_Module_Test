@@ -51,7 +51,7 @@
 {
     UIFont * curFont = font;
     if (font == nil) {
-        curFont = [UIFont systemFontOfSize:16.0];
+        curFont = [UIFont systemFontOfSize:[UIFont systemFontSize]];
     }
     CGSize rect = [self boundingRectWithSize:CGSizeMake(maxWidth, CGFLOAT_MAX)
                                      options:NSStringDrawingUsesLineFragmentOrigin | NSStringDrawingUsesFontLeading

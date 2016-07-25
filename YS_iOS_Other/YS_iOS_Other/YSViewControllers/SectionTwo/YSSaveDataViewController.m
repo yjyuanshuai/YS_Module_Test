@@ -15,6 +15,7 @@
 
 // 2 数据库
 #import "SQLViewController.h"
+#import "CoreDataViewController.h"
 
 // 3 其他
 
@@ -51,6 +52,7 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
 - (void)initWithUIAndData
 {
     self.title = @"数据持久化";
+    self.tabBarItem.title = @"存储";
     
     _sectionTitleArr = @[@"1 存储", @"2 数据库", @"3 其他"];
     
@@ -236,12 +238,14 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
             {
                 // “偏好设置”
                 YSDefaultsViewController * defaultVC = [[YSDefaultsViewController alloc] init];
+                defaultVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:defaultVC animated:YES];
             }
             else if (indexPath.row == 4)
             {
                 // “钥匙串”
                 YSKeyChainViewController * keychainVC = [[YSKeyChainViewController alloc] init];
+                keychainVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:keychainVC animated:YES];
             }
         }
@@ -251,11 +255,14 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
             if (indexPath.row == 0)
             {
                 SQLViewController * sqlVC = [[SQLViewController alloc] init];
+                sqlVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:sqlVC animated:YES];
             }
             else if (indexPath.row == 1)
             {
-                
+                CoreDataViewController * coredataVC = [[CoreDataViewController alloc] init];
+                coredataVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:coredataVC animated:YES];
             }
         }
             break;
