@@ -8,6 +8,16 @@
 
 #import "YSLanguageViewController.h"
 
+// 1
+#import "YSGCDViewController.h"
+
+// 2
+#import "SixGestureViewController.h"
+#import "YSCustemGestureViewController.h"
+
+// 3
+#import "YSTouchViewController.h"
+
 static NSString * const LanguageCellID = @"LanguageCellID";
 
 @interface YSLanguageViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -42,7 +52,7 @@ static NSString * const LanguageCellID = @"LanguageCellID";
     _sectionTitleArr = @[@"1 线程", @"2 触摸"];
     
     NSArray * sectionOne    = @[@"GCD"];
-    NSArray * sectionTwo    = @[@"手势", @"触摸"];
+    NSArray * sectionTwo    = @[@"手势", @"自定义手势", @"触摸"];
     
     _sectionCellContent = [@[sectionOne, sectionTwo] mutableCopy];
 }
@@ -103,7 +113,10 @@ static NSString * const LanguageCellID = @"LanguageCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                // GCD
+                YSGCDViewController * gcdVC = [[YSGCDViewController alloc] init];
+                gcdVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:gcdVC animated:YES];
             }
             else if (indexPath.row == 1)
             {
@@ -115,11 +128,23 @@ static NSString * const LanguageCellID = @"LanguageCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                // 手势
+                SixGestureViewController * gestureVC = [[SixGestureViewController alloc] init];
+                gestureVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:gestureVC animated:YES];
             }
             else if (indexPath.row == 1)
             {
-                
+                // 自定义手势
+                YSCustemGestureViewController * cusGestureVC = [[YSCustemGestureViewController alloc] init];
+                cusGestureVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:cusGestureVC animated:YES];
+            }
+            else if (indexPath.row == 2){
+                // 触摸
+                YSTouchViewController * touchVC = [[YSTouchViewController alloc] init];
+                touchVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:touchVC animated:YES];
             }
         }
             break;
@@ -127,11 +152,11 @@ static NSString * const LanguageCellID = @"LanguageCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                //
             }
             else if (indexPath.row == 1)
             {
-                
+                //
             }
         }
             break;

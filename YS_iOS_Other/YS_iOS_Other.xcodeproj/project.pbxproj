@@ -33,10 +33,19 @@
 		39399A0F1D24B57100409871 /* YSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A0E1D24B57100409871 /* YSFileManager.m */; };
 		39399A111D24B97400409871 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 39399A101D24B97400409871 /* trash.png */; };
 		39399A191D24BB5700409871 /* YSHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A181D24BB5700409871 /* YSHistoryView.m */; };
+		393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07831D475B15005114B1 /* MBProgressHUD.m */; };
+		393A07871D475B4A005114B1 /* YSHudView.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07861D475B4A005114B1 /* YSHudView.m */; };
+		393A078D1D475C33005114B1 /* YSLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A078C1D475C33005114B1 /* YSLanguageViewController.m */; };
+		393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A078F1D475C52005114B1 /* YSOtherViewController.m */; };
+		393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07921D475CFC005114B1 /* SixGestureViewController.m */; };
+		393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07981D475F18005114B1 /* YSGCDViewController.m */; };
+		393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A079B1D475FBD005114B1 /* YSTouchViewController.m */; };
+		393A07A21D47608F005114B1 /* YSCustemGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07A11D47608F005114B1 /* YSCustemGestureViewController.m */; };
+		393A07A51D476966005114B1 /* GestureCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07A41D476966005114B1 /* GestureCollectionReusableView.m */; };
+		393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07A71D476A9F005114B1 /* GestureCollectionViewCell.m */; };
 		394594501D3875A70017F4A3 /* YSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945944D1D3875A70017F4A3 /* YSRootViewController.m */; };
 		394594511D3875A70017F4A3 /* YSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945944F1D3875A70017F4A3 /* YSTabBarController.m */; };
 		394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594531D3875DF0017F4A3 /* YSSaveDataViewController.m */; };
-		3945945B1D38777F0017F4A3 /* YSLanguageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945945A1D38777F0017F4A3 /* YSLanguageViewController.m */; };
 		394594611D3877AE0017F4A3 /* YSWebViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594601D3877AE0017F4A3 /* YSWebViewController.m */; };
 		3945948C1D38785D0017F4A3 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945948B1D38785D0017F4A3 /* ViewController.m */; };
 		3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945948E1D3878740017F4A3 /* OnePickerViewController.m */; };
@@ -52,7 +61,6 @@
 		394594AD1D3878C20017F4A3 /* CustemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594AC1D3878C20017F4A3 /* CustemSearchViewController.m */; };
 		394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594AF1D3878D20017F4A3 /* ApplicationSettingViewController.m */; };
 		394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594B21D3879200017F4A3 /* YSHarewareViewController.m */; };
-		394594B61D38792F0017F4A3 /* YSOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594B51D38792F0017F4A3 /* YSOtherViewController.m */; };
 		394594BE1D387E310017F4A3 /* hareware.png in Resources */ = {isa = PBXBuildFile; fileRef = 394594B81D387E310017F4A3 /* hareware.png */; };
 		394594BF1D387E310017F4A3 /* language.png in Resources */ = {isa = PBXBuildFile; fileRef = 394594B91D387E310017F4A3 /* language.png */; };
 		394594C01D387E310017F4A3 /* other.png in Resources */ = {isa = PBXBuildFile; fileRef = 394594BA1D387E310017F4A3 /* other.png */; };
@@ -74,8 +82,6 @@
 		3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955625B1D41C3840079CF6B /* YSKeyChainViewController.m */; };
 		3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955628D1D420A7D0079CF6B /* SQLViewController.m */; };
 		395E69591D128BE900CBDFE0 /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 395E69581D128BE900CBDFE0 /* btn1.png */; };
-		398594461D13CD0000863A14 /* SixGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594451D13CD0000863A14 /* SixGestureViewController.m */; };
-		398594491D13CE8B00863A14 /* YSCustemGesureRecognizer.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594481D13CE8B00863A14 /* YSCustemGesureRecognizer.m */; };
 		3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */; };
 		398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594501D13F0D900863A14 /* SevenBaiduViewController.m */; };
 		398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594531D13F11900863A14 /* SevenGaoDeViewController.m */; };
@@ -152,6 +158,26 @@
 		39399A101D24B97400409871 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
 		39399A171D24BB5700409871 /* YSHistoryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHistoryView.h; sourceTree = "<group>"; };
 		39399A181D24BB5700409871 /* YSHistoryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHistoryView.m; sourceTree = "<group>"; };
+		393A07821D475B15005114B1 /* MBProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MBProgressHUD.h; sourceTree = "<group>"; };
+		393A07831D475B15005114B1 /* MBProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MBProgressHUD.m; sourceTree = "<group>"; };
+		393A07851D475B4A005114B1 /* YSHudView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSHudView.h; sourceTree = "<group>"; };
+		393A07861D475B4A005114B1 /* YSHudView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSHudView.m; sourceTree = "<group>"; };
+		393A078B1D475C33005114B1 /* YSLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSLanguageViewController.h; path = YSLanguage/YSLanguageViewController.h; sourceTree = "<group>"; };
+		393A078C1D475C33005114B1 /* YSLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSLanguageViewController.m; path = YSLanguage/YSLanguageViewController.m; sourceTree = "<group>"; };
+		393A078E1D475C52005114B1 /* YSOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSOtherViewController.h; path = YSOther/YSOtherViewController.h; sourceTree = "<group>"; };
+		393A078F1D475C52005114B1 /* YSOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSOtherViewController.m; path = YSOther/YSOtherViewController.m; sourceTree = "<group>"; };
+		393A07911D475CFC005114B1 /* SixGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SixGestureViewController.h; path = YSLanguage/SixGestureViewController.h; sourceTree = "<group>"; };
+		393A07921D475CFC005114B1 /* SixGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SixGestureViewController.m; path = YSLanguage/SixGestureViewController.m; sourceTree = "<group>"; };
+		393A07971D475F18005114B1 /* YSGCDViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSGCDViewController.h; path = YSLanguage/YSGCDViewController.h; sourceTree = "<group>"; };
+		393A07981D475F18005114B1 /* YSGCDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSGCDViewController.m; path = YSLanguage/YSGCDViewController.m; sourceTree = "<group>"; };
+		393A079A1D475FBD005114B1 /* YSTouchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSTouchViewController.h; path = YSLanguage/YSTouchViewController.h; sourceTree = "<group>"; };
+		393A079B1D475FBD005114B1 /* YSTouchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSTouchViewController.m; path = YSLanguage/YSTouchViewController.m; sourceTree = "<group>"; };
+		393A07A01D47608F005114B1 /* YSCustemGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSCustemGestureViewController.h; path = YSLanguage/YSCustemGestureViewController.h; sourceTree = "<group>"; };
+		393A07A11D47608F005114B1 /* YSCustemGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSCustemGestureViewController.m; path = YSLanguage/YSCustemGestureViewController.m; sourceTree = "<group>"; };
+		393A07A31D476966005114B1 /* GestureCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionReusableView.h; path = YSLanguage/GestureCollectionReusableView.h; sourceTree = "<group>"; };
+		393A07A41D476966005114B1 /* GestureCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GestureCollectionReusableView.m; path = YSLanguage/GestureCollectionReusableView.m; sourceTree = "<group>"; };
+		393A07A61D476A9F005114B1 /* GestureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionViewCell.h; path = YSLanguage/GestureCollectionViewCell.h; sourceTree = "<group>"; };
+		393A07A71D476A9F005114B1 /* GestureCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GestureCollectionViewCell.m; path = YSLanguage/GestureCollectionViewCell.m; sourceTree = "<group>"; };
 		393E98C81D3F10A800D10561 /* GlobalString.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GlobalString.h; path = HeaderFile/GlobalString.h; sourceTree = "<group>"; };
 		393E98C91D3F10A800D10561 /* YSLogControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSLogControl.h; path = HeaderFile/YSLogControl.h; sourceTree = "<group>"; };
 		393E98CE1D3F1A2700D10561 /* IntroduceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroduceFile.h; path = HeaderFile/IntroduceFile.h; sourceTree = "<group>"; };
@@ -162,8 +188,6 @@
 		3945944F1D3875A70017F4A3 /* YSTabBarController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTabBarController.m; sourceTree = "<group>"; };
 		394594521D3875DF0017F4A3 /* YSSaveDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSSaveDataViewController.h; sourceTree = "<group>"; };
 		394594531D3875DF0017F4A3 /* YSSaveDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSSaveDataViewController.m; sourceTree = "<group>"; };
-		394594591D38777F0017F4A3 /* YSLanguageViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSLanguageViewController.h; path = SectionTwo/YSLanguageViewController.h; sourceTree = "<group>"; };
-		3945945A1D38777F0017F4A3 /* YSLanguageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSLanguageViewController.m; path = SectionTwo/YSLanguageViewController.m; sourceTree = "<group>"; };
 		3945945F1D3877AE0017F4A3 /* YSWebViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSWebViewController.h; path = YSWeb/YSWebViewController.h; sourceTree = "<group>"; };
 		394594601D3877AE0017F4A3 /* YSWebViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSWebViewController.m; path = YSWeb/YSWebViewController.m; sourceTree = "<group>"; };
 		3945948A1D38785D0017F4A3 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewController.h; path = YSUI/ViewController.h; sourceTree = "<group>"; };
@@ -194,8 +218,6 @@
 		394594AF1D3878D20017F4A3 /* ApplicationSettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ApplicationSettingViewController.m; path = YSUI/ApplicationSettingViewController.m; sourceTree = "<group>"; };
 		394594B11D3879200017F4A3 /* YSHarewareViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSHarewareViewController.h; path = YSHareware/YSHarewareViewController.h; sourceTree = "<group>"; };
 		394594B21D3879200017F4A3 /* YSHarewareViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSHarewareViewController.m; path = YSHareware/YSHarewareViewController.m; sourceTree = "<group>"; };
-		394594B41D38792F0017F4A3 /* YSOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOtherViewController.h; sourceTree = "<group>"; };
-		394594B51D38792F0017F4A3 /* YSOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOtherViewController.m; sourceTree = "<group>"; };
 		394594B81D387E310017F4A3 /* hareware.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = hareware.png; sourceTree = "<group>"; };
 		394594B91D387E310017F4A3 /* language.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = language.png; sourceTree = "<group>"; };
 		394594BA1D387E310017F4A3 /* other.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = other.png; sourceTree = "<group>"; };
@@ -228,10 +250,6 @@
 		3955628C1D420A7D0079CF6B /* SQLViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SQLViewController.h; sourceTree = "<group>"; };
 		3955628D1D420A7D0079CF6B /* SQLViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SQLViewController.m; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
-		398594441D13CD0000863A14 /* SixGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SixGestureViewController.h; sourceTree = "<group>"; };
-		398594451D13CD0000863A14 /* SixGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SixGestureViewController.m; sourceTree = "<group>"; };
-		398594471D13CE8B00863A14 /* YSCustemGesureRecognizer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustemGesureRecognizer.h; sourceTree = "<group>"; };
-		398594481D13CE8B00863A14 /* YSCustemGesureRecognizer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCustemGesureRecognizer.m; sourceTree = "<group>"; };
 		3985944C1D13F0B800863A14 /* SevenAppleLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenAppleLocationViewController.h; sourceTree = "<group>"; };
 		3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenAppleLocationViewController.m; sourceTree = "<group>"; };
 		3985944F1D13F0D900863A14 /* SevenBaiduViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenBaiduViewController.h; sourceTree = "<group>"; };
@@ -459,6 +477,50 @@
 			path = YSHistoryBtn;
 			sourceTree = "<group>";
 		};
+		393A07811D475B15005114B1 /* MBProgressHUD */ = {
+			isa = PBXGroup;
+			children = (
+				393A07851D475B4A005114B1 /* YSHudView.h */,
+				393A07861D475B4A005114B1 /* YSHudView.m */,
+				393A07821D475B15005114B1 /* MBProgressHUD.h */,
+				393A07831D475B15005114B1 /* MBProgressHUD.m */,
+			);
+			path = MBProgressHUD;
+			sourceTree = "<group>";
+		};
+		393A07881D475B9C005114B1 /* Gesture */ = {
+			isa = PBXGroup;
+			children = (
+				393A07911D475CFC005114B1 /* SixGestureViewController.h */,
+				393A07921D475CFC005114B1 /* SixGestureViewController.m */,
+				393A07A01D47608F005114B1 /* YSCustemGestureViewController.h */,
+				393A07A11D47608F005114B1 /* YSCustemGestureViewController.m */,
+				393A07A31D476966005114B1 /* GestureCollectionReusableView.h */,
+				393A07A41D476966005114B1 /* GestureCollectionReusableView.m */,
+				393A07A61D476A9F005114B1 /* GestureCollectionViewCell.h */,
+				393A07A71D476A9F005114B1 /* GestureCollectionViewCell.m */,
+			);
+			name = Gesture;
+			sourceTree = "<group>";
+		};
+		393A07891D475BAE005114B1 /* Touch */ = {
+			isa = PBXGroup;
+			children = (
+				393A079A1D475FBD005114B1 /* YSTouchViewController.h */,
+				393A079B1D475FBD005114B1 /* YSTouchViewController.m */,
+			);
+			name = Touch;
+			sourceTree = "<group>";
+		};
+		393A078A1D475BD7005114B1 /* GCD */ = {
+			isa = PBXGroup;
+			children = (
+				393A07971D475F18005114B1 /* YSGCDViewController.h */,
+				393A07981D475F18005114B1 /* YSGCDViewController.m */,
+			);
+			name = GCD;
+			sourceTree = "<group>";
+		};
 		3945944B1D3875A70017F4A3 /* GlobalCustemController */ = {
 			isa = PBXGroup;
 			children = (
@@ -473,8 +535,11 @@
 		394594551D38762E0017F4A3 /* YSLanguage */ = {
 			isa = PBXGroup;
 			children = (
-				394594591D38777F0017F4A3 /* YSLanguageViewController.h */,
-				3945945A1D38777F0017F4A3 /* YSLanguageViewController.m */,
+				393A078B1D475C33005114B1 /* YSLanguageViewController.h */,
+				393A078C1D475C33005114B1 /* YSLanguageViewController.m */,
+				393A078A1D475BD7005114B1 /* GCD */,
+				393A07881D475B9C005114B1 /* Gesture */,
+				393A07891D475BAE005114B1 /* Touch */,
 			);
 			name = YSLanguage;
 			sourceTree = "<group>";
@@ -491,9 +556,8 @@
 		394594571D38767B0017F4A3 /* YSOther */ = {
 			isa = PBXGroup;
 			children = (
-				394594B41D38792F0017F4A3 /* YSOtherViewController.h */,
-				394594B51D38792F0017F4A3 /* YSOtherViewController.m */,
-				398594431D13CCB100863A14 /* SectionSix */,
+				393A078E1D475C52005114B1 /* YSOtherViewController.h */,
+				393A078F1D475C52005114B1 /* YSOtherViewController.m */,
 				3985944B1D13F06A00863A14 /* SectionSeven */,
 				392621901D2363A400CF4C90 /* SectionEleven */,
 			);
@@ -663,6 +727,7 @@
 		3966393E1D1781C20069E0E8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				393A07811D475B15005114B1 /* MBProgressHUD */,
 				395562561D41C3550079CF6B /* MyKeyChainHelper */,
 				395562521D41C0CA0079CF6B /* YSEncription */,
 				39399A0C1D24B55000409871 /* YSFileManager */,
@@ -679,17 +744,6 @@
 				3945949C1D3878950017F4A3 /* OneHorizontalTableViewController.m */,
 			);
 			name = OneHorizontalTableView;
-			sourceTree = "<group>";
-		};
-		398594431D13CCB100863A14 /* SectionSix */ = {
-			isa = PBXGroup;
-			children = (
-				398594441D13CD0000863A14 /* SixGestureViewController.h */,
-				398594451D13CD0000863A14 /* SixGestureViewController.m */,
-				398594471D13CE8B00863A14 /* YSCustemGesureRecognizer.h */,
-				398594481D13CE8B00863A14 /* YSCustemGesureRecognizer.m */,
-			);
-			path = SectionSix;
 			sourceTree = "<group>";
 		};
 		3985944B1D13F06A00863A14 /* SectionSeven */ = {
@@ -1091,9 +1145,8 @@
 				3945948C1D38785D0017F4A3 /* ViewController.m in Sources */,
 				394594AD1D3878C20017F4A3 /* CustemSearchViewController.m in Sources */,
 				3926219A1D239F0400CF4C90 /* NavHideViewController.m in Sources */,
+				393A07A21D47608F005114B1 /* YSCustemGestureViewController.m in Sources */,
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
-				398594461D13CD0000863A14 /* SixGestureViewController.m in Sources */,
-				394594B61D38792F0017F4A3 /* YSOtherViewController.m in Sources */,
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
 				3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */,
@@ -1101,11 +1154,13 @@
 				394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */,
 				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,
 				3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */,
+				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
 				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
+				393A078D1D475C33005114B1 /* YSLanguageViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
-				398594491D13CE8B00863A14 /* YSCustemGesureRecognizer.m in Sources */,
+				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
 				3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */,
 				39399A0F1D24B57100409871 /* YSFileManager.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
@@ -1114,8 +1169,10 @@
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
+				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
+				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
@@ -1123,23 +1180,26 @@
 				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
+				393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
 				3945949D1D3878950017F4A3 /* OneHorizontalTableViewCell.m in Sources */,
+				393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */,
 				394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */,
 				39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */,
 				395562501D41B9780079CF6B /* YSNetWorking.m in Sources */,
 				39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */,
 				3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */,
+				393A07A51D476966005114B1 /* GestureCollectionReusableView.m in Sources */,
 				394594A71D3878A50017F4A3 /* SearchResultViewController.m in Sources */,
 				394594A51D3878A50017F4A3 /* OneSearchController.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,
 				392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */,
-				3945945B1D38777F0017F4A3 /* YSLanguageViewController.m in Sources */,
 				3945949E1D3878950017F4A3 /* OneHorizontalTableViewController.m in Sources */,
 				394594501D3875A70017F4A3 /* YSRootViewController.m in Sources */,
 				394594511D3875A70017F4A3 /* YSTabBarController.m in Sources */,
+				393A07871D475B4A005114B1 /* YSHudView.m in Sources */,
 				394594611D3877AE0017F4A3 /* YSWebViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
