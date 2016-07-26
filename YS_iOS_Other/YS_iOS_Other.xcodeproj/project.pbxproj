@@ -62,6 +62,7 @@
 		394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394640421D45AE5700124587 /* SQLDetailViewController.m */; };
 		394640451D45BB0500124587 /* sqlKnowledge.plist in Resources */ = {isa = PBXBuildFile; fileRef = 394640441D45BB0500124587 /* sqlKnowledge.plist */; };
 		394640491D45FFC600124587 /* CoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394640481D45FFC600124587 /* CoreDataViewController.m */; };
+		3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946404C1D46031B00124587 /* YSTableHeaderView.m */; };
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
@@ -206,6 +207,8 @@
 		394640441D45BB0500124587 /* sqlKnowledge.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = sqlKnowledge.plist; sourceTree = "<group>"; };
 		394640471D45FFC600124587 /* CoreDataViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreDataViewController.h; sourceTree = "<group>"; };
 		394640481D45FFC600124587 /* CoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataViewController.m; sourceTree = "<group>"; };
+		3946404B1D46031B00124587 /* YSTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTableHeaderView.h; sourceTree = "<group>"; };
+		3946404C1D46031B00124587 /* YSTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTableHeaderView.m; sourceTree = "<group>"; };
 		3949E26E1D1A2DA30016BFF6 /* YSUserDefaults.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSUserDefaults.h; sourceTree = "<group>"; };
 		3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSUserDefaults.m; sourceTree = "<group>"; };
 		3949E2721D1A327D0016BFF6 /* YSDefaultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSDefaultsViewController.h; sourceTree = "<group>"; };
@@ -442,6 +445,7 @@
 			children = (
 				39EA8ECE1D40BBC50053EE02 /* YSScrollView */,
 				39399A131D24BA3C00409871 /* YSHistoryBtn */,
+				3946404A1D4602FE00124587 /* YSTableHeaderView */,
 			);
 			path = CustemView;
 			sourceTree = "<group>";
@@ -526,6 +530,15 @@
 				394640481D45FFC600124587 /* CoreDataViewController.m */,
 			);
 			name = CoreData;
+			sourceTree = "<group>";
+		};
+		3946404A1D4602FE00124587 /* YSTableHeaderView */ = {
+			isa = PBXGroup;
+			children = (
+				3946404B1D46031B00124587 /* YSTableHeaderView.h */,
+				3946404C1D46031B00124587 /* YSTableHeaderView.m */,
+			);
+			path = YSTableHeaderView;
 			sourceTree = "<group>";
 		};
 		3949E26D1D1A2D6E0016BFF6 /* UserDefaults */ = {
@@ -1083,6 +1096,7 @@
 				394594B61D38792F0017F4A3 /* YSOtherViewController.m in Sources */,
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
+				3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */,
 				394594971D3878850017F4A3 /* OneCollectionReusableView.m in Sources */,
 				394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */,
 				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,

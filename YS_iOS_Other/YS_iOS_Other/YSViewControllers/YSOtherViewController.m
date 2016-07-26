@@ -40,6 +40,8 @@ static NSString * const OtherCellID = @"OtherCellID";
 
 - (void)initUIAndData
 {
+    self.title = @"其他";
+    
     _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 更换头像"];
     
     NSArray * sectionOne  = @[@"原生", @"百度", @"高德"];

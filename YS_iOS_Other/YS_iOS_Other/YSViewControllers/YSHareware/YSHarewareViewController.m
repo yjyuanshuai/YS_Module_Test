@@ -37,6 +37,8 @@ static NSString * const HarewareCellID = @"HarewareCellID";
 
 - (void)initUIAndData
 {
+    self.title = @"硬件调用";
+    
     _sectionTitleArr = @[@"1 陀螺仪", @"2 加速器"];
     
     NSArray * sectionOne  = @[@"陀螺仪"];
