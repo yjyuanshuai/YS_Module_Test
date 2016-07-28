@@ -8,5 +8,6 @@
 	<string>页面翻页动画</string>
 	<string>UIKit 动画</string>
 	<string>Core Animation</string>
+	<string>模态跳转动画</string>
 </array>
 </plist>

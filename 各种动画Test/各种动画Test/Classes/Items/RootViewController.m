@@ -14,6 +14,7 @@
 #import "TurnPageViewController.h"
 #import "ViewSimpleViewController.h"
 #import "CoreAnimationViewController.h"
+#import "PresentViewController.h"
 
 static NSString * cell_id = @"CELL_ID";
 
@@ -129,6 +130,14 @@ static NSString * cell_id = @"CELL_ID";
             // 核心动画
             CoreAnimationViewController * coreAnimationVC = [[CoreAnimationViewController alloc] init];
             [self.navigationController pushViewController:coreAnimationVC animated:YES];
+        }
+            break;
+            
+        case 6:
+        {
+            // 模态跳转动画
+            PresentViewController * presentVC = [[PresentViewController alloc] init];
+            [self.navigationController pushViewController:presentVC animated:YES];
         }
             break;
         default:

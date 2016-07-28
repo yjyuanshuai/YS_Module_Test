@@ -73,7 +73,7 @@
 #pragma mark - 登录逻辑
 - (void)login
 {
-    YSTabBarController * ysTabBarCon = [[YSTabBarController alloc] init];
+    YSTabBarController * ysTabBarCon = [YSTabBarController sharedYSTabBarController];
     ysTabBarCon.selectedIndex = 0;
     self.window.rootViewController = ysTabBarCon;
 }

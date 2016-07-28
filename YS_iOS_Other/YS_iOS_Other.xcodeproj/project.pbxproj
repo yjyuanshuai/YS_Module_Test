@@ -94,6 +94,11 @@
 		39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */; };
 		39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
+		39CCA98B1D48631600B78FA9 /* AudioAndVideoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA9861D48631600B78FA9 /* AudioAndVideoMainViewController.m */; };
+		39CCA98C1D48631600B78FA9 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA9881D48631600B78FA9 /* AudioViewController.m */; };
+		39CCA98D1D48631600B78FA9 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA98A1D48631600B78FA9 /* RightMenuViewController.m */; };
+		39CCA9901D48632E00B78FA9 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA98F1D48632E00B78FA9 /* VideoViewController.m */; };
+		39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCA9921D488E6700B78FA9 /* Stars@2x.png */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
@@ -271,6 +276,15 @@
 		39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDocumentTableViewCell.xib; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
 		39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionTestModel.m; path = YS_iOS_Other/Models/CollectionTestModel.m; sourceTree = SOURCE_ROOT; };
+		39CCA9851D48631600B78FA9 /* AudioAndVideoMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAndVideoMainViewController.h; sourceTree = "<group>"; };
+		39CCA9861D48631600B78FA9 /* AudioAndVideoMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAndVideoMainViewController.m; sourceTree = "<group>"; };
+		39CCA9871D48631600B78FA9 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
+		39CCA9881D48631600B78FA9 /* AudioViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioViewController.m; sourceTree = "<group>"; };
+		39CCA9891D48631600B78FA9 /* RightMenuViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RightMenuViewController.h; sourceTree = "<group>"; };
+		39CCA98A1D48631600B78FA9 /* RightMenuViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RightMenuViewController.m; sourceTree = "<group>"; };
+		39CCA98E1D48632E00B78FA9 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
+		39CCA98F1D48632E00B78FA9 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
+		39CCA9921D488E6700B78FA9 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
 		39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLoginViewController.h; sourceTree = "<group>"; };
 		39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLoginViewController.m; sourceTree = "<group>"; };
 		39EA8ECB1D40BB7D0053EE02 /* YSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRegisterViewController.h; sourceTree = "<group>"; };
@@ -427,7 +441,7 @@
 			path = Image;
 			sourceTree = "<group>";
 		};
-		392621901D2363A400CF4C90 /* SectionEleven */ = {
+		392621901D2363A400CF4C90 /* NavigationBar */ = {
 			isa = PBXGroup;
 			children = (
 				392621911D2363DA00CF4C90 /* JianShuNavAnimationViewController.h */,
@@ -437,6 +451,7 @@
 				3926219B1D23B19100CF4C90 /* NavHeadViewViewController.h */,
 				3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */,
 			);
+			name = NavigationBar;
 			path = SectionEleven;
 			sourceTree = "<group>";
 		};
@@ -558,8 +573,9 @@
 			children = (
 				393A078E1D475C52005114B1 /* YSOtherViewController.h */,
 				393A078F1D475C52005114B1 /* YSOtherViewController.m */,
-				3985944B1D13F06A00863A14 /* SectionSeven */,
-				392621901D2363A400CF4C90 /* SectionEleven */,
+				3985944B1D13F06A00863A14 /* Map */,
+				392621901D2363A400CF4C90 /* NavigationBar */,
+				39CCA9841D48631600B78FA9 /* AudioAndVideo */,
 			);
 			name = YSOther;
 			sourceTree = "<group>";
@@ -628,6 +644,7 @@
 		394FF77A1D34C9FC00B80D24 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				39CCA9911D488E6700B78FA9 /* RESideMenuImage */,
 				394594B71D387E310017F4A3 /* tabbarImage */,
 				394FF77B1D34CA1300B80D24 /* historyViewImage */,
 				395E69571D128BD700CBDFE0 /* btnImage */,
@@ -746,7 +763,7 @@
 			name = OneHorizontalTableView;
 			sourceTree = "<group>";
 		};
-		3985944B1D13F06A00863A14 /* SectionSeven */ = {
+		3985944B1D13F06A00863A14 /* Map */ = {
 			isa = PBXGroup;
 			children = (
 				3985944C1D13F0B800863A14 /* SevenAppleLocationViewController.h */,
@@ -756,6 +773,7 @@
 				398594521D13F11900863A14 /* SevenGaoDeViewController.h */,
 				398594531D13F11900863A14 /* SevenGaoDeViewController.m */,
 			);
+			name = Map;
 			path = SectionSeven;
 			sourceTree = "<group>";
 		};
@@ -884,6 +902,31 @@
 				3949E2761D1A3B890016BFF6 /* YSUserModel.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		39CCA9841D48631600B78FA9 /* AudioAndVideo */ = {
+			isa = PBXGroup;
+			children = (
+				39CCA9851D48631600B78FA9 /* AudioAndVideoMainViewController.h */,
+				39CCA9861D48631600B78FA9 /* AudioAndVideoMainViewController.m */,
+				39CCA9891D48631600B78FA9 /* RightMenuViewController.h */,
+				39CCA98A1D48631600B78FA9 /* RightMenuViewController.m */,
+				39CCA9871D48631600B78FA9 /* AudioViewController.h */,
+				39CCA9881D48631600B78FA9 /* AudioViewController.m */,
+				39CCA98E1D48632E00B78FA9 /* VideoViewController.h */,
+				39CCA98F1D48632E00B78FA9 /* VideoViewController.m */,
+			);
+			name = AudioAndVideo;
+			path = YSOther/AudioAndVideo;
+			sourceTree = "<group>";
+		};
+		39CCA9911D488E6700B78FA9 /* RESideMenuImage */ = {
+			isa = PBXGroup;
+			children = (
+				39CCA9921D488E6700B78FA9 /* Stars@2x.png */,
+			);
+			name = RESideMenuImage;
+			path = Image/RESideMenuImage;
 			sourceTree = "<group>";
 		};
 		39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */ = {
@@ -1043,6 +1086,7 @@
 			files = (
 				394594C31D387E310017F4A3 /* web.png in Resources */,
 				395E69591D128BE900CBDFE0 /* btn1.png in Resources */,
+				39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */,
 				39214A7D1D056A600019422D /* 5.jpg in Resources */,
 				39214A7C1D056A600019422D /* 4.jpg in Resources */,
 				39214A7B1D056A600019422D /* 3.jpg in Resources */,
@@ -1150,14 +1194,17 @@
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
 				3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */,
+				39CCA98C1D48631600B78FA9 /* AudioViewController.m in Sources */,
 				394594971D3878850017F4A3 /* OneCollectionReusableView.m in Sources */,
 				394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */,
+				39CCA9901D48632E00B78FA9 /* VideoViewController.m in Sources */,
 				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,
 				3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */,
 				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
 				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
 				393A078D1D475C33005114B1 /* YSLanguageViewController.m in Sources */,
+				39CCA98B1D48631600B78FA9 /* AudioAndVideoMainViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
@@ -1170,6 +1217,7 @@
 				394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,
+				39CCA98D1D48631600B78FA9 /* RightMenuViewController.m in Sources */,
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,

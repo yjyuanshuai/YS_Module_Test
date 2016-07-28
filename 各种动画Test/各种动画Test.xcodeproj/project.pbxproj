@@ -38,6 +38,7 @@
 		39528D431CA53A4B00CE2914 /* TurnPageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39528D421CA53A4B00CE2914 /* TurnPageViewController.m */; };
 		39528D4B1CA53E4F00CE2914 /* ViewSimpleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39528D4A1CA53E4F00CE2914 /* ViewSimpleViewController.m */; };
 		3970EB491CAA707D00488A29 /* CoreAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3970EB481CAA707D00488A29 /* CoreAnimationViewController.m */; };
+		39CCA9971D4892D700B78FA9 /* PresentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA9961D4892D700B78FA9 /* PresentViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -120,6 +121,8 @@
 		39528D4A1CA53E4F00CE2914 /* ViewSimpleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewSimpleViewController.m; sourceTree = "<group>"; };
 		3970EB471CAA707D00488A29 /* CoreAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CoreAnimationViewController.h; sourceTree = "<group>"; };
 		3970EB481CAA707D00488A29 /* CoreAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreAnimationViewController.m; sourceTree = "<group>"; };
+		39CCA9951D4892D700B78FA9 /* PresentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PresentViewController.h; sourceTree = "<group>"; };
+		39CCA9961D4892D700B78FA9 /* PresentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PresentViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -248,6 +251,7 @@
 				39528D401CA539CA00CE2914 /* 翻页动画 */,
 				39528D441CA53DB300CE2914 /* UIView 简单动画 */,
 				39528D451CA53DE700CE2914 /* CALayer核心动画 */,
+				39CCA9941D48929A00B78FA9 /* 模态动画 */,
 			);
 			path = Items;
 			sourceTree = "<group>";
@@ -423,6 +427,15 @@
 			name = "CALayer核心动画";
 			sourceTree = "<group>";
 		};
+		39CCA9941D48929A00B78FA9 /* 模态动画 */ = {
+			isa = PBXGroup;
+			children = (
+				39CCA9951D4892D700B78FA9 /* PresentViewController.h */,
+				39CCA9961D4892D700B78FA9 /* PresentViewController.m */,
+			);
+			name = "模态动画";
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -490,7 +503,7 @@
 				TargetAttributes = {
 					39528CA91CA4CDDA00CE2914 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = EBNJJGR464;
+						DevelopmentTeam = MNH692X4AB;
 					};
 					39528CC21CA4CDDA00CE2914 = {
 						CreatedOnToolsVersion = 7.1;
@@ -571,6 +584,7 @@
 				39528D1B1CA4D81F00CE2914 /* MASLayoutConstraint.m in Sources */,
 				39528CF01CA4CE6C00CE2914 /* RootViewController.m in Sources */,
 				39528D211CA4D81F00CE2914 /* ViewController+MASAdditions.m in Sources */,
+				39CCA9971D4892D700B78FA9 /* PresentViewController.m in Sources */,
 				39528D201CA4D81F00CE2914 /* View+MASAdditions.m in Sources */,
 				3970EB491CAA707D00488A29 /* CoreAnimationViewController.m in Sources */,
 				39528D3F1CA5361300CE2914 /* ThreeDemotionViewController.m in Sources */,
@@ -721,13 +735,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$SRCROOT/各种动画Test/Classes/Globalheader/PrefixHeader.pch";
 				INFOPLIST_FILE = "各种动画Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.----Test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanchuai.anmitaion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -736,13 +752,15 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_INCREASE_PRECOMPILED_HEADER_SHARING = NO;
 				GCC_PREFIX_HEADER = "$SRCROOT/各种动画Test/Classes/Globalheader/PrefixHeader.pch";
 				INFOPLIST_FILE = "各种动画Test/Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 8.1;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yibaomd.----Test";
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanchuai.anmitaion;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};

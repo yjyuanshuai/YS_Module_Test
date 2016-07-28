@@ -15,6 +15,9 @@
 #import "YSHarewareViewController.h"
 #import "YSOtherViewController.h"
 
+#import <RESideMenu.h>
+#import "RightMenuViewController.h"
+
 NSInteger const TabBarTag = 20160715;
 
 @interface YSTabBarController ()
@@ -32,6 +35,16 @@ NSInteger const TabBarTag = 20160715;
 @end
 
 @implementation YSTabBarController
+
++ (instancetype)sharedYSTabBarController
+{
+    static YSTabBarController * instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[YSTabBarController alloc] init];
+    });
+    return instance;
+}
 
 - (instancetype)init
 {
@@ -110,7 +123,6 @@ NSInteger const TabBarTag = 20160715;
     otherVC.tabBarItem.title = _tabbarItemTitles[5];
     _otherNavCon = [[UINavigationController alloc] initWithRootViewController:otherVC];
     _otherNavCon.navigationItem.title = _navItemTitles[5];
-    
     self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon];
 }
 

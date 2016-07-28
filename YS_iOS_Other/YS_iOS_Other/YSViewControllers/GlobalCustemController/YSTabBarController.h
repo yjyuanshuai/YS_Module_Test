@@ -10,4 +10,6 @@
 
 @interface YSTabBarController : UITabBarController
 
++ (instancetype)sharedYSTabBarController;
+
 @end

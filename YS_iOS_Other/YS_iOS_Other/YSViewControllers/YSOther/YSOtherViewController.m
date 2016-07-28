@@ -8,8 +8,16 @@
 
 #import "YSOtherViewController.h"
 
+//
 #import "SevenBaiduViewController.h"
 #import "JianShuNavAnimationViewController.h"
+
+//
+#import <RESideMenu.h>
+#import "RightMenuViewController.h"
+#import "AudioAndVideoMainViewController.h"
+#import "AudioViewController.h"
+#import "VideoViewController.h"
 
 static NSString * const OtherCellID = @"OtherCellID";
 
@@ -42,16 +50,17 @@ static NSString * const OtherCellID = @"OtherCellID";
 {
     self.title = @"其他";
     
-    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 更换头像"];
+    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 图片", @"5 音/视频"];
     
-    NSArray * sectionOne  = @[@"原生", @"百度", @"高德"];
-    NSArray * sectionTwo  = @[@"本地化"];
+    NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
+    NSArray * sectionTwo    = @[@"本地化"];
     NSArray * sectionThree  = @[@"导航栏效果"];
     NSArray * sectionFour   = @[@"照相机", @"相片库"];
+    NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
     NSArray * sectionFive   = @[@"Quartz"];
     NSArray * sectionSix    = @[@"OpenGL"];
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive, sectionSix] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, sectionFive, sectionSix] mutableCopy];
 }
 
 - (void)createTableView
@@ -71,7 +80,7 @@ static NSString * const OtherCellID = @"OtherCellID";
     [_otherTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OtherCellID];
 }
 
-#pragma mark - UITableViewDelegate & UITableViewDataSource
+#pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
     return [_sectionTitleArr count];
@@ -104,10 +113,12 @@ static NSString * const OtherCellID = @"OtherCellID";
     return 0.01;
 }
 
-#pragma mark - UITableViewDelegate & UITableViewDataSource
+#pragma mark - UITableViewDelegate
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
     NSInteger indexSection = indexPath.section;
     switch (indexSection) {
         case 0:
@@ -166,7 +177,40 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
+                /*
+                // 主界面
+                AudioAndVideoMainViewController * mainVC = [[AudioAndVideoMainViewController alloc] init];
+//                UINavigationController * tempNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
+                [self.navigationController addChildViewController:mainVC];
                 
+                RightMenuViewController * rightVC = [[RightMenuViewController alloc] init];
+                
+                RESideMenu * sideMenuVC = [[RESideMenu alloc] initWithContentViewController:self.navigationController//tempNav
+                                                                     leftMenuViewController:nil
+                                                                    rightMenuViewController:rightVC];
+                sideMenuVC.backgroundImage = [UIImage imageNamed:@"Stars"];
+                sideMenuVC.hidesBottomBarWhenPushed = YES;
+                sideMenuVC.menuPreferredStatusBarStyle = UIStatusBarStyleLightContent;
+//                sideMenuVC.contentViewShadowColor = [UIColor blackColor];
+//                sideMenuVC.contentViewShadowOffset = CGSizeMake(0, 0);
+//                sideMenuVC.contentViewShadowOpacity = 0.6;
+//                sideMenuVC.contentViewShadowRadius = 12;
+//                sideMenuVC.contentViewShadowEnabled = YES;
+//                
+                sideMenuVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
+                
+//                [self presentViewController:sideMenuVC animated:YES completion:nil];
+                 */
+                
+                AudioAndVideoMainViewController * mainVC = [[AudioAndVideoMainViewController alloc] init];
+                mainVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:mainVC animated:YES];
+            }
+            else if (indexPath.row == 1) {
+                // 音频
+            }
+            else if (indexPath.row == 2) {
+                // 视频
             }
         }
             break;

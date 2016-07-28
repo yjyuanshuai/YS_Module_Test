@@ -16,17 +16,20 @@ PODS:
     - AFNetworking/NSURLSession
   - BaiduMapKit (3.0.0)
   - Masonry (1.0.1)
+  - RESideMenu (4.0.7)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
   - BaiduMapKit (= 3.0.0)
   - Masonry (= 1.0.1)
+  - RESideMenu (= 4.0.7)
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
+  RESideMenu: f24c508404b49c667344c54aba7e590883533958
 
-PODFILE CHECKSUM: f00d03d2c11c38dd30e0f99fe27203fc52fd94c3
+PODFILE CHECKSUM: 9e497a64812cb474b22b629d34fbd6b7c1af0214
 
 COCOAPODS: 1.0.1
