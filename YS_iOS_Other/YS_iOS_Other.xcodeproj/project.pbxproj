@@ -99,6 +99,9 @@
 		39CCA98D1D48631600B78FA9 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA98A1D48631600B78FA9 /* RightMenuViewController.m */; };
 		39CCA9901D48632E00B78FA9 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA98F1D48632E00B78FA9 /* VideoViewController.m */; };
 		39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCA9921D488E6700B78FA9 /* Stars@2x.png */; };
+		39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119B61D49A27C007D4B0B /* AudioOrVideoTableViewCell.m */; };
+		39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */; };
+		39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119E21D49AC94007D4B0B /* YSPlayViewController.m */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
@@ -285,6 +288,12 @@
 		39CCA98E1D48632E00B78FA9 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
 		39CCA98F1D48632E00B78FA9 /* VideoViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoViewController.m; sourceTree = "<group>"; };
 		39CCA9921D488E6700B78FA9 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
+		39E119B51D49A27C007D4B0B /* AudioOrVideoTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioOrVideoTableViewCell.h; sourceTree = "<group>"; };
+		39E119B61D49A27C007D4B0B /* AudioOrVideoTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioOrVideoTableViewCell.m; sourceTree = "<group>"; };
+		39E119C11D49A6A7007D4B0B /* AudioAndVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAndVideoModel.h; sourceTree = "<group>"; };
+		39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAndVideoModel.m; sourceTree = "<group>"; };
+		39E119E11D49AC94007D4B0B /* YSPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPlayViewController.h; sourceTree = "<group>"; };
+		39E119E21D49AC94007D4B0B /* YSPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPlayViewController.m; sourceTree = "<group>"; };
 		39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLoginViewController.h; sourceTree = "<group>"; };
 		39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLoginViewController.m; sourceTree = "<group>"; };
 		39EA8ECB1D40BB7D0053EE02 /* YSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRegisterViewController.h; sourceTree = "<group>"; };
@@ -900,6 +909,7 @@
 				39B218BC1D191DC4008DD042 /* docModel.m */,
 				3949E2751D1A3B890016BFF6 /* YSUserModel.h */,
 				3949E2761D1A3B890016BFF6 /* YSUserModel.m */,
+				39E119C01D49A688007D4B0B /* AudioAndVideoModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -907,10 +917,10 @@
 		39CCA9841D48631600B78FA9 /* AudioAndVideo */ = {
 			isa = PBXGroup;
 			children = (
-				39CCA9851D48631600B78FA9 /* AudioAndVideoMainViewController.h */,
-				39CCA9861D48631600B78FA9 /* AudioAndVideoMainViewController.m */,
-				39CCA9891D48631600B78FA9 /* RightMenuViewController.h */,
-				39CCA98A1D48631600B78FA9 /* RightMenuViewController.m */,
+				39E119BF1D49A2BD007D4B0B /* mainItem */,
+				39E119E01D49AC94007D4B0B /* PlayerView */,
+				39E119B51D49A27C007D4B0B /* AudioOrVideoTableViewCell.h */,
+				39E119B61D49A27C007D4B0B /* AudioOrVideoTableViewCell.m */,
 				39CCA9871D48631600B78FA9 /* AudioViewController.h */,
 				39CCA9881D48631600B78FA9 /* AudioViewController.m */,
 				39CCA98E1D48632E00B78FA9 /* VideoViewController.h */,
@@ -927,6 +937,36 @@
 			);
 			name = RESideMenuImage;
 			path = Image/RESideMenuImage;
+			sourceTree = "<group>";
+		};
+		39E119BF1D49A2BD007D4B0B /* mainItem */ = {
+			isa = PBXGroup;
+			children = (
+				39CCA9851D48631600B78FA9 /* AudioAndVideoMainViewController.h */,
+				39CCA9861D48631600B78FA9 /* AudioAndVideoMainViewController.m */,
+				39CCA9891D48631600B78FA9 /* RightMenuViewController.h */,
+				39CCA98A1D48631600B78FA9 /* RightMenuViewController.m */,
+			);
+			name = mainItem;
+			sourceTree = "<group>";
+		};
+		39E119C01D49A688007D4B0B /* AudioAndVideoModel */ = {
+			isa = PBXGroup;
+			children = (
+				39E119C11D49A6A7007D4B0B /* AudioAndVideoModel.h */,
+				39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */,
+			);
+			name = AudioAndVideoModel;
+			path = YS_iOS_Other/Models/AudioAndVideoModel;
+			sourceTree = SOURCE_ROOT;
+		};
+		39E119E01D49AC94007D4B0B /* PlayerView */ = {
+			isa = PBXGroup;
+			children = (
+				39E119E11D49AC94007D4B0B /* YSPlayViewController.h */,
+				39E119E21D49AC94007D4B0B /* YSPlayViewController.m */,
+			);
+			path = PlayerView;
 			sourceTree = "<group>";
 		};
 		39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */ = {
@@ -1207,12 +1247,14 @@
 				39CCA98B1D48631600B78FA9 /* AudioAndVideoMainViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
+				39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */,
 				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
 				3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */,
 				39399A0F1D24B57100409871 /* YSFileManager.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
+				39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */,
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
@@ -1222,6 +1264,7 @@
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
+				39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */,
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,

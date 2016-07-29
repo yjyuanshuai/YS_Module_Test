@@ -50,27 +50,6 @@
     _rightMenuTableView.backgroundColor = [UIColor clearColor];
     _rightMenuTableView.translatesAutoresizingMaskIntoConstraints = NO;
     [self.view addSubview:_rightMenuTableView];
-
-    
-    /*
-    NSDictionary * metricsDic = @{@"space":@54};
-    NSDictionary * viewsDic = @{@"_rightMenuTableView":_rightMenuTableView};
-    
-    NSString * vfl1 = @"H:|-0-[_rightMenuTableView]-0|";
-    NSString * vfl2 = @"V:|-space-[_rightMenuTableView]-space-|";
-    
-    NSArray * c1 = [NSLayoutConstraint constraintsWithVisualFormat:vfl1
-                                                           options:0
-                                                           metrics:metricsDic
-                                                             views:viewsDic];
-    
-    NSArray * c2 = [NSLayoutConstraint constraintsWithVisualFormat:vfl2
-                                                           options:0
-                                                           metrics:metricsDic
-                                                             views:viewsDic];
-    [self.view addConstraints:c1];
-    [self.view addConstraints:c2];
-     */
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -98,16 +77,11 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
         AudioViewController * audioVC = [[AudioViewController alloc] init];
-        UINavigationController * leftNav = [[UINavigationController alloc] initWithRootViewController:audioVC];
-        [self.sideMenuViewController setContentViewController:leftNav];
-        [self.sideMenuViewController hideMenuViewController];
+        [self.sideMenuViewController.navigationController pushViewController:audioVC animated:YES];
     }
     else if (indexPath.row == 1) {
         VideoViewController * videoVC = [[VideoViewController alloc] init];
-        UINavigationController * rightNav = [[UINavigationController alloc] initWithRootViewController:videoVC];
-        
-        [self.sideMenuViewController setContentViewController:rightNav];
-        [self.sideMenuViewController hideMenuViewController];
+        [self.sideMenuViewController.navigationController pushViewController:videoVC animated:YES];
     }
 }
 

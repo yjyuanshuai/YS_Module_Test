@@ -177,15 +177,12 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
-                /*
                 // 主界面
                 AudioAndVideoMainViewController * mainVC = [[AudioAndVideoMainViewController alloc] init];
-//                UINavigationController * tempNav = [[UINavigationController alloc] initWithRootViewController:mainVC];
-                [self.navigationController addChildViewController:mainVC];
                 
                 RightMenuViewController * rightVC = [[RightMenuViewController alloc] init];
                 
-                RESideMenu * sideMenuVC = [[RESideMenu alloc] initWithContentViewController:self.navigationController//tempNav
+                RESideMenu * sideMenuVC = [[RESideMenu alloc] initWithContentViewController:mainVC
                                                                      leftMenuViewController:nil
                                                                     rightMenuViewController:rightVC];
                 sideMenuVC.backgroundImage = [UIImage imageNamed:@"Stars"];
@@ -196,21 +193,26 @@ static NSString * const OtherCellID = @"OtherCellID";
 //                sideMenuVC.contentViewShadowOpacity = 0.6;
 //                sideMenuVC.contentViewShadowRadius = 12;
 //                sideMenuVC.contentViewShadowEnabled = YES;
-//                
-                sideMenuVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
                 
-//                [self presentViewController:sideMenuVC animated:YES completion:nil];
-                 */
+                sideMenuVC.title = @"音/视频主界面";
+                sideMenuVC.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"右滑"
+                                                                                                style:UIBarButtonItemStylePlain
+                                                                                               target:sideMenuVC
+                                                                                               action:@selector(presentRightMenuViewController)];
+                [self.navigationController pushViewController:sideMenuVC animated:YES];
                 
-                AudioAndVideoMainViewController * mainVC = [[AudioAndVideoMainViewController alloc] init];
-                mainVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:mainVC animated:YES];
             }
             else if (indexPath.row == 1) {
                 // 音频
+                AudioViewController * audioVC = [[AudioViewController alloc] init];
+                audioVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:audioVC animated:YES];
             }
             else if (indexPath.row == 2) {
                 // 视频
+                VideoViewController * videoVC = [[VideoViewController alloc] init];
+                videoVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:videoVC animated:YES];
             }
         }
             break;

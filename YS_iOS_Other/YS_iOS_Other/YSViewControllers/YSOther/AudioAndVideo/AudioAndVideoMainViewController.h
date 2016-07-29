@@ -10,6 +10,4 @@
 
 @interface AudioAndVideoMainViewController : YSRootViewController
 
-- (instancetype)initWithSaveNav:(UINavigationController *)saveNav;
-
 @end

@@ -1,26 +1,22 @@
 //
-//  VideoViewController.m
+//  YSPlayViewController.m
 //  YS_iOS_Other
 //
-//  Created by YJ on 16/7/27.
+//  Created by YJ on 16/7/28.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "VideoViewController.h"
+#import "YSPlayViewController.h"
 
-@interface VideoViewController ()
-
-@property (nonatomic, strong) UITableView * videoTableView;
+@interface YSPlayViewController ()
 
 @end
 
-@implementation VideoViewController
+@implementation YSPlayViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    [self initUIAndData];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -30,9 +26,7 @@
 
 - (void)initUIAndData
 {
-    self.title = @"视频";
+    self.title = @"播放器";
 }
-
-
 
 @end

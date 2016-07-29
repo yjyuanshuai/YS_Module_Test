@@ -15,9 +15,6 @@
 #import "YSHarewareViewController.h"
 #import "YSOtherViewController.h"
 
-#import <RESideMenu.h>
-#import "RightMenuViewController.h"
-
 NSInteger const TabBarTag = 20160715;
 
 @interface YSTabBarController ()
