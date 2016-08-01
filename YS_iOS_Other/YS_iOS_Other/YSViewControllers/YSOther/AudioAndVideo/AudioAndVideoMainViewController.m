@@ -39,20 +39,20 @@
     
     _sectionTitle = @[@"网络音频", @"网络视频"];
     
-    NSArray * audioArr = @[];
-    NSArray * videoArr = @[];
+    NSArray * audioArr = @[@"网络音频"];
+    NSArray * videoArr = @[@"网络视频"];
     _datasArr = [@[audioArr, videoArr] mutableCopy];
 }
 
 - (void)createTableView
 {
-    _mainTableView = [UITableView new];
+    _mainTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _mainTableView.delegate = self;
     _mainTableView.dataSource = self;
     [self.view addSubview:_mainTableView];
     
     [_mainTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(64, 0, 0, 0));
     }];
 }
 
@@ -95,6 +95,11 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     return 0.01;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _sectionTitle[section];
 }
 
 @end

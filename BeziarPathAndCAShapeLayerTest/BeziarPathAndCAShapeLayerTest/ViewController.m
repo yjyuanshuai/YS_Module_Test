@@ -21,8 +21,8 @@
 //    [self createRectangle];
 //    [self createRoundRectangle];
 //    [self createCircle];
-//    [self beziarLine];
-    [self animationLayer];
+    [self beziarLine];
+//    [self animationLayer];
 }
 
 - (void)didReceiveMemoryWarning {
