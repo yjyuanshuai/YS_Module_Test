@@ -39,11 +39,14 @@ static NSString * const WebCellID = @"WebCellID";
 {
     self.title = @"网络";
     
-    _sectionTitleArr = @[@"AFNetworing 3.0"];
+    _sectionTitleArr = @[@"基本知识", @"原生", @"第三方库", @"基于第三方的封装"];
     
-    NSArray * afnetworking = @[];
+    NSArray * knowledge = @[@""];
+    NSArray * orignWorking = @[@"原生网络"];
+    NSArray * afnetworking = @[@"AFNetworing 3.0"];
+    NSArray * myWorking = @[@"自己封装的方法"];
     
-    _sectionCellContent = [@[] mutableCopy];
+    _sectionCellContent = [@[knowledge, orignWorking, afnetworking, myWorking] mutableCopy];
 }
 
 - (void)createTableView

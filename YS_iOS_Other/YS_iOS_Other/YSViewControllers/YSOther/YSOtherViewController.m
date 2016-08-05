@@ -12,7 +12,11 @@
 #import "SevenBaiduViewController.h"
 #import "JianShuNavAnimationViewController.h"
 
-//
+// 4
+#import <QBImagePickerController/QBImagePickerController.h>
+#import "ImagesShowViewController.h"
+
+// 5
 #import <RESideMenu.h>
 #import "RightMenuViewController.h"
 #import "AudioAndVideoMainViewController.h"
@@ -21,7 +25,7 @@
 
 static NSString * const OtherCellID = @"OtherCellID";
 
-@interface YSOtherViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface YSOtherViewController () <UITableViewDataSource, UITableViewDelegate, QBImagePickerControllerDelegate>
 
 @property (nonatomic, strong) UITableView * otherTableView;
 
@@ -164,11 +168,29 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
+                // 照相机
                 
             }
             else if (indexPath.row == 1)
             {
-                
+                // 相片库
+                QBImagePickerController * QBImagePC = [[QBImagePickerController alloc] init];
+                QBImagePC.delegate = self;
+                QBImagePC.allowsMultipleSelection = YES;        // 默认是NO
+                QBImagePC.minimumNumberOfSelection = 1;         // 最小选择数
+                QBImagePC.maximumNumberOfSelection = 9;         // 最大选择数
+                QBImagePC.showsNumberOfSelectedAssets = YES;    //
+                QBImagePC.mediaType = QBImagePickerMediaTypeImage;  // 类型
+//                QBImagePC.prompt = @"选择照片";
+                QBImagePC.numberOfColumnsInPortrait = 4;        // 竖屏时一排数
+                QBImagePC.numberOfColumnsInLandscape = 7;       // 横屏时一排数
+                QBImagePC.assetCollectionSubtypes = @[@(PHAssetCollectionSubtypeSmartAlbumUserLibrary), // 相机胶卷
+                                                      @(PHAssetCollectionSubtypeAlbumMyPhotoStream),    // 照片流
+                                                      @(PHAssetCollectionSubtypeSmartAlbumPanoramas),   // 全景图片
+                                                      @(PHAssetCollectionSubtypeSmartAlbumVideos),      // 视频
+                                                      @(PHAssetCollectionSubtypeSmartAlbumBursts)       // 连拍快照
+                                                      ];
+                [self presentViewController:QBImagePC animated:YES completion:nil];
             }
         }
             break;
@@ -231,5 +253,36 @@ static NSString * const OtherCellID = @"OtherCellID";
     }
 }
 
+#pragma mark - QBImagePickerControllerDelegate
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets
+{
+    // 完成选择
+    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
+    
+    ImagesShowViewController * imagePC = [[ImagesShowViewController alloc] initWithImageAsset:assets];
+    [self.navigationController pushViewController:imagePC animated:YES];
+}
+
+- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
+{
+    // 取消
+    
+    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
+}
+
+- (BOOL)qb_imagePickerController:(QBImagePickerController *)imagePickerController shouldSelectAsset:(PHAsset *)asset
+{
+    return YES;
+}
+
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(PHAsset *)asset
+{
+    
+}
+
+- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didDeselectAsset:(PHAsset *)asset
+{
+
+}
 
 @end
