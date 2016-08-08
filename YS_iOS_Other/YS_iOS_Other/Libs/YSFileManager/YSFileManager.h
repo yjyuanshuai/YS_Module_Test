@@ -11,16 +11,16 @@
 @interface YSFileManager : NSObject
 
 /**** 搜索历史 ******/ 
-// 读
+/**     读   */
 + (void)readUserSearchHistory;
-// 写
+/**     写  */
 + (void)wirteUserSearchHistory;
 
 
 
 
 /**** 音频存取 ***********/
-
+//+ (BOOL)
 
 
 

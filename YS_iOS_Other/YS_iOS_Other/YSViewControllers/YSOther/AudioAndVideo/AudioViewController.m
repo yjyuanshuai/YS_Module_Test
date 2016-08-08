@@ -8,6 +8,7 @@
 
 #import "AudioViewController.h"
 #import "AudioOrVideoTableViewCell.h"
+#import "YSPlayViewController.h"
 
 static NSString * const autioTableViewCellID = @"autioTableViewCellID";
 
@@ -37,8 +38,7 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
 - (void)initUIAndData
 {
     self.title = @"音频";
-    
-    _audiosArr = [NSMutableArray array];
+    _audiosArr = [@[@"测试1"] mutableCopy];//[NSMutableArray array];
 }
 
 - (void)createAudioTableView
@@ -46,6 +46,7 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
     _audioTableView = [UITableView new];
     _audioTableView.delegate = self;
     _audioTableView.dataSource = self;
+    _audioTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_audioTableView];
     
     [_audioTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -66,6 +67,14 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
     AudioOrVideoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:autioTableViewCellID];
     
     return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    YSPlayViewController * ysPlayAudioVC = [[YSPlayViewController alloc] init];
+    [self.navigationController pushViewController:ysPlayAudioVC animated:YES];
 }
 
 @end

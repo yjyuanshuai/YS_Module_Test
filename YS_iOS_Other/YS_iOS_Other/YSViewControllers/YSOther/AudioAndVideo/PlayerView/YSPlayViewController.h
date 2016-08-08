@@ -8,6 +8,14 @@
 
 #import "YSRootViewController.h"
 
+typedef NS_ENUM(NSInteger, AudioType)
+{
+    AudioTypeWeb,       //
+    AudioTypeLocal      //
+};
+
 @interface YSPlayViewController : YSRootViewController
+
+- (instancetype)initWithPlayType:(AudioType)type;
 
 @end

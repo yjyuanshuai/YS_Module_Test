@@ -23,6 +23,13 @@
 #import "AudioViewController.h"
 #import "VideoViewController.h"
 
+// 6
+#import "CMBViewController.h"
+
+// 7
+
+// 8
+
 static NSString * const OtherCellID = @"OtherCellID";
 
 @interface YSOtherViewController () <UITableViewDataSource, UITableViewDelegate, QBImagePickerControllerDelegate>
@@ -54,17 +61,18 @@ static NSString * const OtherCellID = @"OtherCellID";
 {
     self.title = @"其他";
     
-    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 图片", @"5 音/视频"];
+    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 图片", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
     
     NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
     NSArray * sectionTwo    = @[@"本地化"];
     NSArray * sectionThree  = @[@"导航栏效果"];
     NSArray * sectionFour   = @[@"照相机", @"相片库"];
     NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
+    NSArray * payArr        = @[@"招行一网通"];
     NSArray * sectionFive   = @[@"Quartz"];
     NSArray * sectionSix    = @[@"OpenGL"];
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, sectionFive, sectionSix] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, payArr, sectionFive, sectionSix] mutableCopy];
 }
 
 - (void)createTableView
@@ -129,7 +137,7 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                // 原生地图
             }
             else if (indexPath.row == 1)
             {
@@ -139,7 +147,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             }
             else if (indexPath.row == 2)
             {
-                
+                // 高德
             }
             
         }
@@ -149,7 +157,7 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                // 本地化
             }
         }
             break;
@@ -158,6 +166,7 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
+                // 导航栏效果
                 JianShuNavAnimationViewController * jianshuNavVC = [[JianShuNavAnimationViewController alloc] init];
                 [self.navigationController pushViewController:jianshuNavVC animated:YES];
             }
@@ -243,7 +252,9 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                // 招行一网通
+                CMBViewController * cmbVC = [[CMBViewController alloc] init];
+                [self.navigationController pushViewController:cmbVC animated:YES];
             }
         }
             break;
