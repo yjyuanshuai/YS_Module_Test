@@ -68,9 +68,8 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
     // 转向
     _horizontalTableView.transform = CGAffineTransformMakeRotation(-M_PI/2);
     
-    // 添加长按手势
-    UILongPressGestureRecognizer * longGesure = [[UILongPressGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesure:)];
-    longGesure.numberOfTouchesRequired = 1;
+    // 添加拖动手势
+    UIPanGestureRecognizer * longGesure = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesure:)];
     [_horizontalTableView addGestureRecognizer:longGesure];
     
     if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
@@ -79,7 +78,7 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
 }
 
 #pragma mark - 
-- (void)longPressGesure:(UILongPressGestureRecognizer *)longGesure
+- (void)longPressGesure:(UIPanGestureRecognizer *)longGesure
 {
     CGPoint point = [longGesure locationInView:self.view];
     NSIndexPath * indexPath = [_horizontalTableView indexPathForRowAtPoint:point];      // 当前手指所在indexPath

@@ -1,32 +1,30 @@
 //
-//  EncryptionMethod.m
+//  YSEnDecryptionMethod.m
 //  EncryptionTest
 //
-//  Created by YJ on 16/1/4.
+//  Created by YJ on 16/8/10.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "EncryptionMethod.h"
-
-#import "NSString+Utility.h"
-
-#import <CommonCrypto/CommonDigest.h>       // MD5头文件
-#import <CommonCrypto/CommonCryptor.h>      // AES等头文件
+#import "YSEnDecryptionMethod.h"
+#import <CommonCrypto/CommonCrypto.h>       
 
 static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
 
+@implementation YSEnDecryptionMethod
 
-@implementation EncryptionMethod
-
-#pragma mark - 加密算法
+#pragma mark - 加密
 // MD5
-+ (NSString *)md5StringFromText:(NSString *)str
++ (NSString *)encryptMD5StrForString:(NSString *)str
 {
     /*
      1、导入头文件  <CommonCrypto/CommonDigest.h>
      2、CC_MD5 函数
      */
-    if ([NSString isBlankString:str]) {
+    if ([str isEqualToString:@""] ||
+        str == nil ||
+        [str isKindOfClass:[NSNull class]]) {
+        
         return nil;
     }
     
@@ -36,17 +34,13 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return [NSString stringWithFormat:@"%X%X%X%X%X%X%X%X%X%X%X%X%X%X%X%X", result[0], result[1], result[2], result[3], result[4], result[5], result[6], result[7], result[8], result[9], result[10], result[11], result[12], result[13], result[14], result[15]];
 }
 
-// Base64
-+ (NSString *)base64StringFromText:(NSString *)text
+// base64
++ (NSString *)encryptBase64StrForString:(NSString *)str
 {
-    if (text && ![text isEqualToString:@""]) {
-        //取项目的bundleIdentifier作为KEY  改动了此处
-        //NSString *key = [[NSBundle mainBundle] bundleIdentifier];
-        NSData *data = [text dataUsingEncoding:NSUTF8StringEncoding];
-        //IOS 自带DES加密 Begin  改动了此处
-        //data = [self DESEncrypt:data WithKey:key];
-        //IOS 自带DES加密 End
-        return [self base64EncodedStringFrom:data];
+    if (str && ![str isEqualToString:@""]) {
+        
+        NSData *data = [str dataUsingEncoding:NSUTF8StringEncoding];
+        return [self encryptbase64StrforData:data];
     }
     else {
         return @"";
@@ -54,14 +48,10 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 }
 
 /******************************************************************************
- 函数名称 : + (NSString *)base64EncodedStringFrom:(NSData *)data
  函数描述 : 文本数据转换为base64格式字符串
  输入参数 : (NSData *)data
- 输出参数 : N/A
- 返回参数 : (NSString *)
- 备注信息 :
  ******************************************************************************/
-+ (NSString *)base64EncodedStringFrom:(NSData *)data
++ (NSString *)encryptbase64StrforData:(NSData *)data
 {
     if ([data length] == 0)
         return @"";
@@ -89,9 +79,66 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return [[NSString alloc] initWithBytesNoCopy:characters length:length encoding:NSASCIIStringEncoding freeWhenDone:YES];
 }
 
+// AES128
++ (NSData *)encryptAES128DataForData:(NSData *)data
+                                 Key:(NSString *)key
+                                  iv:(NSString *)iv
+{
+    char keyPtr[kCCKeySizeAES128+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    char ivPtr[kCCKeySizeAES128+1];
+    bzero(ivPtr, sizeof(ivPtr));
+    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [data length];
+    int diff = kCCKeySizeAES128 - (dataLength % kCCKeySizeAES128);
+    int newSize = 0;
+    if(diff > 0)
+    {
+        newSize = (int)(dataLength + diff);
+    }
+    char dataPtr[newSize];
+    memcpy(dataPtr, [data bytes], [data length]);
+    for(int i = 0; i < diff; i++)
+    {
+        dataPtr[i + dataLength] = 0x00;
+    }
+    size_t bufferSize = newSize + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    size_t numBytesEncrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
+                                          kCCAlgorithmAES128,
+                                          0x00, //No padding
+                                          keyPtr,
+                                          kCCKeySizeAES128,
+                                          ivPtr,
+                                          dataPtr,
+                                          sizeof(dataPtr),
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesEncrypted);
+    if(cryptStatus == kCCSuccess)
+    {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
+    }
+    return nil;
+}
 
-// DES加密
-+(NSString *)encryptSting:(NSString *)sText key:(NSString *)key andDesiv:(NSString *)ivDes
++ (NSString *)encryptAES128StrForString:(NSString *)str
+                                    Key:(NSString *)key
+                                     iv:(NSString *)iv
+{
+    NSData * encryptionData = [YSEnDecryptionMethod encryptAES128DataForData:[str dataUsingEncoding:NSUTF8StringEncoding] Key:key iv:iv];
+    
+    NSString * encryptionStr = [YSEnDecryptionMethod encryptbase64StrforData:encryptionData];
+    
+    return encryptionStr;
+}
+
+// DES
++ (NSString *)encryptDESStrForSting:(NSString *)sText
+                             key:(NSString *)key
+                        andDesiv:(NSString *)ivDes
 {
     if ((sText == nil || sText.length == 0)
         || (sText == nil || sText.length == 0)
@@ -137,65 +184,11 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return hexStr;
 }
 
-
-// AES加密
-+ (NSData *)AES128EncryptWithKey:(NSString *)key iv:(NSString *)iv withNSData:(NSData *)data
+#pragma mark - 解密
++ (NSString *)decryptBase64StrForString:(NSString *)base64Str
 {
-    char keyPtr[kCCKeySizeAES128+1];
-    bzero(keyPtr, sizeof(keyPtr));
-    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
-    char ivPtr[kCCKeySizeAES128+1];
-    bzero(ivPtr, sizeof(ivPtr));
-    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [data length];
-    int diff = kCCKeySizeAES128 - (dataLength % kCCKeySizeAES128);
-    int newSize = 0;
-    if(diff > 0)
-    {
-        newSize = (int)(dataLength + diff);
-    }
-    char dataPtr[newSize];
-    memcpy(dataPtr, [data bytes], [data length]);
-    for(int i = 0; i < diff; i++)
-    {
-        dataPtr[i + dataLength] = 0x00;
-    }
-    size_t bufferSize = newSize + kCCBlockSizeAES128;
-    void *buffer = malloc(bufferSize);
-    size_t numBytesEncrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCEncrypt,
-                                          kCCAlgorithmAES128,
-                                          0x00, //No padding
-                                          keyPtr,
-                                          kCCKeySizeAES128,
-                                          ivPtr,
-                                          dataPtr,
-                                          sizeof(dataPtr),
-                                          buffer,
-                                          bufferSize,
-                                          &numBytesEncrypted);
-    if(cryptStatus == kCCSuccess)
-    {
-        //        NSData *data =[NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
-        //        NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
-    }
-    return nil;
-}
-
-
-
-#pragma mark - 解密算法
-// Base64 解密
-+ (NSString *)textFromBase64String:(NSString *)base64
-{
-    if (base64 && ![base64 isEqualToString:@""]) {
-        //取项目的bundleIdentifier作为KEY   改动了此处
-        //NSString *key = [[NSBundle mainBundle] bundleIdentifier];
-        NSData *data = [self dataWithBase64EncodedString:base64];
-        //IOS 自带DES解密 Begin    改动了此处
-        //data = [self DESDecrypt:data WithKey:key];
-        //IOS 自带DES加密 End
+    if (base64Str && ![base64Str isEqualToString:@""]) {
+        NSData *data = [self decryptBase64DataForString:base64Str];
         return [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
     }
     else {
@@ -204,18 +197,14 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
 }
 
 /******************************************************************************
- 函数名称 : + (NSData *)dataWithBase64EncodedString:(NSString *)string
  函数描述 : base64格式字符串转换为文本数据
  输入参数 : (NSString *)string
- 输出参数 : N/A
- 返回参数 : (NSData *)
- 备注信息 :
  ******************************************************************************/
-+ (NSData *)dataWithBase64EncodedString:(NSString *)string
++ (NSData *)decryptBase64DataForString:(NSString *)base64Str
 {
-    if (string == nil)
+    if (base64Str == nil)
         [NSException raise:NSInvalidArgumentException format:nil];
-    if ([string length] == 0)
+    if ([base64Str length] == 0)
         return [NSData data];
     static char *decodingTable = NULL;
     if (decodingTable == NULL)
@@ -228,10 +217,10 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
         for (i = 0; i < 64; i++)
             decodingTable[(short)encodingTable[i]] = i;
     }
-    const char *characters = [string cStringUsingEncoding:NSASCIIStringEncoding];
+    const char *characters = [base64Str cStringUsingEncoding:NSASCIIStringEncoding];
     if (characters == NULL)     //  Not an ASCII string!
         return nil;
-    char *bytes = malloc((([string length] + 3) / 4) * 3);
+    char *bytes = malloc((([base64Str length] + 3) / 4) * 3);
     if (bytes == NULL)
         return nil;
     NSUInteger length = 0;
@@ -271,9 +260,54 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return [NSData dataWithBytesNoCopy:bytes length:length];
 }
 
+// AES128
++ (NSData *)decryptAES128DataForData:(NSData *)data
+                                 Key:(NSString *)key
+                                  iv:(NSString *)iv
+{
+    char keyPtr[kCCKeySizeAES128+1];
+    bzero(keyPtr, sizeof(keyPtr));
+    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
+    char ivPtr[kCCKeySizeAES128+1];
+    bzero(ivPtr, sizeof(ivPtr));
+    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
+    NSUInteger dataLength = [data length];
+    size_t bufferSize = dataLength + kCCBlockSizeAES128;
+    void *buffer = malloc(bufferSize);
+    size_t numBytesEncrypted = 0;
+    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
+                                          kCCAlgorithmAES128,
+                                          0x00, //No padding
+                                          keyPtr,
+                                          kCCKeySizeAES128,
+                                          ivPtr,
+                                          [data bytes],
+                                          dataLength,
+                                          buffer,
+                                          bufferSize,
+                                          &numBytesEncrypted);
+    if(cryptStatus == kCCSuccess)
+    {
+        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
+    }
+    return nil;
+}
 
-// DES解密
-+(NSString *)decryptWithDESString:(NSString *)sText key:(NSString *)key andiV:(NSString *)iv
++ (NSString *)decryptAES128StrForString:(NSString *)str
+                                    Key:(NSString *)key
+                                     iv:(NSString *)iv
+{
+    NSData * base64Data = [YSEnDecryptionMethod decryptBase64DataForString:str];
+    NSData * decryptionData = [YSEnDecryptionMethod decryptAES128DataForData:base64Data Key:key iv:iv];
+    NSString * decrytionStr = [YSEnDecryptionMethod  encryptbase64StrforData:decryptionData];
+    NSString * result = [YSEnDecryptionMethod decryptBase64StrForString:decrytionStr];
+    return result;
+}
+
+// DES
++ (NSString *)decryptDESStrForString:(NSString *)sText
+                                 key:(NSString *)key
+                               andiV:(NSString *)iv
 {
     if ((sText == nil || sText.length == 0)
         || (sText == nil || sText.length == 0)
@@ -321,39 +355,6 @@ static const char encodingTable[] = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopq
     return result;
 }
 
-
-// AES解密
-+ (NSData *)AES128DecryptWithKey:(NSString *)key iv:(NSString *)iv withNSData:(NSData *)data
-{
-    char keyPtr[kCCKeySizeAES128+1];
-    bzero(keyPtr, sizeof(keyPtr));
-    [key getCString:keyPtr maxLength:sizeof(keyPtr) encoding:NSUTF8StringEncoding];
-    char ivPtr[kCCKeySizeAES128+1];
-    bzero(ivPtr, sizeof(ivPtr));
-    [iv getCString:ivPtr maxLength:sizeof(ivPtr) encoding:NSUTF8StringEncoding];
-    NSUInteger dataLength = [data length];
-    size_t bufferSize = dataLength + kCCBlockSizeAES128;
-    void *buffer = malloc(bufferSize);
-    size_t numBytesEncrypted = 0;
-    CCCryptorStatus cryptStatus = CCCrypt(kCCDecrypt,
-                                          kCCAlgorithmAES128,
-                                          0x00, //No padding
-                                          keyPtr,
-                                          kCCKeySizeAES128,
-                                          ivPtr,
-                                          [data bytes],
-                                          dataLength,
-                                          buffer,
-                                          bufferSize,
-                                          &numBytesEncrypted);
-    if(cryptStatus == kCCSuccess)
-    {
-        //        NSData *data =[NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
-        // NSString *str = [[NSString alloc]initWithData:data encoding:NSUTF8StringEncoding];
-        return [NSData dataWithBytesNoCopy:buffer length:numBytesEncrypted];
-    }
-    return nil;
-}
 
 
 @end

@@ -8,6 +8,10 @@
 
 #import "YSPlayViewController.h"
 #import <AVFoundation/AVFoundation.h>
+#import "YSSongModel.h"
+
+static NSString * const playerStatus = @"playerStatus";
+static NSString * const loadedTimeRanges = @"loadedTimeRanges";
 
 @interface YSPlayViewController () <UIScrollViewDelegate, AVAudioPlayerDelegate>
 
@@ -17,6 +21,11 @@
 @property (nonatomic, strong) UIProgressView * playProgress;
 @property (nonatomic, strong) UILabel * currentTime;
 @property (nonatomic, strong) UILabel * allTime;
+
+@property (nonatomic, strong) AVPlayer * ysPlayer;
+@property (nonatomic, strong) AVPlayerItem * currentAudioItem;
+@property (nonatomic, strong) id timeObserver;
+@property (nonatomic, assign) NSInteger currentIndex;
 
 
 @property (nonatomic, assign) AudioType type;
@@ -28,6 +37,9 @@
 @end
 
 @implementation YSPlayViewController
+{
+    NSMutableArray * _webAudioList;
+}
 
 - (instancetype)initWithPlayType:(AudioType)type
 {
@@ -47,7 +59,7 @@
     [self createUpBtn];
     [self createDownBtn];
     [self createProgressView];
-    [self createAudioPlayer];
+    [self createAVPlayer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -55,55 +67,126 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (void)dealloc
+{
+    if (_timeObserver) {
+        [_ysPlayer removeTimeObserver:_timeObserver];
+        _timeObserver = nil;
+    }
+    
+    [_currentAudioItem removeObserver:self forKeyPath:playerStatus];
+    [_currentAudioItem removeObserver:self forKeyPath:loadedTimeRanges];
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (void)initUIAndData
 {
     self.title = @"音乐播放器";
     _currentTimeInterval = 0.0;
     _allTimeInterval = 0.0;
+    _webAudioList = [NSMutableArray array];
+    
+    NSString * path = [[NSBundle mainBundle] pathForResource:@"WebAudioList" ofType:@"plist"];
+    NSArray * listArr = [NSArray arrayWithContentsOfFile:path];
+    for (NSDictionary * songDic in listArr) {
+        YSSongModel * model = [[YSSongModel alloc] initWithWebSongDic:songDic];
+        [_webAudioList addObject:model];
+    }
+    
+    _currentIndex = 0;
 }
 
-- (void)createAudioPlayer
+- (void)createAVPlayer
+{
+    YSSongModel * model = _webAudioList[0];
+    NSURL * dataUrl = [NSURL URLWithString:model.url];
+    _ysPlayer = [[AVPlayer alloc] initWithURL:dataUrl];
+    [_ysPlayer play];
+}
+
+- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
+{
+    if ([keyPath isEqualToString:playerStatus]) {
+        AVPlayerStatus status = _ysPlayer.status;
+        if (status == AVPlayerStatusUnknown) {
+            NSLog(@"KVO：未知状态，不能播放");
+        }
+        else if (status == AVPlayerStatusReadyToPlay) {
+            NSLog(@"KVO：准备完毕，可以播放");
+        }
+        else {
+            NSLog(@"KVO：加载失败，网络或服务器出现问题");
+        }
+    }
+    else if ([keyPath isEqualToString:loadedTimeRanges]) {
+        NSArray * arr = _currentAudioItem.loadedTimeRanges;
+        CMTimeRange timeRange = [arr.firstObject CMTimeRangeValue]; //本次缓冲的时间范围
+        NSTimeInterval totalBuffer = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration);
+        NSLog(@"---------- totalBuffer: %.2f", totalBuffer);
+    }
+}
+
+- (void)playbackFinished:(NSNotification *)notice
+{
+    NSLog(@"播放完成");
+    
+    if (_timeObserver) {
+        [_ysPlayer removeTimeObserver:_timeObserver];
+        _timeObserver = nil;
+    }
+    
+    [_currentAudioItem removeObserver:self forKeyPath:playerStatus];
+    [_currentAudioItem removeObserver:self forKeyPath:loadedTimeRanges];
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+    
+//    _currentIndex++;
+    [self playNext:_currentIndex];
+}
+
+- (void)playNext:(NSInteger)index
 {
     if (_type == AudioTypeWeb) {
         
-        NSError * error = nil;
-        NSString * path = @"http://a.ali.dongting.com/494a44568a1c7555/1422090214/m4a_32_9/0b/0c/0b4466a12a5af34259fba0090380da0c.m4a?s=t";
-        NSURL * dataUrl = [NSURL URLWithString:path];
-        NSData * mydata = [[NSData alloc] initWithContentsOfURL:dataUrl];
-        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:mydata error:&error];
+        [_ysPlayer play];
         
-        if (error) {
-            NSLog(@"----------- web play error");
-        }
-        
-        _ysAudioPlayer.delegate = self;
-        [_ysAudioPlayer prepareToPlay];
+        _currentAudioItem = _ysPlayer.currentItem;
         
         // 音量（0.0 - 1.0）
-        _ysAudioPlayer.volume = 0.8;
-        // 时长
-        _allTimeInterval = _ysAudioPlayer.duration;
-        _allTime.text = [NSString stringWithFormat:@"%f", _ysAudioPlayer.duration];
-        // 当前
-        _currentTimeInterval = _ysAudioPlayer.currentTime;
-        _currentTime.text = [NSString stringWithFormat:@"%f", _ysAudioPlayer.currentTime];
-    }
-    
-    else {
+        _ysPlayer.volume = 0.8;
         
-        NSError * error = nil;
-        NSString * path = [[NSBundle mainBundle] pathForResource:@"" ofType:@""];
-        NSURL * localUrl = [NSURL fileURLWithPath:path];
-        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:localUrl error:&error];
         
-        if (error) {
-            NSLog(@"----------- local play error");
-        }
-    
-        _ysAudioPlayer.delegate = self;
+        // 观察者，播放完毕要移除
+        __weak typeof(self) weakSelf = self;
+        _timeObserver = [_ysPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0)
+                                                                queue:dispatch_get_main_queue()
+                                                           usingBlock:^(CMTime time) {
+                                                               
+                                                               weakSelf.currentTimeInterval = CMTimeGetSeconds(time);
+                                                               weakSelf.allTimeInterval = CMTimeGetSeconds(weakSelf.currentAudioItem.duration);
+                                                               if (weakSelf.currentTimeInterval) {
+                                                                   weakSelf.playProgress.progress = weakSelf.currentTimeInterval / weakSelf.allTimeInterval;
+                                                               }
+                                                               
+                                                           }];
+        
+        // 监听媒体加载状态
+        [_currentAudioItem addObserver:self
+                            forKeyPath:playerStatus
+                               options:NSKeyValueObservingOptionNew
+                               context:nil];
+        
+        // 数据缓冲状态
+        [_currentAudioItem addObserver:self
+                            forKeyPath:loadedTimeRanges
+                               options:NSKeyValueObservingOptionNew
+                               context:nil];
+        
+        [[NSNotificationCenter defaultCenter] addObserver:self
+                                                 selector:@selector(playbackFinished:)
+                                                     name:AVPlayerItemDidPlayToEndTimeNotification
+                                                   object:_currentAudioItem];
     }
-    
-    [self creataTimer];
 }
 
 - (void)creataTimer
@@ -364,15 +447,15 @@
     }];
     
     [_playProgress mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 100, 2));
-        make.left.equalTo(_currentTime).with.offset(5);
-        make.centerX.equalTo(_currentTime).with.offset(0);
+        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 110, 2));
+        make.left.equalTo(_currentTime).with.offset(5 + 45);
+        make.centerY.equalTo(_currentTime).with.offset(0);
     }];
     
     [_allTime mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(45, 20));
         make.right.equalTo(self.view).with.offset(-5);
-        make.centerX.equalTo(_currentTime).with.offset(0);
+        make.centerY.equalTo(_currentTime).with.offset(0);
     }];
 }
 
@@ -381,8 +464,6 @@
 {
     _currentTimeInterval += 0.1;
     
-    _currentTime.text = [NSString stringWithFormat:@"%f", _currentTimeInterval];
-    _playProgress.progress = _currentTimeInterval / _allTimeInterval;
 }
 
 #pragma mark - AVAudioPlayerDelegate

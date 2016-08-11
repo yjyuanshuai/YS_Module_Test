@@ -83,8 +83,13 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    YSPlayViewController * playerVC = [[YSPlayViewController alloc] init];
-    [self.navigationController pushViewController:playerVC animated:YES];
+    if (indexPath.section == 0) {
+        YSPlayViewController * playerVC = [[YSPlayViewController alloc] initWithPlayType:AudioTypeWeb];
+        [self.navigationController pushViewController:playerVC animated:YES];
+    }
+    else {
+        
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

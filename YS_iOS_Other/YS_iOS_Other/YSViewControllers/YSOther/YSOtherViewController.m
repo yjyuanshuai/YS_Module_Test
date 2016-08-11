@@ -143,6 +143,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             {
                 // 百度地图
                 SevenBaiduViewController * baiduMapVC = [[SevenBaiduViewController alloc] init];
+                baiduMapVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:baiduMapVC animated:YES];
             }
             else if (indexPath.row == 2)
@@ -168,6 +169,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             {
                 // 导航栏效果
                 JianShuNavAnimationViewController * jianshuNavVC = [[JianShuNavAnimationViewController alloc] init];
+                jianshuNavVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:jianshuNavVC animated:YES];
             }
         }
@@ -254,6 +256,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             {
                 // 招行一网通
                 CMBViewController * cmbVC = [[CMBViewController alloc] init];
+                cmbVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:cmbVC animated:YES];
             }
         }

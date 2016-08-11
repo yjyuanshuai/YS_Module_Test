@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39DB4C831D5AC874009D2B1F /* YSEnDecryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DB4C821D5AC874009D2B1F /* YSEnDecryptionMethod.m */; };
 		39E9C3CC1C3A160500F4A854 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3CB1C3A160500F4A854 /* main.m */; };
 		39E9C3CF1C3A160500F4A854 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3CE1C3A160500F4A854 /* AppDelegate.m */; };
 		39E9C3D21C3A160500F4A854 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3D11C3A160500F4A854 /* ViewController.m */; };
@@ -16,7 +17,6 @@
 		39E9C3E51C3A160500F4A854 /* EncryptionTestTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3E41C3A160500F4A854 /* EncryptionTestTests.m */; };
 		39E9C3F01C3A160500F4A854 /* EncryptionTestUITests.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C3EF1C3A160500F4A854 /* EncryptionTestUITests.m */; };
 		39E9C4041C3A3FB200F4A854 /* NSString+Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */; };
-		39E9C4291C3A589100F4A854 /* EncryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C4281C3A589100F4A854 /* EncryptionMethod.m */; };
 		39E9C42D1C3A637300F4A854 /* YJCookieManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E9C42C1C3A637300F4A854 /* YJCookieManager.m */; };
 /* End PBXBuildFile section */
 
@@ -38,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		39DB4C811D5AC874009D2B1F /* YSEnDecryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSEnDecryptionMethod.h; sourceTree = "<group>"; };
+		39DB4C821D5AC874009D2B1F /* YSEnDecryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSEnDecryptionMethod.m; sourceTree = "<group>"; };
 		39E9C3C71C3A160500F4A854 /* EncryptionTest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EncryptionTest.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39E9C3CB1C3A160500F4A854 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39E9C3CD1C3A160500F4A854 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -56,8 +58,6 @@
 		39E9C3F11C3A160500F4A854 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		39E9C4021C3A3FB200F4A854 /* NSString+Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Utility.h"; sourceTree = "<group>"; };
 		39E9C4031C3A3FB200F4A854 /* NSString+Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Utility.m"; sourceTree = "<group>"; };
-		39E9C4271C3A589100F4A854 /* EncryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EncryptionMethod.h; sourceTree = "<group>"; };
-		39E9C4281C3A589100F4A854 /* EncryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EncryptionMethod.m; sourceTree = "<group>"; };
 		39E9C42B1C3A637300F4A854 /* YJCookieManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YJCookieManager.h; sourceTree = "<group>"; };
 		39E9C42C1C3A637300F4A854 /* YJCookieManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YJCookieManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -196,8 +196,8 @@
 		39E9C4261C3A584900F4A854 /* EncryptTool */ = {
 			isa = PBXGroup;
 			children = (
-				39E9C4271C3A589100F4A854 /* EncryptionMethod.h */,
-				39E9C4281C3A589100F4A854 /* EncryptionMethod.m */,
+				39DB4C811D5AC874009D2B1F /* YSEnDecryptionMethod.h */,
+				39DB4C821D5AC874009D2B1F /* YSEnDecryptionMethod.m */,
 			);
 			path = EncryptTool;
 			sourceTree = "<group>";
@@ -278,7 +278,7 @@
 				TargetAttributes = {
 					39E9C3C61C3A160500F4A854 = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = EBNJJGR464;
+						DevelopmentTeam = MNH692X4AB;
 					};
 					39E9C3DF1C3A160500F4A854 = {
 						CreatedOnToolsVersion = 7.1;
@@ -343,10 +343,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				39E9C4041C3A3FB200F4A854 /* NSString+Utility.m in Sources */,
-				39E9C4291C3A589100F4A854 /* EncryptionMethod.m in Sources */,
 				39E9C42D1C3A637300F4A854 /* YJCookieManager.m in Sources */,
 				39E9C3D21C3A160500F4A854 /* ViewController.m in Sources */,
 				39E9C3CF1C3A160500F4A854 /* AppDelegate.m in Sources */,
+				39DB4C831D5AC874009D2B1F /* YSEnDecryptionMethod.m in Sources */,
 				39E9C3CC1C3A160500F4A854 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -488,12 +488,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: luo hong (SA8P6RMYTV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EncryptionTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.EncryptionTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -501,12 +503,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Developer: luo hong (SA8P6RMYTV)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = EncryptionTest/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.EncryptionTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
