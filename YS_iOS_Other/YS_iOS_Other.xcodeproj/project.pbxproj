@@ -29,7 +29,6 @@
 		392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */; };
 		392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621961D2365D700CF4C90 /* UIColor+Image.m */; };
 		3926219A1D239F0400CF4C90 /* NavHideViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621991D239F0400CF4C90 /* NavHideViewController.m */; };
-		3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */; };
 		39399A0F1D24B57100409871 /* YSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A0E1D24B57100409871 /* YSFileManager.m */; };
 		39399A111D24B97400409871 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 39399A101D24B97400409871 /* trash.png */; };
 		39399A191D24BB5700409871 /* YSHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A181D24BB5700409871 /* YSHistoryView.m */; };
@@ -40,7 +39,6 @@
 		393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07921D475CFC005114B1 /* SixGestureViewController.m */; };
 		393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07981D475F18005114B1 /* YSGCDViewController.m */; };
 		393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A079B1D475FBD005114B1 /* YSTouchViewController.m */; };
-		393A07A21D47608F005114B1 /* YSCustemGestureViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07A11D47608F005114B1 /* YSCustemGestureViewController.m */; };
 		393A07A51D476966005114B1 /* GestureCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07A41D476966005114B1 /* GestureCollectionReusableView.m */; };
 		393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 393A07A71D476A9F005114B1 /* GestureCollectionViewCell.m */; };
 		393AACCD1D4B30A30004C41D /* audioPlayer_bg.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 393AACCC1D4B30A30004C41D /* audioPlayer_bg.jpg */; };
@@ -117,6 +115,7 @@
 		3991290A1D5C4D340099C279 /* tab_thr_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128FE1D5C4D340099C279 /* tab_thr_sel.png */; };
 		3991290B1D5C4D340099C279 /* tab_two_num.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128FF1D5C4D340099C279 /* tab_two_num.png */; };
 		3991290C1D5C4D340099C279 /* tab_two_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 399129001D5C4D340099C279 /* tab_two_sel.png */; };
+		399129121D5C87250099C279 /* YSCustemGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 399129111D5C87250099C279 /* YSCustemGesture.m */; };
 		39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218B31D1911BE008DD042 /* TwoDocumentViewController.m */; };
 		39B218B71D19126C008DD042 /* docImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B218B61D19126C008DD042 /* docImage.png */; };
 		39B218BA1D19175E008DD042 /* homeDirectiory.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39B218B91D19175E008DD042 /* homeDirectiory.plist */; };
@@ -211,8 +210,6 @@
 		392621961D2365D700CF4C90 /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
 		392621981D239F0400CF4C90 /* NavHideViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavHideViewController.h; sourceTree = "<group>"; };
 		392621991D239F0400CF4C90 /* NavHideViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavHideViewController.m; sourceTree = "<group>"; };
-		3926219B1D23B19100CF4C90 /* NavHeadViewViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavHeadViewViewController.h; sourceTree = "<group>"; };
-		3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavHeadViewViewController.m; sourceTree = "<group>"; };
 		39399A0D1D24B57100409871 /* YSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSFileManager.h; sourceTree = "<group>"; };
 		39399A0E1D24B57100409871 /* YSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSFileManager.m; sourceTree = "<group>"; };
 		39399A101D24B97400409871 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
@@ -232,8 +229,6 @@
 		393A07981D475F18005114B1 /* YSGCDViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSGCDViewController.m; path = YSLanguage/YSGCDViewController.m; sourceTree = "<group>"; };
 		393A079A1D475FBD005114B1 /* YSTouchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSTouchViewController.h; path = YSLanguage/YSTouchViewController.h; sourceTree = "<group>"; };
 		393A079B1D475FBD005114B1 /* YSTouchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSTouchViewController.m; path = YSLanguage/YSTouchViewController.m; sourceTree = "<group>"; };
-		393A07A01D47608F005114B1 /* YSCustemGestureViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSCustemGestureViewController.h; path = YSLanguage/YSCustemGestureViewController.h; sourceTree = "<group>"; };
-		393A07A11D47608F005114B1 /* YSCustemGestureViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSCustemGestureViewController.m; path = YSLanguage/YSCustemGestureViewController.m; sourceTree = "<group>"; };
 		393A07A31D476966005114B1 /* GestureCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionReusableView.h; path = YSLanguage/GestureCollectionReusableView.h; sourceTree = "<group>"; };
 		393A07A41D476966005114B1 /* GestureCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = GestureCollectionReusableView.m; path = YSLanguage/GestureCollectionReusableView.m; sourceTree = "<group>"; };
 		393A07A61D476A9F005114B1 /* GestureCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionViewCell.h; path = YSLanguage/GestureCollectionViewCell.h; sourceTree = "<group>"; };
@@ -354,6 +349,8 @@
 		399128FE1D5C4D340099C279 /* tab_thr_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_thr_sel.png; sourceTree = "<group>"; };
 		399128FF1D5C4D340099C279 /* tab_two_num.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_two_num.png; sourceTree = "<group>"; };
 		399129001D5C4D340099C279 /* tab_two_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_two_sel.png; sourceTree = "<group>"; };
+		399129101D5C87250099C279 /* YSCustemGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustemGesture.h; sourceTree = "<group>"; };
+		399129111D5C87250099C279 /* YSCustemGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCustemGesture.m; sourceTree = "<group>"; };
 		39B218B21D1911BE008DD042 /* TwoDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDocumentViewController.h; sourceTree = "<group>"; };
 		39B218B31D1911BE008DD042 /* TwoDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDocumentViewController.m; sourceTree = "<group>"; };
 		39B218B61D19126C008DD042 /* docImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docImage.png; sourceTree = "<group>"; };
@@ -571,8 +568,6 @@
 				392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */,
 				392621981D239F0400CF4C90 /* NavHideViewController.h */,
 				392621991D239F0400CF4C90 /* NavHideViewController.m */,
-				3926219B1D23B19100CF4C90 /* NavHeadViewViewController.h */,
-				3926219C1D23B19100CF4C90 /* NavHeadViewViewController.m */,
 			);
 			name = NavigationBar;
 			path = SectionEleven;
@@ -631,12 +626,12 @@
 			children = (
 				393A07911D475CFC005114B1 /* SixGestureViewController.h */,
 				393A07921D475CFC005114B1 /* SixGestureViewController.m */,
-				393A07A01D47608F005114B1 /* YSCustemGestureViewController.h */,
-				393A07A11D47608F005114B1 /* YSCustemGestureViewController.m */,
 				393A07A31D476966005114B1 /* GestureCollectionReusableView.h */,
 				393A07A41D476966005114B1 /* GestureCollectionReusableView.m */,
 				393A07A61D476A9F005114B1 /* GestureCollectionViewCell.h */,
 				393A07A71D476A9F005114B1 /* GestureCollectionViewCell.m */,
+				399129101D5C87250099C279 /* YSCustemGesture.h */,
+				399129111D5C87250099C279 /* YSCustemGesture.m */,
 			);
 			name = Gesture;
 			sourceTree = "<group>";
@@ -1495,7 +1490,6 @@
 				3945948C1D38785D0017F4A3 /* ViewController.m in Sources */,
 				394594AD1D3878C20017F4A3 /* CustemSearchViewController.m in Sources */,
 				3926219A1D239F0400CF4C90 /* NavHideViewController.m in Sources */,
-				393A07A21D47608F005114B1 /* YSCustemGestureViewController.m in Sources */,
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
@@ -1515,7 +1509,7 @@
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */,
 				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
-				3926219D1D23B19100CF4C90 /* NavHeadViewViewController.m in Sources */,
+				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
 				39399A0F1D24B57100409871 /* YSFileManager.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,

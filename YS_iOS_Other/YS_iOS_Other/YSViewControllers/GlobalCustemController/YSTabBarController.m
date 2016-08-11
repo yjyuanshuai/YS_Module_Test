@@ -121,9 +121,6 @@ NSInteger const TabBarTag = 20160715;
     _otherNavCon = [[UINavigationController alloc] initWithRootViewController:otherVC];
     _otherNavCon.navigationItem.title = _navItemTitles[5];
     self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon];
-    
-    self.tabBar.tintColor = [UIColor redColor];
-    self.tabBar.barTintColor = YSColorDefault;
 }
 
 - (void)setTabbarItemTitle

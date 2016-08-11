@@ -7,8 +7,6 @@
 //
 
 #import "JianShuNavAnimationViewController.h"
-#import "NavHideViewController.h"
-#import "NavHeadViewViewController.h"
 
 static NSString * const preNavBarTitleTextAttributes    = @"preNavBarTitleTextAttributes";
 static NSString * const preNavBarStyle                  = @"preNavBarStyle";
@@ -52,7 +50,6 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
     [super viewWillAppear:animated];
     
     _jianshuTableView.delegate = self;  //
-    
     [self setNavigationBar];
 }
 
@@ -61,7 +58,6 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
     [super viewDidDisappear:animated];
     
     _jianshuTableView.delegate = nil;   // 释放delegate
-    
     [self resetNavigationBar];
 }
 
@@ -69,96 +65,19 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 // 存储上一个页面的
 - (void)savePreNavigationBar
 {
-    UINavigationBar * navBar = self.navigationController.navigationBar;
     
-    if ([navBar respondsToSelector:@selector(isHidden)]) {
-        BOOL preHidden          = navBar.isHidden;
-        [self insertIntoDicWithValidData:@(preHidden) key:preNavBarHidden];
-    }
-    
-    if ([navBar respondsToSelector:@selector(isTranslucent)]) {
-        BOOL preTranslucent     = navBar.translucent;
-        [self insertIntoDicWithValidData:@(preTranslucent) key:preNavBarTranslucent];
-    }
-    
-    if ([navBar respondsToSelector:@selector(barStyle)]) {
-        UIBarStyle preBarStyle  = navBar.barStyle;
-        [self insertIntoDicWithValidData:@(preBarStyle) key:preNavBarStyle];
-    }
-    
-    if ([navBar respondsToSelector:@selector(titleTextAttributes)]) {
-        NSDictionary * preTitleTextAttributes = navBar.titleTextAttributes;
-        [self insertIntoDicWithValidData:preTitleTextAttributes key:preNavBarTranslucent];
-    }
-    
-    if ([navBar respondsToSelector:@selector(tintColor)]) {
-        UIColor * preTintColor          = navBar.tintColor ;
-        [self insertIntoDicWithValidData:preTintColor key:preNavBarTintColor];
-    }
-    
-    if ([navBar respondsToSelector:@selector(barTintColor)]) {
-        UIColor * preBarTintColor       = navBar.barTintColor;
-        [self insertIntoDicWithValidData:preBarTintColor key:preNavBarbarTintColor];
-    }
-    
-    if ([navBar respondsToSelector:@selector(shadowImage)]) {
-        UIImage * preShaowImage = navBar.shadowImage;
-        [self insertIntoDicWithValidData:preShaowImage key:preNavBarShadowImage];
-    }
-    if ([navBar respondsToSelector:@selector(backIndicatorImage)]) {
-        UIImage * preBackIndicatorImage = navBar.backIndicatorImage;
-        [self insertIntoDicWithValidData:preBackIndicatorImage key:preNavBarBackIndicatorImage];
-    }
-    if ([navBar respondsToSelector:@selector(backIndicatorTransitionMaskImage)]) {
-        UIImage * preBackIndicatorTransitionMaskImage = navBar.backIndicatorTransitionMaskImage;
-        [self insertIntoDicWithValidData:preBackIndicatorTransitionMaskImage key:preNavBarBackIndicatorTransitionMaskImage];
-    }
-}
-
-- (void)insertIntoDicWithValidData:(id)navProperty key:(NSString *)navKey
-{
-    if (navProperty != nil) {
-        [_preNavigationBarDic setObject:navProperty forKey:navKey];
-    }
 }
 
 // 设置当前页面的
 - (void)setNavigationBar
 {
-    [self.navigationController setNavigationBarHidden:NO];
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init]  forBarMetrics:UIBarMetricsDefault];
-    self.navigationController.navigationBar.shadowImage = [[UIImage alloc] init];
     
-    _navBarBackImageView = self.navigationController.navigationBar.subviews.firstObject;
-    _navBarBackImageView.backgroundColor = [UIColor orangeColor];
-    _navBarBackImageView.alpha = 0.0;
 }
 
 // 重置
 - (void)resetNavigationBar
 {
-    self.navigationController.navigationBar.hidden = [_preNavigationBarDic[preNavBarHidden] boolValue];
-    self.navigationController.navigationBar.barStyle = [_preNavigationBarDic[preNavBarStyle] integerValue];
-    self.navigationController.navigationBar.translucent = [_preNavigationBarDic[preNavBarTranslucent] boolValue];
     
-    if (_preNavigationBarDic[preNavBarTitleTextAttributes] != nil) {
-        self.navigationController.navigationBar.titleTextAttributes = _preNavigationBarDic[preNavBarTitleTextAttributes];
-    }
-    if (_preNavigationBarDic[preNavBarbarTintColor] != nil) {
-        self.navigationController.navigationBar.barTintColor = _preNavigationBarDic[preNavBarbarTintColor];
-    }
-    if (_preNavigationBarDic[preNavBarTintColor] != nil) {
-        self.navigationController.navigationBar.tintColor = _preNavigationBarDic[preNavBarTintColor];
-    }
-    if (_preNavigationBarDic[preNavBarShadowImage] != nil) {
-        self.navigationController.navigationBar.shadowImage = _preNavigationBarDic[preNavBarShadowImage];
-    }
-    if (_preNavigationBarDic[preNavBarBackIndicatorImage] != nil) {
-        self.navigationController.navigationBar.backIndicatorImage = _preNavigationBarDic[preNavBarBackIndicatorImage];
-    }
-    if (_preNavigationBarDic[preNavBarBackIndicatorTransitionMaskImage] != nil) {
-        self.navigationController.navigationBar.backIndicatorTransitionMaskImage = _preNavigationBarDic[preNavBarBackIndicatorTransitionMaskImage];
-    }
 }
 
 #pragma mark -
@@ -166,7 +85,7 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 {
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _navAnimationArr = @[@"导航栏隐藏", @"导航栏头像缩放", @"导航栏隐藏"];
+    _navAnimationArr = @[@"1手指-改颜色", @"2手指-隐藏", @"3手指-头像缩放"];
 }
 
 - (void)initTableView
@@ -216,14 +135,6 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    
-    if (indexPath.row == 0) {
-        NavHideViewController * navHideVC = [[NavHideViewController alloc] init];
-        [self.navigationController pushViewController:navHideVC animated:YES];
-    } else if (indexPath.row == 1) {
-        NavHeadViewViewController * navHeadViewVC = [[NavHeadViewViewController alloc] init];
-        [self.navigationController pushViewController:navHeadViewVC animated:YES];
-    }
 }
 
 #pragma mark - UIScrollViewDelegate

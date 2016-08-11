@@ -74,8 +74,17 @@
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
     
-    [UINavigationBar appearance].tintColor = [UIColor blackColor];
-    [UINavigationBar appearance].barTintColor = YSColorDefault;
+    // 导航栏
+    [[UINavigationBar appearance] setTintColor:[UIColor blackColor]];
+    [[UINavigationBar appearance] setBarTintColor:YSColorDefault];
+
+    // TabBar
+    [UITabBar appearance].tintColor = [UIColor whiteColor];
+    [UITabBar appearance].barTintColor = YSColorDefault;
+    
+    // TabBarItem
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
+    [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
 }
 
 #pragma mark - 登录逻辑

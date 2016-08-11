@@ -13,7 +13,8 @@
 
 // 2
 #import "SixGestureViewController.h"
-#import "YSCustemGestureViewController.h"
+#import "YSCustemGesture.h"
+#import "JianShuNavAnimationViewController.h"
 
 // 3
 #import "YSTouchViewController.h"
@@ -136,9 +137,9 @@ static NSString * const LanguageCellID = @"LanguageCellID";
             else if (indexPath.row == 1)
             {
                 // 自定义手势
-                YSCustemGestureViewController * cusGestureVC = [[YSCustemGestureViewController alloc] init];
-                cusGestureVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:cusGestureVC animated:YES];
+                JianShuNavAnimationViewController * jianshuVC = [[JianShuNavAnimationViewController alloc] init];
+                jianshuVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:jianshuVC animated:YES];
             }
             else if (indexPath.row == 2){
                 // 触摸
