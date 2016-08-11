@@ -10,16 +10,16 @@
 
 @implementation YSFileManager
 
-// 读
-+ (void)readUserSearchHistory
-{
-    
-}
+#pragma mark - 文件管理
 
-// 写
-+ (void)wirteUserSearchHistory
++ (BOOL)fileHasExist:(NSString *)path
 {
-
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    if ([fileManager fileExistsAtPath:path]) {
+        return YES;
+    }
+    NSLog(@"---------------- file 不存在 ！");
+    return NO;
 }
 
 @end

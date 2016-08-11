@@ -9,6 +9,8 @@
 #ifndef GlobalString_h
 #define GlobalString_h
 
+
+
 /*********  一些全局定义 **********************/
 
 #define kScreenWidth    [UIScreen mainScreen].bounds.size.width
@@ -25,6 +27,11 @@
 
 
 
+/*********  颜色  ************************/
+#define YSColorRGB(red, green, blue) [UIColor colorWithRed:red green:green blue:blue alpha:1.0]
+#define YSColorRGBAlpha(red, green, blue, alpha) [UIColor colorWithRed:red green:green blue:blue alpha:alpha]
+
+#define YSColorDefault [UIColor colorWithRed:25.0 green:196.0 blue:250.0 alpha:1.0]
 
 
 /*********  用户偏好设置有关 *******************/

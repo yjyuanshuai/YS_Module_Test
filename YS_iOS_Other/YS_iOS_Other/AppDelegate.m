@@ -20,10 +20,7 @@
     
     // app 启动完成时调用
     
-    self.window.frame = [[UIScreen mainScreen] bounds];
-    self.window.backgroundColor = [UIColor whiteColor];
-    [self.window makeKeyAndVisible];
-    
+    [self initSetting];
     [self login];
     [self startBaiduMap];
     [self notificationApplyToUser];
@@ -68,6 +65,17 @@
 {
     // 应用程序接收到内存警告的时候就会调用
     // 一般在该方法中释放掉不需要的内存
+}
+
+#pragma mark - 初始设置
+- (void)initSetting
+{
+    self.window.frame = [[UIScreen mainScreen] bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
+    [self.window makeKeyAndVisible];
+    
+    [UINavigationBar appearance].tintColor = [UIColor blackColor];
+    [UINavigationBar appearance].barTintColor = YSColorDefault;
 }
 
 #pragma mark - 登录逻辑
