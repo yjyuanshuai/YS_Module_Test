@@ -13,7 +13,6 @@
 
 // 2
 #import "SixGestureViewController.h"
-#import "YSCustemGesture.h"
 #import "JianShuNavAnimationViewController.h"
 
 // 3

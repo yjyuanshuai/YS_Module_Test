@@ -23,12 +23,14 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 @property (nonatomic, strong) UITableView * jianshuTableView;
 @property (nonatomic, strong) UIImageView * navBarBackImageView;
 @property (nonatomic, strong) NSMutableDictionary * preNavigationBarDic;
+@property (nonatomic, strong) UITapGestureRecognizer * tapGesture;
 
 @end
 
 @implementation JianShuNavAnimationViewController
 {
     NSArray * _navAnimationArr;
+    NSInteger _touchNum;
 }
 
 - (void)viewDidLoad {
@@ -49,7 +51,7 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 {
     [super viewWillAppear:animated];
     
-    _jianshuTableView.delegate = self;  //
+    _jianshuTableView.delegate = self;
     [self setNavigationBar];
 }
 
@@ -113,6 +115,9 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
         make.left.equalTo(tempView.mas_left).offset(0);
         make.top.equalTo(tempView.mas_top).offset(0);
     }];
+    
+    _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchNumber:)];
+    [_jianshuTableView addGestureRecognizer:_tapGesture];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
@@ -140,12 +145,30 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 #pragma mark - UIScrollViewDelegate
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
-    CGFloat miniAlphaOffset = 0;  // 下拉的高度
-    CGFloat maxAlphaOffset = 50;    // 上拉的高度
-    CGFloat offset = scrollView.contentOffset.y;
-    CGFloat alpha = (offset - miniAlphaOffset)/(maxAlphaOffset - miniAlphaOffset);
+    if (_touchNum == 1) {
+        // 颜色
+        CGFloat miniAlphaOffset = 0;
+        CGFloat maxAlphaOffset = 50;
+        CGFloat offset = scrollView.contentOffset.y;
+        CGFloat alpha = (offset - miniAlphaOffset)/(maxAlphaOffset - miniAlphaOffset);
+        
+        _navBarBackImageView.alpha = alpha;
+        
+    }
+    else if (_touchNum == 2) {
+        // 隐藏
     
-    _navBarBackImageView.alpha = alpha;
+    }
+    else {
+        // 缩放
+        
+    }
+}
+
+#pragma mark - 
+- (void)touchNumber:(UITapGestureRecognizer *)ges
+{
+    _touchNum = ges.numberOfTapsRequired;
 }
 
 @end

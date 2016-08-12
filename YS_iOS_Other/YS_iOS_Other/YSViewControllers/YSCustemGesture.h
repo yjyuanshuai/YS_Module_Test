@@ -21,10 +21,14 @@ typedef NS_ENUM(NSInteger, YSDirection)
     YSDirectionRightAndDown
 };
 
+
+
+
 @interface YSCustemGesture : UIGestureRecognizer
 
 @property (nonatomic, assign) CGPoint startPoint;
 @property (nonatomic, assign) YSDirection direction;
 @property (nonatomic, assign) CGPoint endPoint;
+@property (nonatomic, assign) NSInteger tickleCount;
 
 @end
