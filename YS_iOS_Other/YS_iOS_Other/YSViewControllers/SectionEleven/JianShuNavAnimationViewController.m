@@ -7,6 +7,7 @@
 //
 
 #import "JianShuNavAnimationViewController.h"
+#import "UIImage+YSImageCategare.h"
 
 static NSString * const preNavBarTitleTextAttributes    = @"preNavBarTitleTextAttributes";
 static NSString * const preNavBarStyle                  = @"preNavBarStyle";
@@ -21,9 +22,9 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 @interface JianShuNavAnimationViewController ()<UITableViewDelegate, UITableViewDataSource, UIScrollViewDelegate>
 
 @property (nonatomic, strong) UITableView * jianshuTableView;
-@property (nonatomic, strong) UIImageView * navBarBackImageView;
-@property (nonatomic, strong) NSMutableDictionary * preNavigationBarDic;
-@property (nonatomic, strong) UITapGestureRecognizer * tapGesture;
+@property (nonatomic, strong) UIImageView * headImageView;
+
+@property (nonatomic, strong) UITableView * effectTableView;
 
 @end
 
@@ -87,7 +88,27 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
 {
     self.view.backgroundColor = [UIColor whiteColor];
     
-    _navAnimationArr = @[@"1手指-改颜色", @"2手指-隐藏", @"3手指-头像缩放"];
+    _navAnimationArr = @[@"1-改颜色", @"2-隐藏", @"3-头像缩放"];
+    _touchNum = 1;
+    
+    UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"切换效果" style:UIBarButtonItemStylePlain target:self action:@selector(changeEffect)];
+    self.navigationItem.rightBarButtonItem = rightBtn;
+    
+    UIView * headView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 44, 44)];
+    headView.backgroundColor = [UIColor orangeColor];
+    
+    _headImageView = [UIImageView new];
+    _headImageView.image = [UIImage imageNamed:@"11"];
+    _headImageView.layer.cornerRadius = 80/2;
+    _headImageView.clipsToBounds = YES;
+    [headView addSubview:_headImageView];
+    [_headImageView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(80, 80));
+        make.centerX.equalTo(headView).bottom.with.offset(0);
+        make.centerY.equalTo(headView).with.offset()0;
+    }];
+    
+    self.navigationItem.titleView = headView;
 }
 
 - (void)initTableView
@@ -97,10 +118,10 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
     _jianshuTableView.dataSource = self;
     _jianshuTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self.view addSubview:_jianshuTableView];
-    
     [_jianshuTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
+    
     
     UIView * tempView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, kScreenWidth)];
     _jianshuTableView.tableHeaderView = tempView;
@@ -116,30 +137,69 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
         make.top.equalTo(tempView.mas_top).offset(0);
     }];
     
-    _tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(touchNumber:)];
-    [_jianshuTableView addGestureRecognizer:_tapGesture];
+    
+    _effectTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _effectTableView.delegate = self;
+    _effectTableView.dataSource = self;
+    _effectTableView.hidden = YES;
+    _effectTableView.rowHeight = 30;
+    _effectTableView.scrollEnabled = NO;
+    [self.view addSubview:_effectTableView];
+    [_effectTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(80, 120));
+        make.top.equalTo(self.view).with.offset(0);
+        make.right.equalTo(self.view).with.offset(0);
+    }];
+    
+    [_effectTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:@"other_cell_id"];
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return [_navAnimationArr count];
+    if (tableView == _jianshuTableView) {
+        return [_navAnimationArr count]*10;
+    }
+    return 3;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * cell_id = @"cell_id";
-    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+    if (tableView == _jianshuTableView) {
+        static NSString * cell_id = @"cell_id";
+        UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+        if (cell == nil) {
+            cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+        }
+        if (indexPath.row < 3) {
+            cell.textLabel.text = _navAnimationArr[indexPath.row];
+        }
+        else {
+            cell.textLabel.text = @"......";
+        }
+        return cell;
     }
-    cell.textLabel.text = _navAnimationArr[indexPath.row];
-    return cell;
+    else {
+        static NSString * cell_id = @"other_cell_id";
+        UITableViewCell * cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+        cell.textLabel.text = [NSString stringWithFormat:@"效果%d", (int)indexPath.row+1];
+        cell.textLabel.adjustsFontSizeToFitWidth = YES;
+        return cell;
+    }
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (tableView == _effectTableView) {
+        
+        _touchNum = (int)indexPath.row + 1;
+        _effectTableView.hidden = YES;
+        [UIView animateWithDuration:0.7 animations:^{
+            _jianshuTableView.contentOffset = CGPointZero;
+        }];
+    }
 }
 
 #pragma mark - UIScrollViewDelegate
@@ -148,16 +208,31 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
     if (_touchNum == 1) {
         // 颜色
         CGFloat miniAlphaOffset = 0;
-        CGFloat maxAlphaOffset = 50;
+        CGFloat maxAlphaOffset = 80;
         CGFloat offset = scrollView.contentOffset.y;
-        CGFloat alpha = (offset - miniAlphaOffset)/(maxAlphaOffset - miniAlphaOffset);
+        offset = (offset > maxAlphaOffset) ? maxAlphaOffset : offset;
+        CGFloat alpha = (maxAlphaOffset - offset)/(maxAlphaOffset - miniAlphaOffset);
         
-        _navBarBackImageView.alpha = alpha;
+        [[[self.navigationController.navigationBar subviews] objectAtIndex:0] setAlpha:alpha];
         
     }
     else if (_touchNum == 2) {
         // 隐藏
-    
+        CGFloat offsetY = scrollView.contentOffset.y + _jianshuTableView.contentInset.top;
+        CGFloat gesureY = [scrollView.panGestureRecognizer translationInView:_jianshuTableView].y;
+        
+        if (offsetY > 64) {
+            if (gesureY > 0) {  //下滑
+                [self.navigationController setNavigationBarHidden:NO animated:YES];
+                
+            } else {
+                [self.navigationController setNavigationBarHidden:YES animated:YES];
+            }
+        } else {
+            [self.navigationController setNavigationBarHidden:NO animated:YES];
+            
+        }
+
     }
     else {
         // 缩放
@@ -165,10 +240,16 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
     }
 }
 
-#pragma mark - 
-- (void)touchNumber:(UITapGestureRecognizer *)ges
+#pragma mark -
+- (void)changeEffect
 {
-    _touchNum = ges.numberOfTapsRequired;
+    if (_effectTableView.hidden) {
+        _effectTableView.hidden = NO;
+        [self.view bringSubviewToFront:_effectTableView];
+    }
+    else {
+        _effectTableView.hidden = YES;
+    }
 }
 
 @end

@@ -35,7 +35,7 @@
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0] 
 
 
-#define YSColorDefault [UIColor colorWithRed:25.0/255.0 green:180.0/255.0 blue:250.0/255.0 alpha:1.0]
+#define YSColorDefault [UIColor colorWithRed:153.0/255.0 green:230.0/255.0 blue:240.0/255.0 alpha:1.0]
 
 
 /*********  用户偏好设置有关 *******************/
