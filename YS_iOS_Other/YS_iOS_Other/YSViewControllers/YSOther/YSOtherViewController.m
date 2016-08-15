@@ -15,6 +15,8 @@
 // 4
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "ImagesShowViewController.h"
+#import "CanlenderViewController.h"
+
 
 // 5
 #import <RESideMenu.h>
@@ -61,12 +63,12 @@ static NSString * const OtherCellID = @"OtherCellID";
 {
     self.title = @"其他";
     
-    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 图片", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
+    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
     
     NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
     NSArray * sectionTwo    = @[@"本地化"];
     NSArray * sectionThree  = @[@"导航栏效果"];
-    NSArray * sectionFour   = @[@"照相机", @"相片库"];
+    NSArray * sectionFour   = @[@"照相机", @"相片库", @"日历事件"];
     NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
     NSArray * payArr        = @[@"招行一网通"];
     NSArray * sectionFive   = @[@"Quartz"];
@@ -202,6 +204,14 @@ static NSString * const OtherCellID = @"OtherCellID";
                                                       @(PHAssetCollectionSubtypeSmartAlbumBursts)       // 连拍快照
                                                       ];
                 [self presentViewController:QBImagePC animated:YES completion:nil];
+            }
+            else if (indexPath.row == 2) {
+                
+                // 日历事件
+                CanlenderViewController * canlenderVC = [[CanlenderViewController alloc] init];
+                canlenderVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:canlenderVC animated:YES];
+                
             }
         }
             break;

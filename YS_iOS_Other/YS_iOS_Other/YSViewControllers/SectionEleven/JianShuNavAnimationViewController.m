@@ -247,9 +247,10 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
         CGFloat contentInsertTop = _jianshuTableView.contentInset.top;
         CGFloat offsetY = contentY + contentInsertTop;
         CGFloat gesureY = [scrollView.panGestureRecognizer translationInView:_jianshuTableView].y;
-
-        if (_headImageView.frame.size.height >= minSize &&
-            _headImageView.frame.size.height <= maxSize) {
+        CGFloat headSizeHeight = _headImageView.frame.size.height;
+        
+        if ( headSizeHeight >= minSize &&
+             headSizeHeight <= maxSize) {
             
             CGFloat sy = 1 - offsetY/kScreenHeight;
             _headImageView.transform = CGAffineTransformMakeScale(sy, sy);
@@ -257,6 +258,24 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
             CGRect originFrame = _headImageView.frame;
             originFrame.origin.y = 4;
             _headImageView.frame = originFrame;
+        }
+        else if (headSizeHeight < minSize) {
+            
+            CGRect originFrame = _headImageView.frame;
+            originFrame.origin.y = 4;
+            originFrame.size.width = minSize;
+            originFrame.size.height = minSize;
+            _headImageView.frame = originFrame;
+        
+        }
+        else if (headSizeHeight > maxSize) {
+            
+            CGRect originFrame = _headImageView.frame;
+            originFrame.origin.y = 4;
+            originFrame.size.width = maxSize;
+            originFrame.size.height = maxSize;
+            _headImageView.frame = originFrame;
+            
         }
     }
 }
