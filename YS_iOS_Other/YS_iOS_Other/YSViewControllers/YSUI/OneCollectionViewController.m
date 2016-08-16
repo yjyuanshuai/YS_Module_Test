@@ -16,9 +16,11 @@ static NSString * collection_header = @"collection_header";
 static NSString * collection_footer = @"collection_footer";
 
 #pragma mark - OneCollectionViewController -
-@interface OneCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
+@interface OneCollectionViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, UISearchBarDelegate, UISearchDisplayDelegate>
 
 @property (nonatomic, strong) UICollectionView * collecionView;
+@property (nonatomic, strong) UISearchBar * ysSearchBar;
+@property (nonatomic, strong) UISearchDisplayController * ysSearchDisCon;
 
 @end
 
@@ -79,6 +81,7 @@ static NSString * collection_footer = @"collection_footer";
 {
     // 自定义布局
     UICollectionViewFlowLayout * collectionLayout = [[UICollectionViewFlowLayout alloc] init];
+    collectionLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     _collecionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth,kScreenHeightNo64) collectionViewLayout:collectionLayout];
     _collecionView.backgroundColor = [UIColor whiteColor];
@@ -110,7 +113,6 @@ static NSString * collection_footer = @"collection_footer";
     OneCollectionCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:collection_cell_id forIndexPath:indexPath];
     
     CollectionTestModel * model = [[_collectionArr objectAtIndex:indexPath.section] objectAtIndex:indexPath.row];
-    
     [cell setContentWithModel:model];
     
     return cell;
@@ -125,10 +127,10 @@ static NSString * collection_footer = @"collection_footer";
         
         header.headerLabel.text = [_collectionSectionTitles objectAtIndex:indexPath.section];
         header.backgroundColor = [UIColor redColor];
-        
         return header;
         
-    } else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
+    }
+    else if ([kind isEqualToString:UICollectionElementKindSectionFooter]) {
         
         OneCollectionReusableView * footer = [_collecionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:collection_footer forIndexPath:indexPath];
         footer.backgroundColor = [UIColor orangeColor];
@@ -212,42 +214,65 @@ static NSString * collection_footer = @"collection_footer";
     }
 }
 
-#pragma mark - UICollectionViewDelegateFlowLayout -
+#pragma mark - UICollectionViewDelegateFlowLayout
 
 // Item size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(80, 120);
+//    return CGSizeMake(80, 120);
+    CGFloat kHeight = (kScreenHeightNo64) / 4;
+    CGFloat kWidth = 2 * kHeight / 3;
+    return CGSizeMake(kWidth, kHeight);
 }
 
 // section header size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
+    /**
+     *  滑动方向为 竖向时
+    if (section == 0) {
+        return CGSizeMake(kScreenWidth, 60);
+    }
     return (CGSize){[[UIScreen mainScreen] bounds].size.width,44};
+     */
+    
+    /**
+     *  滑动方向为 横向时
+     */
+    return CGSizeMake(20, kScreenHeightNo64);
 }
 
 // section footer size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
+    /**
+     *  滑动方向为 竖向时
     return (CGSize){[[UIScreen mainScreen] bounds].size.width,22};
+     */
+    
+    /**
+     *  滑动方向为 横向时
+     */
+    return CGSizeMake(20, kScreenHeightNo64);
 }
 
 // 上左下右的间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(5, 5, 5, 5);
+//    return UIEdgeInsetsMake(5, 5, 5, 5);
+    return UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 // 上下 item 最小间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5.f;
+    return 0.f;
 }
 
 // 左右 item 最小间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 5.f;
+    return 0.f;
 }
 
 

@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */; };
+		390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */; };
+		390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */; };
 		39214A111D05203B0019422D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A101D05203B0019422D /* main.m */; };
 		39214A141D05203B0019422D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A131D05203B0019422D /* AppDelegate.m */; };
 		39214A1A1D05203B0019422D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39214A181D05203B0019422D /* Main.storyboard */; };
@@ -179,6 +182,12 @@
 
 /* Begin PBXFileReference section */
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
+		390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDateViewController.h; sourceTree = "<group>"; };
+		390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDateViewController.m; sourceTree = "<group>"; };
+		390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataTableViewCell.h; sourceTree = "<group>"; };
+		390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDataTableViewCell.m; sourceTree = "<group>"; };
+		390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataCollectionViewCell.h; sourceTree = "<group>"; };
+		390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDataCollectionViewCell.m; sourceTree = "<group>"; };
 		39214A0C1D05203B0019422D /* YS_iOS_Other.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YS_iOS_Other.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39214A101D05203B0019422D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39214A121D05203B0019422D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -442,6 +451,19 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		390C9ABA1D62BE8100F01C2F /* YSTemp */ = {
+			isa = PBXGroup;
+			children = (
+				390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */,
+				390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */,
+				390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */,
+				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
+				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
+				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
+			);
+			path = YSTemp;
+			sourceTree = "<group>";
+		};
 		39214A031D05203B0019422D = {
 			isa = PBXGroup;
 			children = (
@@ -515,6 +537,7 @@
 		39214A421D05449D0019422D /* YSViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				390C9ABA1D62BE8100F01C2F /* YSTemp */,
 				39214A121D05203B0019422D /* AppDelegate.h */,
 				39214A131D05203B0019422D /* AppDelegate.m */,
 				39C6219C1D0EABA400A34040 /* Models */,
@@ -1533,6 +1556,7 @@
 				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,
 				39CCA98D1D48631600B78FA9 /* RightMenuViewController.m in Sources */,
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
+				390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
@@ -1542,7 +1566,9 @@
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
+				390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */,
 				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
+				390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */,
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
 				393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */,
