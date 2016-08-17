@@ -21,7 +21,6 @@
 
 @implementation ChooseDateViewController
 {
-    CGFloat _itemSize;
     NSInteger _currentPage;
     BOOL _isShow;
 }
@@ -32,7 +31,7 @@
     
     [self initUIAndData];
     [self createTableView];
-    [self createLines];
+    
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,8 +42,7 @@
 - (void)initUIAndData
 {
     self.title = @"选择日期";
-    
-    _itemSize = (kScreenWidth)/7;
+
     _isShow = NO;
     _currentPage = 0;
 }
@@ -61,20 +59,28 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    if (tableView == _cdTableView) {
+        return 2;
+    }
+    return 14;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (section == 0) {
-        if (_isShow) {
-            return 1;
+    if (tableView == _cdTableView) {
+        if (section == 0) {
+            if (_isShow) {
+                return 1;
+            }
+            else {
+                return 0;
+            }
         }
-        else {
-            return 0;
-        }
+        return 1;
     }
-    return 1;
+    else {
+        return 4;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -85,21 +91,32 @@
         cell = [[ChooseDataTableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id indexPath:indexPath];
     }
     
-    if (cell.cdCollectionView != nil) {
-        cell.cdCollectionView.delegate = self;
-        cell.cdCollectionView.dataSource = self;
+//    if (cell.cdCollectionView != nil) {
+//        cell.cdCollectionView.delegate = self;
+//        cell.cdCollectionView.dataSource = self;
+//    }
+    
+    if (cell.cdSubTableView != nil) {
+        cell.cdSubTableView.delegate = self;
+        cell.cdSubTableView.dataSource = self;
     }
+    
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        return 44;
+    if (tableView == _cdTableView) {
+        if (indexPath.section == 0) {
+            return 44;
+        }
+        else {
+            return itemSize * 4 + 20;//+ 5*itemSpace;
+        }
     }
     else {
-        return _itemSize * 4;
+        return itemSize;
     }
 }
 
@@ -143,6 +160,7 @@
         [_frontBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
         [_frontBtn setTitle:@"上一周" forState:UIControlStateNormal];
         [_frontBtn addTarget:self action:@selector(clickToFrontWeek:) forControlEvents:UIControlEventTouchUpInside];
+        _frontBtn.hidden = YES;
         [weekChooseView addSubview:_frontBtn];
         
         UILabel * dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, kScreenWidth - 200, sectionHeight)];
@@ -161,17 +179,18 @@
     }
 }
 
+/*
 #pragma mark - UICollectionViewDelegateFlowLayout
 // Item size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
 {
-    return CGSizeMake(_itemSize, _itemSize);
+    return CGSizeMake(itemSize, itemSize);
 }
 
 // 上左下右的间距
 - (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
 {
-    return UIEdgeInsetsMake(0, 0, 0, 0);
+    return UIEdgeInsetsZero; //UIEdgeInsetsMake(itemSpace, 0, itemSpace, 0);
 }
 
 // 上下 item 最小间距
@@ -186,10 +205,28 @@
     return 0.0;
 }
 
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
+{
+//    if (section % 7 == 0) {
+//        return CGSizeMake(itemSpace, 4*itemSize+5*itemSpace);
+//    }
+//    return CGSizeMake(itemSpace/2, 4*itemSize+5*itemSpace);
+    return CGSizeZero;
+}
+
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
+{
+//    if (section %7 == 6) {
+//        return CGSizeMake(itemSpace, 4*itemSize+5*itemSpace);
+//    }
+//    return CGSizeMake(itemSpace/2, 4*itemSize+5*itemSpace);
+    return CGSizeZero;
+}
+
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView
 {
-    return 0;
+    return 14;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -204,9 +241,25 @@
     return cell;
 }
 
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+//        UICollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead" forIndexPath:indexPath];
+//        headerView.backgroundColor = [UIColor lightGrayColor];
+//        return headerView;
+//    }
+//    else {
+//        UICollectionReusableView * footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"cdCollectionViewSectionFoot" forIndexPath:indexPath];
+//        footerView.backgroundColor = [UIColor lightGrayColor];
+//        return footerView;
+//    }
+//}
+
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     [collectionView deselectItemAtIndexPath:indexPath animated:YES];
+    
+    NSLog(@"------------- click index:%d, %d", indexPath.section, indexPath.row);
 }
 
 #pragma mark -
@@ -221,14 +274,27 @@
 {
     NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
     ChooseDataTableViewCell * cell = (ChooseDataTableViewCell *)[_cdTableView cellForRowAtIndexPath:indexPath];
-    
+    if (cell.cdCollectionView) {
+//        [UIView animateWithDuration:0.5 animations:^{
+            _frontBtn.hidden = YES;
+            _nextBtn.hidden = NO;
+            cell.cdCollectionView.contentOffset = CGPointMake(0, 0);
+//        }];
+    }
 }
 
 - (void)clickToNextWeek:(id)sender
 {
     NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
     ChooseDataTableViewCell * cell = (ChooseDataTableViewCell *)[_cdTableView cellForRowAtIndexPath:indexPath];
-    
+    if (cell.cdCollectionView) {
+//        [UIView animateWithDuration:0.5 animations:^{
+            _frontBtn.hidden = NO;
+            _nextBtn.hidden = YES;
+            cell.cdCollectionView.contentOffset = CGPointMake(kScreenWidth, 0);
+//        }];
+    }
 }
+ */
 
 @end

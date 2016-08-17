@@ -138,6 +138,9 @@
 		39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119B61D49A27C007D4B0B /* AudioOrVideoTableViewCell.m */; };
 		39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */; };
 		39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119E21D49AC94007D4B0B /* YSPlayViewController.m */; };
+		39E3113F1D640B2300A631EA /* OutPatientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E3113E1D640B2300A631EA /* OutPatientsViewController.m */; };
+		39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E311441D643F8700A631EA /* NSDate+Utilities.m */; };
+		39E3114C1D64706000A631EA /* ChooseDataItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E3114B1D64706000A631EA /* ChooseDataItemTableViewCell.m */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
@@ -395,6 +398,12 @@
 		39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAndVideoModel.m; sourceTree = "<group>"; };
 		39E119E11D49AC94007D4B0B /* YSPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPlayViewController.h; sourceTree = "<group>"; };
 		39E119E21D49AC94007D4B0B /* YSPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPlayViewController.m; sourceTree = "<group>"; };
+		39E3113D1D640B2300A631EA /* OutPatientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutPatientsViewController.h; sourceTree = "<group>"; };
+		39E3113E1D640B2300A631EA /* OutPatientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutPatientsViewController.m; sourceTree = "<group>"; };
+		39E311431D643F8700A631EA /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
+		39E311441D643F8700A631EA /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
+		39E3114A1D64706000A631EA /* ChooseDataItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataItemTableViewCell.h; sourceTree = "<group>"; };
+		39E3114B1D64706000A631EA /* ChooseDataItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDataItemTableViewCell.m; sourceTree = "<group>"; };
 		39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLoginViewController.h; sourceTree = "<group>"; };
 		39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLoginViewController.m; sourceTree = "<group>"; };
 		39EA8ECB1D40BB7D0053EE02 /* YSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRegisterViewController.h; sourceTree = "<group>"; };
@@ -454,12 +463,8 @@
 		390C9ABA1D62BE8100F01C2F /* YSTemp */ = {
 			isa = PBXGroup;
 			children = (
-				390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */,
-				390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */,
-				390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */,
-				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
-				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
-				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
+				39E3113C1D640AB600A631EA /* menzhen */,
+				39E3113B1D640A8E00A631EA /* chooseData */,
 			);
 			path = YSTemp;
 			sourceTree = "<group>";
@@ -537,9 +542,9 @@
 		39214A421D05449D0019422D /* YSViewControllers */ = {
 			isa = PBXGroup;
 			children = (
-				390C9ABA1D62BE8100F01C2F /* YSTemp */,
 				39214A121D05203B0019422D /* AppDelegate.h */,
 				39214A131D05203B0019422D /* AppDelegate.m */,
+				390C9ABA1D62BE8100F01C2F /* YSTemp */,
 				39C6219C1D0EABA400A34040 /* Models */,
 				3945944B1D3875A70017F4A3 /* GlobalCustemController */,
 				39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */,
@@ -917,6 +922,7 @@
 		395E69531D1279E600CBDFE0 /* Categares */ = {
 			isa = PBXGroup;
 			children = (
+				39E311401D643F8700A631EA /* NSDateCategory */,
 				39BBEA641D5DA42E00F192F2 /* UIImage */,
 				392621941D2365B400CF4C90 /* UIColor */,
 				39B218CF1D192C7E008DD042 /* UILabel */,
@@ -1185,6 +1191,39 @@
 				393AACD31D4B34AB0004C41D /* YSVideoPlayerViewController.m */,
 			);
 			path = PlayerView;
+			sourceTree = "<group>";
+		};
+		39E3113B1D640A8E00A631EA /* chooseData */ = {
+			isa = PBXGroup;
+			children = (
+				390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */,
+				390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */,
+				390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */,
+				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
+				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
+				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
+				39E3114A1D64706000A631EA /* ChooseDataItemTableViewCell.h */,
+				39E3114B1D64706000A631EA /* ChooseDataItemTableViewCell.m */,
+			);
+			name = chooseData;
+			sourceTree = "<group>";
+		};
+		39E3113C1D640AB600A631EA /* menzhen */ = {
+			isa = PBXGroup;
+			children = (
+				39E3113D1D640B2300A631EA /* OutPatientsViewController.h */,
+				39E3113E1D640B2300A631EA /* OutPatientsViewController.m */,
+			);
+			name = menzhen;
+			sourceTree = "<group>";
+		};
+		39E311401D643F8700A631EA /* NSDateCategory */ = {
+			isa = PBXGroup;
+			children = (
+				39E311431D643F8700A631EA /* NSDate+Utilities.h */,
+				39E311441D643F8700A631EA /* NSDate+Utilities.m */,
+			);
+			path = NSDateCategory;
 			sourceTree = "<group>";
 		};
 		39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */ = {
@@ -1547,6 +1586,7 @@
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
 				39399A0F1D24B57100409871 /* YSFileManager.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
+				39E3114C1D64706000A631EA /* ChooseDataItemTableViewCell.m in Sources */,
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
 				39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */,
@@ -1561,6 +1601,7 @@
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
 				39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */,
+				39E3113F1D640B2300A631EA /* OutPatientsViewController.m in Sources */,
 				39FF1F921D58184D00463160 /* CMBViewController.m in Sources */,
 				39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */,
 				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
@@ -1569,6 +1610,7 @@
 				390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */,
 				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
 				390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */,
+				39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */,
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
 				393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */,

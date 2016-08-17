@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+#define itemSize floorf((kScreenWidth)/7 * 10)/10.0 //floorf((kScreenWidth)/7)
+#define itemSpace (kScreenWidth - 7*itemSize)//(kScreenWidth - 7*itemSize)/8
+
 @interface ChooseDataCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UILabel * weekdayLabel;
