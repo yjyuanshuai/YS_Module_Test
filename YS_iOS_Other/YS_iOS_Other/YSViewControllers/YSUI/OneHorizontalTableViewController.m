@@ -69,12 +69,12 @@ static NSString * cell_id = @"one_horizontal_tableView_cell_id";
     _horizontalTableView.transform = CGAffineTransformMakeRotation(-M_PI/2);
     
     // 添加拖动手势
-    UIPanGestureRecognizer * longGesure = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesure:)];
-    [_horizontalTableView addGestureRecognizer:longGesure];
-    
-    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
-        self.automaticallyAdjustsScrollViewInsets = NO;
-    }
+//    UIPanGestureRecognizer * longGesure = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(longPressGesure:)];
+//    [_horizontalTableView addGestureRecognizer:longGesure];
+//    
+//    if ([self respondsToSelector:@selector(automaticallyAdjustsScrollViewInsets)]) {
+//        self.automaticallyAdjustsScrollViewInsets = NO;
+//    }
 }
 
 #pragma mark - 

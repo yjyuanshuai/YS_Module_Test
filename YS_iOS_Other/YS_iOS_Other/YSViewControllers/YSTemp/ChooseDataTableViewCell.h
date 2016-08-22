@@ -13,10 +13,11 @@
 @property (nonatomic, strong) UILabel * cdLabel;
 
 @property (nonatomic, strong) UICollectionView * cdCollectionView;
-@property (nonatomic, strong) UITableView * cdSubTableView;
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
               reuseIdentifier:(NSString *)reuseIdentifier
                     indexPath:(NSIndexPath *)indexPath;
+
+- (void)setChooseDataIntroduce:(NSString *)introduceStr;
 
 @end

@@ -8,15 +8,19 @@
 
 #import <UIKit/UIKit.h>
 
-#define itemSize floorf((kScreenWidth)/7 * 10)/10.0 //floorf((kScreenWidth)/7)
-#define itemSpace (kScreenWidth - 7*itemSize)//(kScreenWidth - 7*itemSize)/8
+#define itemSize (kScreenWidth)/7 //floorf((kScreenWidth)/7)
+#define itemSpace (kScreenWidth - 7*itemSize)/8//(kScreenWidth - 7*itemSize)/8
 
 @interface ChooseDataCollectionViewCell : UICollectionViewCell
 
 @property (nonatomic, strong) UILabel * weekdayLabel;
 @property (nonatomic, strong) UILabel * dataLabel;
 @property (nonatomic, strong) UILabel * timeLabel;
+@property (nonatomic, strong) UIView * rightLine;
+@property (nonatomic, strong) UIView * topLine;
 
 - (void)setCDCellContent:(NSIndexPath *)indexPath;
+
++ (NSDate *)getDateDayDetail:(NSInteger)index;
 
 @end

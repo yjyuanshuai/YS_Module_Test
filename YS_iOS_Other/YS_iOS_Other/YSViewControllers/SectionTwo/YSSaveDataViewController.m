@@ -13,9 +13,11 @@
 #import "YSDefaultsViewController.h"
 #import "YSKeyChainViewController.h"
 
+
 // 2 数据库
 #import "SQLViewController.h"
 #import "CoreDataViewController.h"
+
 
 // 3 其他
 
@@ -80,6 +82,10 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
     _savedateTableView.dataSource = self;
     [self.view addSubview:_savedateTableView];
     
+
+    _savedateTableView.sectionHeaderHeight = 40;
+    _savedateTableView.sectionFooterHeight = 40;
+    
     [_savedateTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SaveDataCellID];
     
 //    [self addConstraintWithClassMethod];
@@ -140,8 +146,8 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
     
     // _savedateTableView 是目标控件
     // customWidth 设置的宽度（NSNumber类型）
-    NSString * width_VFL = @"H:[_savedateTableView(== customWidth)]";
-    NSString * height_VFL = @"V:[_savedateTableView(== customHeight)]";
+//    NSString * width_VFL = @"H:[_savedateTableView(== customWidth)]";
+//    NSString * height_VFL = @"V:[_savedateTableView(== customHeight)]";
     
     // metrics Dic
     NSDictionary * metricsDic = @{@"topDistence":@0, @"leftDistance":@0, @"bottemDistance":@0, @"rightDistance":@0};
@@ -202,15 +208,6 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
     return _sectionTitleArr[section];
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 40;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01;
-}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -228,12 +225,11 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
             }
             else if (indexPath.row == 1)
             {
-            
+                
             }
             else if (indexPath.row == 2)
             {
-            
-            }
+                            }
             else if (indexPath.row == 3)
             {
                 // “偏好设置”

@@ -10,6 +10,8 @@
 #import "docModel.h"
 #import "TwoDocumentTableViewCell.h"
 
+static NSString * twoDocumentTableViewCell_id = @"TwoDocumentTableViewCell";
+
 @interface TwoDocumentViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * docTableView;
@@ -59,6 +61,9 @@
     _docTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     [self.view addSubview:_docTableView];
     
+    _docTableView.sectionHeaderHeight = 40;
+    _docTableView.sectionFooterHeight = 0.01;
+    
     [_docTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
@@ -89,7 +94,7 @@
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString * twoDocumentTableViewCell_id = @"TwoDocumentTableViewCell";
+    /**/
     TwoDocumentTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:twoDocumentTableViewCell_id];
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"TwoDocumentTableViewCell" owner:self options:nil] firstObject];
@@ -100,23 +105,16 @@
     [cell setCellContent:sectionModel];
     
     return cell;
+     
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    /**/
     docModel * model = [_sectionArr objectAtIndex:indexPath.section];
     sectionDetailModel * sectionModel = [model.sectionDetailArr objectAtIndex:indexPath.row];
     return [TwoDocumentTableViewCell getDocumentCellHeight:sectionModel.detail];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 44;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01;
+     
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section

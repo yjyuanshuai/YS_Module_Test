@@ -17,16 +17,16 @@ static NSInteger LineTag = 20160817;
 {
     if (self = [super initWithFrame:frame]) {
         
-        NSLog(@"----------- itemSize:%f ----------- itemSpace: %f",itemSize, itemSpace);
+//        NSLog(@"----------- itemSize:%f ----------- itemSpace: %f",itemSize, itemSpace);
         
         _weekdayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, itemSize, itemSize/2)];
         _weekdayLabel.textAlignment = NSTextAlignmentCenter;
-        _weekdayLabel.backgroundColor = [UIColor whiteColor];
+        _weekdayLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_weekdayLabel];
         
         _dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, itemSize/2, itemSize, itemSize/2)];
         _dataLabel.textAlignment = NSTextAlignmentCenter;
-        _dataLabel.backgroundColor = [UIColor whiteColor];
+        _dataLabel.backgroundColor = [UIColor clearColor];
         [self.contentView addSubview:_dataLabel];
         
         _timeLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, itemSize, itemSize)];
@@ -34,15 +34,39 @@ static NSInteger LineTag = 20160817;
         _timeLabel.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:_timeLabel];
         
-        [self createLines];
+        UIView * leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, itemSize)];
+        leftLine.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:leftLine];
+        
+        UIView * bottemLine = [[UIView alloc] initWithFrame:CGRectMake(0, itemSize - 1, itemSize, 1)];
+        bottemLine.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:bottemLine];
+        
+        _topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, itemSize, 1)];
+        _topLine.backgroundColor = [UIColor lightGrayColor];
+        _topLine.hidden = YES;
+        [self.contentView addSubview:_topLine];
+        
+        _rightLine = [[UIView alloc] initWithFrame:CGRectMake(0, itemSize - 1, 3, itemSize)];
+        _rightLine.backgroundColor = [UIColor lightGrayColor];
+        _rightLine.hidden = NO;
+        [self.contentView addSubview:_rightLine];
     }
     return self;
 }
 
 - (void)setCDCellContent:(NSIndexPath *)indexPath
 {
+    if (indexPath.section == 13) {
+        _rightLine.hidden = NO;
+    }
+    else {
+        _rightLine.hidden = YES;
+    }
+    
     if (indexPath.row == 0) {
         
+        _topLine.hidden = NO;
         _timeLabel.hidden = YES;
         _weekdayLabel.hidden = NO;
         _dataLabel.hidden = NO;
@@ -53,9 +77,9 @@ static NSInteger LineTag = 20160817;
     }
     else {
         
+        _topLine.hidden = YES;
         _weekdayLabel.hidden = YES;
         _dataLabel.hidden = YES;
-        
         
         // 有号源
         _timeLabel.hidden = NO;
@@ -72,26 +96,32 @@ static NSInteger LineTag = 20160817;
     }
 }
 
-#pragma mark - private
-- (NSString *)getDateDay:(NSInteger)index
+/**
+ *  获取日期
+ *
+ */
++ (NSDate *)getDateDayDetail:(NSInteger)index
 {
     NSDate * todayDate = [[NSDate date] dateAtStartOfDay];
     NSInteger weekday = todayDate.weekday;
     
     if (index >= weekday - 1) {
-        NSDate * currentDate = [NSDate dateWithDaysFromNow:index - weekday + 1];
-        if (currentDate.month < 10) {
-            return [currentDate stringFromFormatterString:@"M-dd"];
-        }
-        return [currentDate stringFromFormatterString:@"MM-dd"];
+        return [NSDate dateWithDaysFromNow:index - weekday + 1];
     }
     else {
-        NSDate * currentDate = [NSDate dateWithDaysBeforeNow:weekday - 1 - index];
-        if (currentDate.month < 10) {
-            return [currentDate stringFromFormatterString:@"M-dd"];
-        }
-        return [currentDate stringFromFormatterString:@"MM-dd"];
+        return [NSDate dateWithDaysBeforeNow:weekday - 1 - index];
     }
+}
+
+#pragma mark - private
+- (NSString *)getDateDay:(NSInteger)index
+{
+    NSDate * currentDate = [ChooseDataCollectionViewCell getDateDayDetail:index];
+    
+    if (currentDate.month < 10) {
+        return [currentDate stringFromFormatterString:@"M-dd"];
+    }
+    return [currentDate stringFromFormatterString:@"MM-dd"];
 }
 
 - (NSString *)getWeekday:(NSInteger)index

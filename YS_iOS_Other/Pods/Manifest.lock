@@ -18,6 +18,7 @@ PODS:
   - Masonry (1.0.1)
   - QBImagePickerController (3.4.0)
   - RESideMenu (4.0.7)
+  - UITableView+FDTemplateLayoutCell (1.4)
 
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
@@ -25,6 +26,7 @@ DEPENDENCIES:
   - Masonry (= 1.0.1)
   - QBImagePickerController (= 3.4.0)
   - RESideMenu (= 4.0.7)
+  - UITableView+FDTemplateLayoutCell (= 1.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
@@ -32,7 +34,8 @@ SPEC CHECKSUMS:
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
-PODFILE CHECKSUM: 3d7dfae4503c66fac8df5723f7ae49e323cabfef
+PODFILE CHECKSUM: dac736919c42f1f603e20bd19d72876f99210787
 
 COCOAPODS: 1.0.1

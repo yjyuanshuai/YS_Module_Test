@@ -1,14 +1,14 @@
 //
-//  ChooseDataItemTableViewCell.m
+//  YSGCDTableViewCell.m
 //  YS_iOS_Other
 //
-//  Created by YJ on 16/8/17.
+//  Created by YJ on 16/8/19.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "ChooseDataItemTableViewCell.h"
+#import "YSGCDTableViewCell.h"
 
-@implementation ChooseDataItemTableViewCell
+@implementation YSGCDTableViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];

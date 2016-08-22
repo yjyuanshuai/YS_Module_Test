@@ -39,10 +39,10 @@ static NSString * const HarewareCellID = @"HarewareCellID";
 {
     self.title = @"硬件调用";
     
-    _sectionTitleArr = @[@"1 陀螺仪", @"2 加速器"];
+    _sectionTitleArr = @[@"1 系统功能", @"2 其他"];
     
-    NSArray * sectionOne  = @[@"陀螺仪"];
-    NSArray * sectionTwo  = @[@"加速器"];
+    NSArray * sectionOne  = @[@"闹钟", @"健康", @"日历", @"硬件连接", @"蓝牙", @"耳机", @"麦克风", @"邮件"];
+    NSArray * sectionTwo  = @[@"陀螺仪", @"加速器"];
     
     _sectionCellContent = [@[sectionOne, sectionTwo] mutableCopy];
 }
@@ -58,8 +58,8 @@ static NSString * const HarewareCellID = @"HarewareCellID";
         make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
     }];
     
-    //    _savedateTableView.sectionHeaderHeight = 40;
-    //    _savedateTableView.sectionFooterHeight = 0.01;
+    _harewareTableView.sectionHeaderHeight = 40;
+    _harewareTableView.sectionFooterHeight = 0.01;
     
     [_harewareTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:HarewareCellID];
 }
@@ -85,16 +85,6 @@ static NSString * const HarewareCellID = @"HarewareCellID";
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
     return _sectionTitleArr[section];
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
-{
-    return 40;
-}
-
-- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
-{
-    return 0.01;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath

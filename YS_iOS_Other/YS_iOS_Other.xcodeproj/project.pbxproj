@@ -31,6 +31,7 @@
 		39214A811D056A600019422D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A751D056A600019422D /* 9.jpg */; };
 		392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */; };
 		392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621961D2365D700CF4C90 /* UIColor+Image.m */; };
+		3926FB501D6557FD00E67C30 /* YSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926FB4F1D6557FD00E67C30 /* YSButton.m */; };
 		39399A0F1D24B57100409871 /* YSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A0E1D24B57100409871 /* YSFileManager.m */; };
 		39399A111D24B97400409871 /* trash.png in Resources */ = {isa = PBXBuildFile; fileRef = 39399A101D24B97400409871 /* trash.png */; };
 		39399A191D24BB5700409871 /* YSHistoryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A181D24BB5700409871 /* YSHistoryView.m */; };
@@ -93,7 +94,6 @@
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
-		3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */; };
 		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
 		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
 		395118E11D598063008E339D /* WebAudioList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395118E01D598063008E339D /* WebAudioList.plist */; };
@@ -140,10 +140,13 @@
 		39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119E21D49AC94007D4B0B /* YSPlayViewController.m */; };
 		39E3113F1D640B2300A631EA /* OutPatientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E3113E1D640B2300A631EA /* OutPatientsViewController.m */; };
 		39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E311441D643F8700A631EA /* NSDate+Utilities.m */; };
-		39E3114C1D64706000A631EA /* ChooseDataItemTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E3114B1D64706000A631EA /* ChooseDataItemTableViewCell.m */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
+		39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */; };
+		39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D61D66E68A00195C20 /* FileManagerView.m */; };
+		39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D91D66E69A00195C20 /* CodeManagerView.m */; };
+		39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8DC1D66E81C00195C20 /* FileOrCodeViewController.m */; };
 		39FF1F921D58184D00463160 /* CMBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FF1F911D58184D00463160 /* CMBViewController.m */; };
 		39FF1F9F1D582AE400463160 /* cm2_btm_tab_icn_share.png in Resources */ = {isa = PBXBuildFile; fileRef = 39FF1F961D582AE400463160 /* cm2_btm_tab_icn_share.png */; };
 		39FF1FA01D582AE400463160 /* cm2_btm_tab_icn_share@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39FF1F971D582AE400463160 /* cm2_btm_tab_icn_share@2x.png */; };
@@ -221,6 +224,8 @@
 		392621921D2363DA00CF4C90 /* JianShuNavAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianShuNavAnimationViewController.m; sourceTree = "<group>"; };
 		392621951D2365D700CF4C90 /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
 		392621961D2365D700CF4C90 /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
+		3926FB4E1D6557FD00E67C30 /* YSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSButton.h; sourceTree = "<group>"; };
+		3926FB4F1D6557FD00E67C30 /* YSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSButton.m; sourceTree = "<group>"; };
 		39399A0D1D24B57100409871 /* YSFileManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSFileManager.h; sourceTree = "<group>"; };
 		39399A0E1D24B57100409871 /* YSFileManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSFileManager.m; sourceTree = "<group>"; };
 		39399A101D24B97400409871 /* trash.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = trash.png; sourceTree = "<group>"; };
@@ -328,8 +333,6 @@
 		3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDefaultsViewController.m; sourceTree = "<group>"; };
 		3949E2751D1A3B890016BFF6 /* YSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSUserModel.h; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.h; sourceTree = SOURCE_ROOT; };
 		3949E2761D1A3B890016BFF6 /* YSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSUserModel.m; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.m; sourceTree = SOURCE_ROOT; };
-		3949E2791D1A3D9E0016BFF6 /* CodeAndFileViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeAndFileViewController.h; sourceTree = "<group>"; };
-		3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeAndFileViewController.m; sourceTree = "<group>"; };
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		395118E01D598063008E339D /* WebAudioList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebAudioList.plist; sourceTree = "<group>"; };
@@ -402,14 +405,20 @@
 		39E3113E1D640B2300A631EA /* OutPatientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutPatientsViewController.m; sourceTree = "<group>"; };
 		39E311431D643F8700A631EA /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		39E311441D643F8700A631EA /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
-		39E3114A1D64706000A631EA /* ChooseDataItemTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataItemTableViewCell.h; sourceTree = "<group>"; };
-		39E3114B1D64706000A631EA /* ChooseDataItemTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDataItemTableViewCell.m; sourceTree = "<group>"; };
 		39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLoginViewController.h; sourceTree = "<group>"; };
 		39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSLoginViewController.m; sourceTree = "<group>"; };
 		39EA8ECB1D40BB7D0053EE02 /* YSRegisterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRegisterViewController.h; sourceTree = "<group>"; };
 		39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRegisterViewController.m; sourceTree = "<group>"; };
 		39EA8ECF1D40BC060053EE02 /* YSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSScrollView.h; sourceTree = "<group>"; };
 		39EA8ED01D40BC060053EE02 /* YSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSScrollView.m; sourceTree = "<group>"; };
+		39FCB8D21D66DEA900195C20 /* YSGCDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSGCDTableViewCell.h; path = YSLanguage/YSGCDTableViewCell.h; sourceTree = "<group>"; };
+		39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSGCDTableViewCell.m; path = YSLanguage/YSGCDTableViewCell.m; sourceTree = "<group>"; };
+		39FCB8D51D66E68A00195C20 /* FileManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerView.h; sourceTree = "<group>"; };
+		39FCB8D61D66E68A00195C20 /* FileManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileManagerView.m; sourceTree = "<group>"; };
+		39FCB8D81D66E69A00195C20 /* CodeManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeManagerView.h; sourceTree = "<group>"; };
+		39FCB8D91D66E69A00195C20 /* CodeManagerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeManagerView.m; sourceTree = "<group>"; };
+		39FCB8DB1D66E81C00195C20 /* FileOrCodeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileOrCodeViewController.h; sourceTree = "<group>"; };
+		39FCB8DC1D66E81C00195C20 /* FileOrCodeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileOrCodeViewController.m; sourceTree = "<group>"; };
 		39FF1F901D58184D00463160 /* CMBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CMBViewController.h; sourceTree = "<group>"; };
 		39FF1F911D58184D00463160 /* CMBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CMBViewController.m; sourceTree = "<group>"; };
 		39FF1F961D582AE400463160 /* cm2_btm_tab_icn_share.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_btm_tab_icn_share.png; sourceTree = "<group>"; };
@@ -611,6 +620,15 @@
 			path = UIColor;
 			sourceTree = "<group>";
 		};
+		3926FB4D1D6557E200E67C30 /* YSButton */ = {
+			isa = PBXGroup;
+			children = (
+				3926FB4E1D6557FD00E67C30 /* YSButton.h */,
+				3926FB4F1D6557FD00E67C30 /* YSButton.m */,
+			);
+			path = YSButton;
+			sourceTree = "<group>";
+		};
 		39399A0C1D24B55000409871 /* YSFileManager */ = {
 			isa = PBXGroup;
 			children = (
@@ -623,6 +641,7 @@
 		39399A121D24BA2300409871 /* CustemView */ = {
 			isa = PBXGroup;
 			children = (
+				3926FB4D1D6557E200E67C30 /* YSButton */,
 				39EA8ECE1D40BBC50053EE02 /* YSScrollView */,
 				39399A131D24BA3C00409871 /* YSHistoryBtn */,
 				3946404A1D4602FE00124587 /* YSTableHeaderView */,
@@ -679,6 +698,8 @@
 			children = (
 				393A07971D475F18005114B1 /* YSGCDViewController.h */,
 				393A07981D475F18005114B1 /* YSGCDViewController.m */,
+				39FCB8D21D66DEA900195C20 /* YSGCDTableViewCell.h */,
+				39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */,
 			);
 			name = GCD;
 			sourceTree = "<group>";
@@ -829,8 +850,12 @@
 		3949E2781D1A3D660016BFF6 /* CodingAndFile */ = {
 			isa = PBXGroup;
 			children = (
-				3949E2791D1A3D9E0016BFF6 /* CodeAndFileViewController.h */,
-				3949E27A1D1A3D9E0016BFF6 /* CodeAndFileViewController.m */,
+				39FCB8DB1D66E81C00195C20 /* FileOrCodeViewController.h */,
+				39FCB8DC1D66E81C00195C20 /* FileOrCodeViewController.m */,
+				39FCB8D51D66E68A00195C20 /* FileManagerView.h */,
+				39FCB8D61D66E68A00195C20 /* FileManagerView.m */,
+				39FCB8D81D66E69A00195C20 /* CodeManagerView.h */,
+				39FCB8D91D66E69A00195C20 /* CodeManagerView.m */,
 			);
 			name = CodingAndFile;
 			sourceTree = "<group>";
@@ -1202,8 +1227,6 @@
 				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
 				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
 				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
-				39E3114A1D64706000A631EA /* ChooseDataItemTableViewCell.h */,
-				39E3114B1D64706000A631EA /* ChooseDataItemTableViewCell.m */,
 			);
 			name = chooseData;
 			sourceTree = "<group>";
@@ -1575,6 +1598,7 @@
 				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,
 				3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */,
 				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
+				39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */,
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
 				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
 				393A078D1D475C33005114B1 /* YSLanguageViewController.m in Sources */,
@@ -1585,8 +1609,8 @@
 				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
 				39399A0F1D24B57100409871 /* YSFileManager.m in Sources */,
+				3926FB501D6557FD00E67C30 /* YSButton.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
-				39E3114C1D64706000A631EA /* ChooseDataItemTableViewCell.m in Sources */,
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
 				39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */,
@@ -1598,13 +1622,14 @@
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
 				390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
+				39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */,
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
+				39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */,
 				39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */,
 				39E3113F1D640B2300A631EA /* OutPatientsViewController.m in Sources */,
 				39FF1F921D58184D00463160 /* CMBViewController.m in Sources */,
 				39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */,
-				3949E27B1D1A3D9E0016BFF6 /* CodeAndFileViewController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
 				390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */,
@@ -1632,6 +1657,7 @@
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
 				39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */,
 				394483C61D6194FF0038C7B1 /* CanlenderViewController.m in Sources */,
+				39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,
 				392621931D2363DA00CF4C90 /* JianShuNavAnimationViewController.m in Sources */,
 				3945949E1D3878950017F4A3 /* OneHorizontalTableViewController.m in Sources */,
