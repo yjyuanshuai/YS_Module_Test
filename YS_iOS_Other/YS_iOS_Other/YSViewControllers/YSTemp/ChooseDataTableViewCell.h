@@ -7,12 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CDCollectionReusableView.h"
 
 @interface ChooseDataTableViewCell : UITableViewCell
 
 @property (nonatomic, strong) UILabel * cdLabel;
 
 @property (nonatomic, strong) UICollectionView * cdCollectionView;
+@property (nonatomic, strong) UIPageControl * cdPageControl;
+
 
 - (instancetype)initWithStyle:(UITableViewCellStyle)style
               reuseIdentifier:(NSString *)reuseIdentifier

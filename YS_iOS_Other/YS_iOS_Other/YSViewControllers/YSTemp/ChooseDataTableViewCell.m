@@ -7,7 +7,6 @@
 //
 
 #import "ChooseDataTableViewCell.h"
-#import "ChooseDataCollectionViewCell.h"
 
 @implementation ChooseDataTableViewCell
 
@@ -32,10 +31,8 @@
             flowLayout.minimumLineSpacing = 0;
             flowLayout.sectionInset = UIEdgeInsetsMake(0, 0, 0, 0);
             
-//            NSLog(@"------------- %f", 4*itemSize);
-            
             _cdCollectionView = [[UICollectionView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 4*itemSize) collectionViewLayout:flowLayout];
-            _cdCollectionView.scrollEnabled = NO;
+            _cdCollectionView.bounces = NO;
             _cdCollectionView.pagingEnabled = YES;
             _cdCollectionView.backgroundColor = [UIColor whiteColor];
             _cdCollectionView.showsVerticalScrollIndicator = NO;
@@ -43,8 +40,19 @@
             [self.contentView addSubview:_cdCollectionView];
             
             [_cdCollectionView registerClass:[ChooseDataCollectionViewCell class] forCellWithReuseIdentifier:@"cdCollectionViewCellID"];
-            [_cdCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead"];
+            [_cdCollectionView registerClass:[CDCollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead"];
             [_cdCollectionView registerClass:[UICollectionReusableView class] forSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"cdCollectionViewSectionFoot"];
+            
+            _cdPageControl = [[UIPageControl alloc] init];
+            _cdPageControl.bounds = CGRectMake(0, 0, 100, 20);
+            _cdPageControl.center = CGPointMake(self.contentView.center.x, CGRectGetMaxY(_cdCollectionView.frame) + 10);
+            _cdPageControl.currentPageIndicatorTintColor = [UIColor redColor];
+            _cdPageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
+            _cdPageControl.numberOfPages = 2;
+            _cdPageControl.currentPage = 0;
+            [self.contentView addSubview:_cdPageControl];
+            
+            _cdPageControl.backgroundColor = [UIColor blueColor];
         }
     }
     return self;

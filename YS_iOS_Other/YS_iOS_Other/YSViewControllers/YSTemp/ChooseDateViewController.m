@@ -8,7 +8,8 @@
 
 #import "ChooseDateViewController.h"
 #import "ChooseDataTableViewCell.h"
-#import "ChooseDataCollectionViewCell.h"
+//#import "ChooseDataCollectionViewCell.h"
+#import "CDCollectionReusableView.h"
 #import "YSButton.h"
 #import "NSDate+Utilities.h"
 
@@ -18,6 +19,7 @@
 @property (nonatomic, strong) UIView * cdView;
 @property (nonatomic, strong) YSButton * frontBtn;
 @property (nonatomic, strong) YSButton * nextBtn;
+@property (nonatomic, strong) UILabel * dataLabel;
 
 @end
 
@@ -61,28 +63,20 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    if (tableView == _cdTableView) {
-        return 2;
-    }
-    return 14;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if (tableView == _cdTableView) {
-        if (section == 0) {
-            if (_isShow) {
-                return 1;
-            }
-            else {
-                return 0;
-            }
+    if (section == 0) {
+        if (_isShow) {
+            return 1;
         }
-        return 1;
+        else {
+            return 0;
+        }
     }
-    else {
-        return 4;
-    }
+    return 1;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -107,16 +101,11 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (tableView == _cdTableView) {
-        if (indexPath.section == 0) {
-            return 44;
-        }
-        else {
-            return itemSize * 4;
-        }
+    if (indexPath.section == 0) {
+        return 44;
     }
     else {
-        return itemSize;
+        return itemSize * 4 + 20;
     }
 }
 
@@ -163,10 +152,10 @@
         [_frontBtn addTarget:self action:@selector(clickToFrontWeek:) forControlEvents:UIControlEventTouchUpInside];
         [weekChooseView addSubview:_frontBtn];
         
-        UILabel * dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, kScreenWidth - 200, sectionHeight)];
-        dataLabel.text = @"xxxx年xx月";
-        dataLabel.textAlignment = NSTextAlignmentCenter;
-        [weekChooseView addSubview:dataLabel];
+        _dataLabel = [[UILabel alloc] initWithFrame:CGRectMake(100, 0, kScreenWidth - 200, sectionHeight)];
+        _dataLabel.text = [ChooseDataCollectionViewCell getSectionTitleDateDay:0];
+        _dataLabel.textAlignment = NSTextAlignmentCenter;
+        [weekChooseView addSubview:_dataLabel];
         
         _nextBtn = [[YSButton alloc] initWithFrame:CGRectMake(kScreenWidth - 100, 0, 100, sectionHeight)];
         _nextBtn.imagePostion = ImagePostionRight;
@@ -207,21 +196,15 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
+    if (section % 7 == 0) {
+        return CGSizeMake(itemSize, 4*itemSize);
+    }
     return CGSizeZero;
-//    if (section % 7 == 0) {
-//        return CGSizeMake(itemSpace, 4*itemSize);
-//    }
-//    return CGSizeMake(itemSpace/2, 4*itemSize);
-    
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForFooterInSection:(NSInteger)section
 {
     return CGSizeZero;
-//    if (section %7 == 6) {
-//        return CGSizeMake(itemSpace, 4*itemSize);
-//    }
-//    return CGSizeMake(itemSpace/2, 4*itemSize);
 }
 
 #pragma mark - UICollectionViewDelegate & UICollectionViewDataSource
@@ -242,19 +225,21 @@
     return cell;
 }
 
-//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-//{
-//    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-//        UICollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead" forIndexPath:indexPath];
-//        headerView.backgroundColor = [UIColor lightGrayColor];
-//        return headerView;
-//    }
+- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+{
+    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+        
+        CDCollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead" forIndexPath:indexPath];
+        
+        return headerView;
+    }
 //    else {
 //        UICollectionReusableView * footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"cdCollectionViewSectionFoot" forIndexPath:indexPath];
 //        footerView.backgroundColor = [UIColor lightGrayColor];
 //        return footerView;
 //    }
-//}
+    return nil;
+}
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -284,6 +269,34 @@
     }
     
     
+}
+
+#pragma mark - UIScrollViewDelegate
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    ChooseDataTableViewCell * cell = (ChooseDataTableViewCell *)[_cdTableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:1]];
+    
+    if (cell.cdCollectionView == scrollView) {
+        if (cell.cdPageControl) {
+            
+            CGFloat contentOffSet = scrollView.contentOffset.x;
+            if (contentOffSet <= kScreenWidth/2) {
+                // 第一周
+                cell.cdPageControl.currentPage = 0;
+                _frontBtn.hidden = YES;
+                _nextBtn.hidden = NO;
+                _dataLabel.text = [ChooseDataCollectionViewCell getSectionTitleDateDay:0];
+            }
+            else {
+                // 第二周
+                cell.cdPageControl.currentPage = 1;
+                _frontBtn.hidden = NO;
+                _nextBtn.hidden = YES;
+                // 第二周的月份，由第二页的周日的日期决定
+                _dataLabel.text = [ChooseDataCollectionViewCell getSectionTitleDateDay:7];
+            }
+        }
+    }
 }
 
 #pragma mark -

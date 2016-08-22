@@ -21,7 +21,7 @@
         
         [self initData:postion];
         [self createSubView];
-        [self addOrUpdateConstraintForSubView:_margin space:_space];
+        [self addOrUpdateConstraintForSubViewWithMarginX:_marginX marginY:_marginY space:_space];
         
     }
     return self;
@@ -31,13 +31,19 @@
 - (void)setSpace:(NSInteger)space
 {
     _space = space;
-    [self addOrUpdateConstraintForSubView:_margin space:_space];
+    [self setNeedsUpdateConstraints];
 }
 
-- (void)setMargin:(NSInteger)margin
+- (void)setMarginX:(NSInteger)marginX
 {
-    _margin = margin;
-    [self addOrUpdateConstraintForSubView:_margin space:_space];
+    _marginX = marginX;
+    [self setNeedsUpdateConstraints];
+}
+
+- (void)setMarginY:(NSInteger)marginY
+{
+    _marginY = marginY;
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)setYsBtnTintColor:(UIColor *)ysBtnTintColor
@@ -61,7 +67,7 @@
 - (void)setImagePostion:(ImagePostion)postion
 {
     _imagePostion = postion;
-    [self addOrUpdateConstraintForSubView:_margin space:_space];
+    [self setNeedsUpdateConstraints];
 }
 
 - (void)setConstraintsArr:(NSMutableArray *)constraintsArr
@@ -76,7 +82,8 @@
 - (void)initData:(ImagePostion)postion
 {
     _imagePostion = postion;
-    _margin = 5;
+    _marginX = 5;
+    _marginY = 5;
     _space = 5;
     _constraintsArr = [NSMutableArray array];
     
@@ -100,9 +107,9 @@
     [self addSubview:_btnImageView];
 }
 
-- (void)addOrUpdateConstraintForSubView:(NSInteger)yMargin space:(NSInteger)ySpace
+- (void)addOrUpdateConstraintForSubViewWithMarginX:(NSInteger)xMargin marginY:(NSInteger)yMargin space:(NSInteger)ySpace
 {
-    NSDictionary * metricDic = @{@"margin":@(yMargin), @"space":@(ySpace)};
+    NSDictionary * metricDic = @{@"marginX":@(xMargin), @"marginY":@(yMargin), @"space":@(ySpace)};
     NSDictionary * viewsDic= @{@"_btnTitle":_btnTitle, @"_btnImageView":_btnImageView};
     
     [self removeSelfAllContraints];
@@ -113,27 +120,27 @@
     
     if (_imagePostion == ImagePostionTop) {
         
-        t_h_vfl_1 = @"H:|-margin-[_btnImageView]-margin-|";
-        i_h_vfl_1 = @"H:|-margin-[_btnTitle]-margin-|";
-        t_v_vfl_2 = @"V:|-margin-[_btnImageView]-space-[_btnTitle]-margin-|";
+        t_h_vfl_1 = @"H:|-marginX-[_btnImageView]-marginX-|";
+        i_h_vfl_1 = @"H:|-marginX-[_btnTitle]-marginX-|";
+        t_v_vfl_2 = @"V:|-marginY-[_btnImageView]-space-[_btnTitle]-marginY-|";
     }
     else if (_imagePostion == ImagePostionRight) {
         
-        t_h_vfl_1 = @"V:|-margin-[_btnTitle]-margin-|";
-        i_h_vfl_1 = @"V:|-margin-[_btnImageView]-margin-|";
-        t_v_vfl_2 = @"H:|-margin-[_btnTitle]-space-[_btnImageView]-margin-|";
+        t_h_vfl_1 = @"V:|-marginY-[_btnTitle]-marginY-|";
+        i_h_vfl_1 = @"V:|-marginY-[_btnImageView]-marginY-|";
+        t_v_vfl_2 = @"H:|-marginX-[_btnTitle]-space-[_btnImageView]-marginX-|";
     }
     else if (_imagePostion == ImagePostionBottem) {
         
-        t_h_vfl_1 = @"H:|-margin-[_btnTitle]-margin-|";
-        i_h_vfl_1 = @"H:|-margin-[_btnImageView]-margin-|";
-        t_v_vfl_2 = @"V:|-margin-[_btnTitle]-space-[_btnImageView]-margin-|";
+        t_h_vfl_1 = @"H:|-marginX-[_btnTitle]-marginX-|";
+        i_h_vfl_1 = @"H:|-marginX-[_btnImageView]-marginX-|";
+        t_v_vfl_2 = @"V:|-marginY-[_btnTitle]-space-[_btnImageView]-marginY-|";
     }
     else {
         
-        t_h_vfl_1 = @"V:|-margin-[_btnImageView]-margin-|";
-        i_h_vfl_1 = @"V:|-margin-[_btnTitle]-margin-|";
-        t_v_vfl_2 = @"H:|-margin-[_btnImageView]-space-[_btnTitle]-margin-|";
+        t_h_vfl_1 = @"V:|-marginY-[_btnImageView]-marginY-|";
+        i_h_vfl_1 = @"V:|-marginY-[_btnTitle]-marginY-|";
+        t_v_vfl_2 = @"H:|-marginX-[_btnImageView]-space-[_btnTitle]-marginX-|";
     }
     
     NSArray * c_1 = [NSLayoutConstraint constraintsWithVisualFormat:t_h_vfl_1
@@ -165,6 +172,12 @@
         }
         [_constraintsArr removeAllObjects];
     }
+}
+
+- (void)updateConstraints
+{
+    [self addOrUpdateConstraintForSubViewWithMarginX:_marginX marginY:_marginY space:_space];
+    [super updateConstraints];
 }
 
 @end

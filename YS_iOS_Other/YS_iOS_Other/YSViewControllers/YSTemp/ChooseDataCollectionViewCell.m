@@ -9,8 +9,6 @@
 #import "ChooseDataCollectionViewCell.h"
 #import "NSDate+Utilities.h"
 
-static NSInteger LineTag = 20160817;
-
 @implementation ChooseDataCollectionViewCell
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -47,9 +45,9 @@ static NSInteger LineTag = 20160817;
         _topLine.hidden = YES;
         [self.contentView addSubview:_topLine];
         
-        _rightLine = [[UIView alloc] initWithFrame:CGRectMake(0, itemSize - 1, 3, itemSize)];
+        _rightLine = [[UIView alloc] initWithFrame:CGRectMake(itemSize - 1, 0, 1, itemSize)];
         _rightLine.backgroundColor = [UIColor lightGrayColor];
-        _rightLine.hidden = NO;
+        _rightLine.hidden = YES;
         [self.contentView addSubview:_rightLine];
     }
     return self;
@@ -83,16 +81,6 @@ static NSInteger LineTag = 20160817;
         
         // 有号源
         _timeLabel.hidden = NO;
-        
-        if (indexPath.row == 1) {
-            _timeLabel.text = @"上午";
-        }
-        else if (indexPath.row == 2) {
-            _timeLabel.text = @"下午";
-        }
-        else if (indexPath.row == 3) {
-            _timeLabel.text = @"夜间";
-        }
     }
 }
 
@@ -111,6 +99,15 @@ static NSInteger LineTag = 20160817;
     else {
         return [NSDate dateWithDaysBeforeNow:weekday - 1 - index];
     }
+}
+
++ (NSString *)getSectionTitleDateDay:(NSInteger)index
+{
+    NSDate * currentDate = [ChooseDataCollectionViewCell getDateDayDetail:index];
+    if (currentDate.month < 10) {
+        return [currentDate stringFromFormatterString:@"yyyy年M月"];
+    }
+    return [currentDate stringFromFormatterString:@"yyyy年MM月"];
 }
 
 #pragma mark - private
@@ -157,31 +154,6 @@ static NSInteger LineTag = 20160817;
         }
     }
     return @"";
-}
-
-- (void)createLines
-{
-    CGFloat lineWidth = 0.5;
-    
-    UIView * topLine = [[UIView alloc]initWithFrame:CGRectMake(0, 0, itemSize, lineWidth)];
-    topLine.backgroundColor = [UIColor blackColor];
-    topLine.tag = LineTag;
-    [self.contentView addSubview:topLine];
-    
-    UIView * leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, lineWidth, itemSize)];
-    leftLine.backgroundColor = [UIColor blackColor];
-    leftLine.tag = LineTag + 1;
-    [self.contentView addSubview:leftLine];
-    
-    UIView * bottemLine = [[UIView alloc] initWithFrame:CGRectMake(0, itemSize - lineWidth, itemSize, lineWidth)];
-    bottemLine.backgroundColor = [UIColor blackColor];
-    bottemLine.tag = LineTag + 2;
-    [self.contentView addSubview:bottemLine];
-    
-    UIView * rightLine = [[UIView alloc] initWithFrame:CGRectMake(itemSize - lineWidth, 0, lineWidth, itemSize)];
-    rightLine.backgroundColor = [UIColor blackColor];
-    rightLine.tag = LineTag + 3;
-    [self.contentView addSubview:rightLine];
 }
 
 @end

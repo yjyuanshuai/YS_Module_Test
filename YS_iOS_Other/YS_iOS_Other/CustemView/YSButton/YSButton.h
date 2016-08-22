@@ -26,8 +26,9 @@ typedef NS_ENUM(NSInteger, ImagePostion)
 @property (nonatomic, strong) UIColor * ysBtnTintColor;
 @property (nonatomic, strong) UIColor * ysTintColor;
 
-@property (nonatomic, assign) NSInteger margin; // 距离边框距离
-@property (nonatomic, assign) NSInteger space;  // title 和 imageview 距离
+@property (nonatomic, assign) NSInteger marginX;    // 左右距离边框距离
+@property (nonatomic, assign) NSInteger marginY;    // 上下距离边框距离
+@property (nonatomic, assign) NSInteger space;      // title 和 imageview 距离
 
 @property (nonatomic, strong) NSMutableArray * constraintsArr;
 

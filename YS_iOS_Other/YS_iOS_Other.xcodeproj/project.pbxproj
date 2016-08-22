@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39017CD01D6AF1F100FD9F84 /* CDCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39017CCF1D6AF1F100FD9F84 /* CDCollectionReusableView.m */; };
 		390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */; };
 		390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */; };
 		390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */; };
@@ -138,7 +139,6 @@
 		39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119B61D49A27C007D4B0B /* AudioOrVideoTableViewCell.m */; };
 		39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */; };
 		39E119E31D49AC94007D4B0B /* YSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119E21D49AC94007D4B0B /* YSPlayViewController.m */; };
-		39E3113F1D640B2300A631EA /* OutPatientsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E3113E1D640B2300A631EA /* OutPatientsViewController.m */; };
 		39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E311441D643F8700A631EA /* NSDate+Utilities.m */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
@@ -188,6 +188,8 @@
 
 /* Begin PBXFileReference section */
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
+		39017CCE1D6AF1F100FD9F84 /* CDCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCollectionReusableView.h; sourceTree = "<group>"; };
+		39017CCF1D6AF1F100FD9F84 /* CDCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCollectionReusableView.m; sourceTree = "<group>"; };
 		390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDateViewController.h; sourceTree = "<group>"; };
 		390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDateViewController.m; sourceTree = "<group>"; };
 		390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataTableViewCell.h; sourceTree = "<group>"; };
@@ -401,8 +403,6 @@
 		39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAndVideoModel.m; sourceTree = "<group>"; };
 		39E119E11D49AC94007D4B0B /* YSPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPlayViewController.h; sourceTree = "<group>"; };
 		39E119E21D49AC94007D4B0B /* YSPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPlayViewController.m; sourceTree = "<group>"; };
-		39E3113D1D640B2300A631EA /* OutPatientsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OutPatientsViewController.h; sourceTree = "<group>"; };
-		39E3113E1D640B2300A631EA /* OutPatientsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OutPatientsViewController.m; sourceTree = "<group>"; };
 		39E311431D643F8700A631EA /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		39E311441D643F8700A631EA /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		39EA8EC81D40BB6C0053EE02 /* YSLoginViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSLoginViewController.h; sourceTree = "<group>"; };
@@ -472,7 +472,6 @@
 		390C9ABA1D62BE8100F01C2F /* YSTemp */ = {
 			isa = PBXGroup;
 			children = (
-				39E3113C1D640AB600A631EA /* menzhen */,
 				39E3113B1D640A8E00A631EA /* chooseData */,
 			);
 			path = YSTemp;
@@ -1227,17 +1226,10 @@
 				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
 				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
 				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
+				39017CCE1D6AF1F100FD9F84 /* CDCollectionReusableView.h */,
+				39017CCF1D6AF1F100FD9F84 /* CDCollectionReusableView.m */,
 			);
 			name = chooseData;
-			sourceTree = "<group>";
-		};
-		39E3113C1D640AB600A631EA /* menzhen */ = {
-			isa = PBXGroup;
-			children = (
-				39E3113D1D640B2300A631EA /* OutPatientsViewController.h */,
-				39E3113E1D640B2300A631EA /* OutPatientsViewController.m */,
-			);
-			name = menzhen;
 			sourceTree = "<group>";
 		};
 		39E311401D643F8700A631EA /* NSDateCategory */ = {
@@ -1627,7 +1619,6 @@
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
 				39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */,
 				39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */,
-				39E3113F1D640B2300A631EA /* OutPatientsViewController.m in Sources */,
 				39FF1F921D58184D00463160 /* CMBViewController.m in Sources */,
 				39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
@@ -1642,6 +1633,7 @@
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				393AACD41D4B34AB0004C41D /* YSVideoPlayerViewController.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
+				39017CD01D6AF1F100FD9F84 /* CDCollectionReusableView.m in Sources */,
 				3945949D1D3878950017F4A3 /* OneHorizontalTableViewCell.m in Sources */,
 				393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */,
 				394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */,

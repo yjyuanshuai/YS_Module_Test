@@ -8,8 +8,8 @@
 
 #import <UIKit/UIKit.h>
 
-#define itemSize (kScreenWidth)/7 //floorf((kScreenWidth)/7)
-#define itemSpace (kScreenWidth - 7*itemSize)/8//(kScreenWidth - 7*itemSize)/8
+#define itemSize (kScreenWidth)/8 //floorf((kScreenWidth)/7)
+#define itemSpace (kScreenWidth - 8*itemSize)/9//(kScreenWidth - 7*itemSize)/8
 
 @interface ChooseDataCollectionViewCell : UICollectionViewCell
 
@@ -22,5 +22,6 @@
 - (void)setCDCellContent:(NSIndexPath *)indexPath;
 
 + (NSDate *)getDateDayDetail:(NSInteger)index;
++ (NSString *)getSectionTitleDateDay:(NSInteger)index;
 
 @end
