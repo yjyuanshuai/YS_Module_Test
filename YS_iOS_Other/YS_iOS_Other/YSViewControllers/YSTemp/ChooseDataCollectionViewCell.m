@@ -15,7 +15,7 @@
 {
     if (self = [super initWithFrame:frame]) {
         
-//        NSLog(@"----------- itemSize:%f ----------- itemSpace: %f",itemSize, itemSpace);
+        NSLog(@"----------- itemSize:%f ----------- itemSpace: %f",itemSize, itemSpace);
         
         _weekdayLabel = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, itemSize, itemSize/2)];
         _weekdayLabel.textAlignment = NSTextAlignmentCenter;
@@ -32,39 +32,37 @@
         _timeLabel.backgroundColor = [UIColor whiteColor];
         [self.contentView addSubview:_timeLabel];
         
-        UIView * leftLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 1, itemSize)];
-        leftLine.backgroundColor = [UIColor lightGrayColor];
-        [self.contentView addSubview:leftLine];
+        // 右
+        UIView * xLine1 = [[UIView alloc] initWithFrame:CGRectMake(itemSize - 1, 0, 1, itemSize)];
+        xLine1.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:xLine1];
         
-        UIView * bottemLine = [[UIView alloc] initWithFrame:CGRectMake(0, itemSize - 1, itemSize, 1)];
-        bottemLine.backgroundColor = [UIColor lightGrayColor];
-        [self.contentView addSubview:bottemLine];
+        // 下
+        UIView * yLine1 = [[UIView alloc] initWithFrame:CGRectMake(0, itemSize - 1, itemSize, 1)];
+        yLine1.backgroundColor = [UIColor lightGrayColor];
+        [self.contentView addSubview:yLine1];
         
-        _topLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, itemSize, 1)];
-        _topLine.backgroundColor = [UIColor lightGrayColor];
-        _topLine.hidden = YES;
-        [self.contentView addSubview:_topLine];
+        // 上
+        _yLine = [[UIView alloc] initWithFrame:CGRectMake(0, 0, itemSize, 1)];
+        _yLine.backgroundColor = [UIColor lightGrayColor];
+        _yLine.hidden = YES;
+        [self.contentView addSubview:_yLine];
         
-        _rightLine = [[UIView alloc] initWithFrame:CGRectMake(itemSize - 1, 0, 1, itemSize)];
-        _rightLine.backgroundColor = [UIColor lightGrayColor];
-        _rightLine.hidden = YES;
-        [self.contentView addSubview:_rightLine];
+        // 左
+        _xLine = [[UIView alloc] initWithFrame:CGRectMake(itemSize - 1, 0, 1, itemSize)];
+        _xLine.backgroundColor = [UIColor lightGrayColor];
+        _xLine.hidden = YES;
+        [self.contentView addSubview:_xLine];
     }
     return self;
 }
 
 - (void)setCDCellContent:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 13) {
-        _rightLine.hidden = NO;
-    }
-    else {
-        _rightLine.hidden = YES;
-    }
-    
     if (indexPath.row == 0) {
         
-        _topLine.hidden = NO;
+        self.backgroundColor = [UIColor whiteColor];
+        _yLine.hidden = NO;
         _timeLabel.hidden = YES;
         _weekdayLabel.hidden = NO;
         _dataLabel.hidden = NO;
@@ -75,7 +73,7 @@
     }
     else {
         
-        _topLine.hidden = YES;
+        _yLine.hidden = YES;
         _weekdayLabel.hidden = YES;
         _dataLabel.hidden = YES;
         

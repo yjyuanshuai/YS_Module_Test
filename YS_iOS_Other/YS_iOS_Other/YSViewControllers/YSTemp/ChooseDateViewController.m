@@ -8,8 +8,7 @@
 
 #import "ChooseDateViewController.h"
 #import "ChooseDataTableViewCell.h"
-//#import "ChooseDataCollectionViewCell.h"
-#import "CDCollectionReusableView.h"
+#import "ChooseDataCollectionViewCell.h"
 #import "YSButton.h"
 #import "NSDate+Utilities.h"
 
@@ -92,6 +91,10 @@
         cell.cdCollectionView.dataSource = self;
     }
     
+    if (cell.cdPageControl) {
+        [cell.cdPageControl addTarget:self action:@selector(clickToPageControl:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    
     if (indexPath.section == 0) {
         [cell setChooseDataIntroduce:@"这里是介绍- (void)setChooseDataIntroduce:(NSString *)introduceStr- (void)setChooseDataIntroduce:(NSString *)introduceStr- (void)setChooseDataIntroduce:(NSString *)introduceStr- (void)setChooseDataIntroduce:(NSString *)introduceStr- (void)setChooseDataIntroduce:(NSString *)introduceStr"];
     }
@@ -169,6 +172,12 @@
     }
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+}
+
 #pragma mark - UICollectionViewDelegateFlowLayout
 // Item size
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath
@@ -196,9 +205,9 @@
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout referenceSizeForHeaderInSection:(NSInteger)section
 {
-    if (section % 7 == 0) {
-        return CGSizeMake(itemSize, 4*itemSize);
-    }
+//    if (section % 7 == 0) {
+//        return CGSizeMake(itemSize, 4*itemSize);
+//    }
     return CGSizeZero;
 }
 
@@ -225,21 +234,21 @@
     return cell;
 }
 
-- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
-{
-    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
-        
-        CDCollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead" forIndexPath:indexPath];
-        
-        return headerView;
-    }
+//- (UICollectionReusableView *)collectionView:(UICollectionView *)collectionView viewForSupplementaryElementOfKind:(NSString *)kind atIndexPath:(NSIndexPath *)indexPath
+//{
+//    if ([kind isEqualToString:UICollectionElementKindSectionHeader]) {
+//        
+//        CDCollectionReusableView * headerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"cdCollectionViewSectionHead" forIndexPath:indexPath];
+//        
+//        return headerView;
+//    }
 //    else {
 //        UICollectionReusableView * footerView = [collectionView dequeueReusableSupplementaryViewOfKind:UICollectionElementKindSectionFooter withReuseIdentifier:@"cdCollectionViewSectionFoot" forIndexPath:indexPath];
 //        footerView.backgroundColor = [UIColor lightGrayColor];
 //        return footerView;
 //    }
-    return nil;
-}
+//    return nil;
+//}
 
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -300,6 +309,33 @@
 }
 
 #pragma mark -
+- (void)clickToPageControl:(id)sender
+{
+    UIPageControl * pageCon = (UIPageControl *)sender;
+    
+    NSIndexPath * indexPath = [NSIndexPath indexPathForRow:0 inSection:1];
+    ChooseDataTableViewCell * cell = (ChooseDataTableViewCell *)[_cdTableView cellForRowAtIndexPath:indexPath];
+    
+    switch (pageCon.currentPage) {
+        case 0:
+        {
+            _frontBtn.hidden = YES;
+            _nextBtn.hidden = NO;
+            _dataLabel.text = [ChooseDataCollectionViewCell getSectionTitleDateDay:0];
+            cell.cdCollectionView.contentOffset = CGPointMake(0, 0);
+        }
+            break;
+        case 1:
+        {
+            _frontBtn.hidden = NO;
+            _nextBtn.hidden = YES;
+            _dataLabel.text = [ChooseDataCollectionViewCell getSectionTitleDateDay:7];
+            cell.cdCollectionView.contentOffset = CGPointMake(cell.cdCollectionView.frame.size.width, 0);
+        }
+            break;
+    }
+}
+
 - (void)clickToShowOrHide:(id)sender
 {
     _isShow = !_isShow;
@@ -328,7 +364,7 @@
         [UIView animateWithDuration:0.3 animations:^{
             _frontBtn.hidden = NO;
             _nextBtn.hidden = YES;
-            cell.cdCollectionView.contentOffset = CGPointMake(kScreenWidth, 0);
+            cell.cdCollectionView.contentOffset = CGPointMake(cell.cdCollectionView.frame.size.width, 0);
         }];
     }
 }

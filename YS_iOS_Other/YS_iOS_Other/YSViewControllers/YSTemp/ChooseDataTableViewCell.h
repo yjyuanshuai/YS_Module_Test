@@ -7,7 +7,6 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "CDCollectionReusableView.h"
 
 @interface ChooseDataTableViewCell : UITableViewCell
 

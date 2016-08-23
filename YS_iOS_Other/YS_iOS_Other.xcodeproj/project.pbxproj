@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		39017CD01D6AF1F100FD9F84 /* CDCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39017CCF1D6AF1F100FD9F84 /* CDCollectionReusableView.m */; };
 		390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */; };
 		390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */; };
 		390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */; };
@@ -188,8 +187,6 @@
 
 /* Begin PBXFileReference section */
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
-		39017CCE1D6AF1F100FD9F84 /* CDCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CDCollectionReusableView.h; sourceTree = "<group>"; };
-		39017CCF1D6AF1F100FD9F84 /* CDCollectionReusableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CDCollectionReusableView.m; sourceTree = "<group>"; };
 		390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDateViewController.h; sourceTree = "<group>"; };
 		390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDateViewController.m; sourceTree = "<group>"; };
 		390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataTableViewCell.h; sourceTree = "<group>"; };
@@ -1226,8 +1223,6 @@
 				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
 				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
 				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
-				39017CCE1D6AF1F100FD9F84 /* CDCollectionReusableView.h */,
-				39017CCF1D6AF1F100FD9F84 /* CDCollectionReusableView.m */,
 			);
 			name = chooseData;
 			sourceTree = "<group>";
@@ -1633,7 +1628,6 @@
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				393AACD41D4B34AB0004C41D /* YSVideoPlayerViewController.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
-				39017CD01D6AF1F100FD9F84 /* CDCollectionReusableView.m in Sources */,
 				3945949D1D3878950017F4A3 /* OneHorizontalTableViewCell.m in Sources */,
 				393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */,
 				394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */,
