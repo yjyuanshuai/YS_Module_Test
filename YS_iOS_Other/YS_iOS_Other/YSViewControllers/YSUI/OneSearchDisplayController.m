@@ -7,6 +7,7 @@
 //
 
 #import "OneSearchDisplayController.h"
+#import "YSSearchBar.h"
 
 @interface OneSearchDisplayController ()<UISearchBarDelegate, UISearchDisplayDelegate, UITableViewDelegate, UITableViewDataSource>
 
@@ -17,7 +18,7 @@
 @property (nonatomic, strong) UISearchBar * ysSearchBar;
 @property (nonatomic, strong) UISearchDisplayController * ysSearchDisplayVC;
 
-@property (nonatomic, strong) UISearchBar * ysNoNavSearchBar;
+@property (nonatomic, strong) YSSearchBar * ysNoNavSearchBar;
 @property (nonatomic, strong) UISearchDisplayController * ysNoNavSearchDisplayVC;
 
 @end
@@ -38,14 +39,14 @@
     [self initUIAndData];
     [self createTableView];
     [self createSearchBarInNav];
-//    [self createSearchInTableView];
+    [self createSearchInTableView];
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
     [super viewDidAppear:animated];
     
-    [_ysSearchBar becomeFirstResponder];
+//    [_ysSearchBar becomeFirstResponder];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -97,7 +98,7 @@
     _ysSearchBar.placeholder = @"导航栏搜索";
     _ysSearchBar.barTintColor = [UIColor lightGrayColor];
     [_ysSearchBar sizeToFit];
-//    self.navigationItem.titleView = _ysSearchBar;
+    self.navigationItem.titleView = _ysSearchBar;
     
     _ysSearchDisplayVC = [[UISearchDisplayController alloc] initWithSearchBar:_ysSearchBar contentsController:self];
     _ysSearchDisplayVC.delegate = self;
@@ -106,19 +107,24 @@
     _ysSearchDisplayVC.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     _ysSearchDisplayVC.displaysSearchBarInNavigationBar = YES;
     
-//    _rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
-//    _ysSearchDisplayVC.navigationItem.rightBarButtonItem = _rightBarBtn;
+    _rightBarBtn = [[UIBarButtonItem alloc] initWithTitle:@"右键" style:UIBarButtonItemStylePlain target:self action:@selector(clickRightBarBtn)];
+    _ysSearchDisplayVC.navigationItem.rightBarButtonItem = _rightBarBtn;
 }
 
 - (void)createSearchInTableView
 {
-    _ysNoNavSearchBar = [[UISearchBar alloc] init];
+    UIView * bgView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 80)];
+    bgView.backgroundColor = [UIColor redColor];
+    
+    _ysNoNavSearchBar = [[YSSearchBar alloc] init];
+    _ysNoNavSearchBar.frame = CGRectMake(0, 0, kScreenWidth, 80);
     _ysNoNavSearchBar.delegate = self;
     _ysNoNavSearchBar.showsCancelButton = NO;
     _ysNoNavSearchBar.placeholder = @"一般搜索";
     _ysNoNavSearchBar.barTintColor = [UIColor lightGrayColor];
+    _ysNoNavSearchBar.textFeildContentInset = UIEdgeInsetsMake(10, 15, 10, 15);
+    [bgView addSubview:_ysNoNavSearchBar];
     [_ysNoNavSearchBar sizeToFit];
-    [self.view addSubview:_ysNoNavSearchBar];
     
     _ysNoNavSearchDisplayVC = [[UISearchDisplayController alloc] initWithSearchBar:_ysNoNavSearchBar contentsController:self];
     _ysNoNavSearchDisplayVC.delegate = self;
@@ -126,7 +132,7 @@
     _ysNoNavSearchDisplayVC.searchResultsDataSource = self;
     _ysNoNavSearchDisplayVC.searchResultsTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     
-    _currentTableView.tableHeaderView = _ysNoNavSearchBar;
+    _currentTableView.tableHeaderView = bgView;
 }
 
 - (void)clickRightBarBtn
