@@ -16,11 +16,17 @@
 
 @implementation FileOrCodeViewController
 
-- (instancetype)initWithTitle:(NSString *)title viewClass:(Class)viewClass
+- (instancetype)initWithTitle:(NSString *)title
+                    viewClass:(Class)viewClass
+                     rightBtn:(NSString *)rightBtn
 {
     if (self = [super init]) {
+        
         self.title = title;
         _viewClass = viewClass;
+        if (rightBtn != nil && ![rightBtn isEqualToString:@""]) {
+            self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:rightBtn style:UIBarButtonItemStylePlain target:self action:@selector(clickToDetail)];
+        }
     }
     return self;
 }
@@ -29,6 +35,11 @@
 {
     self.view = [_viewClass new];
     self.view.backgroundColor = [UIColor whiteColor];
+}
+
+- (void)clickToDetail
+{
+    
 }
 
 #ifdef __IPHONE_7_0

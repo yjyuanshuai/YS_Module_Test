@@ -10,6 +10,8 @@
 
 @interface FileOrCodeViewController : YSRootViewController
 
-- (instancetype)initWithTitle:(NSString *)title viewClass:(Class)viewClass;
+- (instancetype)initWithTitle:(NSString *)title
+                    viewClass:(Class)viewClass
+                     rightBtn:(NSString *)rightBtn;
 
 @end

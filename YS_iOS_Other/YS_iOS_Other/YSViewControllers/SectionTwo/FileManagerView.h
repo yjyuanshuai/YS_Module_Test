@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface FileManagerView : UIView
+@interface FileManagerView : UIView <UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * fileTableView;
 

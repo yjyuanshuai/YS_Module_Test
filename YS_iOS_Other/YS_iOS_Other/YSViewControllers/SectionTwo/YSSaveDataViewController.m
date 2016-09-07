@@ -10,6 +10,9 @@
 
 // 1 存储
 #import "TwoDocumentViewController.h"
+#import "FileManagerView.h"
+#import "CodeManagerView.h"
+#import "FileOrCodeViewController.h"
 #import "YSDefaultsViewController.h"
 #import "YSKeyChainViewController.h"
 
@@ -67,16 +70,6 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
 
 - (void)createTableView
 {
-    /*
-    _savedateTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
-    _savedateTableView.delegate = self;
-    _savedateTableView.dataSource = self;
-    [self.view addSubview:_savedateTableView];
-    [_savedateTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
-    }];
-    */
     _savedateTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _savedateTableView.delegate = self;
     _savedateTableView.dataSource = self;
@@ -225,11 +218,18 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
             }
             else if (indexPath.row == 1)
             {
-                
+                // "文件"
+                FileOrCodeViewController * fileVC = [[FileOrCodeViewController alloc] initWithTitle:@"文件管理" viewClass:NSClassFromString(@"FileManagerView") rightBtn:@"应用"];
+                fileVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:fileVC animated:YES];
             }
             else if (indexPath.row == 2)
             {
-                            }
+                // “归档”
+                FileOrCodeViewController * codeVC = [[FileOrCodeViewController alloc] initWithTitle:@"归档管理" viewClass:NSClassFromString(@"CodeManagerView") rightBtn:@"归档"];
+                codeVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:codeVC animated:YES];
+            }
             else if (indexPath.row == 3)
             {
                 // “偏好设置”
