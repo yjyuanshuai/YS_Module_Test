@@ -37,7 +37,7 @@ static NSString * const HarewareCellID = @"HarewareCellID";
 
 - (void)initUIAndData
 {
-    self.title = @"硬件调用";
+    self.title = @"系统功能与硬件";
     
     _sectionTitleArr = @[@"1 系统功能", @"2 其他"];
     
