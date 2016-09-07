@@ -242,41 +242,31 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
     }
     else if (_touchNum == 3) {
         // 缩放
-        
         CGFloat contentY = scrollView.contentOffset.y;
-        CGFloat contentInsertTop = _jianshuTableView.contentInset.top;
+        CGFloat contentInsertTop = scrollView.contentInset.top;
         CGFloat offsetY = contentY + contentInsertTop;
-        CGFloat gesureY = [scrollView.panGestureRecognizer translationInView:_jianshuTableView].y;
-        CGFloat headSizeHeight = _headImageView.frame.size.height;
         
-        if ( headSizeHeight >= minSize &&
-             headSizeHeight <= maxSize) {
-            
-            CGFloat sy = 1 - offsetY/kScreenHeight;
-            _headImageView.transform = CGAffineTransformMakeScale(sy, sy);
-            
-            CGRect originFrame = _headImageView.frame;
-            originFrame.origin.y = 4;
-            _headImageView.frame = originFrame;
-        }
-        else if (headSizeHeight < minSize) {
-            
-            CGRect originFrame = _headImageView.frame;
-            originFrame.origin.y = 4;
-            originFrame.size.width = minSize;
-            originFrame.size.height = minSize;
-            _headImageView.frame = originFrame;
+//        CGFloat gesureY = [scrollView.panGestureRecognizer translationInView:_jianshuTableView].y;
+//        CGFloat headSizeHeight = _headImageView.frame.size.height;
         
-        }
-        else if (headSizeHeight > maxSize) {
+//        NSLog(@"---------------------------- headSize: %f +++++++++++++ off: %f", headSizeHeight, offsetY);
+        
+        
+        CGFloat scale = 1.0;
+        
+        if (offsetY < 0) {
+            scale = MIN(maxSize/80, 1 - offsetY/300);      // 放大系数
             
-            CGRect originFrame = _headImageView.frame;
-            originFrame.origin.y = 4;
-            originFrame.size.width = maxSize;
-            originFrame.size.height = maxSize;
-            _headImageView.frame = originFrame;
+        }
+        else if (offsetY > 0) {
+            scale = MAX(minSize/80, 1 - offsetY/300);      // 缩小系数
             
         }
+        
+        _headImageView.transform = CGAffineTransformMakeScale(scale, scale);
+        CGRect originFrame = _headImageView.frame;
+        originFrame.origin.y = 4;
+        _headImageView.frame = originFrame;
     }
 }
 
@@ -285,7 +275,7 @@ static NSString * const preNavBarBackIndicatorTransitionMaskImage = @"preNavBarB
  */
 - (void)scrollViewDidZoom:(UIScrollView *)scrollView{
     
-    NSLog(@"------------- scrollViewDidScroll");
+    NSLog(@"------------- scrollViewDidZoom");
     float value=scrollView.zoomScale;
     NSLog(@"%f",value);
     

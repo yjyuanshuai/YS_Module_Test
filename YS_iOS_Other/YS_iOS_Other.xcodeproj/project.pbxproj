@@ -7,9 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */; };
-		390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */; };
-		390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */; };
 		39214A111D05203B0019422D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A101D05203B0019422D /* main.m */; };
 		39214A141D05203B0019422D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A131D05203B0019422D /* AppDelegate.m */; };
 		39214A1A1D05203B0019422D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39214A181D05203B0019422D /* Main.storyboard */; };
@@ -128,6 +125,8 @@
 		39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */; };
 		39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */; };
 		39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */; };
+		39BEAD031D7FE50800FD36A5 /* FileKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */; };
+		39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
 		39CCA98B1D48631600B78FA9 /* AudioAndVideoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA9861D48631600B78FA9 /* AudioAndVideoMainViewController.m */; };
 		39CCA98C1D48631600B78FA9 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CCA9881D48631600B78FA9 /* AudioViewController.m */; };
@@ -188,12 +187,6 @@
 
 /* Begin PBXFileReference section */
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
-		390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDateViewController.h; sourceTree = "<group>"; };
-		390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDateViewController.m; sourceTree = "<group>"; };
-		390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataTableViewCell.h; sourceTree = "<group>"; };
-		390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDataTableViewCell.m; sourceTree = "<group>"; };
-		390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChooseDataCollectionViewCell.h; sourceTree = "<group>"; };
-		390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChooseDataCollectionViewCell.m; sourceTree = "<group>"; };
 		39214A0C1D05203B0019422D /* YS_iOS_Other.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YS_iOS_Other.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39214A101D05203B0019422D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39214A121D05203B0019422D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -382,6 +375,10 @@
 		39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDocumentTableViewCell.xib; sourceTree = "<group>"; };
 		39BBEA651D5DA46500F192F2 /* UIImage+YSImageCategare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YSImageCategare.h"; sourceTree = "<group>"; };
 		39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YSImageCategare.m"; sourceTree = "<group>"; };
+		39BEAD011D7FE50800FD36A5 /* FileKnowledgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileKnowledgeView.h; sourceTree = "<group>"; };
+		39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileKnowledgeView.m; sourceTree = "<group>"; };
+		39BEAD041D7FE52300FD36A5 /* CodeKnowledgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeKnowledgeView.h; sourceTree = "<group>"; };
+		39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeKnowledgeView.m; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
 		39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionTestModel.m; path = YS_iOS_Other/Models/CollectionTestModel.m; sourceTree = SOURCE_ROOT; };
 		39CCA9851D48631600B78FA9 /* AudioAndVideoMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAndVideoMainViewController.h; sourceTree = "<group>"; };
@@ -472,7 +469,6 @@
 		390C9ABA1D62BE8100F01C2F /* YSTemp */ = {
 			isa = PBXGroup;
 			children = (
-				39E3113B1D640A8E00A631EA /* chooseData */,
 			);
 			path = YSTemp;
 			sourceTree = "<group>";
@@ -851,8 +847,12 @@
 			children = (
 				39FCB8DB1D66E81C00195C20 /* FileOrCodeViewController.h */,
 				39FCB8DC1D66E81C00195C20 /* FileOrCodeViewController.m */,
+				39BEAD011D7FE50800FD36A5 /* FileKnowledgeView.h */,
+				39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */,
 				39FCB8D51D66E68A00195C20 /* FileManagerView.h */,
 				39FCB8D61D66E68A00195C20 /* FileManagerView.m */,
+				39BEAD041D7FE52300FD36A5 /* CodeKnowledgeView.h */,
+				39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */,
 				39FCB8D81D66E69A00195C20 /* CodeManagerView.h */,
 				39FCB8D91D66E69A00195C20 /* CodeManagerView.m */,
 			);
@@ -1215,19 +1215,6 @@
 				393AACD31D4B34AB0004C41D /* YSVideoPlayerViewController.m */,
 			);
 			path = PlayerView;
-			sourceTree = "<group>";
-		};
-		39E3113B1D640A8E00A631EA /* chooseData */ = {
-			isa = PBXGroup;
-			children = (
-				390C9ABB1D62BEA800F01C2F /* ChooseDateViewController.h */,
-				390C9ABC1D62BEA800F01C2F /* ChooseDateViewController.m */,
-				390C9ABE1D62C20500F01C2F /* ChooseDataTableViewCell.h */,
-				390C9ABF1D62C20500F01C2F /* ChooseDataTableViewCell.m */,
-				390C9AC11D62EB7D00F01C2F /* ChooseDataCollectionViewCell.h */,
-				390C9AC21D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m */,
-			);
-			name = chooseData;
 			sourceTree = "<group>";
 		};
 		39E311401D643F8700A631EA /* NSDateCategory */ = {
@@ -1597,6 +1584,7 @@
 				39CCA98B1D48631600B78FA9 /* AudioAndVideoMainViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
+				39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */,
 				39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */,
 				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
@@ -1612,7 +1600,6 @@
 				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,
 				39CCA98D1D48631600B78FA9 /* RightMenuViewController.m in Sources */,
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
-				390C9AC01D62C20500F01C2F /* ChooseDataTableViewCell.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
 				39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */,
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
@@ -1623,10 +1610,9 @@
 				39E119B71D49A27C007D4B0B /* AudioOrVideoTableViewCell.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
-				390C9AC31D62EB7D00F01C2F /* ChooseDataCollectionViewCell.m in Sources */,
 				39E5661B1D7ACBCF00531331 /* YSSearchBar.m in Sources */,
 				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
-				390C9ABD1D62BEA800F01C2F /* ChooseDateViewController.m in Sources */,
+				39BEAD031D7FE50800FD36A5 /* FileKnowledgeView.m in Sources */,
 				39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */,
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,

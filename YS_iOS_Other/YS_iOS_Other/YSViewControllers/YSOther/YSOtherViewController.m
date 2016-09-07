@@ -10,7 +10,7 @@
 
 
 // test
-#import "ChooseDateViewController.h"
+
 
 // 1
 #import "SevenBaiduViewController.h"
@@ -146,9 +146,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             if (indexPath.row == 0)
             {
                 // 原生地图
-                ChooseDateViewController * chooseVC = [[ChooseDateViewController alloc] init];
-                chooseVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:chooseVC animated:YES];
+                
             }
             else if (indexPath.row == 1)
             {

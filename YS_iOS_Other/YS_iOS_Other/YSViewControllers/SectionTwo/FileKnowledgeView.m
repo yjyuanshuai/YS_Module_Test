@@ -1,14 +1,14 @@
 //
-//  FileManagerView.m
+//  FileKnowledgeView.m
 //  YS_iOS_Other
 //
-//  Created by YJ on 16/8/19.
+//  Created by YJ on 16/9/7.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "FileManagerView.h"
+#import "FileKnowledgeView.h"
 
-@implementation FileManagerView
+@implementation FileKnowledgeView
 
 - (instancetype)init
 {
@@ -16,7 +16,6 @@
         
         _fileTableView = [UITableView new];
         _fileTableView.translatesAutoresizingMaskIntoConstraints = NO;
-        _fileTableView.backgroundColor = [UIColor yellowColor];
         _fileTableView.delegate = self;
         _fileTableView.dataSource = self;
         [self addSubview:_fileTableView];
@@ -25,9 +24,9 @@
         NSString * vfl2 = @"V:|-0-[_fileTableView]-0-|";
         
         NSArray * c1 = [NSLayoutConstraint constraintsWithVisualFormat:vfl1
-                                                                        options:0
-                                                                        metrics:nil
-                                                                          views:@{@"_fileTableView":_fileTableView}];
+                                                               options:0
+                                                               metrics:nil
+                                                                 views:@{@"_fileTableView":_fileTableView}];
         NSArray * c2 = [NSLayoutConstraint constraintsWithVisualFormat:vfl2
                                                                options:0
                                                                metrics:nil
@@ -58,5 +57,6 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
 }
+
 
 @end

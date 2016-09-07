@@ -10,6 +10,6 @@
 
 @interface CodeManagerView : UIView
 
-@property (nonatomic, strong) UITableView * codeTableView;
+
 
 @end
