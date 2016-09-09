@@ -4,21 +4,9 @@
 <array>
 	<dict>
 		<key>name</key>
-		<string>演员</string>
+		<string>第一首</string>
 		<key>audiourl</key>
-		<string>http://play.baidu.com/?__m=mboxCtrl.playSong&amp;__a=242078437&amp;__o=/||dayhotIcon#</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>夜空中最亮的星</string>
-		<key>audiourl</key>
-		<string>http://play.baidu.com/?__m=mboxCtrl.playSong&amp;__a=267473025&amp;__o=/||dayhotIcon#</string>
-	</dict>
-	<dict>
-		<key>name</key>
-		<string>还魂门</string>
-		<key>audiourl</key>
-		<string>http://play.baidu.com/?__m=mboxCtrl.playSong&amp;__a=267453821&amp;__o=/||dayhotIcon#</string>
+		<string>https://cl.ly/3M1Z1Z0B3V2i</string>
 	</dict>
 </array>
 </plist>

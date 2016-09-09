@@ -7,7 +7,8 @@
 //
 
 #import "AudioAndVideoMainViewController.h"
-#import "YSPlayViewController.h"
+#import "AudioViewController.h"
+#import "VideoViewController.h"
 
 @interface AudioAndVideoMainViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -84,10 +85,15 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
     if (indexPath.section == 0) {
-        YSPlayViewController * playerVC = [[YSPlayViewController alloc] initWithPlayType:AudioTypeWeb];
-        [self.navigationController pushViewController:playerVC animated:YES];
+        
+        AudioViewController * audioVC = [[AudioViewController alloc] init];
+        [self.navigationController pushViewController:audioVC animated:YES];
+        
     }
     else {
+        
+        VideoViewController * videoVC = [[VideoViewController alloc] init];
+        [self.navigationController pushViewController:videoVC animated:YES];
         
     }
 }

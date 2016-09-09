@@ -8,7 +8,6 @@
 
 #import "AudioViewController.h"
 #import "AudioOrVideoTableViewCell.h"
-#import "YSPlayViewController.h"
 
 static NSString * const autioTableViewCellID = @"autioTableViewCellID";
 
