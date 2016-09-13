@@ -62,7 +62,6 @@
 		393AACF61D4B396F0004C41D /* cm2_icn_dlded_prs.png in Resources */ = {isa = PBXBuildFile; fileRef = 393AACED1D4B396F0004C41D /* cm2_icn_dlded_prs.png */; };
 		393AACF71D4B396F0004C41D /* cm2_icn_dlded_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393AACEE1D4B396F0004C41D /* cm2_icn_dlded_prs@2x.png */; };
 		393AACF81D4B396F0004C41D /* cm2_icn_dlded_prs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 393AACEF1D4B396F0004C41D /* cm2_icn_dlded_prs@3x.png */; };
-		394483C61D6194FF0038C7B1 /* CanlenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394483C51D6194FF0038C7B1 /* CanlenderViewController.m */; };
 		394594501D3875A70017F4A3 /* YSRootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945944D1D3875A70017F4A3 /* YSRootViewController.m */; };
 		394594511D3875A70017F4A3 /* YSTabBarController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3945944F1D3875A70017F4A3 /* YSTabBarController.m */; };
 		394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594531D3875DF0017F4A3 /* YSSaveDataViewController.m */; };
@@ -145,6 +144,7 @@
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
+		39EE77511D82A75E00F35531 /* CanlenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE77501D82A75E00F35531 /* CanlenderViewController.m */; };
 		39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */; };
 		39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D61D66E68A00195C20 /* FileManagerView.m */; };
 		39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D91D66E69A00195C20 /* CodeManagerView.m */; };
@@ -270,8 +270,6 @@
 		393E98C91D3F10A800D10561 /* YSLogControl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSLogControl.h; path = HeaderFile/YSLogControl.h; sourceTree = "<group>"; };
 		393E98CE1D3F1A2700D10561 /* IntroduceFile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = IntroduceFile.h; path = HeaderFile/IntroduceFile.h; sourceTree = "<group>"; };
 		393E98CF1D3F1A4D00D10561 /* YSSetting.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSSetting.pch; path = HeaderFile/YSSetting.pch; sourceTree = "<group>"; };
-		394483C41D6194FF0038C7B1 /* CanlenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanlenderViewController.h; sourceTree = "<group>"; };
-		394483C51D6194FF0038C7B1 /* CanlenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanlenderViewController.m; sourceTree = "<group>"; };
 		3945944C1D3875A70017F4A3 /* YSRootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSRootViewController.h; sourceTree = "<group>"; };
 		3945944D1D3875A70017F4A3 /* YSRootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRootViewController.m; sourceTree = "<group>"; };
 		3945944E1D3875A70017F4A3 /* YSTabBarController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTabBarController.h; sourceTree = "<group>"; };
@@ -414,6 +412,8 @@
 		39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSRegisterViewController.m; sourceTree = "<group>"; };
 		39EA8ECF1D40BC060053EE02 /* YSScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSScrollView.h; sourceTree = "<group>"; };
 		39EA8ED01D40BC060053EE02 /* YSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSScrollView.m; sourceTree = "<group>"; };
+		39EE774F1D82A75E00F35531 /* CanlenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanlenderViewController.h; sourceTree = "<group>"; };
+		39EE77501D82A75E00F35531 /* CanlenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanlenderViewController.m; sourceTree = "<group>"; };
 		39FCB8D21D66DEA900195C20 /* YSGCDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSGCDTableViewCell.h; path = YSLanguage/YSGCDTableViewCell.h; sourceTree = "<group>"; };
 		39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSGCDTableViewCell.m; path = YSLanguage/YSGCDTableViewCell.m; sourceTree = "<group>"; };
 		39FCB8D51D66E68A00195C20 /* FileManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerView.h; sourceTree = "<group>"; };
@@ -793,6 +793,7 @@
 				39CAB15F1D81735B0078AFF5 /* AudioAndVideo */,
 				392621901D2363A400CF4C90 /* NavigationBar */,
 				3948F2D21D548103002F1778 /* CameraAndImagePicker */,
+				39EE774E1D82A75E00F35531 /* CanlenderThings */,
 				39FF1F8F1D58183000463160 /* PayType */,
 			);
 			name = YSOther;
@@ -830,8 +831,6 @@
 			children = (
 				3948F2D31D548137002F1778 /* ImagesShowViewController.h */,
 				3948F2D41D548137002F1778 /* ImagesShowViewController.m */,
-				394483C41D6194FF0038C7B1 /* CanlenderViewController.h */,
-				394483C51D6194FF0038C7B1 /* CanlenderViewController.m */,
 			);
 			name = CameraAndImagePicker;
 			path = YSOther/CameraAndImagePicker;
@@ -1268,6 +1267,16 @@
 			path = YSScrollView;
 			sourceTree = "<group>";
 		};
+		39EE774E1D82A75E00F35531 /* CanlenderThings */ = {
+			isa = PBXGroup;
+			children = (
+				39EE774F1D82A75E00F35531 /* CanlenderViewController.h */,
+				39EE77501D82A75E00F35531 /* CanlenderViewController.m */,
+			);
+			name = CanlenderThings;
+			path = YSOther/CanlenderThings;
+			sourceTree = "<group>";
+		};
 		39FEC0B91D1B73080036DAB3 /* CustemSearchBar */ = {
 			isa = PBXGroup;
 			children = (
@@ -1626,6 +1635,7 @@
 				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
+				39EE77511D82A75E00F35531 /* CanlenderViewController.m in Sources */,
 				39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */,
 				39CAB17D1D8174FD0078AFF5 /* YSSongModel.m in Sources */,
 				393A079C1D475FBD005114B1 /* YSTouchViewController.m in Sources */,
@@ -1661,7 +1671,6 @@
 				39CAB1701D81735B0078AFF5 /* AudioOrVideoTableViewCell.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
 				39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */,
-				394483C61D6194FF0038C7B1 /* CanlenderViewController.m in Sources */,
 				39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,
 				39CAB16E1D81735B0078AFF5 /* AudioViewController.m in Sources */,

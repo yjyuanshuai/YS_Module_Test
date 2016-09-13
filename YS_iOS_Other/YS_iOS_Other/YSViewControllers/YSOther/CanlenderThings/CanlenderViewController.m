@@ -163,10 +163,13 @@
                     event.notes =@"notes notes notes notes notes notes notes notesnotes notes notes notes notes notes notes notes notes notes notes notes notes notesnotes notes notes notes notes notes notes notes notes notes notes notes";
                     //日历中显示的url
                     event.URL=[NSURL URLWithString:@"http://www.baidu.com"];
+                    
+                    
                     NSDateFormatter *tempFormatter = [[NSDateFormatter alloc]init];
                     [tempFormatter setDateFormat:@"dd.MM.yyyy HH:mm"];
                     //创建一个时间段的日历事件
-                    NSString *startDateStr=@"15.08.2016 14:10";
+                    NSDate * currentDate = [NSDate date];
+                    NSString *startDateStr= @"15.08.2016 14:10";
                     NSString *endDateStr=@"15.08.2016 14:50";
                     event.startDate=[tempFormatter dateFromString:startDateStr];
                     event.endDate=[tempFormatter dateFromString:endDateStr];
