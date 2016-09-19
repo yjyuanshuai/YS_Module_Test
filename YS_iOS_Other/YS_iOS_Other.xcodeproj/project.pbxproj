@@ -89,6 +89,7 @@
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
+		394BD0481D8E2B5C009FC5F1 /* YSNewSystemViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394BD0471D8E2B5C009FC5F1 /* YSNewSystemViewController.m */; };
 		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
 		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
 		395118E11D598063008E339D /* WebAudioList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395118E01D598063008E339D /* WebAudioList.plist */; };
@@ -113,6 +114,13 @@
 		3991290B1D5C4D340099C279 /* tab_two_num.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128FF1D5C4D340099C279 /* tab_two_num.png */; };
 		3991290C1D5C4D340099C279 /* tab_two_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 399129001D5C4D340099C279 /* tab_two_sel.png */; };
 		399129121D5C87250099C279 /* YSCustemGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 399129111D5C87250099C279 /* YSCustemGesture.m */; };
+		399C4A5A1D8F934700D8E6F6 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C4A591D8F934700D8E6F6 /* ListTableViewCell.m */; };
+		399C4A611D8FC63500D8E6F6 /* cm2_icn_one_prs.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */; };
+		399C4A621D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5C1D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png */; };
+		399C4A631D8FC63500D8E6F6 /* cm2_icn_one_prs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5D1D8FC63500D8E6F6 /* cm2_icn_one_prs@3x.png */; };
+		399C4A641D8FC63500D8E6F6 /* cm2_icn_shuffle_prs.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5E1D8FC63500D8E6F6 /* cm2_icn_shuffle_prs.png */; };
+		399C4A651D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5F1D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@2x.png */; };
+		399C4A661D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A601D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@3x.png */; };
 		39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218B31D1911BE008DD042 /* TwoDocumentViewController.m */; };
 		39B218B71D19126C008DD042 /* docImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B218B61D19126C008DD042 /* docImage.png */; };
 		39B218BA1D19175E008DD042 /* homeDirectiory.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39B218B91D19175E008DD042 /* homeDirectiory.plist */; };
@@ -138,7 +146,6 @@
 		39CAB17E1D8174FD0078AFF5 /* YSVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CAB17A1D8174FD0078AFF5 /* YSVideoPlayerViewController.m */; };
 		39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCA9921D488E6700B78FA9 /* Stars@2x.png */; };
 		39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DB4C851D5AD75D009D2B1F /* YSEnDecryptionMethod.m */; };
-		39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */; };
 		39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E311441D643F8700A631EA /* NSDate+Utilities.m */; };
 		39E5661B1D7ACBCF00531331 /* YSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5661A1D7ACBCF00531331 /* YSSearchBar.m */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
@@ -325,6 +332,8 @@
 		3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDefaultsViewController.m; sourceTree = "<group>"; };
 		3949E2751D1A3B890016BFF6 /* YSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSUserModel.h; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.h; sourceTree = SOURCE_ROOT; };
 		3949E2761D1A3B890016BFF6 /* YSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSUserModel.m; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.m; sourceTree = SOURCE_ROOT; };
+		394BD0461D8E2B5C009FC5F1 /* YSNewSystemViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSNewSystemViewController.h; sourceTree = "<group>"; };
+		394BD0471D8E2B5C009FC5F1 /* YSNewSystemViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSNewSystemViewController.m; sourceTree = "<group>"; };
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		395118E01D598063008E339D /* WebAudioList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebAudioList.plist; sourceTree = "<group>"; };
@@ -357,6 +366,14 @@
 		399129001D5C4D340099C279 /* tab_two_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_two_sel.png; sourceTree = "<group>"; };
 		399129101D5C87250099C279 /* YSCustemGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustemGesture.h; sourceTree = "<group>"; };
 		399129111D5C87250099C279 /* YSCustemGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCustemGesture.m; sourceTree = "<group>"; };
+		399C4A581D8F934700D8E6F6 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
+		399C4A591D8F934700D8E6F6 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
+		399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_icn_one_prs.png; sourceTree = "<group>"; };
+		399C4A5C1D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_one_prs@2x.png"; sourceTree = "<group>"; };
+		399C4A5D1D8FC63500D8E6F6 /* cm2_icn_one_prs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_one_prs@3x.png"; sourceTree = "<group>"; };
+		399C4A5E1D8FC63500D8E6F6 /* cm2_icn_shuffle_prs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_icn_shuffle_prs.png; sourceTree = "<group>"; };
+		399C4A5F1D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_shuffle_prs@2x.png"; sourceTree = "<group>"; };
+		399C4A601D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_shuffle_prs@3x.png"; sourceTree = "<group>"; };
 		39B218B21D1911BE008DD042 /* TwoDocumentViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDocumentViewController.h; sourceTree = "<group>"; };
 		39B218B31D1911BE008DD042 /* TwoDocumentViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDocumentViewController.m; sourceTree = "<group>"; };
 		39B218B61D19126C008DD042 /* docImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = docImage.png; sourceTree = "<group>"; };
@@ -400,8 +417,6 @@
 		39CCA9921D488E6700B78FA9 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
 		39DB4C841D5AD75D009D2B1F /* YSEnDecryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSEnDecryptionMethod.h; sourceTree = "<group>"; };
 		39DB4C851D5AD75D009D2B1F /* YSEnDecryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSEnDecryptionMethod.m; sourceTree = "<group>"; };
-		39E119C11D49A6A7007D4B0B /* AudioAndVideoModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioAndVideoModel.h; sourceTree = "<group>"; };
-		39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioAndVideoModel.m; sourceTree = "<group>"; };
 		39E311431D643F8700A631EA /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		39E311441D643F8700A631EA /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		39E566191D7ACBCF00531331 /* YSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSSearchBar.h; sourceTree = "<group>"; };
@@ -563,6 +578,7 @@
 				394594551D38762E0017F4A3 /* YSLanguage */,
 				394594561D38766C0017F4A3 /* YSWeb */,
 				394594581D3876AE0017F4A3 /* YSHareware */,
+				394BD0451D8E2ADB009FC5F1 /* YSNewSystemFunction */,
 				394594571D38767B0017F4A3 /* YSOther */,
 			);
 			path = YSViewControllers;
@@ -708,6 +724,12 @@
 		393AACCB1D4B30A30004C41D /* audioAndVideoImage */ = {
 			isa = PBXGroup;
 			children = (
+				399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */,
+				399C4A5C1D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png */,
+				399C4A5D1D8FC63500D8E6F6 /* cm2_icn_one_prs@3x.png */,
+				399C4A5E1D8FC63500D8E6F6 /* cm2_icn_shuffle_prs.png */,
+				399C4A5F1D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@2x.png */,
+				399C4A601D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@3x.png */,
 				39FF1FB41D582CEB00463160 /* cm2_icn_loop_prs.png */,
 				39FF1FB51D582CEB00463160 /* cm2_icn_loop_prs@2x.png */,
 				39FF1FB61D582CEB00463160 /* cm2_icn_loop_prs@3x.png */,
@@ -862,6 +884,15 @@
 				39FCB8D91D66E69A00195C20 /* CodeManagerView.m */,
 			);
 			name = CodingAndFile;
+			sourceTree = "<group>";
+		};
+		394BD0451D8E2ADB009FC5F1 /* YSNewSystemFunction */ = {
+			isa = PBXGroup;
+			children = (
+				394BD0461D8E2B5C009FC5F1 /* YSNewSystemViewController.h */,
+				394BD0471D8E2B5C009FC5F1 /* YSNewSystemViewController.m */,
+			);
+			path = YSNewSystemFunction;
 			sourceTree = "<group>";
 		};
 		394FF77A1D34C9FC00B80D24 /* Images */ = {
@@ -1158,7 +1189,6 @@
 				39B218BC1D191DC4008DD042 /* docModel.m */,
 				3949E2751D1A3B890016BFF6 /* YSUserModel.h */,
 				3949E2761D1A3B890016BFF6 /* YSUserModel.m */,
-				39E119C01D49A688007D4B0B /* AudioAndVideoModel */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1204,6 +1234,8 @@
 				39CAB1761D8174FD0078AFF5 /* YSPlayViewController.m */,
 				39CAB1771D8174FD0078AFF5 /* YSSongModel.h */,
 				39CAB1781D8174FD0078AFF5 /* YSSongModel.m */,
+				399C4A581D8F934700D8E6F6 /* ListTableViewCell.h */,
+				399C4A591D8F934700D8E6F6 /* ListTableViewCell.m */,
 				39CAB1791D8174FD0078AFF5 /* YSVideoPlayerViewController.h */,
 				39CAB17A1D8174FD0078AFF5 /* YSVideoPlayerViewController.m */,
 			);
@@ -1227,16 +1259,6 @@
 			name = RESideMenuImage;
 			path = Image/RESideMenuImage;
 			sourceTree = "<group>";
-		};
-		39E119C01D49A688007D4B0B /* AudioAndVideoModel */ = {
-			isa = PBXGroup;
-			children = (
-				39E119C11D49A6A7007D4B0B /* AudioAndVideoModel.h */,
-				39E119C21D49A6A7007D4B0B /* AudioAndVideoModel.m */,
-			);
-			name = AudioAndVideoModel;
-			path = YS_iOS_Other/Models/AudioAndVideoModel;
-			sourceTree = SOURCE_ROOT;
 		};
 		39E311401D643F8700A631EA /* NSDateCategory */ = {
 			isa = PBXGroup;
@@ -1462,6 +1484,7 @@
 				39214A7B1D056A600019422D /* 3.jpg in Resources */,
 				394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */,
 				393AACE11D4B372A0004C41D /* cm2_fm_btn_loved_dis.png in Resources */,
+				399C4A611D8FC63500D8E6F6 /* cm2_icn_one_prs.png in Resources */,
 				39FF1FA51D582AE400463160 /* cm2_btn_play.png in Resources */,
 				39214A811D056A600019422D /* 9.jpg in Resources */,
 				3991290C1D5C4D340099C279 /* tab_two_sel.png in Resources */,
@@ -1471,6 +1494,8 @@
 				39FF1FB11D582AEC00463160 /* cm2_icn_list_prs.png in Resources */,
 				39FF1FB91D582CEB00463160 /* cm2_icn_loop_prs@3x.png in Resources */,
 				399129031D5C4D340099C279 /* tab_fou_num.png in Resources */,
+				399C4A661D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@3x.png in Resources */,
+				399C4A621D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png in Resources */,
 				39FF1FA21D582AE400463160 /* cm2_btn_pause.png in Resources */,
 				39FF1FB21D582AEC00463160 /* cm2_icn_list_prs@2x.png in Resources */,
 				393AACF41D4B396F0004C41D /* cm2_icn_dld_prs@2x.png in Resources */,
@@ -1493,6 +1518,7 @@
 				393AACDF1D4B372A0004C41D /* cm2_fm_btn_love@2x.png in Resources */,
 				399129051D5C4D340099C279 /* tab_one_num.png in Resources */,
 				39FF1FAE1D582AEC00463160 /* cm2_fm_btn_next_prs.png in Resources */,
+				399C4A631D8FC63500D8E6F6 /* cm2_icn_one_prs@3x.png in Resources */,
 				39CAB15E1D816DFD0078AFF5 /* 1407030003.mp3 in Resources */,
 				393AACF71D4B396F0004C41D /* cm2_icn_dlded_prs@2x.png in Resources */,
 				39FF1FB01D582AEC00463160 /* cm2_fm_btn_next_prs@3x.png in Resources */,
@@ -1503,6 +1529,7 @@
 				39FF1FB71D582CEB00463160 /* cm2_icn_loop_prs.png in Resources */,
 				394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */,
 				39214A801D056A600019422D /* 8.jpg in Resources */,
+				399C4A641D8FC63500D8E6F6 /* cm2_icn_shuffle_prs.png in Resources */,
 				395118E11D598063008E339D /* WebAudioList.plist in Resources */,
 				39FF1FA11D582AE400463160 /* cm2_btm_tab_icn_share@3x.png in Resources */,
 				39FF1FA01D582AE400463160 /* cm2_btm_tab_icn_share@2x.png in Resources */,
@@ -1513,6 +1540,7 @@
 				3991290B1D5C4D340099C279 /* tab_two_num.png in Resources */,
 				39214A761D056A600019422D /* 1.jpg in Resources */,
 				393AACF01D4B396F0004C41D /* cm2_icn_dld_dis.png in Resources */,
+				399C4A651D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@2x.png in Resources */,
 				39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */,
 				39FF1FA41D582AE400463160 /* cm2_btn_pause@3x.png in Resources */,
 				393AACE51D4B372A0004C41D /* cm2_fm_btn_loved@2x.png in Resources */,
@@ -1617,10 +1645,10 @@
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
 				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
 				393A078D1D475C33005114B1 /* YSLanguageViewController.m in Sources */,
+				394BD0481D8E2B5C009FC5F1 /* YSNewSystemViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */,
-				39E119C31D49A6A7007D4B0B /* AudioAndVideoModel.m in Sources */,
 				393A07991D475F18005114B1 /* YSGCDViewController.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
 				39CAB1721D81735B0078AFF5 /* VideoViewController.m in Sources */,
@@ -1630,6 +1658,7 @@
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
+				399C4A5A1D8F934700D8E6F6 /* ListTableViewCell.m in Sources */,
 				394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,

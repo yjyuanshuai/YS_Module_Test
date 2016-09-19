@@ -3,6 +3,17 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[AudioViewController viewDidLoad]:AudioViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_webAudiosArr">
+            </PersistentString>
+            <PersistentString
+               value = "_localAudiosArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[YSSearchBar layoutSubviews]:YSSearchBar.m">
          <PersistentStrings>
             <PersistentString
@@ -10,6 +21,14 @@
             </PersistentString>
             <PersistentString
                value = "self.textFeildContentInset.right">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[YSPlayViewController createAVPlayer]:YSPlayViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_allTime.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

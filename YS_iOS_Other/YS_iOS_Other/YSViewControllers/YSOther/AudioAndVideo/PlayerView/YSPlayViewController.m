@@ -9,42 +9,47 @@
 #import "YSPlayViewController.h"
 #import <AVFoundation/AVFoundation.h>
 #import "YSSongModel.h"
+#import "ListTableViewCell.h"
 
 static NSString * const playerStatus = @"playerStatus";
 static NSString * const loadedTimeRanges = @"loadedTimeRanges";
+static NSString * const ListCellID = @"ListCellID";
 
-@interface YSPlayViewController () <UIScrollViewDelegate, AVAudioPlayerDelegate>
+@interface YSPlayViewController () <UIScrollViewDelegate, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UIImageView * bgImageView;
 @property (nonatomic, strong) UIScrollView * audioScrollView;
 @property (nonatomic, strong) UIImageView * audioImageView;
-@property (nonatomic, strong) UIProgressView * playProgress;
+@property (nonatomic, strong) UISlider * playProgress;
 @property (nonatomic, strong) UILabel * currentTime;
 @property (nonatomic, strong) UILabel * allTime;
-
-@property (nonatomic, strong) AVPlayer * ysPlayer;
-@property (nonatomic, strong) AVPlayerItem * currentAudioItem;
-@property (nonatomic, strong) id timeObserver;
-@property (nonatomic, assign) NSInteger currentIndex;
-
 
 @property (nonatomic, assign) AudioType type;
 @property (nonatomic, strong) AVAudioPlayer * ysAudioPlayer;
 @property (nonatomic, strong) NSTimer * ysTime;
-@property (nonatomic, assign) NSTimeInterval currentTimeInterval;
-@property (nonatomic, assign) NSTimeInterval allTimeInterval;
+//@property (nonatomic, assign) NSTimeInterval currentTimeInterval;
+//@property (nonatomic, assign) NSTimeInterval allTimeInterval;
+
+@property (nonatomic, assign) AudioPlaySetting settingType;     // 播放方式
+@property (nonatomic, assign) AudioPlayStatus playStatus;       // 播放状态
+
+//
+@property (nonatomic, strong) UITableView * listTableView;
 
 @end
 
 @implementation YSPlayViewController
 {
     NSMutableArray * _webAudioList;
+    YSSongModel * _currentModel;
+    NSInteger _currentIndex;
 }
 
-- (instancetype)initWithPlayType:(AudioType)type
+- (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr
 {
     if (self = [super init]) {
         _type = type;
+        _webAudioList = listArr;
     }
     return self;
 }
@@ -58,8 +63,20 @@ static NSString * const loadedTimeRanges = @"loadedTimeRanges";
     [self createShapeLayer];
     [self createUpBtn];
     [self createDownBtn];
+    [self createAVPlayer:nil];
     [self createProgressView];
-    [self createAVPlayer];
+    
+    [self createListTableView];
+}
+
+- (void)viewWillDisappear:(BOOL)animated
+{
+    [super viewWillDisappear:animated];
+    
+    [_ysAudioPlayer stop];
+    _ysAudioPlayer = nil;
+    
+    [self invalidTimer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,134 +86,123 @@ static NSString * const loadedTimeRanges = @"loadedTimeRanges";
 
 - (void)dealloc
 {
-    if (_timeObserver) {
-        [_ysPlayer removeTimeObserver:_timeObserver];
-        _timeObserver = nil;
-    }
-    
-    [_currentAudioItem removeObserver:self forKeyPath:playerStatus];
-    [_currentAudioItem removeObserver:self forKeyPath:loadedTimeRanges];
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
+
 }
 
 - (void)initUIAndData
 {
-    self.title = @"音乐播放器";
-    _currentTimeInterval = 0.0;
-    _allTimeInterval = 0.0;
-    _webAudioList = [NSMutableArray array];
-    
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"WebAudioList" ofType:@"plist"];
-    NSArray * listArr = [NSArray arrayWithContentsOfFile:path];
-    for (NSDictionary * songDic in listArr) {
-        YSSongModel * model = [[YSSongModel alloc] initWithWebSongDic:songDic];
-        [_webAudioList addObject:model];
-    }
-    
     _currentIndex = 0;
-}
-
-- (void)createAVPlayer
-{
-    YSSongModel * model = _webAudioList[0];
-    NSURL * dataUrl = [NSURL URLWithString:model.url];
-    _ysPlayer = [[AVPlayer alloc] initWithURL:dataUrl];
-    [_ysPlayer play];
-}
-
-- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary<NSString *,id> *)change context:(void *)context
-{
-    if ([keyPath isEqualToString:playerStatus]) {
-        AVPlayerStatus status = _ysPlayer.status;
-        if (status == AVPlayerStatusUnknown) {
-            NSLog(@"KVO：未知状态，不能播放");
-        }
-        else if (status == AVPlayerStatusReadyToPlay) {
-            NSLog(@"KVO：准备完毕，可以播放");
-        }
-        else {
-            NSLog(@"KVO：加载失败，网络或服务器出现问题");
-        }
-    }
-    else if ([keyPath isEqualToString:loadedTimeRanges]) {
-        NSArray * arr = _currentAudioItem.loadedTimeRanges;
-        CMTimeRange timeRange = [arr.firstObject CMTimeRangeValue]; //本次缓冲的时间范围
-        NSTimeInterval totalBuffer = CMTimeGetSeconds(timeRange.start) + CMTimeGetSeconds(timeRange.duration);
-        NSLog(@"---------- totalBuffer: %.2f", totalBuffer);
-    }
-}
-
-- (void)playbackFinished:(NSNotification *)notice
-{
-    NSLog(@"播放完成");
     
-    if (_timeObserver) {
-        [_ysPlayer removeTimeObserver:_timeObserver];
-        _timeObserver = nil;
+    if ([_webAudioList count] > 0) {
+        _currentModel = _webAudioList[_currentIndex];
+        self.title = _currentModel.name;
+    }
+    else {
+        self.title = @"音乐播放";
     }
     
-    [_currentAudioItem removeObserver:self forKeyPath:playerStatus];
-    [_currentAudioItem removeObserver:self forKeyPath:loadedTimeRanges];
-    
-    [[NSNotificationCenter defaultCenter] removeObserver:self];
-    
-//    _currentIndex++;
-    [self playNext:_currentIndex];
+    _settingType = AudioPlaySettingList;
+    _playStatus = AudioPlayStatusPlaying;
 }
 
-- (void)playNext:(NSInteger)index
+- (void)createAVPlayer:(YSSongModel *)model
 {
+    if (_ysAudioPlayer) {
+        _ysAudioPlayer = nil;
+    }
+    
+    if (model != nil) {
+        _currentModel = model;
+    }
+    
     if (_type == AudioTypeWeb) {
         
-        [_ysPlayer play];
+        NSData * audioData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_currentModel.url]];
+        NSError * error = nil;
         
-        _currentAudioItem = _ysPlayer.currentItem;
+        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
         
-        // 音量（0.0 - 1.0）
-        _ysPlayer.volume = 0.8;
+        if (error) {
+            NSLog(@"------------- AVAudioPlayer - Web - Error: %@", error.localizedDescription);
+        }
         
+        [self creataTimer];
+    }
+    else {
         
-        // 观察者，播放完毕要移除
-        __weak typeof(self) weakSelf = self;
-        _timeObserver = [_ysPlayer addPeriodicTimeObserverForInterval:CMTimeMake(1.0, 1.0)
-                                                                queue:dispatch_get_main_queue()
-                                                           usingBlock:^(CMTime time) {
-                                                               
-                                                               weakSelf.currentTimeInterval = CMTimeGetSeconds(time);
-                                                               weakSelf.allTimeInterval = CMTimeGetSeconds(weakSelf.currentAudioItem.duration);
-                                                               if (weakSelf.currentTimeInterval) {
-                                                                   weakSelf.playProgress.progress = weakSelf.currentTimeInterval / weakSelf.allTimeInterval;
-                                                               }
-                                                               
-                                                           }];
+        NSString * path = [[NSBundle mainBundle] pathForResource:_currentModel.url ofType:@"mp3"];
+        NSError * error = nil;
         
-        // 监听媒体加载状态
-        [_currentAudioItem addObserver:self
-                            forKeyPath:playerStatus
-                               options:NSKeyValueObservingOptionNew
-                               context:nil];
+        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:path] error:&error];
+//        _ysAudioPlayer.numberOfLoops = -1;      // 循环
+        _ysAudioPlayer.delegate = self;
+        [_ysAudioPlayer prepareToPlay];
+        [_ysAudioPlayer play];
         
-        // 数据缓冲状态
-        [_currentAudioItem addObserver:self
-                            forKeyPath:loadedTimeRanges
-                               options:NSKeyValueObservingOptionNew
-                               context:nil];
+        if (error) {
+            NSLog(@"------------- AVAudioPlayer - Local - Error: %@", error.localizedDescription);
+        }
         
-        [[NSNotificationCenter defaultCenter] addObserver:self
-                                                 selector:@selector(playbackFinished:)
-                                                     name:AVPlayerItemDidPlayToEndTimeNotification
-                                                   object:_currentAudioItem];
+        [self creataTimer];
+        dispatch_async(dispatch_get_main_queue(), ^{
+            NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
+            _allTime.text = str;
+        });
     }
 }
 
 - (void)creataTimer
 {
+    [self invalidTimer];
+    
     _ysTime = [NSTimer scheduledTimerWithTimeInterval:0.1
                                                target:self
                                              selector:@selector(ysPlayTimer)
                                              userInfo:nil
                                               repeats:YES];
     [[NSRunLoop currentRunLoop] addTimer:_ysTime forMode:NSRunLoopCommonModes];
+}
+
+- (void)invalidTimer
+{
+    if (_ysTime) {
+        [_ysTime invalidate];
+        _ysTime = nil;
+    }
+}
+
+- (void)createListTableView
+{
+    _listTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _listTableView.delegate = self;
+    _listTableView.dataSource = self;
+    _listTableView.rowHeight = UITableViewAutomaticDimension;
+    _listTableView.estimatedRowHeight = 80;
+    _listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
+    _listTableView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:0.8];
+    _listTableView.tableFooterView = [UIView new];
+    _listTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
+    _listTableView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
+    [self.view addSubview:_listTableView];
+    
+    [_listTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreenWidth/2, 300));
+        make.right.equalTo(self.view.mas_right).offset(-10);
+        make.bottom.equalTo(self.view.mas_bottom).offset(-10-40);
+    }];
+    
+    [_listTableView registerClass:[ListTableViewCell class] forCellReuseIdentifier:ListCellID];
+    
+    _listTableView.hidden = YES;
+}
+
+- (void)updateSongInfo:(YSSongModel *)model
+{
+    self.title = model.name;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        [_listTableView reloadData];
+    });
 }
 
 #pragma mark - UI
@@ -221,7 +227,7 @@ static NSString * const loadedTimeRanges = @"loadedTimeRanges";
     [bezierPath addQuadCurveToPoint:p1 controlPoint:control1];
     
     shapeLayer.path = bezierPath.CGPath;
-    shapeLayer.fillColor = [UIColor blackColor].CGColor;
+    shapeLayer.fillColor = YSColorDefault.CGColor;
     shapeLayer.borderColor = [UIColor blackColor].CGColor;
     
     [self.view.layer addSublayer:shapeLayer];
@@ -319,26 +325,46 @@ static NSString * const loadedTimeRanges = @"loadedTimeRanges";
 
 - (void)createDownBtn
 {
+    // 播放设置
     UIButton * playOrderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
+    if (_settingType == AudioPlaySettingOne) {
+        [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_one_prs"] forState:UIControlStateNormal];
+    }
+    else if (_settingType == AudioPlaySettingList) {
+        [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
+    }
+    else if (_settingType == AudioPlaySettingAny){
+        [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_shuffle_prs"] forState:UIControlStateNormal];
+    }
     [playOrderBtn addTarget:self action:@selector(clickToPlayOrder:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playOrderBtn];
     
+    // 前一首
     UIButton * frontBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [frontBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_next_prs"] forState:UIControlStateNormal];
     [frontBtn addTarget:self action:@selector(clickToFront:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:frontBtn];
+    frontBtn.transform = CGAffineTransformMakeRotation(M_PI);
     
+    // 播放 、 暂停
     UIButton * playOrPauseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
+    if (_playStatus == AudioPlayStatusPause) {
+        [playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
+    }
+    else {
+        [playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
+    
+    }
     [playOrPauseBtn addTarget:self action:@selector(clickToPlayOrPause:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:playOrPauseBtn];
     
+    // 后一首
     UIButton * nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [nextBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_next_prs"] forState:UIControlStateNormal];
     [nextBtn addTarget:self action:@selector(clickToNext:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:nextBtn];
     
+    // 播放列表
     UIButton * listBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [listBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_list_prs"] forState:UIControlStateNormal];
     [listBtn addTarget:self action:@selector(clickToList:) forControlEvents:UIControlEventTouchUpInside];
@@ -378,6 +404,61 @@ static NSString * const loadedTimeRanges = @"loadedTimeRanges";
     }];
 }
 
+- (void)createProgressView
+{
+    _currentTime = [UILabel new];
+    _currentTime.backgroundColor = [UIColor clearColor];
+    _currentTime.textColor = [UIColor whiteColor];
+    _currentTime.font = [UIFont systemFontOfSize:14.0];
+    _currentTime.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_currentTime];
+    
+    _allTime = [UILabel new];
+    _allTime.backgroundColor = [UIColor clearColor];
+    _allTime.textColor = [UIColor whiteColor];
+    _allTime.font = [UIFont systemFontOfSize:14.0];
+    _allTime.textAlignment = NSTextAlignmentCenter;
+    [self.view addSubview:_allTime];
+    
+    _playProgress = [UISlider new];
+    _playProgress.minimumTrackTintColor = [UIColor lightGrayColor];
+    _playProgress.maximumTrackTintColor = [UIColor whiteColor];
+    _playProgress.value = 0.0;
+    _playProgress.minimumValue = 0.0;
+    _playProgress.maximumValue = _ysAudioPlayer.duration;
+    _playProgress.continuous = NO; //设置只有在离开滑动条的最后时刻才触发滑动事件 默认是YES
+//    [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_love"] forState:UIControlStateNormal];
+//    [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateHighlighted];
+    [_playProgress addTarget:self action:@selector(changeSliderValue:) forControlEvents:UIControlEventValueChanged];
+    [self.view addSubview:_playProgress];
+    
+    [_currentTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(45, 20));
+        make.left.equalTo(self.view).with.offset(5);
+        make.bottom.equalTo(self.view).offset(-60);
+    }];
+    
+    [_playProgress mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 110, 2));
+        make.left.equalTo(_currentTime).with.offset(5 + 45);
+        make.centerY.equalTo(_currentTime).with.offset(0);
+    }];
+    
+    [_allTime mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(45, 20));
+        make.right.equalTo(self.view).with.offset(-5);
+        make.centerY.equalTo(_currentTime).with.offset(0);
+    }];
+}
+
+#pragma mark - click
+- (void)changeSliderValue:(id)sender
+{
+    UISlider * slider = (UISlider *)sender;
+    
+    [_ysAudioPlayer setCurrentTime:slider.value];
+}
+
 - (void)clickCollectionBtn:(UIButton *)sender
 {
     sender.selected = !sender.selected;
@@ -400,73 +481,200 @@ static NSString * const loadedTimeRanges = @"loadedTimeRanges";
 
 - (void)clickToPlayOrder:(UIButton *)sender
 {
+    if (_settingType == AudioPlaySettingOne) {
+        // 单首播放
+        _settingType = AudioPlaySettingList;
+        
+    }
+    else if (_settingType == AudioPlaySettingList) {
+        // 顺序播放
+        _settingType = AudioPlaySettingAny;
+        
+    }
+    else if (_settingType == AudioPlaySettingAny){
+        // 随机播放
+        _settingType = AudioPlaySettingOne;
+        
+    }
+    
+    if (_settingType == AudioPlaySettingOne) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_one_prs"] forState:UIControlStateNormal];
+    }
+    else if (_settingType == AudioPlaySettingList) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
+    }
+    else if (_settingType == AudioPlaySettingAny){
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_shuffle_prs"] forState:UIControlStateNormal];
+    }
 
 }
 
 - (void)clickToFront:(UIButton *)sender
 {
-    
+    // 上一首
+    if (_currentIndex != 0) {
+        _currentIndex--;
+        [self createAVPlayer:_webAudioList[_currentIndex]];
+        [self updateSongInfo:_webAudioList[_currentIndex]];
+    }
 }
 
 - (void)clickToPlayOrPause:(UIButton *)sender
 {
+    if (_playStatus == AudioPlayStatusPlaying) {
+        // 暂停
+        _playStatus = AudioPlayStatusPause;
+        [_ysAudioPlayer pause];
+        
+        //暂停定时器，注意不能调用invalidate方法，此方法会取消，之后无法恢复
+        _ysTime.fireDate = [NSDate distantFuture];
+    }
+    else {
+        // 开始播放
+        _playStatus = AudioPlayStatusPlaying;
+        [_ysAudioPlayer play];
+        
+        //恢复定时器
+        _ysTime.fireDate = [NSDate distantPast];
+    }
     
+    if (_playStatus == AudioPlayStatusPause) {
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
+    }
+    else {
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)clickToNext:(UIButton *)sender
 {
-    
+    // 下一首
+    if (_currentIndex < [_webAudioList count] - 1) {
+        _currentIndex ++;
+        [self createAVPlayer:_webAudioList[_currentIndex]];
+        [self updateSongInfo:_webAudioList[_currentIndex]];
+    }
 }
 
 - (void)clickToList:(UIButton *)sender
 {
-    
-}
-
-- (void)createProgressView
-{
-    _currentTime = [UILabel new];
-    _currentTime.backgroundColor = [UIColor redColor];
-    [self.view addSubview:_currentTime];
-    
-    _allTime = [UILabel new];
-    _allTime.backgroundColor = [UIColor redColor];
-    [self.view addSubview:_allTime];
-    
-    _playProgress = [UIProgressView new];
-    _playProgress.progressViewStyle = UIProgressViewStyleBar;
-    _playProgress.progressTintColor = [UIColor redColor];
-    _playProgress.trackTintColor = [UIColor whiteColor];
-    _playProgress.progress = 0.7;
-    [self.view addSubview:_playProgress];
-    
-    [_currentTime mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(45, 20));
-        make.left.equalTo(self.view).with.offset(5);
-        make.bottom.equalTo(self.view).offset(-80);
-    }];
-    
-    [_playProgress mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 110, 2));
-        make.left.equalTo(_currentTime).with.offset(5 + 45);
-        make.centerY.equalTo(_currentTime).with.offset(0);
-    }];
-    
-    [_allTime mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(45, 20));
-        make.right.equalTo(self.view).with.offset(-5);
-        make.centerY.equalTo(_currentTime).with.offset(0);
-    }];
+    _listTableView.hidden = !_listTableView.hidden;
 }
 
 #pragma mark - time update
 - (void)ysPlayTimer
 {
-    _currentTimeInterval += 0.1;
+    _currentTime.text = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.currentTime];
     
+    if (_playProgress.state == UIControlStateNormal) {
+        [_playProgress setValue:_ysAudioPlayer.currentTime animated:YES];
+    }
 }
 
 #pragma mark - AVAudioPlayerDelegate
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    // 播放完成
+    NSLog(@"++++++++++++++++ 播放完成！");
+    
+    _ysTime.fireDate = [NSDate distantFuture];
+    _ysAudioPlayer.currentTime = 0;
+    
+    if (_settingType == AudioPlaySettingOne) {
+        
+        [self createAVPlayer:_webAudioList[_currentIndex]];
+        [self updateSongInfo:_webAudioList[_currentIndex]];
+        
+    }
+    else if (_settingType == AudioPlaySettingList) {
+        
+        if (_currentIndex < [_webAudioList count] - 1) {
+            
+            _currentIndex++;
+            [self createAVPlayer:_webAudioList[_currentIndex]];
+            [self updateSongInfo:_webAudioList[_currentIndex]];
+            
+        }
+        else {
+            
+            _ysAudioPlayer = nil;
+            [self invalidTimer];
+            
+        }
+        
+    }
+    else if (_settingType == AudioPlaySettingAny){
+        // 随机播放
+        NSInteger anyIndex = arc4random()%3;
+        while (anyIndex == _currentIndex) {
+            anyIndex = arc4random()%3;
+        }
+        _currentIndex = anyIndex;
+        
+        [self createAVPlayer:_webAudioList[_currentIndex]];
+        [self updateSongInfo:_webAudioList[_currentIndex]];
+    }
+}
 
+#pragma mark - UITableViewDelegate, UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_webAudioList count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    ListTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ListCellID];
+    
+    if (_currentIndex == indexPath.row) {
+        cell.contentView.backgroundColor = [UIColor colorWithWhite:0.7 alpha:0.8];
+    }
+    else {
+        cell.contentView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:0.8];
+    }
+    
+    [cell setListCellContent:_webAudioList[indexPath.row] time:@""];
+    
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView fd_heightForCellWithIdentifier:ListCellID cacheByIndexPath:indexPath configuration:^(id cell) {
+        [cell setListCellContent:_webAudioList[indexPath.row] time:@""];
+    }];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (_currentIndex != indexPath.row) {
+        
+        _currentIndex = indexPath.row;
+        YSSongModel * model = _webAudioList[indexPath.row];
+        
+        if (_type == AudioTypeLocal) {
+            [self createAVPlayer:model];
+            [self updateSongInfo:model];
+        }
+        
+    }
+}
+
+- (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [cell setSeparatorInset:UIEdgeInsetsZero];
+    [cell setLayoutMargins:UIEdgeInsetsZero];
+}
+
+#pragma mark - private
+- (NSString *)turnIntoTimeWithTimeInterval:(NSTimeInterval)timeInterval
+{
+    NSInteger min = floorf(timeInterval) / 60;
+    NSInteger sec = floorf(timeInterval) - min * 60;
+    
+    return [NSString stringWithFormat:@"%.2ld:%.2ld", min, sec];
+}
 
 @end

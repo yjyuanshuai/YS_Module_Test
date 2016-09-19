@@ -7,6 +7,7 @@
 //
 
 #import "YSRootViewController.h"
+@class YSSongModel;
 
 typedef NS_ENUM(NSInteger, AudioType)
 {
@@ -14,8 +15,21 @@ typedef NS_ENUM(NSInteger, AudioType)
     AudioTypeLocal      //
 };
 
+typedef NS_ENUM(NSInteger, AudioPlaySetting)
+{
+    AudioPlaySettingList,   // 按序播放
+    AudioPlaySettingAny,    // 随机播放
+    AudioPlaySettingOne     // 单首循环
+};
+
+typedef NS_ENUM(NSInteger, AudioPlayStatus)
+{
+    AudioPlayStatusPlaying,     // 正在播放
+    AudioPlayStatusPause        // 暂停
+};
+
 @interface YSPlayViewController : YSRootViewController
 
-- (instancetype)initWithPlayType:(AudioType)type;
+- (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr;
 
 @end

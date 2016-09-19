@@ -14,6 +14,7 @@
 #import "YSWebViewController.h"
 #import "YSHarewareViewController.h"
 #import "YSOtherViewController.h"
+#import "YSNewSystemViewController.h"
 
 NSInteger const TabBarTag = 20160715;
 
@@ -28,6 +29,7 @@ NSInteger const TabBarTag = 20160715;
 @property (nonatomic, strong) UINavigationController * webNavCon;
 @property (nonatomic, strong) UINavigationController * harewareNavCon;
 @property (nonatomic, strong) UINavigationController * otherNavCon;
+@property (nonatomic, strong) UINavigationController * iOSNewSystemCon;
 
 @end
 
@@ -67,8 +69,8 @@ NSInteger const TabBarTag = 20160715;
 
 - (void)initData
 {
-    _tabbarItemTitles = @[@"UI", @"存储", @"语言", @"网络", @"硬件", @"其他"];
-    _navItemTitles = @[@"UI有关", @"存储有关", @"语言有关", @"网络有关", @"硬件有关", @"其他有关"];
+    _tabbarItemTitles = @[@"UI", @"存储", @"语言", @"网络", @"硬件", @"其他", @"新系统功能"];
+    _navItemTitles = @[@"UI有关", @"存储有关", @"语言有关", @"网络有关", @"硬件有关", @"其他有关", @"系统功能"];
 }
 
 - (void)createViewController
@@ -120,7 +122,15 @@ NSInteger const TabBarTag = 20160715;
     otherVC.tabBarItem.title = _tabbarItemTitles[5];
     _otherNavCon = [[UINavigationController alloc] initWithRootViewController:otherVC];
     _otherNavCon.navigationItem.title = _navItemTitles[5];
-    self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon];
+    
+    YSNewSystemViewController * newSystemVC = [[YSNewSystemViewController alloc] init];
+    newSystemVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[6]
+                                                           image:[self deleteMaskImage:@"tab_one_num"]
+                                                   selectedImage:[UIImage imageNamed:@"tab_one_sel"]];
+    _iOSNewSystemCon = [[UINavigationController alloc] initWithRootViewController:newSystemVC];
+    _iOSNewSystemCon.navigationItem.title = _navItemTitles[6];
+    
+    self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon, _iOSNewSystemCon];
 }
 
 - (void)setTabbarItemTitle

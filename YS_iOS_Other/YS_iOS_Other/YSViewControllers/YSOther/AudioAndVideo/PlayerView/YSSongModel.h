@@ -12,6 +12,7 @@
 
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString * url;
+@property (nonatomic, copy) NSString * songerName;
 
 - (instancetype)initWithWebSongDic:(NSDictionary *)dic;
 

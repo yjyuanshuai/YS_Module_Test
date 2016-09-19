@@ -3,10 +3,50 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>name</key>
-		<string>第一首</string>
-		<key>audiourl</key>
-		<string>https://cl.ly/3M1Z1Z0B3V2i</string>
+		<key>webAudioArr</key>
+		<array>
+			<dict>
+				<key>url</key>
+				<string>https://cl.ly/3M1Z1Z0B3V2i</string>
+				<key>name</key>
+				<string>未知歌曲1</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>https://cl.ly/323p0N2w0W2o</string>
+				<key>name</key>
+				<string>未知歌曲2</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>https://cl.ly/1B2t170g0i3k</string>
+				<key>name</key>
+				<string>未知歌曲3</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>localAudioArr</key>
+		<array>
+			<dict>
+				<key>url</key>
+				<string>1407030003</string>
+				<key>name</key>
+				<string>本地歌曲3</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>13010100001</string>
+				<key>name</key>
+				<string>本地歌曲1</string>
+			</dict>
+			<dict>
+				<key>url</key>
+				<string>1304090002</string>
+				<key>name</key>
+				<string>本地歌曲2</string>
+			</dict>
+		</array>
 	</dict>
 </array>
 </plist>

@@ -14,7 +14,7 @@
 {
     if (self = [super init]) {
         _name = dic[@"name"];
-        _url = dic[@"audiourl"];
+        _url = dic[@"url"];
     }
     return self;
 }
