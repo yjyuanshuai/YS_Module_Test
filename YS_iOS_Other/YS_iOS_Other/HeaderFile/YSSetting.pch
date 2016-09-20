@@ -15,7 +15,9 @@
 
 #import "Masonry.h"
 #import "GlobalString.h"
-#import "YSLogControl.h"
+//#import "YSLogControl.h"
+#import "YSCocoaLumberjackLog.h"
 #import "UITableView+FDTemplateLayoutCell.h"
+#import <CocoaLumberjack/CocoaLumberjack.h>
 
 #endif /* YSSetting_pch */

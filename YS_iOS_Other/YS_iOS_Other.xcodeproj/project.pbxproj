@@ -132,6 +132,7 @@
 		39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */; };
 		39BEAD031D7FE50800FD36A5 /* FileKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */; };
 		39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */; };
+		39C4F2461D910B9400E4FADE /* libCocoaLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
 		39CAB15C1D816DFD0078AFF5 /* 13010100001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB1591D816DFD0078AFF5 /* 13010100001.mp3 */; };
 		39CAB15D1D816DFD0078AFF5 /* 1304090002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15A1D816DFD0078AFF5 /* 1304090002.mp3 */; };
@@ -387,12 +388,14 @@
 		39B218C71D192794008DD042 /* TwoDocumentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDocumentTableViewCell.h; sourceTree = "<group>"; };
 		39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDocumentTableViewCell.m; sourceTree = "<group>"; };
 		39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDocumentTableViewCell.xib; sourceTree = "<group>"; };
+		39B80DDA1D911065000CE3A0 /* YSCocoaLumberjackLog.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSCocoaLumberjackLog.h; sourceTree = "<group>"; };
 		39BBEA651D5DA46500F192F2 /* UIImage+YSImageCategare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YSImageCategare.h"; sourceTree = "<group>"; };
 		39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YSImageCategare.m"; sourceTree = "<group>"; };
 		39BEAD011D7FE50800FD36A5 /* FileKnowledgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileKnowledgeView.h; sourceTree = "<group>"; };
 		39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileKnowledgeView.m; sourceTree = "<group>"; };
 		39BEAD041D7FE52300FD36A5 /* CodeKnowledgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeKnowledgeView.h; sourceTree = "<group>"; };
 		39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeKnowledgeView.m; sourceTree = "<group>"; };
+		39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocoaLumberjack.a; path = "Pods/../build/Debug-iphoneos/CocoaLumberjack/libCocoaLumberjack.a"; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
 		39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionTestModel.m; path = YS_iOS_Other/Models/CollectionTestModel.m; sourceTree = SOURCE_ROOT; };
 		39CAB1591D816DFD0078AFF5 /* 13010100001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 13010100001.mp3; sourceTree = "<group>"; };
@@ -466,6 +469,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C4F2461D910B9400E4FADE /* libCocoaLumberjack.a in Frameworks */,
 				50D75D14D975D3AE20792831 /* libPods-YS_iOS_Other.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1044,6 +1048,7 @@
 				393E98CF1D3F1A4D00D10561 /* YSSetting.pch */,
 				393E98C81D3F10A800D10561 /* GlobalString.h */,
 				393E98C91D3F10A800D10561 /* YSLogControl.h */,
+				39B80DDA1D911065000CE3A0 /* YSCocoaLumberjackLog.h */,
 			);
 			name = "Header File";
 			sourceTree = "<group>";
@@ -1359,6 +1364,7 @@
 		D6C183E4E3E19DB390670CA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */,
 				9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */,
 			);
 			name = Frameworks;
@@ -1871,6 +1877,10 @@
 				INFOPLIST_FILE = YS_iOS_Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/CocoaLumberjack",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuai.ysTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
@@ -1890,6 +1900,10 @@
 				INFOPLIST_FILE = YS_iOS_Other/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/build/Debug-iphoneos/CocoaLumberjack",
+				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuai.ysTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";

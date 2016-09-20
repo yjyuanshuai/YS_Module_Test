@@ -9,6 +9,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>CocoaLumberjack.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -42,12 +47,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>09D379E5234F40D81785F0F96CD07CEB</key>
+		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>196C05F00F214E9C955B98082E149714</key>
+		<key>177481A04DEFE638AF49E4A13EA3C739</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -57,7 +62,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5F14FB40B770ED13AB6F8D786F33BA46</key>
+		<key>5D4C2A7CD048748887FEEA63CC0AEADF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7726E0150E6CEC467E223D44CA94ECC7</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -67,12 +77,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>AD1564FD6B42AADF6313B18503868771</key>
+		<key>D4407F4118834E9E326812225EC2B1AA</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>E310E11B00A7DE81477CF300BFDAD0B7</key>
+		<key>D8E6B8DE91B1EC34594F125B25860D1E</key>
 		<dict>
 			<key>primary</key>
 			<true/>

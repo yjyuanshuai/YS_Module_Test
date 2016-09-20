@@ -15,6 +15,14 @@ PODS:
   - AFNetworking/UIKit (3.0.0):
     - AFNetworking/NSURLSession
   - BaiduMapKit (3.0.0)
+  - CocoaLumberjack (2.3.0):
+    - CocoaLumberjack/Default (= 2.3.0)
+    - CocoaLumberjack/Extensions (= 2.3.0)
+  - CocoaLumberjack/Core (2.3.0)
+  - CocoaLumberjack/Default (2.3.0):
+    - CocoaLumberjack/Core
+  - CocoaLumberjack/Extensions (2.3.0):
+    - CocoaLumberjack/Default
   - Masonry (1.0.1)
   - QBImagePickerController (3.4.0)
   - RESideMenu (4.0.7)
@@ -23,6 +31,7 @@ PODS:
 DEPENDENCIES:
   - AFNetworking (= 3.0.0)
   - BaiduMapKit (= 3.0.0)
+  - CocoaLumberjack (= 2.3.0)
   - Masonry (= 1.0.1)
   - QBImagePickerController (= 3.4.0)
   - RESideMenu (= 4.0.7)
@@ -31,11 +40,12 @@ DEPENDENCIES:
 SPEC CHECKSUMS:
   AFNetworking: 932ff751f9d6fb1dad0b3af58b7e3ffba0a4e7fd
   BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
+  CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
-PODFILE CHECKSUM: dac736919c42f1f603e20bd19d72876f99210787
+PODFILE CHECKSUM: 2fbc55de10305818d6ac5f305a4b531e303fb1e0
 
 COCOAPODS: 1.0.1

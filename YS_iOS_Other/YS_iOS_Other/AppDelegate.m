@@ -87,6 +87,13 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
 }
 
+#pragma mark - CocoaLumberjack
+- (void)initLogs
+{
+    [DDLog addLogger:[DDASLLogger sharedInstance]];
+    [DDLog addLogger:[DDTTYLogger sharedInstance]];
+}
+
 #pragma mark - 登录逻辑
 - (void)login
 {

@@ -136,9 +136,7 @@ static NSString * const LanguageCellID = @"LanguageCellID";
             else if (indexPath.row == 1)
             {
                 // 自定义手势
-                JianShuNavAnimationViewController * jianshuVC = [[JianShuNavAnimationViewController alloc] init];
-                jianshuVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:jianshuVC animated:YES];
+                
             }
             else if (indexPath.row == 2){
                 // 触摸
