@@ -15,6 +15,7 @@
 #import "YSHarewareViewController.h"
 #import "YSOtherViewController.h"
 #import "YSNewSystemViewController.h"
+#import "YSAnimationsViewController.h"
 
 NSInteger const TabBarTag = 20160715;
 
@@ -30,6 +31,7 @@ NSInteger const TabBarTag = 20160715;
 @property (nonatomic, strong) UINavigationController * harewareNavCon;
 @property (nonatomic, strong) UINavigationController * otherNavCon;
 @property (nonatomic, strong) UINavigationController * iOSNewSystemCon;
+@property (nonatomic, strong) UINavigationController * animationsCon;
 
 @end
 
@@ -69,8 +71,8 @@ NSInteger const TabBarTag = 20160715;
 
 - (void)initData
 {
-    _tabbarItemTitles = @[@"UI", @"存储", @"语言", @"网络", @"硬件", @"其他", @"新系统功能"];
-    _navItemTitles = @[@"UI有关", @"存储有关", @"语言有关", @"网络有关", @"硬件有关", @"其他有关", @"系统功能"];
+    _tabbarItemTitles = @[@"UI", @"存储", @"语言", @"网络", @"硬件", @"其他", @"新系统功能", @"各种动画效果"];
+    _navItemTitles = @[@"UI有关", @"存储有关", @"语言有关", @"网络有关", @"硬件有关", @"其他有关", @"系统功能", @"各种动画效果"];
 }
 
 - (void)createViewController
@@ -130,7 +132,14 @@ NSInteger const TabBarTag = 20160715;
     _iOSNewSystemCon = [[UINavigationController alloc] initWithRootViewController:newSystemVC];
     _iOSNewSystemCon.navigationItem.title = _navItemTitles[6];
     
-    self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon, _iOSNewSystemCon];
+    YSAnimationsViewController * animationVC = [YSAnimationsViewController new];
+    animationVC.tabBarItem = [[UITabBarItem alloc] initWithTitle:_tabbarItemTitles[7]
+                                                           image:[self deleteMaskImage:@"tab_fiv_num"]
+                                                   selectedImage:[UIImage imageNamed:@"tab_fou_sel"]];
+    _animationsCon = [[UINavigationController alloc] initWithRootViewController:animationVC];
+    _animationsCon.navigationItem.title = _navItemTitles[7];
+    
+    self.viewControllers = @[_uiNavCon, _saveDataNavCon, _languageNavCon, _webNavCon, _harewareNavCon, _otherNavCon, _iOSNewSystemCon, _animationsCon];
 }
 
 - (void)setTabbarItemTitle

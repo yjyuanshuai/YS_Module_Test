@@ -15,9 +15,6 @@
 // 1
 #import "SevenBaiduViewController.h"
 
-// 3
-#import "JianShuNavAnimationViewController.h"
-
 // 4
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "ImagesShowViewController.h"
@@ -32,7 +29,7 @@
 #import "VideoViewController.h"
 
 // 6
-#import "CMBViewController.h"
+
 
 // 7
 
@@ -69,18 +66,17 @@ static NSString * const OtherCellID = @"OtherCellID";
 {
     self.title = @"其他";
     
-    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 各种效果", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
+    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
     
     NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
     NSArray * sectionTwo    = @[@"本地化"];
-    NSArray * sectionThree  = @[@"导航栏效果"];
     NSArray * sectionFour   = @[@"照相机", @"相片库", @"日历事件"];
     NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
     NSArray * payArr        = @[@"招行一网通"];
     NSArray * sectionFive   = @[@"Quartz"];
     NSArray * sectionSix    = @[@"OpenGL"];
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, payArr, sectionFive, sectionSix] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, sectionFour, audioArr, payArr, sectionFive, sectionSix] mutableCopy];
 }
 
 - (void)createTableView
@@ -174,13 +170,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             
         case 2:
         {
-            if (indexPath.row == 0)
-            {
-                // 导航栏效果
-                JianShuNavAnimationViewController * jianshuNavVC = [[JianShuNavAnimationViewController alloc] init];
-                jianshuNavVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:jianshuNavVC animated:YES];
-            }
+            
         }
             break;
             
@@ -271,10 +261,7 @@ static NSString * const OtherCellID = @"OtherCellID";
         {
             if (indexPath.row == 0)
             {
-                // 招行一网通
-                CMBViewController * cmbVC = [[CMBViewController alloc] init];
-                cmbVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:cmbVC animated:YES];
+                
             }
         }
             break;
