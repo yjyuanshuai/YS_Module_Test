@@ -15,6 +15,9 @@
 // 1
 #import "SevenBaiduViewController.h"
 
+// 3
+#import "YSCoreTextViewController.h"
+
 // 4
 #import <QBImagePickerController/QBImagePickerController.h>
 #import "ImagesShowViewController.h"
@@ -66,17 +69,18 @@ static NSString * const OtherCellID = @"OtherCellID";
 {
     self.title = @"其他";
     
-    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
+    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 图文混排", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
     
     NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
     NSArray * sectionTwo    = @[@"本地化"];
+    NSArray * sectionThree  = @[@"CoreText"];
     NSArray * sectionFour   = @[@"照相机", @"相片库", @"日历事件"];
     NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
     NSArray * payArr        = @[@"招行一网通"];
     NSArray * sectionFive   = @[@"Quartz"];
     NSArray * sectionSix    = @[@"OpenGL"];
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionFour, audioArr, payArr, sectionFive, sectionSix] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, payArr, sectionFive, sectionSix] mutableCopy];
 }
 
 - (void)createTableView
@@ -170,7 +174,14 @@ static NSString * const OtherCellID = @"OtherCellID";
             
         case 2:
         {
-            
+            if (indexPath.row == 0) {
+                
+                // CoreText 图文混排
+                YSCoreTextViewController * coreTextVC = [[YSCoreTextViewController alloc] init];
+                coreTextVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:coreTextVC animated:YES];
+                
+            }
         }
             break;
             

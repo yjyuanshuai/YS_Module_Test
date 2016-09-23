@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3907D9891D94C991002E04B8 /* YSCoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D9881D94C991002E04B8 /* YSCoreTextViewController.m */; };
+		3907D98C1D94CB81002E04B8 /* ShowImageWordSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D98B1D94CB81002E04B8 /* ShowImageWordSortViewController.m */; };
+		3907D98F1D94CCB0002E04B8 /* FirstSimpleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D98E1D94CCB0002E04B8 /* FirstSimpleView.m */; };
+		3907D9921D94FBB8002E04B8 /* YSAttributeStrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D9911D94FBB8002E04B8 /* YSAttributeStrView.m */; };
 		39214A111D05203B0019422D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A101D05203B0019422D /* main.m */; };
 		39214A141D05203B0019422D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A131D05203B0019422D /* AppDelegate.m */; };
 		39214A1A1D05203B0019422D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39214A181D05203B0019422D /* Main.storyboard */; };
@@ -210,6 +214,14 @@
 
 /* Begin PBXFileReference section */
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
+		3907D9871D94C991002E04B8 /* YSCoreTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCoreTextViewController.h; sourceTree = "<group>"; };
+		3907D9881D94C991002E04B8 /* YSCoreTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCoreTextViewController.m; sourceTree = "<group>"; };
+		3907D98A1D94CB81002E04B8 /* ShowImageWordSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageWordSortViewController.h; sourceTree = "<group>"; };
+		3907D98B1D94CB81002E04B8 /* ShowImageWordSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageWordSortViewController.m; sourceTree = "<group>"; };
+		3907D98D1D94CCB0002E04B8 /* FirstSimpleView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstSimpleView.h; sourceTree = "<group>"; };
+		3907D98E1D94CCB0002E04B8 /* FirstSimpleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSimpleView.m; sourceTree = "<group>"; };
+		3907D9901D94FBB8002E04B8 /* YSAttributeStrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAttributeStrView.h; sourceTree = "<group>"; };
+		3907D9911D94FBB8002E04B8 /* YSAttributeStrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAttributeStrView.m; sourceTree = "<group>"; };
 		39214A0C1D05203B0019422D /* YS_iOS_Other.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YS_iOS_Other.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39214A101D05203B0019422D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39214A121D05203B0019422D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -523,6 +535,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3907D9861D94C978002E04B8 /* YSImageAndWordsSort */ = {
+			isa = PBXGroup;
+			children = (
+				3907D9871D94C991002E04B8 /* YSCoreTextViewController.h */,
+				3907D9881D94C991002E04B8 /* YSCoreTextViewController.m */,
+				3907D98A1D94CB81002E04B8 /* ShowImageWordSortViewController.h */,
+				3907D98B1D94CB81002E04B8 /* ShowImageWordSortViewController.m */,
+				3907D98D1D94CCB0002E04B8 /* FirstSimpleView.h */,
+				3907D98E1D94CCB0002E04B8 /* FirstSimpleView.m */,
+				3907D9901D94FBB8002E04B8 /* YSAttributeStrView.h */,
+				3907D9911D94FBB8002E04B8 /* YSAttributeStrView.m */,
+			);
+			name = YSImageAndWordsSort;
+			path = YSOther/YSImageAndWordsSort;
+			sourceTree = "<group>";
+		};
 		390C9ABA1D62BE8100F01C2F /* YSTemp */ = {
 			isa = PBXGroup;
 			children = (
@@ -839,6 +867,7 @@
 				393A078E1D475C52005114B1 /* YSOtherViewController.h */,
 				393A078F1D475C52005114B1 /* YSOtherViewController.m */,
 				3985944B1D13F06A00863A14 /* Map */,
+				3907D9861D94C978002E04B8 /* YSImageAndWordsSort */,
 				39CAB15F1D81735B0078AFF5 /* AudioAndVideo */,
 				3948F2D21D548103002F1778 /* CameraAndImagePicker */,
 				39EE774E1D82A75E00F35531 /* CanlenderThings */,
@@ -1821,6 +1850,7 @@
 				395ACEA41D937D4F00C22165 /* UIView+UniformDistribution.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
 				395ACE741D9377D800C22165 /* ThreeDemotionViewController.m in Sources */,
+				3907D9891D94C991002E04B8 /* YSCoreTextViewController.m in Sources */,
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				399C4A5A1D8F934700D8E6F6 /* ListTableViewCell.m in Sources */,
 				394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */,
@@ -1846,9 +1876,11 @@
 				39CAB17C1D8174FD0078AFF5 /* YSPlayViewController.m in Sources */,
 				395ACE7C1D93782E00C22165 /* TurnPageViewController.m in Sources */,
 				39CAB16F1D81735B0078AFF5 /* AudioAndVideoMainViewController.m in Sources */,
+				3907D98C1D94CB81002E04B8 /* ShowImageWordSortViewController.m in Sources */,
 				39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */,
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
+				3907D9921D94FBB8002E04B8 /* YSAttributeStrView.m in Sources */,
 				393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
@@ -1866,6 +1898,7 @@
 				39CAB1701D81735B0078AFF5 /* AudioOrVideoTableViewCell.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
 				39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */,
+				3907D98F1D94CCB0002E04B8 /* FirstSimpleView.m in Sources */,
 				395ACE731D9377D800C22165 /* PresentViewController.m in Sources */,
 				39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,

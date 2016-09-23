@@ -33,6 +33,7 @@
 
 - (void)loadView
 {
+    [super loadView];
     self.view = [_viewClass new];
     self.view.backgroundColor = [UIColor whiteColor];
 }
