@@ -3,17 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[AudioViewController viewDidLoad]:AudioViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_webAudiosArr">
-            </PersistentString>
-            <PersistentString
-               value = "_localAudiosArr">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[YSSearchBar layoutSubviews]:YSSearchBar.m">
          <PersistentStrings>
             <PersistentString
@@ -29,6 +18,36 @@
          <PersistentStrings>
             <PersistentString
                value = "_allTime.text">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AudioViewController viewDidLoad]:AudioViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_webAudiosArr">
+            </PersistentString>
+            <PersistentString
+               value = "_localAudiosArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OneSearchController searchBarSearchButtonClicked:]:OneSearchController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_historyArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[YSCustemSearchController searchBarTextDidBeginEditing:]:YSCustemSearchController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.active">
+            </PersistentString>
+            <PersistentString
+               value = "self.navigationController.navigationBar.hidden">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

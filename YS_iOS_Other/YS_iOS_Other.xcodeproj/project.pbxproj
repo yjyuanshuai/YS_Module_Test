@@ -79,7 +79,6 @@
 		394594A51D3878A50017F4A3 /* OneSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594A01D3878A50017F4A3 /* OneSearchController.m */; };
 		394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594A21D3878A50017F4A3 /* OneSearchDisplayController.m */; };
 		394594A71D3878A50017F4A3 /* SearchResultViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594A41D3878A50017F4A3 /* SearchResultViewController.m */; };
-		394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594A91D3878B40017F4A3 /* YSSearchBarView.m */; };
 		394594AD1D3878C20017F4A3 /* CustemSearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594AC1D3878C20017F4A3 /* CustemSearchViewController.m */; };
 		394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594AF1D3878D20017F4A3 /* ApplicationSettingViewController.m */; };
 		394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394594B21D3879200017F4A3 /* YSHarewareViewController.m */; };
@@ -170,6 +169,8 @@
 		39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ECC1D40BB7D0053EE02 /* YSRegisterViewController.m */; };
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
 		39EE77511D82A75E00F35531 /* CanlenderViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EE77501D82A75E00F35531 /* CanlenderViewController.m */; };
+		39F994211D9A4A830097DC26 /* YSCustemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F994201D9A4A830097DC26 /* YSCustemSearchBar.m */; };
+		39F994241D9A4FF80097DC26 /* YSCustemSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F994231D9A4FF80097DC26 /* YSCustemSearchController.m */; };
 		39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */; };
 		39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D61D66E68A00195C20 /* FileManagerView.m */; };
 		39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D91D66E69A00195C20 /* CodeManagerView.m */; };
@@ -328,8 +329,6 @@
 		394594A21D3878A50017F4A3 /* OneSearchDisplayController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = OneSearchDisplayController.m; path = YSUI/OneSearchDisplayController.m; sourceTree = "<group>"; };
 		394594A31D3878A50017F4A3 /* SearchResultViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SearchResultViewController.h; path = YSUI/SearchResultViewController.h; sourceTree = "<group>"; };
 		394594A41D3878A50017F4A3 /* SearchResultViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = SearchResultViewController.m; path = YSUI/SearchResultViewController.m; sourceTree = "<group>"; };
-		394594A81D3878B40017F4A3 /* YSSearchBarView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSSearchBarView.h; path = YSUI/YSSearchBarView.h; sourceTree = "<group>"; };
-		394594A91D3878B40017F4A3 /* YSSearchBarView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSSearchBarView.m; path = YSUI/YSSearchBarView.m; sourceTree = "<group>"; };
 		394594AB1D3878C20017F4A3 /* CustemSearchViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustemSearchViewController.h; path = YSUI/CustemSearchViewController.h; sourceTree = "<group>"; };
 		394594AC1D3878C20017F4A3 /* CustemSearchViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustemSearchViewController.m; path = YSUI/CustemSearchViewController.m; sourceTree = "<group>"; };
 		394594AE1D3878D20017F4A3 /* ApplicationSettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ApplicationSettingViewController.h; path = YSUI/ApplicationSettingViewController.h; sourceTree = "<group>"; };
@@ -478,6 +477,10 @@
 		39EA8ED01D40BC060053EE02 /* YSScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSScrollView.m; sourceTree = "<group>"; };
 		39EE774F1D82A75E00F35531 /* CanlenderViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CanlenderViewController.h; sourceTree = "<group>"; };
 		39EE77501D82A75E00F35531 /* CanlenderViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CanlenderViewController.m; sourceTree = "<group>"; };
+		39F9941F1D9A4A830097DC26 /* YSCustemSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSCustemSearchBar.h; path = YSUI/YSCustemSearchBar.h; sourceTree = "<group>"; };
+		39F994201D9A4A830097DC26 /* YSCustemSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSCustemSearchBar.m; path = YSUI/YSCustemSearchBar.m; sourceTree = "<group>"; };
+		39F994221D9A4FF80097DC26 /* YSCustemSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSCustemSearchController.h; path = YSUI/YSCustemSearchController.h; sourceTree = "<group>"; };
+		39F994231D9A4FF80097DC26 /* YSCustemSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSCustemSearchController.m; path = YSUI/YSCustemSearchController.m; sourceTree = "<group>"; };
 		39FCB8D21D66DEA900195C20 /* YSGCDTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSGCDTableViewCell.h; path = YSLanguage/YSGCDTableViewCell.h; sourceTree = "<group>"; };
 		39FCB8D31D66DEA900195C20 /* YSGCDTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSGCDTableViewCell.m; path = YSLanguage/YSGCDTableViewCell.m; sourceTree = "<group>"; };
 		39FCB8D51D66E68A00195C20 /* FileManagerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileManagerView.h; sourceTree = "<group>"; };
@@ -1488,10 +1491,12 @@
 			children = (
 				394594AB1D3878C20017F4A3 /* CustemSearchViewController.h */,
 				394594AC1D3878C20017F4A3 /* CustemSearchViewController.m */,
-				394594A81D3878B40017F4A3 /* YSSearchBarView.h */,
-				394594A91D3878B40017F4A3 /* YSSearchBarView.m */,
 				39E566191D7ACBCF00531331 /* YSSearchBar.h */,
 				39E5661A1D7ACBCF00531331 /* YSSearchBar.m */,
+				39F9941F1D9A4A830097DC26 /* YSCustemSearchBar.h */,
+				39F994201D9A4A830097DC26 /* YSCustemSearchBar.m */,
+				39F994221D9A4FF80097DC26 /* YSCustemSearchController.h */,
+				39F994231D9A4FF80097DC26 /* YSCustemSearchController.m */,
 			);
 			name = CustemSearchBar;
 			sourceTree = "<group>";
@@ -1831,6 +1836,7 @@
 				3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */,
 				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
 				395ACE761D9377D800C22165 /* ViewSimpleViewController.m in Sources */,
+				39F994211D9A4A830097DC26 /* YSCustemSearchBar.m in Sources */,
 				395ACE721D9377D800C22165 /* PictureAnimateViewController.m in Sources */,
 				39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */,
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
@@ -1853,7 +1859,6 @@
 				3907D9891D94C991002E04B8 /* YSCoreTextViewController.m in Sources */,
 				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				399C4A5A1D8F934700D8E6F6 /* ListTableViewCell.m in Sources */,
-				394594AA1D3878B40017F4A3 /* YSSearchBarView.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				395ACE711D9377D800C22165 /* CoreAnimationViewController.m in Sources */,
 				393A07901D475C52005114B1 /* YSOtherViewController.m in Sources */,
@@ -1871,6 +1876,7 @@
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
 				39E5661B1D7ACBCF00531331 /* YSSearchBar.m in Sources */,
+				39F994241D9A4FF80097DC26 /* YSCustemSearchController.m in Sources */,
 				3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */,
 				39BEAD031D7FE50800FD36A5 /* FileKnowledgeView.m in Sources */,
 				39CAB17C1D8174FD0078AFF5 /* YSPlayViewController.m in Sources */,
