@@ -21,6 +21,7 @@
     if (_resultArr == nil) {
         _resultArr = [@[] mutableCopy];
     }
+    
     [self createResultTableView];
 }
 

@@ -28,8 +28,6 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    self.view.backgroundColor = [UIColor whiteColor];
-    
     [self initUIAndData];
     [self createTableView];
     [self createSearchBarInNavBar];
@@ -51,6 +49,8 @@
 {
     _dataArr = [@[@"111", @"222", @"333", @"342", @"444", @"431", @"555", @"666", @"777", @"888", @"999"] mutableCopy];
     _historyArr = [@[] mutableCopy];
+    
+    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (void)createTableView
@@ -100,17 +100,20 @@
     // view上的搜索
     _ysSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
     _ysSearchCon.searchResultsUpdater = self;
-    _ysSearchCon.searchBar.delegate = self;
     _ysSearchCon.delegate = self;
     _ysSearchCon.dimsBackgroundDuringPresentation = NO;         //搜索时，背景变暗色，默认是 YES
     //    _ysSearchCon.obscuresBackgroundDuringPresentation = NO;     //搜索时，背景变模糊，默认是 YES
     //    _ysSearchCon.hidesNavigationBarDuringPresentation = NO;     //隐藏导航栏，默认是 YES
-    [_ysSearchCon.searchBar sizeToFit];
-//    _ysSearchCon.searchBar.frame = CGRectMake(0, 64, kScreenWidth, 44);
-//    [self.view addSubview:_ysSearchCon.searchBar];
-//    self.definesPresentationContext = YES;
     
-    _currentTableView.tableHeaderView = _ysSearchCon.searchBar;
+    _ysSearchCon.searchBar.translucent = NO;
+    _ysSearchCon.searchBar.prompt = @"";
+    _ysSearchCon.searchBar.delegate = self;
+    [_ysSearchCon.searchBar sizeToFit];
+    
+    [self.view addSubview:_ysSearchCon.searchBar];
+    self.definesPresentationContext = YES;
+    
+//    _currentTableView.tableHeaderView = _ysSearchCon.searchBar;
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate -
