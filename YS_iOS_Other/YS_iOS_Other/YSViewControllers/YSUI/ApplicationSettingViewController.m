@@ -7,6 +7,7 @@
 //
 
 #import "ApplicationSettingViewController.h"
+#import "YSButton.h"
 
 static NSString * const cell_id = @"cell_id";
 static NSString * const cell_id_openurl = @"cell_id_openurl";
@@ -31,8 +32,31 @@ static NSString * const cell_id_openurl = @"cell_id_openurl";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self initUIAndData];
-    [self createTableView];
+//    [self initUIAndData];
+//    [self createTableView];
+    
+    YSButton * btn1 = [[YSButton alloc] initWithFrame:CGRectMake(0, 0, 150, 21) imagePostion:ImagePostionDown];
+    btn1.btnImageView.image = [UIImage imageNamed:@"test20161011"];
+//    btn1.btnImageView.contentMode = UIViewContentModeScaleAspectFill;
+    btn1.btnImageView.clipsToBounds = YES;
+    btn1.btnTitle.text = @"测试测试测试";
+    btn1.marginEdge = UIEdgeInsetsMake(0, 0, 0, 10);
+    btn1.backgroundColor = [UIColor redColor];
+    [self.view addSubview:btn1];
+    
+    
+    
+    YSButton * btn2 = [YSButton new];
+    btn2.imagePostion = ImagePostionDown;
+    btn2.btnImageView.image = [UIImage imageNamed:@"test20161011"];
+    btn2.btnTitle.text = @"测试测试测试测试测试测试";
+    [self.view addSubview:btn2];
+    [btn2 mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.view).offset(85);
+        make.left.equalTo(self.view);
+        make.right.equalTo(self.view).offset(-70);
+        make.height.mas_equalTo(21);
+    }];
     
 }
 

@@ -21,7 +21,23 @@
         
         [self initData:postion];
         [self createSubView];
-        [self addOrUpdateConstraintForSubViewWithMarginX:_marginX marginY:_marginY space:_space];
+        [self addOrUpdateConstraintForSubViewWithEdge:_marginEdge space:_space];
+        
+    }
+    return self;
+}
+
+- (instancetype)init
+{
+    if (self = [super init]) {
+        
+    }
+    return self;
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super initWithCoder:aDecoder]) {
         
     }
     return self;
@@ -30,20 +46,22 @@
 #pragma mark - set
 - (void)setSpace:(NSInteger)space
 {
-    _space = space;
-    [self setNeedsUpdateConstraints];
+    if (_imagePostion == ImagePostionTop ||
+        _imagePostion == ImagePostionLeft ||
+        _imagePostion == ImagePostionBottem ||
+        _imagePostion == ImagePostionRight) {
+        
+        _space = space;
+        [self setNeedsUpdateConstraints];
+        [self updateConstraintsIfNeeded];
+    }
 }
 
-- (void)setMarginX:(NSInteger)marginX
+- (void)setMarginEdge:(UIEdgeInsets)marginEdge
 {
-    _marginX = marginX;
+    _marginEdge = marginEdge;
     [self setNeedsUpdateConstraints];
-}
-
-- (void)setMarginY:(NSInteger)marginY
-{
-    _marginY = marginY;
-    [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
 }
 
 - (void)setYsBtnTintColor:(UIColor *)ysBtnTintColor
@@ -68,6 +86,7 @@
 {
     _imagePostion = postion;
     [self setNeedsUpdateConstraints];
+    [self updateConstraintsIfNeeded];
 }
 
 - (void)setConstraintsArr:(NSMutableArray *)constraintsArr
@@ -82,8 +101,7 @@
 - (void)initData:(ImagePostion)postion
 {
     _imagePostion = postion;
-    _marginX = 5;
-    _marginY = 5;
+    _marginEdge = UIEdgeInsetsMake(5, 5, 5, 5);
     _space = 5;
     _constraintsArr = [NSMutableArray array];
     
@@ -99,6 +117,7 @@
     _btnTitle = [UILabel new];
     _btnTitle.adjustsFontSizeToFitWidth = YES;
     _btnTitle.numberOfLines = 0;
+    _btnTitle.font = [UIFont systemFontOfSize:16];
     _btnTitle.translatesAutoresizingMaskIntoConstraints = NO;
     [self addSubview:_btnTitle];
     
@@ -107,61 +126,123 @@
     [self addSubview:_btnImageView];
 }
 
-- (void)addOrUpdateConstraintForSubViewWithMarginX:(NSInteger)xMargin marginY:(NSInteger)yMargin space:(NSInteger)ySpace
+- (void)addOrUpdateConstraintForSubViewWithEdge:(UIEdgeInsets)insert space:(NSInteger)ySpace
 {
-    NSDictionary * metricDic = @{@"marginX":@(xMargin), @"marginY":@(yMargin), @"space":@(ySpace)};
-    NSDictionary * viewsDic= @{@"_btnTitle":_btnTitle, @"_btnImageView":_btnImageView};
+    NSDictionary * metricDic = @{@"marginLeft":@(insert.left),
+                                 @"marginRight":@(insert.right),
+                                 @"marginTop":@(insert.top),
+                                 @"marginBottem":@(insert.bottom),
+                                 @"space":@(ySpace)};
+    
+    NSDictionary * viewsDic= @{@"_btnTitle":_btnTitle,
+                               @"_btnImageView":_btnImageView};
     
     [self removeSelfAllContraints];
     
-    NSString * t_h_vfl_1 = @"";
-    NSString * i_h_vfl_1 = @"";
-    NSString * t_v_vfl_2 = @"";
-    
-    if (_imagePostion == ImagePostionTop) {
+    if (_imagePostion == ImagePostionTop ||
+        _imagePostion == ImagePostionRight ||
+        _imagePostion == ImagePostionBottem ||
+        _imagePostion == ImagePostionLeft) {
         
-        t_h_vfl_1 = @"H:|-marginX-[_btnImageView]-marginX-|";
-        i_h_vfl_1 = @"H:|-marginX-[_btnTitle]-marginX-|";
-        t_v_vfl_2 = @"V:|-marginY-[_btnImageView]-space-[_btnTitle]-marginY-|";
-    }
-    else if (_imagePostion == ImagePostionRight) {
+        NSString * t_h_vfl_1 = @"";
+        NSString * i_h_vfl_1 = @"";
+        NSString * t_v_vfl_2 = @"";
         
-        t_h_vfl_1 = @"V:|-marginY-[_btnTitle]-marginY-|";
-        i_h_vfl_1 = @"V:|-marginY-[_btnImageView]-marginY-|";
-        t_v_vfl_2 = @"H:|-marginX-[_btnTitle]-space-[_btnImageView]-marginX-|";
-    }
-    else if (_imagePostion == ImagePostionBottem) {
+        switch (_imagePostion) {
+            case ImagePostionTop:
+            {
+                t_h_vfl_1 = @"H:|-marginLeft-[_btnImageView]-marginRight-|";
+                i_h_vfl_1 = @"H:|-marginLeft-[_btnTitle]-marginRight-|";
+                t_v_vfl_2 = @"V:|-marginTop-[_btnImageView]-space-[_btnTitle]-marginBottem-|";
+            }
+                break;
+            case ImagePostionRight:
+            {
+                t_h_vfl_1 = @"V:|-marginTop-[_btnImageView]-marginBottem-|";
+                i_h_vfl_1 = @"V:|-marginTop-[_btnTitle]-marginBottem-|";
+                t_v_vfl_2 = @"H:|-marginLeft-[_btnTitle]-space-[_btnImageView]-marginRight-|";
+            }
+                break;
+            case ImagePostionBottem:
+            {
+                t_h_vfl_1 = @"H:|-marginLeft-[_btnTitle]-marginRight-|";
+                i_h_vfl_1 = @"H:|-marginLeft-[_btnImageView]-marginRight-|";
+                t_v_vfl_2 = @"V:|-marginTop-[_btnTitle]-space-[_btnImageView]-marginBottem-|";
+            }
+                break;
+            case ImagePostionLeft:
+            {
+                t_h_vfl_1 = @"V:|-marginTop-[_btnImageView]-marginBottem-|";
+                i_h_vfl_1 = @"V:|-marginTop-[_btnTitle]-marginBottem-|";
+                t_v_vfl_2 = @"H:|-marginLeft-[_btnImageView]-space-[_btnTitle]-marginRight-|";
+            }
+                break;
+        }
         
-        t_h_vfl_1 = @"H:|-marginX-[_btnTitle]-marginX-|";
-        i_h_vfl_1 = @"H:|-marginX-[_btnImageView]-marginX-|";
-        t_v_vfl_2 = @"V:|-marginY-[_btnTitle]-space-[_btnImageView]-marginY-|";
-    }
-    else {
+        NSArray * c_1 = [NSLayoutConstraint constraintsWithVisualFormat:t_h_vfl_1
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
         
-        t_h_vfl_1 = @"V:|-marginY-[_btnImageView]-marginY-|";
-        i_h_vfl_1 = @"V:|-marginY-[_btnTitle]-marginY-|";
-        t_v_vfl_2 = @"H:|-marginX-[_btnImageView]-space-[_btnTitle]-marginX-|";
+        NSArray * c_2 = [NSLayoutConstraint constraintsWithVisualFormat:i_h_vfl_1
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
+        
+        NSArray * c_3 = [NSLayoutConstraint constraintsWithVisualFormat:t_v_vfl_2
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
+        [self addConstraints:c_1];
+        [self addConstraints:c_2];
+        [self addConstraints:c_3];
+        
+        [_constraintsArr addObjectsFromArray:@[c_1, c_2, c_3]];
+        
     }
+    else if (_imagePostion == ImagePostionDown) {
+        
+        [self bringSubviewToFront:_btnTitle];
     
-    NSArray * c_1 = [NSLayoutConstraint constraintsWithVisualFormat:t_h_vfl_1
-                                                            options:0
-                                                            metrics:metricDic
-                                                              views:viewsDic];
-    
-    NSArray * c_2 = [NSLayoutConstraint constraintsWithVisualFormat:i_h_vfl_1
-                                                            options:0
-                                                            metrics:metricDic
-                                                              views:viewsDic];
-    
-    NSArray * c_3 = [NSLayoutConstraint constraintsWithVisualFormat:t_v_vfl_2
-                                                            options:0
-                                                            metrics:metricDic
-                                                              views:viewsDic];
-    [self addConstraints:c_1];
-    [self addConstraints:c_2];
-    [self addConstraints:c_3];
-    
-    [_constraintsArr addObjectsFromArray:@[c_1, c_2, c_3]];
+        NSString * t_vfl_1 = @"H:|-marginLeft-[_btnTitle]-marginRight-|";
+        NSString * t_vfl_2 = @"V:|-marginTop-[_btnTitle]-marginBottem-|";
+        NSString * i_vfl_1 = @"H:|-0-[_btnImageView]-0-|";
+        NSString * i_vfl_2 = @"V:|-0-[_btnImageView]-0-|";
+        
+        if (insert.left == 0 && insert.right != 0) {
+            t_vfl_1 = @"H:[_btnTitle]-marginRight-|";
+        }
+        else if (insert.left != 0 && insert.right == 0) {
+            t_vfl_1 = @"H:|-marginLeft-[_btnTitle]";
+        }
+        
+        NSArray * c_1 = [NSLayoutConstraint constraintsWithVisualFormat:i_vfl_1
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
+        
+        NSArray * c_2 = [NSLayoutConstraint constraintsWithVisualFormat:i_vfl_2
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
+        
+        NSArray * c_3 = [NSLayoutConstraint constraintsWithVisualFormat:t_vfl_1
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
+        
+        NSArray * c_4 = [NSLayoutConstraint constraintsWithVisualFormat:t_vfl_2
+                                                                options:0
+                                                                metrics:metricDic
+                                                                  views:viewsDic];
+        
+        [self addConstraints:c_1];
+        [self addConstraints:c_2];
+        [self addConstraints:c_3];
+        [self addConstraints:c_4];
+        
+        [_constraintsArr addObjectsFromArray:@[c_1, c_2, c_3, c_4]];
+    }
 }
 
 - (void)removeSelfAllContraints
@@ -176,7 +257,7 @@
 
 - (void)updateConstraints
 {
-    [self addOrUpdateConstraintForSubViewWithMarginX:_marginX marginY:_marginY space:_space];
+    [self addOrUpdateConstraintForSubViewWithEdge:_marginEdge space:_space];
     [super updateConstraints];
 }
 
