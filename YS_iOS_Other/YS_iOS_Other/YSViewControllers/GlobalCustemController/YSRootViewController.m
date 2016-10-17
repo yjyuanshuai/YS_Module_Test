@@ -64,14 +64,6 @@
     // 去掉左键返回中的 title
     [[UIBarButtonItem appearance] setBackButtonTitlePositionAdjustment:UIOffsetMake(0, -60)
                                                          forBarMetrics:UIBarMetricsDefault];
-    
-    /*
-    if (kSystemVersion >= 7.0)
-    {
-        self.extendedLayoutIncludesOpaqueBars = NO;
-        self.edgesForExtendedLayout           = UIRectEdgeBottom | UIRectEdgeLeft | UIRectEdgeRight;
-    }
-     */
 }
 
 #pragma mark -

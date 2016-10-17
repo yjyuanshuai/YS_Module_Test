@@ -662,7 +662,7 @@
 				39C621981D0E9A7500A34040 /* OnePicker */,
 				39C621971D0E9A6600A34040 /* OneCollection */,
 				396CCBCF1D0F93ED00C57543 /* OneHorizontalTableView */,
-				395E694F1D12774300CBDFE0 /* OneSearchDisplayViewController */,
+				395E694F1D12774300CBDFE0 /* OneSearch */,
 				39FEC0B91D1B73080036DAB3 /* CustemSearchBar */,
 				39B218AD1D18E0BE008DD042 /* OneUIapplicationSeting */,
 			);
@@ -1154,7 +1154,7 @@
 			path = NavigationBarEffect;
 			sourceTree = "<group>";
 		};
-		395E694F1D12774300CBDFE0 /* OneSearchDisplayViewController */ = {
+		395E694F1D12774300CBDFE0 /* OneSearch */ = {
 			isa = PBXGroup;
 			children = (
 				3945949F1D3878A50017F4A3 /* OneSearchController.h */,
@@ -1164,7 +1164,7 @@
 				394594A31D3878A50017F4A3 /* SearchResultViewController.h */,
 				394594A41D3878A50017F4A3 /* SearchResultViewController.m */,
 			);
-			name = OneSearchDisplayViewController;
+			name = OneSearch;
 			sourceTree = "<group>";
 		};
 		395E69531D1279E600CBDFE0 /* Categares */ = {

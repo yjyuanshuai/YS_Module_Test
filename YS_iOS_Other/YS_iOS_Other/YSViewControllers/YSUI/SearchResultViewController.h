@@ -8,9 +8,9 @@
 
 #import "YSRootViewController.h"
 
-@interface SearchResultViewController : YSRootViewController
+@interface SearchResultViewController : UITableViewController// YSRootViewController
 
-@property (nonatomic, strong) UITableView * resultTableView;
+//@property (nonatomic, strong) UITableView * resultTableView;
 @property (nonatomic, strong) NSMutableArray * resultArr;
 
 @end

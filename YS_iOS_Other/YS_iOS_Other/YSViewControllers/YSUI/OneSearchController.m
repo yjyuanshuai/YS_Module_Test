@@ -8,6 +8,8 @@
 
 #import "OneSearchController.h"
 #import "SearchResultViewController.h"
+#import "UIImage+YSImageCategare.h"
+#import "ApplicationSettingViewController.h"
 
 @interface OneSearchController ()<UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate, UISearchResultsUpdating, UISearchControllerDelegate>
 
@@ -15,6 +17,7 @@
 @property (nonatomic, strong) UITableView * historyTableView;
 @property (nonatomic, strong) UISearchController * navigationSearchCon;
 @property (nonatomic, strong) UISearchController * ysSearchCon;
+@property (nonatomic, strong) SearchResultViewController * searchResultVC;
 
 @end
 
@@ -28,16 +31,12 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    self.edgesForExtendedLayout = UIRectEdgeAll;
+    
     [self initUIAndData];
-    [self createTableView];
     [self createSearchBarInNavBar];
     [self createSearchBarInTableView];
-}
-
-- (void)viewWillAppear:(BOOL)animated
-{
-    [super viewWillAppear:animated];
-
+    [self createTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,8 +48,6 @@
 {
     _dataArr = [@[@"111", @"222", @"333", @"342", @"444", @"431", @"555", @"666", @"777", @"888", @"999"] mutableCopy];
     _historyArr = [@[] mutableCopy];
-    
-    self.view.backgroundColor = [UIColor lightGrayColor];
 }
 
 - (void)createTableView
@@ -61,7 +58,7 @@
      [self.view addSubview:_currentTableView];
     
     [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(64+44, 0, 0, 0));
     }];
     
     
@@ -81,39 +78,59 @@
 
 - (void)createSearchBarInNavBar
 {
-    SearchResultViewController * searchResultVC = [[SearchResultViewController alloc] init];
+    _searchResultVC = [[SearchResultViewController alloc] init];
+//    _searchResultVC.resultTableView.delegate = self;
     
     // 导航栏上的搜索
-    _navigationSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
+    _navigationSearchCon = [[UISearchController alloc] initWithSearchResultsController:_searchResultVC];
     _navigationSearchCon.searchResultsUpdater = self;
     _navigationSearchCon.searchBar.delegate = self;
     _navigationSearchCon.dimsBackgroundDuringPresentation = NO;
     _navigationSearchCon.hidesNavigationBarDuringPresentation = NO;
     [_navigationSearchCon.searchBar sizeToFit];
     
+    self.definesPresentationContext = YES;
+    
     self.navigationItem.titleView = _navigationSearchCon.searchBar;
 }
 
 - (void)createSearchBarInTableView
 {
-    SearchResultViewController * searchResultVC = [[SearchResultViewController alloc] init];
+    _searchResultVC = [[SearchResultViewController alloc] init];
+    
     // view上的搜索
-    _ysSearchCon = [[UISearchController alloc] initWithSearchResultsController:searchResultVC];
+    _ysSearchCon = [[UISearchController alloc] initWithSearchResultsController:self.searchResultVC];
     _ysSearchCon.searchResultsUpdater = self;
     _ysSearchCon.delegate = self;
+    _searchResultVC.tableView.delegate = self;
     _ysSearchCon.dimsBackgroundDuringPresentation = NO;         //搜索时，背景变暗色，默认是 YES
     //    _ysSearchCon.obscuresBackgroundDuringPresentation = NO;     //搜索时，背景变模糊，默认是 YES
     //    _ysSearchCon.hidesNavigationBarDuringPresentation = NO;     //隐藏导航栏，默认是 YES
     
-    _ysSearchCon.searchBar.translucent = NO;
-    _ysSearchCon.searchBar.prompt = @"";
+//    _ysSearchCon.searchBar.translucent = NO;
+//    _ysSearchCon.searchBar.prompt = @"";
     _ysSearchCon.searchBar.delegate = self;
     [_ysSearchCon.searchBar sizeToFit];
     
-    [self.view addSubview:_ysSearchCon.searchBar];
-    self.definesPresentationContext = YES;
+//    [self.view addSubview:_ysSearchCon.searchBar];
     
+    self.definesPresentationContext = YES;
 //    _currentTableView.tableHeaderView = _ysSearchCon.searchBar;
+    
+    
+    
+    
+    
+    
+    UITableView * tempTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    tempTableView.scrollEnabled = NO;
+    [self.view addSubview:tempTableView];
+    
+    [tempTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(64, 0, 0, 0));
+    }];
+    
+    tempTableView.tableHeaderView = _ysSearchCon.searchBar;
 }
 
 #pragma mark - UITableViewDataSource & UITableViewDelegate -
@@ -165,6 +182,11 @@
         
         _historyTableView.hidden = YES;
     }
+    else {
+        // 搜索结果页
+        ApplicationSettingViewController * appVC = [[ApplicationSettingViewController alloc] init];
+        [self.navigationController pushViewController:appVC animated:YES];
+    }
 }
 
 #pragma mark - UISearchResultsUpdating -
@@ -176,10 +198,11 @@
     
     NSPredicate * predicate = [NSPredicate predicateWithFormat:@"SELF contains [c] %@", searchBarStr];
     
-    SearchResultViewController * searchResultVC = (SearchResultViewController *)searchController.searchResultsController;
-    searchResultVC.resultArr = [[_dataArr filteredArrayUsingPredicate:predicate] mutableCopy];
+//    SearchResultViewController * searchResultVC = (SearchResultViewController *)searchController.searchResultsController;
+    _searchResultVC.resultArr = [[_dataArr filteredArrayUsingPredicate:predicate] mutableCopy];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [searchResultVC.resultTableView reloadData];
+//        [_searchResultVC.resultTableView reloadData];
+        [_searchResultVC.tableView reloadData];
     });
 }
 
@@ -192,11 +215,15 @@
 - (void)didPresentSearchController:(UISearchController *)searchController
 {
     NSLog(@"didPresentSearchController");
+    
+//    self.edgesForExtendedLayout = UIRectEdgeAll;
 }
 
 - (void)willDismissSearchController:(UISearchController *)searchController
 {
     NSLog(@"willDismissSearchController");
+    
+//    self.edgesForExtendedLayout = UIRectEdgeNone;
 }
 
 - (void)didDismissSearchController:(UISearchController *)searchController

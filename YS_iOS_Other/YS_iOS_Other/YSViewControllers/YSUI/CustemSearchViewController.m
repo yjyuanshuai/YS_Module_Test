@@ -188,7 +188,8 @@
     SearchResultViewController * searchResultVC = (SearchResultViewController *)searchController.searchResultsController;
     searchResultVC.resultArr = [[_dataArr filteredArrayUsingPredicate:predicate] mutableCopy];
     dispatch_async(dispatch_get_main_queue(), ^{
-        [searchResultVC.resultTableView reloadData];
+//        [searchResultVC.resultTableView reloadData];
+        [searchResultVC.tableView reloadData];
     });
 }
 

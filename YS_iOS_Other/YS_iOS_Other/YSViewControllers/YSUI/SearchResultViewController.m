@@ -8,7 +8,7 @@
 
 #import "SearchResultViewController.h"
 
-@interface SearchResultViewController ()<UITableViewDelegate, UITableViewDataSource>
+@interface SearchResultViewController ()<UITableViewDataSource>
 
 @end
 
@@ -22,26 +22,25 @@
         _resultArr = [@[] mutableCopy];
     }
     
-    [self createResultTableView];
+//    [self createResultTableView];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-- (void)createResultTableView
-{
-    _resultTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
-    _resultTableView.delegate = self;
-    _resultTableView.dataSource = self;
-    _resultTableView.backgroundColor = [UIColor orangeColor];
-    [self.view addSubview:_resultTableView];
-    
-    [_resultTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view);
-    }];
-}
+//
+//- (void)createResultTableView
+//{
+//    _resultTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+//    _resultTableView.dataSource = self;
+////    _resultTableView.backgroundColor = [UIColor orangeColor];
+//    [self.view addSubview:_resultTableView];
+//    
+//    [_resultTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+//        make.edges.equalTo(self.view);
+//    }];
+//}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

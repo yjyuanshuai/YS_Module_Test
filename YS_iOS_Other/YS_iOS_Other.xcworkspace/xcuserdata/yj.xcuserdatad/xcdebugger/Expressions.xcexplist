@@ -3,25 +3,6 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[YSSearchBar layoutSubviews]:YSSearchBar.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "self.bounds.size.width">
-            </PersistentString>
-            <PersistentString
-               value = "self.textFeildContentInset.right">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[YSPlayViewController createAVPlayer]:YSPlayViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_allTime.text">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
          contextName = "-[AudioViewController viewDidLoad]:AudioViewController.m">
          <PersistentStrings>
             <PersistentString
@@ -41,13 +22,10 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[YSCustemSearchController searchBarTextDidBeginEditing:]:YSCustemSearchController.m">
+         contextName = "-[YSPlayViewController createAVPlayer]:YSPlayViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.active">
-            </PersistentString>
-            <PersistentString
-               value = "self.navigationController.navigationBar.hidden">
+               value = "_allTime.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -56,6 +34,36 @@
          <PersistentStrings>
             <PersistentString
                value = "_ysSearchCon.searchBar.backgroundColor">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OneSearchController didPresentSearchController:]:OneSearchController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.edgesForExtendedLayout">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[YSSearchBar layoutSubviews]:YSSearchBar.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.bounds.size.width">
+            </PersistentString>
+            <PersistentString
+               value = "self.textFeildContentInset.right">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[YSCustemSearchController searchBarTextDidBeginEditing:]:YSCustemSearchController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "self.active">
+            </PersistentString>
+            <PersistentString
+               value = "self.navigationController.navigationBar.hidden">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
