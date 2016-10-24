@@ -38,6 +38,9 @@
 
 // 8
 
+// 9
+#import "ChooseDateViewController.h"
+
 static NSString * const OtherCellID = @"OtherCellID";
 
 @interface YSOtherViewController () <UITableViewDataSource, UITableViewDelegate, QBImagePickerControllerDelegate>
@@ -69,7 +72,7 @@ static NSString * const OtherCellID = @"OtherCellID";
 {
     self.title = @"其他";
     
-    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 图文混排", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL"];
+    _sectionTitleArr = @[@"1 地图", @"2 本地化", @"3 图文混排", @"4 系统功能调用", @"5 音/视频", @"6 支付", @"7 Quartz", @"8 OpenGL", @"9 暂时"];
     
     NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
     NSArray * sectionTwo    = @[@"本地化"];
@@ -79,8 +82,9 @@ static NSString * const OtherCellID = @"OtherCellID";
     NSArray * payArr        = @[@"招行一网通"];
     NSArray * sectionFive   = @[@"Quartz"];
     NSArray * sectionSix    = @[@"OpenGL"];
+    NSArray * tempArr       = @[@"temp1"];
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, payArr, sectionFive, sectionSix] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, audioArr, payArr, sectionFive, sectionSix, tempArr] mutableCopy];
 }
 
 - (void)createTableView
@@ -273,6 +277,15 @@ static NSString * const OtherCellID = @"OtherCellID";
             if (indexPath.row == 0)
             {
                 
+            }
+        }
+            break;
+        case 8:
+        {
+            if (indexPath.row == 0) {
+                ChooseDateViewController * chooseVC = [[ChooseDateViewController alloc] init];
+                chooseVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:chooseVC animated:YES];
             }
         }
             break;

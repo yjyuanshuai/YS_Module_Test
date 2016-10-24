@@ -638,7 +638,6 @@
 			children = (
 				39214A121D05203B0019422D /* AppDelegate.h */,
 				39214A131D05203B0019422D /* AppDelegate.m */,
-				390C9ABA1D62BE8100F01C2F /* YSTemp */,
 				39C6219C1D0EABA400A34040 /* Models */,
 				3945944B1D3875A70017F4A3 /* GlobalCustemController */,
 				39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */,
@@ -878,6 +877,7 @@
 				3948F2D21D548103002F1778 /* CameraAndImagePicker */,
 				39EE774E1D82A75E00F35531 /* CanlenderThings */,
 				39FF1F8F1D58183000463160 /* PayType */,
+				390C9ABA1D62BE8100F01C2F /* YSTemp */,
 			);
 			name = YSOther;
 			sourceTree = "<group>";
