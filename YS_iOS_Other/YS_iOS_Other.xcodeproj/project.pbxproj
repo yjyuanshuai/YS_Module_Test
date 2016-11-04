@@ -95,7 +95,6 @@
 		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
 		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
 		395118E11D598063008E339D /* WebAudioList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395118E01D598063008E339D /* WebAudioList.plist */; };
-		395562501D41B9780079CF6B /* YSNetWorking.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955624F1D41B9780079CF6B /* YSNetWorking.m */; };
 		395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 395562581D41C3550079CF6B /* MyKeyChainHelper.m */; };
 		3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955625B1D41C3840079CF6B /* YSKeyChainViewController.m */; };
 		3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955628D1D420A7D0079CF6B /* SQLViewController.m */; };
@@ -130,6 +129,7 @@
 		3991290B1D5C4D340099C279 /* tab_two_num.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128FF1D5C4D340099C279 /* tab_two_num.png */; };
 		3991290C1D5C4D340099C279 /* tab_two_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 399129001D5C4D340099C279 /* tab_two_sel.png */; };
 		399129121D5C87250099C279 /* YSCustemGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 399129111D5C87250099C279 /* YSCustemGesture.m */; };
+		3998D8791DCC7A6500704E26 /* YSNetRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998D8781DCC7A6500704E26 /* YSNetRequestManager.m */; };
 		399C4A5A1D8F934700D8E6F6 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 399C4A591D8F934700D8E6F6 /* ListTableViewCell.m */; };
 		399C4A611D8FC63500D8E6F6 /* cm2_icn_one_prs.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */; };
 		399C4A621D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5C1D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png */; };
@@ -360,8 +360,6 @@
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		395118E01D598063008E339D /* WebAudioList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebAudioList.plist; sourceTree = "<group>"; };
-		3955624E1D41B9780079CF6B /* YSNetWorking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSNetWorking.h; sourceTree = "<group>"; };
-		3955624F1D41B9780079CF6B /* YSNetWorking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSNetWorking.m; sourceTree = "<group>"; };
 		395562571D41C3550079CF6B /* MyKeyChainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKeyChainHelper.h; sourceTree = "<group>"; };
 		395562581D41C3550079CF6B /* MyKeyChainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKeyChainHelper.m; sourceTree = "<group>"; };
 		3955625A1D41C3840079CF6B /* YSKeyChainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSKeyChainViewController.h; sourceTree = "<group>"; };
@@ -413,6 +411,8 @@
 		399129001D5C4D340099C279 /* tab_two_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_two_sel.png; sourceTree = "<group>"; };
 		399129101D5C87250099C279 /* YSCustemGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustemGesture.h; sourceTree = "<group>"; };
 		399129111D5C87250099C279 /* YSCustemGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCustemGesture.m; sourceTree = "<group>"; };
+		3998D8771DCC7A6500704E26 /* YSNetRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSNetRequestManager.h; sourceTree = "<group>"; };
+		3998D8781DCC7A6500704E26 /* YSNetRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSNetRequestManager.m; sourceTree = "<group>"; };
 		399C4A581D8F934700D8E6F6 /* ListTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ListTableViewCell.h; sourceTree = "<group>"; };
 		399C4A591D8F934700D8E6F6 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_icn_one_prs.png; sourceTree = "<group>"; };
@@ -984,8 +984,8 @@
 		3955624D1D41B94B0079CF6B /* NetWork */ = {
 			isa = PBXGroup;
 			children = (
-				3955624E1D41B9780079CF6B /* YSNetWorking.h */,
-				3955624F1D41B9780079CF6B /* YSNetWorking.m */,
+				3998D8771DCC7A6500704E26 /* YSNetRequestManager.h */,
+				3998D8781DCC7A6500704E26 /* YSNetRequestManager.m */,
 			);
 			path = NetWork;
 			sourceTree = "<group>";
@@ -1832,6 +1832,7 @@
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
+				3998D8791DCC7A6500704E26 /* YSNetRequestManager.m in Sources */,
 				3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */,
 				394594971D3878850017F4A3 /* OneCollectionReusableView.m in Sources */,
 				394594541D3875DF0017F4A3 /* YSSaveDataViewController.m in Sources */,
@@ -1898,7 +1899,6 @@
 				393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */,
 				394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */,
 				39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */,
-				395562501D41B9780079CF6B /* YSNetWorking.m in Sources */,
 				39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */,
 				3948F2D51D548137002F1778 /* ImagesShowViewController.m in Sources */,
 				3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */,
