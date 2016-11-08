@@ -14,6 +14,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDB.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -39,6 +44,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>SDWebImage.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -47,12 +57,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
+		<key>0C76DA068D236F2A8DCF6134D69F0B40</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>177481A04DEFE638AF49E4A13EA3C739</key>
+		<key>12E2BC28C62976C425F4B71C2723F0B1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -62,12 +72,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>5D4C2A7CD048748887FEEA63CC0AEADF</key>
+		<key>7C86C487410279CC772362DC85D5D48D</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>7726E0150E6CEC467E223D44CA94ECC7</key>
+		<key>7CB7AA1773C08DAC9BDBB863BE54A74B</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -77,12 +87,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D4407F4118834E9E326812225EC2B1AA</key>
+		<key>9F12FB4A63E20F601CFB2E64A65B57C1</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D8E6B8DE91B1EC34594F125B25860D1E</key>
+		<key>B58CA2F896D866AE7B0C88F931108198</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CE702EB5AFD104D1F0F2966737C2729E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FE40764E621670585C89931B0857CCCD</key>
 		<dict>
 			<key>primary</key>
 			<true/>

@@ -113,6 +113,7 @@
 		395ACEA41D937D4F00C22165 /* UIView+UniformDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ACEA31D937D4F00C22165 /* UIView+UniformDistribution.m */; };
 		395ACEA81D9381B700C22165 /* JianShuNavAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ACEA71D9381B700C22165 /* JianShuNavAnimationViewController.m */; };
 		395E69591D128BE900CBDFE0 /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 395E69581D128BE900CBDFE0 /* btn1.png */; };
+		398100331DD168FE00E398FB /* YSFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 398100321DD168FE00E398FB /* YSFMDBManager.m */; };
 		3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */; };
 		398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594501D13F0D900863A14 /* SevenBaiduViewController.m */; };
 		398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594531D13F11900863A14 /* SevenGaoDeViewController.m */; };
@@ -391,6 +392,8 @@
 		395ACEA61D9381B700C22165 /* JianShuNavAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianShuNavAnimationViewController.h; sourceTree = "<group>"; };
 		395ACEA71D9381B700C22165 /* JianShuNavAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianShuNavAnimationViewController.m; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
+		398100311DD168FE00E398FB /* YSFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSFMDBManager.h; sourceTree = "<group>"; };
+		398100321DD168FE00E398FB /* YSFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSFMDBManager.m; sourceTree = "<group>"; };
 		3985944C1D13F0B800863A14 /* SevenAppleLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenAppleLocationViewController.h; sourceTree = "<group>"; };
 		3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenAppleLocationViewController.m; sourceTree = "<group>"; };
 		3985944F1D13F0D900863A14 /* SevenBaiduViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenBaiduViewController.h; sourceTree = "<group>"; };
@@ -1192,6 +1195,8 @@
 		3966393E1D1781C20069E0E8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				398100341DD1693300E398FB /* YSImageManager */,
+				398100301DD168F400E398FB /* YSFMDBManager */,
 				39FF1FBA1D5858B000463160 /* YSTime */,
 				393A07811D475B15005114B1 /* MBProgressHUD */,
 				395562561D41C3550079CF6B /* MyKeyChainHelper */,
@@ -1210,6 +1215,22 @@
 				3945949C1D3878950017F4A3 /* OneHorizontalTableViewController.m */,
 			);
 			name = OneHorizontalTableView;
+			sourceTree = "<group>";
+		};
+		398100301DD168F400E398FB /* YSFMDBManager */ = {
+			isa = PBXGroup;
+			children = (
+				398100311DD168FE00E398FB /* YSFMDBManager.h */,
+				398100321DD168FE00E398FB /* YSFMDBManager.m */,
+			);
+			path = YSFMDBManager;
+			sourceTree = "<group>";
+		};
+		398100341DD1693300E398FB /* YSImageManager */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YSImageManager;
 			sourceTree = "<group>";
 		};
 		3985944B1D13F06A00863A14 /* Map */ = {
@@ -1878,6 +1899,7 @@
 				39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */,
 				39CAB17E1D8174FD0078AFF5 /* YSVideoPlayerViewController.m in Sources */,
 				39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */,
+				398100331DD168FE00E398FB /* YSFMDBManager.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
 				39E5661B1D7ACBCF00531331 /* YSSearchBar.m in Sources */,

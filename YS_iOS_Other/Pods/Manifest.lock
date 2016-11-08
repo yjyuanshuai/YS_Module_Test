@@ -23,29 +23,39 @@ PODS:
     - CocoaLumberjack/Core
   - CocoaLumberjack/Extensions (2.3.0):
     - CocoaLumberjack/Default
+  - FMDB (2.6.2):
+    - FMDB/standard (= 2.6.2)
+  - FMDB/standard (2.6.2)
   - Masonry (1.0.1)
   - QBImagePickerController (3.4.0)
   - RESideMenu (4.0.7)
+  - SDWebImage (3.8.1):
+    - SDWebImage/Core (= 3.8.1)
+  - SDWebImage/Core (3.8.1)
   - UITableView+FDTemplateLayoutCell (1.4)
 
 DEPENDENCIES:
   - AFNetworking (= 3.1.0)
   - BaiduMapKit (= 3.0.0)
   - CocoaLumberjack (= 2.3.0)
+  - FMDB (= 2.6.2)
   - Masonry (= 1.0.1)
   - QBImagePickerController (= 3.4.0)
   - RESideMenu (= 4.0.7)
+  - SDWebImage (= 3.8.1)
   - UITableView+FDTemplateLayoutCell (= 1.4)
 
 SPEC CHECKSUMS:
   AFNetworking: 5e0e199f73d8626b11e79750991f5d173d1f8b67
   BaiduMapKit: de2a726d5296d6b2dc0e974b683af73153608dcd
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
+  FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
+  SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
-PODFILE CHECKSUM: 96d39e8595d5ba1fb40b47029e1ed4641a13d1c1
+PODFILE CHECKSUM: 1af5ad6fde7bc787f60e5f5b373cd0d42ab6492d
 
 COCOAPODS: 1.0.1
