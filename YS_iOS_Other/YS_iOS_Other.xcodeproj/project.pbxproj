@@ -11,6 +11,9 @@
 		3907D98C1D94CB81002E04B8 /* ShowImageWordSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D98B1D94CB81002E04B8 /* ShowImageWordSortViewController.m */; };
 		3907D98F1D94CCB0002E04B8 /* FirstSimpleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D98E1D94CCB0002E04B8 /* FirstSimpleView.m */; };
 		3907D9921D94FBB8002E04B8 /* YSAttributeStrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3907D9911D94FBB8002E04B8 /* YSAttributeStrView.m */; };
+		390DCE3C1DD313A000D8F733 /* YSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3B1DD313A000D8F733 /* YSAlertController.m */; };
+		390DCE3F1DD314C000D8F733 /* AlertControllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */; };
+		390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */; };
 		39214A111D05203B0019422D /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A101D05203B0019422D /* main.m */; };
 		39214A141D05203B0019422D /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39214A131D05203B0019422D /* AppDelegate.m */; };
 		39214A1A1D05203B0019422D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39214A181D05203B0019422D /* Main.storyboard */; };
@@ -143,7 +146,6 @@
 		39B218BA1D19175E008DD042 /* homeDirectiory.plist in Resources */ = {isa = PBXBuildFile; fileRef = 39B218B91D19175E008DD042 /* homeDirectiory.plist */; };
 		39B218BD1D191DC4008DD042 /* docModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218BC1D191DC4008DD042 /* docModel.m */; };
 		39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C01D1920C4008DD042 /* NSObject+RNSwizzle.m */; };
-		39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C41D19211F008DD042 /* NSString+BreakLine.m */; };
 		39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */; };
 		39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */; };
 		39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */; };
@@ -225,6 +227,12 @@
 		3907D98E1D94CCB0002E04B8 /* FirstSimpleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSimpleView.m; sourceTree = "<group>"; };
 		3907D9901D94FBB8002E04B8 /* YSAttributeStrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAttributeStrView.h; sourceTree = "<group>"; };
 		3907D9911D94FBB8002E04B8 /* YSAttributeStrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAttributeStrView.m; sourceTree = "<group>"; };
+		390DCE3A1DD313A000D8F733 /* YSAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAlertController.h; sourceTree = "<group>"; };
+		390DCE3B1DD313A000D8F733 /* YSAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAlertController.m; sourceTree = "<group>"; };
+		390DCE3D1DD314C000D8F733 /* AlertControllerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertControllerTableViewCell.h; sourceTree = "<group>"; };
+		390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertControllerTableViewCell.m; sourceTree = "<group>"; };
+		390DCE401DD318E800D8F733 /* NSString+YSStringDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YSStringDo.h"; sourceTree = "<group>"; };
+		390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YSStringDo.m"; sourceTree = "<group>"; };
 		39214A0C1D05203B0019422D /* YS_iOS_Other.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YS_iOS_Other.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39214A101D05203B0019422D /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39214A121D05203B0019422D /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = ../AppDelegate.h; sourceTree = "<group>"; };
@@ -432,8 +440,6 @@
 		39B218BC1D191DC4008DD042 /* docModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = docModel.m; path = YS_iOS_Other/Models/docModel.m; sourceTree = SOURCE_ROOT; };
 		39B218BF1D1920C4008DD042 /* NSObject+RNSwizzle.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+RNSwizzle.h"; sourceTree = "<group>"; };
 		39B218C01D1920C4008DD042 /* NSObject+RNSwizzle.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+RNSwizzle.m"; sourceTree = "<group>"; };
-		39B218C31D19211F008DD042 /* NSString+BreakLine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+BreakLine.h"; sourceTree = "<group>"; };
-		39B218C41D19211F008DD042 /* NSString+BreakLine.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+BreakLine.m"; sourceTree = "<group>"; };
 		39B218C71D192794008DD042 /* TwoDocumentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDocumentTableViewCell.h; sourceTree = "<group>"; };
 		39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDocumentTableViewCell.m; sourceTree = "<group>"; };
 		39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDocumentTableViewCell.xib; sourceTree = "<group>"; };
@@ -566,6 +572,18 @@
 			path = YSTemp;
 			sourceTree = "<group>";
 		};
+		390DCE391DD3136100D8F733 /* YSAlertController */ = {
+			isa = PBXGroup;
+			children = (
+				390DCE3D1DD314C000D8F733 /* AlertControllerTableViewCell.h */,
+				390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */,
+				390DCE3A1DD313A000D8F733 /* YSAlertController.h */,
+				390DCE3B1DD313A000D8F733 /* YSAlertController.m */,
+			);
+			name = YSAlertController;
+			path = YSUI/YSAlertController;
+			sourceTree = "<group>";
+		};
 		39214A031D05203B0019422D = {
 			isa = PBXGroup;
 			children = (
@@ -667,6 +685,7 @@
 				395E694F1D12774300CBDFE0 /* OneSearch */,
 				39FEC0B91D1B73080036DAB3 /* CustemSearchBar */,
 				39B218AD1D18E0BE008DD042 /* OneUIapplicationSeting */,
+				390DCE391DD3136100D8F733 /* YSAlertController */,
 			);
 			name = YSUI;
 			sourceTree = "<group>";
@@ -1335,8 +1354,8 @@
 		39B218C21D1920DB008DD042 /* NSString */ = {
 			isa = PBXGroup;
 			children = (
-				39B218C31D19211F008DD042 /* NSString+BreakLine.h */,
-				39B218C41D19211F008DD042 /* NSString+BreakLine.m */,
+				390DCE401DD318E800D8F733 /* NSString+YSStringDo.h */,
+				390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */,
 			);
 			path = NSString;
 			sourceTree = "<group>";
@@ -1879,11 +1898,11 @@
 				3926FB501D6557FD00E67C30 /* YSButton.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,
+				390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */,
 				395ACEA41D937D4F00C22165 /* UIView+UniformDistribution.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
 				395ACE741D9377D800C22165 /* ThreeDemotionViewController.m in Sources */,
 				3907D9891D94C991002E04B8 /* YSCoreTextViewController.m in Sources */,
-				39B218C51D19211F008DD042 /* NSString+BreakLine.m in Sources */,
 				399C4A5A1D8F934700D8E6F6 /* ListTableViewCell.m in Sources */,
 				39B218BD1D191DC4008DD042 /* docModel.m in Sources */,
 				395ACE711D9377D800C22165 /* CoreAnimationViewController.m in Sources */,
@@ -1917,6 +1936,7 @@
 				393A07951D475CFC005114B1 /* SixGestureViewController.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
+				390DCE3C1DD313A000D8F733 /* YSAlertController.m in Sources */,
 				3945949D1D3878950017F4A3 /* OneHorizontalTableViewCell.m in Sources */,
 				393A07A81D476A9F005114B1 /* GestureCollectionViewCell.m in Sources */,
 				394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */,
@@ -1934,6 +1954,7 @@
 				395ACE731D9377D800C22165 /* PresentViewController.m in Sources */,
 				39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,
+				390DCE3F1DD314C000D8F733 /* AlertControllerTableViewCell.m in Sources */,
 				39CAB16E1D81735B0078AFF5 /* AudioViewController.m in Sources */,
 				3945949E1D3878950017F4A3 /* OneHorizontalTableViewController.m in Sources */,
 				394594501D3875A70017F4A3 /* YSRootViewController.m in Sources */,

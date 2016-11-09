@@ -1,14 +1,14 @@
 //
-//  NSString+BreakLine.h
+//  NSString+YSStringDo.h
 //  YS_iOS_Other
 //
-//  Created by YJ on 16/6/21.
+//  Created by YJ on 16/11/9.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
-@interface NSString (BreakLine)
+@interface NSString (YSStringDo)
 
 /**
  *  将 “\n”解析为转行
@@ -41,7 +41,7 @@
  *  返回宽度
  */
 - (CGFloat)calculateWidthWithMaxHeight:(CGFloat)maxHeight
-                                 font:(UIFont *)font
-                            miniWidth:(CGFloat)miniWidth;
+                                  font:(UIFont *)font
+                             miniWidth:(CGFloat)miniWidth;
 
 @end

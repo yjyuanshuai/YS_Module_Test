@@ -1,14 +1,14 @@
 //
-//  NSString+BreakLine.m
+//  NSString+YSStringDo.m
 //  YS_iOS_Other
 //
-//  Created by YJ on 16/6/21.
+//  Created by YJ on 16/11/9.
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
-#import "NSString+BreakLine.h"
+#import "NSString+YSStringDo.h"
 
-@implementation NSString (BreakLine)
+@implementation NSString (YSStringDo)
 
 - (instancetype)analyseBreakLine
 {
@@ -21,10 +21,18 @@
  */
 - (BOOL)isBlank
 {
-    if ([self isEqualToString:@""] ||
-        [self isEqual:[NSNull class]] ||
-        self == nil ) {
-        
+    if ([self isEqual:@"NULL"] ||
+        [self isKindOfClass:[NSNull class]] ||
+        [self isEqual:[NSNull null]] ||
+        [self isEqual:NULL] ||
+        [[self class] isSubclassOfClass:[NSNull class]] ||
+        self == nil ||
+        self == NULL ||
+        [self isKindOfClass:[NSNull class]] ||
+        [[self stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceAndNewlineCharacterSet]] length]==0 ||
+        [self isEqualToString:@"<null>"] ||
+        [self isEqualToString:@"(null)"])
+    {
         return YES;
     }
     
