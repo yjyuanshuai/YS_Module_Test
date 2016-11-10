@@ -12,4 +12,6 @@
 
 @property (nonatomic, strong) UILabel * showLabel;
 
+- (void)setAlertConCellContent:(NSString *)str;
+
 @end

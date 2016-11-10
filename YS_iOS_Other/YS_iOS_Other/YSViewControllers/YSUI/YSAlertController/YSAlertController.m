@@ -60,8 +60,10 @@ static NSString * const AlertConCellID = @"AlertConCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     AlertControllerTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AlertConCellID];
-    
+    [cell setAlertConCellContent:_alertConArr[indexPath.row]];
     return cell;
 }
+
+//- (void)tableView
 
 @end
