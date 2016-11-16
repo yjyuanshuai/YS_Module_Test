@@ -110,6 +110,7 @@
 //    _ysSearchCon.searchBar.translucent = NO;
 //    _ysSearchCon.searchBar.prompt = @"";
     _ysSearchCon.searchBar.delegate = self;
+    _ysSearchCon.searchBar.searchBarStyle = UISearchBarStyleMinimal;
     [_ysSearchCon.searchBar sizeToFit];
     
 //    [self.view addSubview:_ysSearchCon.searchBar];

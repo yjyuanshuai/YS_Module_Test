@@ -8,7 +8,7 @@
 
 #import "YSDefaultsViewController.h"
 #import "YSUserDefaults.h"
-#import "NSString+BreakLine.h"
+#import "NSString+YSStringDo.h"
 
 @interface YSDefaultsViewController ()<UITextFieldDelegate, UIScrollViewDelegate>
 

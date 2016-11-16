@@ -39,7 +39,6 @@
 // 8
 
 // 9
-#import "ChooseDateViewController.h"
 
 static NSString * const OtherCellID = @"OtherCellID";
 
@@ -282,11 +281,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             break;
         case 8:
         {
-            if (indexPath.row == 0) {
-                ChooseDateViewController * chooseVC = [[ChooseDateViewController alloc] init];
-                chooseVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:chooseVC animated:YES];
-            }
+            
         }
             break;
             

@@ -7,7 +7,7 @@
 //
 
 #import "SQLDetailViewController.h"
-#import "NSString+BreakLine.h"
+#import "NSString+YSStringDo.h"
 
 @implementation SQLDetailModel
 
