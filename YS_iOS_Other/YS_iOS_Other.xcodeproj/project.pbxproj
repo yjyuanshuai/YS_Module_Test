@@ -33,6 +33,9 @@
 		39214A7F1D056A600019422D /* 7.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A731D056A600019422D /* 7.jpg */; };
 		39214A801D056A600019422D /* 8.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A741D056A600019422D /* 8.jpg */; };
 		39214A811D056A600019422D /* 9.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 39214A751D056A600019422D /* 9.jpg */; };
+		392327551DDD58B900AB4401 /* NavigationSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392327541DDD58B900AB4401 /* NavigationSearchController.m */; };
+		392327581DDD58DA00AB4401 /* TableHeadSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 392327571DDD58DA00AB4401 /* TableHeadSearchController.m */; };
+		3923275B1DDD58F200AB4401 /* ViewSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923275A1DDD58F200AB4401 /* ViewSearchController.m */; };
 		392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621961D2365D700CF4C90 /* UIColor+Image.m */; };
 		3926FB501D6557FD00E67C30 /* YSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926FB4F1D6557FD00E67C30 /* YSButton.m */; };
 		39399A0F1D24B57100409871 /* YSFileManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39399A0E1D24B57100409871 /* YSFileManager.m */; };
@@ -259,6 +262,12 @@
 		39214A731D056A600019422D /* 7.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 7.jpg; sourceTree = "<group>"; };
 		39214A741D056A600019422D /* 8.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 8.jpg; sourceTree = "<group>"; };
 		39214A751D056A600019422D /* 9.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = 9.jpg; sourceTree = "<group>"; };
+		392327531DDD58B900AB4401 /* NavigationSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = NavigationSearchController.h; path = YSUI/NavigationSearchController.h; sourceTree = "<group>"; };
+		392327541DDD58B900AB4401 /* NavigationSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = NavigationSearchController.m; path = YSUI/NavigationSearchController.m; sourceTree = "<group>"; };
+		392327561DDD58DA00AB4401 /* TableHeadSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TableHeadSearchController.h; path = YSUI/TableHeadSearchController.h; sourceTree = "<group>"; };
+		392327571DDD58DA00AB4401 /* TableHeadSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TableHeadSearchController.m; path = YSUI/TableHeadSearchController.m; sourceTree = "<group>"; };
+		392327591DDD58F200AB4401 /* ViewSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ViewSearchController.h; path = YSUI/ViewSearchController.h; sourceTree = "<group>"; };
+		3923275A1DDD58F200AB4401 /* ViewSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ViewSearchController.m; path = YSUI/ViewSearchController.m; sourceTree = "<group>"; };
 		392621951D2365D700CF4C90 /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
 		392621961D2365D700CF4C90 /* UIColor+Image.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+Image.m"; sourceTree = "<group>"; };
 		3926FB4E1D6557FD00E67C30 /* YSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSButton.h; sourceTree = "<group>"; };
@@ -1179,12 +1188,18 @@
 		395E694F1D12774300CBDFE0 /* OneSearch */ = {
 			isa = PBXGroup;
 			children = (
-				3945949F1D3878A50017F4A3 /* OneSearchController.h */,
-				394594A01D3878A50017F4A3 /* OneSearchController.m */,
-				394594A11D3878A50017F4A3 /* OneSearchDisplayController.h */,
-				394594A21D3878A50017F4A3 /* OneSearchDisplayController.m */,
 				394594A31D3878A50017F4A3 /* SearchResultViewController.h */,
 				394594A41D3878A50017F4A3 /* SearchResultViewController.m */,
+				3945949F1D3878A50017F4A3 /* OneSearchController.h */,
+				394594A01D3878A50017F4A3 /* OneSearchController.m */,
+				392327531DDD58B900AB4401 /* NavigationSearchController.h */,
+				392327541DDD58B900AB4401 /* NavigationSearchController.m */,
+				392327561DDD58DA00AB4401 /* TableHeadSearchController.h */,
+				392327571DDD58DA00AB4401 /* TableHeadSearchController.m */,
+				392327591DDD58F200AB4401 /* ViewSearchController.h */,
+				3923275A1DDD58F200AB4401 /* ViewSearchController.m */,
+				394594A11D3878A50017F4A3 /* OneSearchDisplayController.h */,
+				394594A21D3878A50017F4A3 /* OneSearchDisplayController.m */,
 			);
 			name = OneSearch;
 			sourceTree = "<group>";
@@ -1917,8 +1932,11 @@
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
 				39FCB8D41D66DEA900195C20 /* YSGCDTableViewCell.m in Sources */,
 				39CAB17E1D8174FD0078AFF5 /* YSVideoPlayerViewController.m in Sources */,
+				392327551DDD58B900AB4401 /* NavigationSearchController.m in Sources */,
 				39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */,
+				3923275B1DDD58F200AB4401 /* ViewSearchController.m in Sources */,
 				398100331DD168FE00E398FB /* YSFMDBManager.m in Sources */,
+				392327581DDD58DA00AB4401 /* TableHeadSearchController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,
 				39E5661B1D7ACBCF00531331 /* YSSearchBar.m in Sources */,
