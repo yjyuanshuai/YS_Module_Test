@@ -17,6 +17,7 @@
 @property (nonatomic, strong) UISearchController * ysSearchCon;
 @property (nonatomic, strong) SearchResultViewController * searchResultVC;
 @property (nonatomic, strong) UITableView * searchRetTableView;
+@property (nonatomic, strong) UIView * placeHoldView;
 
 @property (nonatomic, strong) UITableView * currentTableView;
 @property (nonatomic, strong) UITableView * historyTableView;
@@ -42,6 +43,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    self.edgesForExtendedLayout = UIRectEdgeAll;
     
     [self initUIAndData];
     [self createTableView];
@@ -127,7 +130,7 @@
     [self.view addSubview:_currentTableView];
     
     [_currentTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(44, 0, 0, 0));
+        make.edges.equalTo(self.view).insets(UIEdgeInsetsMake(44 + 64, 0, 0, 0));
     }];
     
     _historyTableView = [UITableView new];
@@ -144,6 +147,15 @@
 
 - (void)createNavigationSearchView
 {
+    _placeHoldView = [UIView new];
+    [self.view addSubview:_placeHoldView];
+    [_placeHoldView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.size.mas_equalTo(CGSizeMake(kScreenWidth, 64));
+        make.left.equalTo(self.view);
+        make.top.equalTo(self.view);
+    }];
+    _placeHoldView.backgroundColor = [UIColor greenColor];
+    
     if (_hasNewResult) {
         
         _ysSearchCon = [[UISearchController alloc] initWithSearchResultsController:self.searchResultVC];
