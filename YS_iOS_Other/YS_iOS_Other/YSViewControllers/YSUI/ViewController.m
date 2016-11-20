@@ -11,17 +11,24 @@
 // 1 选择
 #import "OnePickerViewController.h"
 
+
 // 2 滚动
 #import "OneCollectionViewController.h"
 #import "OneHorizontalTableViewController.h"
+
 
 // 3 搜索
 #import "OneSearchDisplayController.h"
 #import "OneSearchController.h"
 #import "CustemSearchViewController.h"
 
+
 // 4 Application
 #import "ApplicationSettingViewController.h"
+
+
+// 5 alertController
+#import "YSAlertController.h"
 
 
 @interface ViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -54,17 +61,18 @@
     self.title = @"UI控件";
     self.tabBarItem.title = @"UI";
     
-    _sectionTitle = @[@"1 选择", @"2 滚动", @"3 搜索", @"4 Application"];
+    _sectionTitle = @[@"1 选择", @"2 滚动", @"3 搜索", @"4 Application", @"5 AlertController"];
     NSArray * sectionOne    = @[@"Picker"];
     NSArray * sectionTwo    = @[@"CollectionView", @"横向tableView"];
     NSArray * sectionThree  = @[@"UISearchDisplayController", @"UISearchController", @"自定义SearchBar"];
     NSArray * sectionFour   = @[@"UIApplicaton一些设置"];
+    NSArray * sectionFive   = @[@"AlertController"];
     
     if (_sectionCellContent == nil) {
         _sectionCellContent = [NSMutableArray array];
     }
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, sectionFour, sectionFive] mutableCopy];
 }
 
 - (void)initTableView
@@ -173,6 +181,16 @@
                 ApplicationSettingViewController * appVC = [[ApplicationSettingViewController alloc] init];
                 appVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:appVC animated:YES];
+            }
+        }
+            break;
+        case 4:
+        {
+            if (indexPath.row == 0) {
+                // AlertController
+                YSAlertController * alertCon = [[YSAlertController alloc] init];
+                alertCon.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:alertCon animated:YES];
             }
         }
             break;

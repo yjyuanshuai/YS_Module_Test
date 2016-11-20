@@ -8,7 +8,7 @@
 
 #import "YSKeyChainViewController.h"
 #import "MyKeyChainHelper.h"
-#import "NSString+BreakLine.h"
+#import "NSString+YSStringDo.h"
 
 @interface YSKeyChainViewController ()<UIScrollViewDelegate, UITextFieldDelegate>
 

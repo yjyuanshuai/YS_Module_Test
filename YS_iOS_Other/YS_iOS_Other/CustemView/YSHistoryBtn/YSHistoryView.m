@@ -7,7 +7,7 @@
 //
 
 #import "YSHistoryView.h"
-#import "NSString+BreakLine.h"
+#import "NSString+YSStringDo.h"
 
 
 static CGFloat paddingX = 10;

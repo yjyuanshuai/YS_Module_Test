@@ -57,7 +57,7 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
 - (void)initWithUIAndData
 {
     self.title = @"数据持久化";
-    self.tabBarItem.title = @"存储";
+    self.tabBarItem.title = @"数据";
     
     _sectionTitleArr = @[@"1 存储", @"2 数据库", @"3 其他"];
     
@@ -74,10 +74,6 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
     _savedateTableView.delegate = self;
     _savedateTableView.dataSource = self;
     [self.view addSubview:_savedateTableView];
-    
-
-    _savedateTableView.sectionHeaderHeight = 40;
-    _savedateTableView.sectionFooterHeight = 40;
     
     [_savedateTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:SaveDataCellID];
     
@@ -201,6 +197,15 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
     return _sectionTitleArr[section];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

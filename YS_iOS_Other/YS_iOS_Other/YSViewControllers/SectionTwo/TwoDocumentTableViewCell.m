@@ -8,7 +8,7 @@
 
 #import "TwoDocumentTableViewCell.h"
 #import "docModel.h"
-#import "NSString+BreakLine.h"
+#import "NSString+YSStringDo.h"
 
 @implementation TwoDocumentTableViewCell
 {
