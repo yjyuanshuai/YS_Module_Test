@@ -201,6 +201,7 @@
 		39FF1FB81D582CEB00463160 /* cm2_icn_loop_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39FF1FB51D582CEB00463160 /* cm2_icn_loop_prs@2x.png */; };
 		39FF1FB91D582CEB00463160 /* cm2_icn_loop_prs@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39FF1FB61D582CEB00463160 /* cm2_icn_loop_prs@3x.png */; };
 		50D75D14D975D3AE20792831 /* libPods-YS_iOS_Other.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */; };
+		CC179A831DE16A300050D8EF /* Settings.bundle in Resources */ = {isa = PBXBuildFile; fileRef = CC179A821DE16A300050D8EF /* Settings.bundle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -529,6 +530,7 @@
 		39FF1FB61D582CEB00463160 /* cm2_icn_loop_prs@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "cm2_icn_loop_prs@3x.png"; sourceTree = "<group>"; };
 		63927F4C004D73FD33E1F045 /* Pods-YS_iOS_Other.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.release.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.release.xcconfig"; sourceTree = "<group>"; };
 		9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-YS_iOS_Other.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CC179A821DE16A300050D8EF /* Settings.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = Settings.bundle; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -655,6 +657,7 @@
 		39214A0F1D05203B0019422D /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				CC179A811DE16A170050D8EF /* SettingFile */,
 				39FF1FBC1D585A3000463160 /* Audio */,
 				39FF1FBB1D585A2A00463160 /* Vedio */,
 				39B218B81D19172C008DD042 /* ysPlist */,
@@ -1617,6 +1620,14 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		CC179A811DE16A170050D8EF /* SettingFile */ = {
+			isa = PBXGroup;
+			children = (
+				CC179A821DE16A300050D8EF /* Settings.bundle */,
+			);
+			path = SettingFile;
+			sourceTree = "<group>";
+		};
 		D6C183E4E3E19DB390670CA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -1806,6 +1817,7 @@
 				3991290B1D5C4D340099C279 /* tab_two_num.png in Resources */,
 				39214A761D056A600019422D /* 1.jpg in Resources */,
 				393AACF01D4B396F0004C41D /* cm2_icn_dld_dis.png in Resources */,
+				CC179A831DE16A300050D8EF /* Settings.bundle in Resources */,
 				399C4A651D8FC63500D8E6F6 /* cm2_icn_shuffle_prs@2x.png in Resources */,
 				39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */,
 				39FF1FA41D582AE400463160 /* cm2_btn_pause@3x.png in Resources */,
