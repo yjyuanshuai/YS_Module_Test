@@ -230,7 +230,7 @@ static NSString * const OtherCellID = @"OtherCellID";
                 
             }
             else if (indexPath.row == 1) {
-            
+                
             }
             else if (indexPath.row == 2) {
                 // 创建桌面快捷方式

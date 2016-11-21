@@ -8,6 +8,7 @@
 
 #import "AddIconToDesktopVC.h"
 #import "HTTPServer.h"
+#import "YSEnDecryptionMethod.h"
 
 @interface AddIconToDesktopVC ()
 
@@ -73,6 +74,12 @@
     else {
         NSLog(@"Error starting HTTP Server: %@", error);
     }
+}
+
+- (void)createIndexHtmlContent
+{
+    NSData * imageData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"11" ofType:@"jpg"]];
+    NSString * imageBase64Str = [YSEnDecryptionMethod encryptbase64StrforData:imageData];
 }
 
 @end
