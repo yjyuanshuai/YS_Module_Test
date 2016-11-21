@@ -20,6 +20,7 @@
     
     // app 启动完成时调用
     
+    [self initLogs];
     [self initSetting];
     [self login];
     [self startBaiduMap];
@@ -71,8 +72,8 @@
 {
     // 自定义了 URL scheme，另一个应用通过 url 向本应用传递参数 或 发起调用
     
-    if ([sourceApplication isEqualToString:@"com.3Sixty.CallCustomURL"])
-    {
+//    if ([sourceApplication isEqualToString:@"com.3Sixty.CallCustomURL"])
+//    {
         // 限定只有某一个应用可以传参
         
         NSLog(@"Calling Application Bundle ID: %@", sourceApplication);
@@ -80,9 +81,9 @@
         NSLog(@"URL query: %@", [url query]);
         
         return YES;
-    }
-    else 
-        return NO;
+//    }
+//    else 
+//        return NO;
     
     /*
      

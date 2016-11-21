@@ -10,14 +10,6 @@
 #define YSCocoaLumberjackLog_h
 
 
-//typedef NS_ENUM(NSInteger, Project_Environment_Code)
-//{
-//    
-//};
-
-
-
-
 
 
 #ifndef Project_Environment

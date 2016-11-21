@@ -28,6 +28,7 @@
 // 5 支付
 
 // 6 琐碎功能集合
+#import "AddIconToDesktopVC.h"
 
 static NSString * const OtherCellID = @"OtherCellID";
 
@@ -80,12 +81,8 @@ static NSString * const OtherCellID = @"OtherCellID";
     _otherTableView.dataSource = self;
     [self.view addSubview:_otherTableView];
     [_otherTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view);
     }];
-    
-    _otherTableView.sectionHeaderHeight = 40;
-    _otherTableView.sectionFooterHeight = 0.01;
     
     [_otherTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:OtherCellID];
 }
@@ -229,7 +226,18 @@ static NSString * const OtherCellID = @"OtherCellID";
             break;
         case 5:
         {
+            if (indexPath.row == 0) {
+                
+            }
+            else if (indexPath.row == 1) {
             
+            }
+            else if (indexPath.row == 2) {
+                // 创建桌面快捷方式
+                AddIconToDesktopVC * addIconVC = [[AddIconToDesktopVC alloc] init];
+                addIconVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:addIconVC animated:YES];
+            }
         }
             break;
             
