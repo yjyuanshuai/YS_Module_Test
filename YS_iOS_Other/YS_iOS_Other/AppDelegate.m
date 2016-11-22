@@ -16,6 +16,12 @@
 @implementation AppDelegate
 
 
+#pragma mark - 启动阶段
+- (BOOL)application:(UIApplication *)application willFinishLaunchingWithOptions:(NSDictionary *)launchOptions
+{
+    return YES;
+}
+
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
     // app 启动完成时调用
@@ -30,16 +36,27 @@
     return YES;
 }
 
-- (void)applicationWillResignActive:(UIApplication *)application {
+#pragma mark - 切换到前台
+- (void)applicationDidBecomeActive:(UIApplication *)application {
     
-    // 即将失去活动状态的时候调用(失去焦点, 不可交互)
-    
+    // 重新获取焦点(能够和用户交互)
 }
 
+#pragma mark - 切换到后台
 - (void)applicationDidEnterBackground:(UIApplication *)application {
     
     // app 进入后台时调用
+    // 所以要设置后台继续运行，则在这个函数里面设置即可
+    // 使用这个方法来释放共享资源，保存用户数据，废止定时器，并存储足够的应用程序状态信息的情况下被终止后，将应用程序恢复到目前的状态。
+    //如果你的应用程序支持后台运行，这种方法被调用
+}
+
+#pragma mark - 切换到非活动状态
+- (void)applicationWillResignActive:(UIApplication *)application {
     
+    // 即将失去活动状态的时候调用(失去焦点, 不可交互)
+    // 这可导致产生某些类型的临时中断（如传入电话呼叫或SMS消息），或者当用户退出应用程序，它开始过渡到的背景状态。
+    // 使用此方法暂停正在进行的任务，禁用定时器，踩下油门， OpenGL ES的帧速率。游戏应该使用这种方法来暂停游戏。
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
@@ -49,21 +66,118 @@
     
 }
 
-- (void)applicationDidBecomeActive:(UIApplication *)application {
-    
-    // 重新获取焦点(能够和用户交互)
-}
-
+#pragma mark - 终止状态
 - (void)applicationWillTerminate:(UIApplication *)application {
-   
+    
     // 应用程序即将被销毁的时候会调用该方法
-    // 注意:如果应用程序处于挂起状态的时候无法调用该方法
+    // 注意：如果应用程序处于挂起状态的时候无法调用该方法
+    // 通常是用来保存数据和一些退出前的清理工作。这个需要要设置UIApplicationExitsOnSuspend的键值（自动设置）。
 }
 
+#pragma mark - --------------------------------------------------------
+#pragma mark - UIApplicationDelegate其他方法
+/**
+ *  内存不足
+ */
 - (void)applicationDidReceiveMemoryWarning:(UIApplication *)application
 {
     // 应用程序接收到内存警告的时候就会调用
     // 一般在该方法中释放掉不需要的内存
+}
+
+- (void)applicationSignificantTimeChange:(UIApplication*)application
+{
+    // 当系统时间发生改变时执行
+}
+
+- (void)applicationDidFinishLaunching:(UIApplication*)application
+{
+    // 当程序载入后执行
+}
+
+- (void)application:(UIApplication *)application willChangeStatusBarFrame:(CGRect)newStatusBarFrame
+{
+    // 当StatusBar框将要变化时执行
+}
+
+- (void)application:(UIApplication*)application willChangeStatusBarOrientation:(UIInterfaceOrientation)newStatusBarOrientation duration:(NSTimeInterval)duration
+{
+    // 当StatusBar框方向将要变化时执行
+}
+
+- (void)application:(UIApplication*)application didChangeStatusBarOrientation:(UIInterfaceOrientation)oldStatusBarOrientation
+{
+    // 当StatusBar框方向变化完成后执行
+}
+
+- (void)application:(UIApplication*)application didChangeSetStatusBarFrame:(CGRect)oldStatusBarFrame
+{
+    // 当StatusBar框变化完成后执行
+}
+
+- (BOOL)application:(UIApplication*)application handleOpenURL:(NSURL*)url
+{
+    // 当通过url执行
+    return YES;
+}
+
+#pragma mark -
+- (void)application:(UIApplication *)application didRegisterForRemoteNotificationsWithDeviceToken:(NSData *)deviceToken
+{
+    /**
+     *  客户端注册远程通知时，成功后回调这个方法。
+     *  客户端把deviceToken取出来发给服务端，push消息的时候要用。
+     *
+     *  @param application 应用
+     *  @param deviceToken 设备token
+     */
+}
+
+- (void)application:(UIApplication *)application didRegisterUserNotificationSettings:(UIUserNotificationSettings *)notificationSettings
+{
+    /**
+     *  调用完registerUserNotificationSettings:方法之后执行
+     *  即调用startToGetPushToken获取权限后调用
+     *
+     *  @param application          应用
+     *  @param notificationSettings 通知方式
+     */
+}
+
+- (void)application:(UIApplication *)application didReceiveLocalNotification:(UILocalNotification *)notification
+{
+    /**
+     *  接收本地通知的时候调用此方法
+     *  当应用收到本地通知时会调这个方法，同上面一个方法类似。
+     *  如果在前台运行状态直接调用，如果在后台状态，点击通知启动时，也会回调这个方法
+     *  本地通知可见另一篇文章：http://bluevt.org/?p=70
+     *
+     *  @param application  应用
+     *  @param notification 本地通知
+     */
+}
+
+- (void)application:(UIApplication *)application didReceiveRemoteNotification:(NSDictionary *)userInfo
+{
+    /**
+     *  接收远程通知的时候调用此方法
+     *  当应用在前台运行中，收到远程通知时，会回调这个方法。
+     *   当应用在后台状态时，点击push消息启动应用，也会回调这个方法。
+     *
+     *  @param application 应用
+     *  @param userInfo    通知信息
+     */
+}
+
+- (void)application:(UIApplication *)application didFailToRegisterForRemoteNotificationsWithError:(NSError *)error
+{
+    /**
+     *   当客户端注册远程通知时
+     *   如果失败了，会回调这个方法。可以从error参数中看一下失败原因。
+     *
+     *  @param application 应用
+     *  @param error       错误
+     */
 }
 
 #pragma mark -
@@ -100,7 +214,11 @@
     return YES;
 }
 
-#pragma mark - 初始设置
+#pragma mark - -----------------------------------
+#pragma mark - 自定义的
+/**
+ *  初始设置
+ */
 - (void)initSetting
 {
     self.window.frame = [[UIScreen mainScreen] bounds];
@@ -120,14 +238,18 @@
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
 }
 
-#pragma mark - CocoaLumberjack
+/**
+ *  CocoaLumberjack
+ */
 - (void)initLogs
 {
     [DDLog addLogger:[DDASLLogger sharedInstance]];
     [DDLog addLogger:[DDTTYLogger sharedInstance]];
 }
 
-#pragma mark - 登录逻辑
+/**
+ *  登录逻辑
+ */
 - (void)login
 {
     YSTabBarController * ysTabBarCon = [YSTabBarController sharedYSTabBarController];
@@ -135,7 +257,9 @@
     self.window.rootViewController = ysTabBarCon;
 }
 
-#pragma mark - 百度地图
+/**
+ *  百度地图
+ */
 - (void)startBaiduMap
 {
     // 启动BaiduMapManager
@@ -147,7 +271,9 @@
     }
 }
 
-#pragma mark - 程序启动时，向用户获取发通知的权限
+/**
+ *  程序启动时，向用户获取发通知的权限
+ */
 - (void)notificationApplyToUser
 {
     if (kSystemVersion >= 8.0) {
@@ -157,5 +283,13 @@
     }
 }
 
+/**
+ *  注册远程通知
+ */
+- (void)registRemoteNotification
+{
+    UIRemoteNotificationType t = UIRemoteNotificationTypeBadge|UIRemoteNotificationTypeAlert|UIRemoteNotificationTypeSound;
+    [[UIApplication sharedApplication] registerForRemoteNotificationTypes:t];
+}
 
 @end

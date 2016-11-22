@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		390C59391DE432970087990C /* YSSongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C59381DE432970087990C /* YSSongModel.m */; };
 		390DCE3C1DD313A000D8F733 /* YSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3B1DD313A000D8F733 /* YSAlertController.m */; };
 		390DCE3F1DD314C000D8F733 /* AlertControllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */; };
 		390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */; };
@@ -54,7 +55,6 @@
 		39333C0F1DE2CEDA00035157 /* RightMenuViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BFF1DE2CEDA00035157 /* RightMenuViewController.m */; };
 		39333C101DE2CEDA00035157 /* ListTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333C021DE2CEDA00035157 /* ListTableViewCell.m */; };
 		39333C111DE2CEDA00035157 /* YSPlayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333C041DE2CEDA00035157 /* YSPlayViewController.m */; };
-		39333C121DE2CEDA00035157 /* YSSongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333C061DE2CEDA00035157 /* YSSongModel.m */; };
 		39333C131DE2CEDA00035157 /* YSVideoPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333C081DE2CEDA00035157 /* YSVideoPlayerViewController.m */; };
 		39333C141DE2CEDA00035157 /* VideoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333C0B1DE2CEDA00035157 /* VideoViewController.m */; };
 		39333C1B1DE2CF0000035157 /* ImagesShowViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333C171DE2CF0000035157 /* ImagesShowViewController.m */; };
@@ -225,6 +225,8 @@
 
 /* Begin PBXFileReference section */
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
+		390C59371DE432970087990C /* YSSongModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSSongModel.h; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/AudioAndVideo/PlayerView/YSSongModel.h; sourceTree = SOURCE_ROOT; };
+		390C59381DE432970087990C /* YSSongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSSongModel.m; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/AudioAndVideo/PlayerView/YSSongModel.m; sourceTree = SOURCE_ROOT; };
 		390DCE3A1DD313A000D8F733 /* YSAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAlertController.h; sourceTree = "<group>"; };
 		390DCE3B1DD313A000D8F733 /* YSAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAlertController.m; sourceTree = "<group>"; };
 		390DCE3D1DD314C000D8F733 /* AlertControllerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertControllerTableViewCell.h; sourceTree = "<group>"; };
@@ -306,8 +308,6 @@
 		39333C021DE2CEDA00035157 /* ListTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ListTableViewCell.m; sourceTree = "<group>"; };
 		39333C031DE2CEDA00035157 /* YSPlayViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPlayViewController.h; sourceTree = "<group>"; };
 		39333C041DE2CEDA00035157 /* YSPlayViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPlayViewController.m; sourceTree = "<group>"; };
-		39333C051DE2CEDA00035157 /* YSSongModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSSongModel.h; sourceTree = "<group>"; };
-		39333C061DE2CEDA00035157 /* YSSongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSSongModel.m; sourceTree = "<group>"; };
 		39333C071DE2CEDA00035157 /* YSVideoPlayerViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSVideoPlayerViewController.h; sourceTree = "<group>"; };
 		39333C081DE2CEDA00035157 /* YSVideoPlayerViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSVideoPlayerViewController.m; sourceTree = "<group>"; };
 		39333C0A1DE2CEDA00035157 /* VideoViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoViewController.h; sourceTree = "<group>"; };
@@ -807,8 +807,6 @@
 				39333C021DE2CEDA00035157 /* ListTableViewCell.m */,
 				39333C031DE2CEDA00035157 /* YSPlayViewController.h */,
 				39333C041DE2CEDA00035157 /* YSPlayViewController.m */,
-				39333C051DE2CEDA00035157 /* YSSongModel.h */,
-				39333C061DE2CEDA00035157 /* YSSongModel.m */,
 				39333C071DE2CEDA00035157 /* YSVideoPlayerViewController.h */,
 				39333C081DE2CEDA00035157 /* YSVideoPlayerViewController.m */,
 			);
@@ -1531,6 +1529,8 @@
 		39C6219C1D0EABA400A34040 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				390C59371DE432970087990C /* YSSongModel.h */,
+				390C59381DE432970087990C /* YSSongModel.m */,
 				39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */,
 				39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */,
 				39B218BB1D191DC4008DD042 /* docModel.h */,
@@ -1959,6 +1959,7 @@
 				39333BF11DE2CE9A00035157 /* FirstSimpleView.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
 				39333BE71DE2CE6C00035157 /* YSOtherViewController.m in Sources */,
+				390C59391DE432970087990C /* YSSongModel.m in Sources */,
 				39333BF31DE2CE9A00035157 /* YSAttributeStrView.m in Sources */,
 				3921489F1DDEDCE100EBCFC1 /* YSGCDTableViewCell.m in Sources */,
 				39333C0E1DE2CEDA00035157 /* AudioOrVideoTableViewCell.m in Sources */,
@@ -2011,7 +2012,6 @@
 				39333C0C1DE2CEDA00035157 /* AudioViewController.m in Sources */,
 				394594A51D3878A50017F4A3 /* OneSearchController.m in Sources */,
 				398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */,
-				39333C121DE2CEDA00035157 /* YSSongModel.m in Sources */,
 				39333C111DE2CEDA00035157 /* YSPlayViewController.m in Sources */,
 				392148A01DDEDCE100EBCFC1 /* YSGCDViewController.m in Sources */,
 				39333C201DE2CFA900035157 /* AddIconToDesktopVC.m in Sources */,

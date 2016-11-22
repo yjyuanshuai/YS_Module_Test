@@ -10,4 +10,6 @@
 
 @interface YSFMDBManager : NSObject
 
+//+ (BOOL)
+
 @end
