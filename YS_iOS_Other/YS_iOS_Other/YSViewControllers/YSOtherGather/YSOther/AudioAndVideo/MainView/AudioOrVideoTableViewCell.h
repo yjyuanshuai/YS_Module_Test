@@ -16,8 +16,9 @@ typedef NS_ENUM(NSInteger, CellType)
 
 @interface AudioOrVideoTableViewCell : UITableViewCell
 
-@property (nonatomic, strong) UIImageView * videoImageView;            // 视屏缩略图
+@property (nonatomic, strong) UIImageView * videoImageView;       // 视屏缩略图
 @property (nonatomic, strong) UILabel * audioNameLabel;           // 名称
+@property (nonatomic, strong) UITableView * audioTimeLabel;       // 时长
 
 - (void)setCellContent:(CellType)celltype model:(id)model;
 

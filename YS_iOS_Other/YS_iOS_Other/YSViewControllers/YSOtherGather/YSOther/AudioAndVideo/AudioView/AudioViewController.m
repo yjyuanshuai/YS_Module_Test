@@ -7,11 +7,9 @@
 //
 
 #import "AudioViewController.h"
-#import "AudioOrVideoTableViewCell.h"
-#import "YSPlayViewController.h"
-#import "YSSongModel.h"
+#import "AudioListVC.h"
 
-static NSString * const autioTableViewCellID = @"autioTableViewCellID";
+
 
 @interface AudioViewController () <UITableViewDataSource, UITableViewDelegate>
 
@@ -21,15 +19,17 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
 
 @implementation AudioViewController
 {
-    NSMutableArray * _webAudiosArr;
     NSMutableArray * _localAudiosArr;
+    NSMutableArray * _webAudiosArr;
+    
+    NSMutableArray * _sectionTitleArr;
 }
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     [self initUIAndData];
-    [self analysisData];
     [self createAudioTableView];
 }
 
@@ -42,8 +42,10 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
 {
     self.title = @"音频";
     
-    _webAudiosArr = [@[] mutableCopy];
-    _localAudiosArr = [@[] mutableCopy];
+    _webAudiosArr = [@[@"网络"] mutableCopy];
+    
+    _localAudiosArr = [@[@"System Sound Services 播放音效", @"AVAudioPlayer 播放音乐", @"MPMediaPickerController 选择系统音乐"] mutableCopy];
+    _sectionTitleArr = [@[@"本地音频播放", @"音频录制", @"网络音频播放"] mutableCopy];
 }
 
 - (void)createAudioTableView
@@ -55,82 +57,61 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
     _audioTableView.tableFooterView = [UIView new];
     _audioTableView.rowHeight = UITableViewAutomaticDimension;
     _audioTableView.estimatedRowHeight = 44;
+    _audioTableView.tableFooterView = [UIView new];
     [self.view addSubview:_audioTableView];
     
     [_audioTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
-    
-    [_audioTableView registerClass:[AudioOrVideoTableViewCell class] forCellReuseIdentifier:autioTableViewCellID];
-}
-
-- (void)analysisData
-{
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"WebAudioList" ofType:@"plist"];
-    NSArray * arr = [NSArray arrayWithContentsOfFile:path];
-    
-    NSDictionary * webDic = [arr firstObject];
-    NSArray * webArr = webDic[@"webAudioArr"];
-    for (NSDictionary * audioDic in webArr) {
-        YSSongModel * model = [[YSSongModel alloc] initWithWebSongDic:audioDic];
-        [_webAudiosArr addObject:model];
-    }
-    
-    NSDictionary * localDic = [arr lastObject];
-    NSArray * localArr = localDic[@"localAudioArr"];
-    for (NSDictionary * audioDic in localArr) {
-        YSSongModel * model = [[YSSongModel alloc] initWithWebSongDic:audioDic];
-        [_localAudiosArr addObject:model];
-    }
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 2;
+    return [_sectionTitleArr count];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (section == 0) {
-        return [_webAudiosArr count] + 1;
+        return [_localAudiosArr count];
     }
-    return [_localAudiosArr count] + 1;
+    else if (section == 1) {
+        return 1;
+    }
+    else if (section == 2) {
+        return [_webAudiosArr count];
+    }
+    return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AudioOrVideoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:autioTableViewCellID];
+    static NSString * cell_id = @"CELL_ID";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+    }
     
-    YSSongModel * model = nil;
     if (indexPath.section == 0) {
-        if (indexPath.row < [_webAudiosArr count]) {
-            model = _webAudiosArr[indexPath.row];
-            [cell setCellContent:CellTypeAudio model:model];
-        }
-        else {
-            cell.audioNameLabel.text = @"未知列表播放";
-        }
+        cell.textLabel.text = _localAudiosArr[indexPath.row];
+        return cell;
     }
-    else{
-        if (indexPath.row < [_localAudiosArr count]) {
-            model = _localAudiosArr[indexPath.row];
-            [cell setCellContent:CellTypeAudio model:model];
-        }
-        else {
-            cell.audioNameLabel.text = @"本地列表播放";
-        }
+    else if (indexPath.section == 1) {
+        cell.textLabel.text = @"录制音频";
+        return cell;
+    }
+    else if (indexPath.section == 2) {
+        cell.textLabel.text = _webAudiosArr[indexPath.row];
+        return cell;
     }
     
-    return cell;
+    return nil;
 }
 
 - (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
 {
-    if (section == 0) {
-        return @"网络资源";
-    }
-    return @"本地资源";
+    return _sectionTitleArr[section];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -141,31 +122,50 @@ static NSString * const autioTableViewCellID = @"autioTableViewCellID";
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    NSMutableArray * audioArr = [@[] mutableCopy];
     
-    if (indexPath.section == 0) {
-        if (indexPath.row < [_webAudiosArr count]) {
-            YSSongModel * model = _webAudiosArr[indexPath.row];
-            audioArr = [@[model] mutableCopy];
+    switch (indexPath.section) {
+        case 0:
+        {
+            AudioListType type = AudioListTypeLocalPlay_SystemSound;
+            
+            switch (indexPath.row) {
+                case 0:
+                {
+                    type = AudioListTypeLocalPlay_SystemSound;
+                }
+                    break;
+                case 1:
+                {
+                    type = AudioListTypeLocalPlay_Music;
+                }
+                    break;
+                case 2:
+                {
+                    type = AudioListTypeLocalPlay_SystemMusic;
+                }
+                    break;
+                    
+            }
+            
+            AudioListVC * makeAudioVC = [[AudioListVC alloc] initWithTitle:_localAudiosArr[indexPath.row] audioListType:type];
+            [self.navigationController pushViewController:makeAudioVC animated:YES];
         }
-        else {
-            audioArr = _webAudiosArr;
+            break;
+            
+        case 1:
+        {
+            AudioListVC * makeAudioVC = [[AudioListVC alloc] initWithTitle:_sectionTitleArr[indexPath.section] audioListType:AudioListTypeLoaclMake];
+            [self.navigationController pushViewController:makeAudioVC animated:YES];
         }
-        
-        YSPlayViewController * ysPlayAudioVC = [[YSPlayViewController alloc] initWithAudioType:AudioTypeWeb  list:audioArr];
-        [self.navigationController pushViewController:ysPlayAudioVC animated:YES];
-    }
-    else {
-        if (indexPath.row < [_webAudiosArr count]) {
-            YSSongModel * model = _localAudiosArr[indexPath.row];
-            audioArr = [@[model] mutableCopy];
+            break;
+
+        case 2:
+        {
+            AudioListVC * webAudioVC = [[AudioListVC alloc] initWithTitle:_sectionTitleArr[indexPath.section] audioListType:AudioListTypeWeb];
+            [self.navigationController pushViewController:webAudioVC animated:YES];
         }
-        else {
-            audioArr = _localAudiosArr;
-        }
-        
-        YSPlayViewController * ysPlayAudioVC = [[YSPlayViewController alloc] initWithAudioType:AudioTypeLocal list:audioArr];
-        [self.navigationController pushViewController:ysPlayAudioVC animated:YES];
+            break;
+
     }
 }
 

@@ -45,11 +45,14 @@ static NSString * const ListCellID = @"ListCellID";
     NSInteger _currentIndex;
 }
 
-- (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr
+- (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr currentIndex:(NSInteger)currentIndex
 {
     if (self = [super init]) {
+        
         _type = type;
         _webAudioList = listArr;
+        _currentIndex = currentIndex;
+        
     }
     return self;
 }
@@ -63,9 +66,9 @@ static NSString * const ListCellID = @"ListCellID";
     [self createShapeLayer];
     [self createUpBtn];
     [self createDownBtn];
+    
     [self createAVPlayer:nil];
     [self createProgressView];
-    
     [self createListTableView];
 }
 
@@ -86,13 +89,14 @@ static NSString * const ListCellID = @"ListCellID";
 
 - (void)dealloc
 {
-
+    [_ysAudioPlayer stop];
+    _ysAudioPlayer = nil;
+    
+    [self invalidTimer];
 }
 
 - (void)initUIAndData
 {
-    _currentIndex = 0;
-    
     if ([_webAudioList count] > 0) {
         _currentModel = _webAudioList[_currentIndex];
         self.title = _currentModel.name;
@@ -134,7 +138,7 @@ static NSString * const ListCellID = @"ListCellID";
         NSError * error = nil;
         
         _ysAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:path] error:&error];
-//        _ysAudioPlayer.numberOfLoops = -1;      // 循环
+        _ysAudioPlayer.numberOfLoops = -1;      // 循环
         _ysAudioPlayer.delegate = self;
         [_ysAudioPlayer prepareToPlay];
         [_ysAudioPlayer play];
@@ -426,10 +430,12 @@ static NSString * const ListCellID = @"ListCellID";
     _playProgress.value = 0.0;
     _playProgress.minimumValue = 0.0;
     _playProgress.maximumValue = _ysAudioPlayer.duration;
-    _playProgress.continuous = NO; //设置只有在离开滑动条的最后时刻才触发滑动事件 默认是YES
+    _playProgress.continuous = YES; //设置只有在离开滑动条的最后时刻才触发滑动事件 默认是YES
 //    [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_love"] forState:UIControlStateNormal];
-//    [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateHighlighted];
+    [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateHighlighted];
     [_playProgress addTarget:self action:@selector(changeSliderValue:) forControlEvents:UIControlEventValueChanged];
+//    [_playProgress addTarget:self action:@selector(stopSlider:) forControlEvents:UIControlEventTouchDown];
+//    [_playProgress addTarget:self action:@selector(startSlider:) forControlEvents:UIControlEventTouchDown];
     [self.view addSubview:_playProgress];
     
     [_currentTime mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -439,7 +445,7 @@ static NSString * const ListCellID = @"ListCellID";
     }];
     
     [_playProgress mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 110, 2));
+        make.size.mas_equalTo(CGSizeMake(kScreenWidth - 110, 20));
         make.left.equalTo(_currentTime).with.offset(5 + 45);
         make.centerY.equalTo(_currentTime).with.offset(0);
     }];
@@ -457,6 +463,12 @@ static NSString * const ListCellID = @"ListCellID";
     UISlider * slider = (UISlider *)sender;
     
     [_ysAudioPlayer setCurrentTime:slider.value];
+}
+
+- (void)stopSlider:(id)sender
+{
+//    UISlider * slider = (UISlider *)sender;
+    
 }
 
 - (void)clickCollectionBtn:(UIButton *)sender
@@ -482,41 +494,33 @@ static NSString * const ListCellID = @"ListCellID";
 - (void)clickToPlayOrder:(UIButton *)sender
 {
     if (_settingType == AudioPlaySettingOne) {
-        // 单首播放
+        // 单首 -> 顺序
         _settingType = AudioPlaySettingList;
-        
-    }
-    else if (_settingType == AudioPlaySettingList) {
-        // 顺序播放
-        _settingType = AudioPlaySettingAny;
-        
-    }
-    else if (_settingType == AudioPlaySettingAny){
-        // 随机播放
-        _settingType = AudioPlaySettingOne;
-        
-    }
-    
-    if (_settingType == AudioPlaySettingOne) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_one_prs"] forState:UIControlStateNormal];
-    }
-    else if (_settingType == AudioPlaySettingList) {
         [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
     }
-    else if (_settingType == AudioPlaySettingAny){
+    else if (_settingType == AudioPlaySettingList) {
+        // 顺序 -> 随机
+        _settingType = AudioPlaySettingAny;
         [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_shuffle_prs"] forState:UIControlStateNormal];
     }
-
+    else if (_settingType == AudioPlaySettingAny){
+        // 随机 -> 单首
+        _settingType = AudioPlaySettingOne;
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_icn_one_prs"] forState:UIControlStateNormal];
+    }
 }
 
 - (void)clickToFront:(UIButton *)sender
 {
     // 上一首
-    if (_currentIndex != 0) {
+    if (_currentIndex > 0) {
         _currentIndex--;
-        [self createAVPlayer:_webAudioList[_currentIndex]];
-        [self updateSongInfo:_webAudioList[_currentIndex]];
     }
+    else {
+        _currentIndex = [_webAudioList count] - 1;
+    }
+    [self createAVPlayer:_webAudioList[_currentIndex]];
+    [self updateSongInfo:_webAudioList[_currentIndex]];
 }
 
 - (void)clickToPlayOrPause:(UIButton *)sender
@@ -526,22 +530,21 @@ static NSString * const ListCellID = @"ListCellID";
         _playStatus = AudioPlayStatusPause;
         [_ysAudioPlayer pause];
         
-        //暂停定时器，注意不能调用invalidate方法，此方法会取消，之后无法恢复
+        // 暂停定时器，注意不能调用invalidate方法，此方法会取消，之后无法恢复
         _ysTime.fireDate = [NSDate distantFuture];
+        
+        // 更新图片
+        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
     }
     else {
         // 开始播放
         _playStatus = AudioPlayStatusPlaying;
         [_ysAudioPlayer play];
         
-        //恢复定时器
+        // 恢复定时器
         _ysTime.fireDate = [NSDate distantPast];
-    }
-    
-    if (_playStatus == AudioPlayStatusPause) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
-    }
-    else {
+        
+        // 更新图片
         [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
     }
 }
@@ -551,9 +554,14 @@ static NSString * const ListCellID = @"ListCellID";
     // 下一首
     if (_currentIndex < [_webAudioList count] - 1) {
         _currentIndex ++;
-        [self createAVPlayer:_webAudioList[_currentIndex]];
-        [self updateSongInfo:_webAudioList[_currentIndex]];
+        
     }
+    else {
+        _currentIndex = 0;
+    }
+    
+    [self createAVPlayer:_webAudioList[_currentIndex]];
+    [self updateSongInfo:_webAudioList[_currentIndex]];
 }
 
 - (void)clickToList:(UIButton *)sender
@@ -577,8 +585,9 @@ static NSString * const ListCellID = @"ListCellID";
     // 播放完成
     NSLog(@"++++++++++++++++ 播放完成！");
     
-    _ysTime.fireDate = [NSDate distantFuture];
-    _ysAudioPlayer.currentTime = 0;
+    [self invalidTimer];
+    [_ysAudioPlayer stop];
+    _ysAudioPlayer = nil;
     
     if (_settingType == AudioPlaySettingOne) {
         
@@ -589,30 +598,27 @@ static NSString * const ListCellID = @"ListCellID";
     else if (_settingType == AudioPlaySettingList) {
         
         if (_currentIndex < [_webAudioList count] - 1) {
-            
             _currentIndex++;
-            [self createAVPlayer:_webAudioList[_currentIndex]];
-            [self updateSongInfo:_webAudioList[_currentIndex]];
-            
         }
         else {
-            
-            _ysAudioPlayer = nil;
-            [self invalidTimer];
-            
+            _currentIndex = 0;
         }
+        [self createAVPlayer:_webAudioList[_currentIndex]];
+        [self updateSongInfo:_webAudioList[_currentIndex]];
         
     }
     else if (_settingType == AudioPlaySettingAny){
+        
         // 随机播放
-        NSInteger anyIndex = arc4random()%3;
+        NSInteger anyIndex = arc4random()%[_webAudioList count];
         while (anyIndex == _currentIndex) {
-            anyIndex = arc4random()%3;
+            anyIndex = arc4random()%[_webAudioList count];
         }
         _currentIndex = anyIndex;
         
         [self createAVPlayer:_webAudioList[_currentIndex]];
         [self updateSongInfo:_webAudioList[_currentIndex]];
+        
     }
 }
 

@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		390C59391DE432970087990C /* YSSongModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C59381DE432970087990C /* YSSongModel.m */; };
+		390C593C1DE4393C0087990C /* AudioListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 390C593B1DE4393C0087990C /* AudioListVC.m */; };
 		390DCE3C1DD313A000D8F733 /* YSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3B1DD313A000D8F733 /* YSAlertController.m */; };
 		390DCE3F1DD314C000D8F733 /* AlertControllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */; };
 		390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */; };
@@ -227,6 +228,8 @@
 		2091E4EB0EA5E6D414D65CEA /* Pods-YS_iOS_Other.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-YS_iOS_Other.debug.xcconfig"; path = "Pods/Target Support Files/Pods-YS_iOS_Other/Pods-YS_iOS_Other.debug.xcconfig"; sourceTree = "<group>"; };
 		390C59371DE432970087990C /* YSSongModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSSongModel.h; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/AudioAndVideo/PlayerView/YSSongModel.h; sourceTree = SOURCE_ROOT; };
 		390C59381DE432970087990C /* YSSongModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSSongModel.m; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/AudioAndVideo/PlayerView/YSSongModel.m; sourceTree = SOURCE_ROOT; };
+		390C593A1DE4393C0087990C /* AudioListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioListVC.h; sourceTree = "<group>"; };
+		390C593B1DE4393C0087990C /* AudioListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioListVC.m; sourceTree = "<group>"; };
 		390DCE3A1DD313A000D8F733 /* YSAlertController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAlertController.h; sourceTree = "<group>"; };
 		390DCE3B1DD313A000D8F733 /* YSAlertController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAlertController.m; sourceTree = "<group>"; };
 		390DCE3D1DD314C000D8F733 /* AlertControllerTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AlertControllerTableViewCell.h; sourceTree = "<group>"; };
@@ -783,6 +786,8 @@
 			children = (
 				39333BF71DE2CEDA00035157 /* AudioViewController.h */,
 				39333BF81DE2CEDA00035157 /* AudioViewController.m */,
+				390C593A1DE4393C0087990C /* AudioListVC.h */,
+				390C593B1DE4393C0087990C /* AudioListVC.m */,
 			);
 			path = AudioView;
 			sourceTree = "<group>";
@@ -2016,6 +2021,7 @@
 				392148A01DDEDCE100EBCFC1 /* YSGCDViewController.m in Sources */,
 				39333C201DE2CFA900035157 /* AddIconToDesktopVC.m in Sources */,
 				39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */,
+				390C593C1DE4393C0087990C /* AudioListVC.m in Sources */,
 				395ACE731D9377D800C22165 /* PresentViewController.m in Sources */,
 				39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,

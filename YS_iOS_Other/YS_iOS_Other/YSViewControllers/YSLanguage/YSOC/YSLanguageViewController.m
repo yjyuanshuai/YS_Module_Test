@@ -64,8 +64,7 @@ static NSString * const LanguageCellID = @"LanguageCellID";
     _languageTableView.dataSource = self;
     [self.view addSubview:_languageTableView];
     [_languageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view);
     }];
     
     [_languageTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:LanguageCellID];
