@@ -30,6 +30,10 @@ typedef NS_ENUM(NSInteger, AudioPlayStatus)
 
 @interface YSPlayViewController : YSRootViewController
 
-- (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr currentIndex:(NSInteger)currentIndex;
+- (instancetype)initWithAudioType:(AudioType)type
+                             list:(NSMutableArray *)listArr
+                     currentIndex:(NSInteger)currentIndex;
+
++ (instancetype)defaultPlayVC;
 
 @end

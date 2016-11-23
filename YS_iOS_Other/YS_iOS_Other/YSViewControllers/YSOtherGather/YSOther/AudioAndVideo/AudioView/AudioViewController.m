@@ -63,6 +63,8 @@
     [_audioTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    MASAttachKeys(_audioTableView);
 }
 
 #pragma mark - UITableViewDelegate & UITableViewDataSource

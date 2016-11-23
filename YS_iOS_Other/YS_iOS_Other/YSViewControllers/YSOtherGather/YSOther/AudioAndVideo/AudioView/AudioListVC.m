@@ -10,6 +10,7 @@
 #import "YSSongModel.h"
 #import "AudioOrVideoTableViewCell.h"
 #import "YSPlayViewController.h"
+#import "YSFileManager.h"
 
 static NSString * const AudioListCellID = @"AudioListCellID";
 
@@ -43,6 +44,7 @@ static NSString * const AudioListCellID = @"AudioListCellID";
     [self initUIAndData];
     [self createTableView];
     [self analysisData];
+    [self obtainDataFromSandBox];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,6 +55,14 @@ static NSString * const AudioListCellID = @"AudioListCellID";
 - (void)initUIAndData
 {
     _audioArr = [@[] mutableCopy];
+    
+    if (_type == AudioListTypeLocalPlay_SystemSound ||
+        _type == AudioListTypeLocalPlay_SystemMusic ||
+        _type == AudioListTypeLocalPlay_Music) {
+        
+        UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"正在播放" style:UIBarButtonItemStylePlain target:self action:@selector(currentPlay)];
+        self.navigationItem.rightBarButtonItem = rightBtn;
+    }
 }
 
 - (void)createTableView
@@ -60,11 +70,14 @@ static NSString * const AudioListCellID = @"AudioListCellID";
     _audioListTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _audioListTableView.delegate = self;
     _audioListTableView.dataSource = self;
+    _audioListTableView.tableFooterView = [UIView new];
     [self.view addSubview:_audioListTableView];
     
     [_audioListTableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self.view);
     }];
+    
+    MASAttachKeys(_audioListTableView);
     
     [_audioListTableView registerClass:[AudioOrVideoTableViewCell class] forCellReuseIdentifier:AudioListCellID];
 }
@@ -135,14 +148,69 @@ static NSString * const AudioListCellID = @"AudioListCellID";
     switch (_type) {
         case AudioListTypeLocalPlay_SystemSound:
         {
-            YSPlayViewController * localMusicVC = [[YSPlayViewController alloc] initWithAudioType:AudioTypeLocal list:_audioArr currentIndex:indexPath.row];
-            [self.navigationController pushViewController:localMusicVC animated:YES];
+            
         }
             break;
         case AudioListTypeLocalPlay_Music:
         {
             YSPlayViewController * localMusicVC = [[YSPlayViewController alloc] initWithAudioType:AudioTypeLocal list:_audioArr currentIndex:indexPath.row];
             [self.navigationController pushViewController:localMusicVC animated:YES];
+        }
+            break;
+        case AudioListTypeLocalPlay_SystemMusic:
+        {
+            
+        }
+            break;
+        case AudioListTypeLoaclMake:
+        {
+            
+        }
+            break;
+        case AudioListTypeWeb:
+        {
+            
+        }
+            break;
+    }
+}
+
+#pragma mark - 点击事件
+- (void)currentPlay
+{
+    
+}
+
+#pragma mark - 文件
+- (void)obtainDataFromSandBox
+{
+    switch (_type) {
+        case AudioListTypeLocalPlay_SystemSound:
+        {
+            
+        }
+            break;
+        case AudioListTypeLocalPlay_Music:
+        {
+            // 将本地音频文件 写入沙盒
+            NSString * dirPath = [[YSFileManager getDocumentsPath] stringByAppendingPathComponent:@"YS_iOS_Media"];
+            BOOL is = [YSFileManager createDirectName:@"YS_iOS_Media" toPath:[YSFileManager getDocumentsPath]];
+            
+            for (YSSongModel * songModel in _audioArr) {
+                NSString * songURL = songModel.url;
+                NSData * songData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:songURL ofType:@"mp3"]];
+                
+                NSString * songPath = [NSString stringWithFormat:@"%@.mp3", songModel.name];
+                
+                [YSFileManager writeData:songData toFile:[dirPath stringByAppendingPathComponent:songPath]];
+            }
+            
+            // 创建 歌曲分组 plist
+            [YSFileManager createFileWithName:@"GroupAudio.plist" toDes:dirPath];
+            
+            // 创建 当前播放列表 plist
+            [YSFileManager createFileWithName:@"CurrentAudio.plist" toDes:dirPath];
+
         }
             break;
         case AudioListTypeLocalPlay_SystemMusic:

@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YSSongModel : NSObject
+@interface YSSongModel : NSObject <NSCoding>
 
 @property (nonatomic, copy) NSString * name;
 @property (nonatomic, copy) NSString * url;

@@ -17,6 +17,16 @@ static NSString * const ListCellID = @"ListCellID";
 
 @interface YSPlayViewController () <UIScrollViewDelegate, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource>
 
+@property (nonatomic, assign) AudioType type;
+@property (nonatomic, strong) AVAudioPlayer * ysAudioPlayer;
+@property (nonatomic, strong) NSTimer * ysTime;
+@property (nonatomic, assign) AudioPlaySetting settingType;     // 播放方式
+@property (nonatomic, assign) AudioPlayStatus playStatus;       // 播放状态
+@property (nonatomic, assign) NSInteger currentIndex;
+
+@property (nonatomic, strong) NSMutableArray * webAudioList;
+
+// UI
 @property (nonatomic, strong) UIImageView * bgImageView;
 @property (nonatomic, strong) UIScrollView * audioScrollView;
 @property (nonatomic, strong) UIImageView * audioImageView;
@@ -24,27 +34,17 @@ static NSString * const ListCellID = @"ListCellID";
 @property (nonatomic, strong) UILabel * currentTime;
 @property (nonatomic, strong) UILabel * allTime;
 
-@property (nonatomic, assign) AudioType type;
-@property (nonatomic, strong) AVAudioPlayer * ysAudioPlayer;
-@property (nonatomic, strong) NSTimer * ysTime;
-//@property (nonatomic, assign) NSTimeInterval currentTimeInterval;
-//@property (nonatomic, assign) NSTimeInterval allTimeInterval;
-
-@property (nonatomic, assign) AudioPlaySetting settingType;     // 播放方式
-@property (nonatomic, assign) AudioPlayStatus playStatus;       // 播放状态
-
-//
 @property (nonatomic, strong) UITableView * listTableView;
+
 
 @end
 
 @implementation YSPlayViewController
 {
-    NSMutableArray * _webAudioList;
     YSSongModel * _currentModel;
-    NSInteger _currentIndex;
 }
 
+#pragma mark -
 - (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr currentIndex:(NSInteger)currentIndex
 {
     if (self = [super init]) {
@@ -66,20 +66,19 @@ static NSString * const ListCellID = @"ListCellID";
     [self createShapeLayer];
     [self createUpBtn];
     [self createDownBtn];
-    
+    [self createListTableView];
     [self createAVPlayer:nil];
     [self createProgressView];
-    [self createListTableView];
 }
 
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
     
-    [_ysAudioPlayer stop];
-    _ysAudioPlayer = nil;
-    
-    [self invalidTimer];
+//    [_ysAudioPlayer stop];
+//    _ysAudioPlayer = nil;
+//    
+//    [self invalidTimer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -89,10 +88,10 @@ static NSString * const ListCellID = @"ListCellID";
 
 - (void)dealloc
 {
-    [_ysAudioPlayer stop];
-    _ysAudioPlayer = nil;
-    
-    [self invalidTimer];
+//    [_ysAudioPlayer stop];
+//    _ysAudioPlayer = nil;
+//    
+//    [self invalidTimer];
 }
 
 - (void)initUIAndData
@@ -138,7 +137,7 @@ static NSString * const ListCellID = @"ListCellID";
         NSError * error = nil;
         
         _ysAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:path] error:&error];
-        _ysAudioPlayer.numberOfLoops = -1;      // 循环
+//        _ysAudioPlayer.numberOfLoops = -1;      // 循环
         _ysAudioPlayer.delegate = self;
         [_ysAudioPlayer prepareToPlay];
         [_ysAudioPlayer play];
@@ -287,9 +286,9 @@ static NSString * const ListCellID = @"ListCellID";
     [self.view addSubview:downloadBtn];
     
     UIButton * collectionBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_love"] forState:UIControlStateNormal];
-    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateSelected];
-    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_loved_dis"] forState:UIControlStateDisabled];
+    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateNormal];
+    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateSelected];
+    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateDisabled];
     [collectionBtn2 addTarget:self action:@selector(clickCollectionBtn2:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:collectionBtn2];
     
@@ -582,44 +581,52 @@ static NSString * const ListCellID = @"ListCellID";
 #pragma mark - AVAudioPlayerDelegate
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
-    // 播放完成
-    NSLog(@"++++++++++++++++ 播放完成！");
+    if (flag) {
+        // 播放完成
+        NSLog(@"++++++++++++++++ 播放完成！");
+        
+        [self invalidTimer];
+        [_ysAudioPlayer stop];
+        _ysAudioPlayer = nil;
+        
+        
+        if (_settingType == AudioPlaySettingOne) {
+            
+            [self createAVPlayer:_webAudioList[_currentIndex]];
+            [self updateSongInfo:_webAudioList[_currentIndex]];
+            
+        }
+        else if (_settingType == AudioPlaySettingList) {
+            
+            if (_currentIndex < [_webAudioList count] - 1) {
+                _currentIndex++;
+            }
+            else {
+                _currentIndex = 0;
+            }
+            [self createAVPlayer:_webAudioList[_currentIndex]];
+            [self updateSongInfo:_webAudioList[_currentIndex]];
+            
+        }
+        else if (_settingType == AudioPlaySettingAny){
+            
+            // 随机播放
+            NSInteger anyIndex = arc4random()%[_webAudioList count];
+            while (anyIndex == _currentIndex) {
+                anyIndex = arc4random()%[_webAudioList count];
+            }
+            _currentIndex = anyIndex;
+            
+            [self createAVPlayer:_webAudioList[_currentIndex]];
+            [self updateSongInfo:_webAudioList[_currentIndex]];
+            
+        }
+
+    }
+    else {
     
-    [self invalidTimer];
-    [_ysAudioPlayer stop];
-    _ysAudioPlayer = nil;
+    }
     
-    if (_settingType == AudioPlaySettingOne) {
-        
-        [self createAVPlayer:_webAudioList[_currentIndex]];
-        [self updateSongInfo:_webAudioList[_currentIndex]];
-        
-    }
-    else if (_settingType == AudioPlaySettingList) {
-        
-        if (_currentIndex < [_webAudioList count] - 1) {
-            _currentIndex++;
-        }
-        else {
-            _currentIndex = 0;
-        }
-        [self createAVPlayer:_webAudioList[_currentIndex]];
-        [self updateSongInfo:_webAudioList[_currentIndex]];
-        
-    }
-    else if (_settingType == AudioPlaySettingAny){
-        
-        // 随机播放
-        NSInteger anyIndex = arc4random()%[_webAudioList count];
-        while (anyIndex == _currentIndex) {
-            anyIndex = arc4random()%[_webAudioList count];
-        }
-        _currentIndex = anyIndex;
-        
-        [self createAVPlayer:_webAudioList[_currentIndex]];
-        [self updateSongInfo:_webAudioList[_currentIndex]];
-        
-    }
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource

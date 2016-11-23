@@ -19,4 +19,21 @@
     return self;
 }
 
+- (void)encodeWithCoder:(NSCoder *)aCoder
+{
+    [aCoder encodeObject:self.name forKey:@"name"];
+    [aCoder encodeObject:self.url forKey:@"url"];
+}
+
+- (instancetype)initWithCoder:(NSCoder *)aDecoder
+{
+    if (self = [super init]) {
+        
+        self.name   = [aDecoder decodeObjectForKey:@"name"];
+        self.url    = [aDecoder decodeObjectForKey:@"url"];
+        
+    }
+    return self;
+}
+
 @end

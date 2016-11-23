@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "YSTabBarController.h"
+#import "YSDDLogManager.h"
 
 @interface AppDelegate ()
 
@@ -26,7 +27,7 @@
     
     // app 启动完成时调用
     
-    [self initLogs];
+    [YSDDLogManager shareDDLogManager];
     [self initSetting];
     [self login];
     [self startBaiduMap];
@@ -236,15 +237,6 @@
     // TabBarItem
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
-}
-
-/**
- *  CocoaLumberjack
- */
-- (void)initLogs
-{
-    [DDLog addLogger:[DDASLLogger sharedInstance]];
-    [DDLog addLogger:[DDTTYLogger sharedInstance]];
 }
 
 /**
