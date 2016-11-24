@@ -9,7 +9,6 @@
 #import "AudioPlayerVC.h"
 #import "YSSongModel.h"
 #import "ListTableViewCell.h"
-#import <AVFoundation/AVFoundation.h>
 
 dispatch_queue_t serialQueue;
 
@@ -19,7 +18,6 @@ static NSString * const ListCellID = @"ListCellID";
 @interface AudioPlayerVC ()<AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource>
 
 //------------------//
-@property (nonatomic, strong) AVAudioPlayer * ysAudioPlayer;
 @property (nonatomic, strong) NSTimer * ysTime;
 
 //------------------//
@@ -71,6 +69,17 @@ static NSString * const ListCellID = @"ListCellID";
     return self;
 }
 
+- (void)dealloc
+{
+    [self invalidTimer];
+    
+    if (_ysAudioPlayer) {
+        [_ysAudioPlayer stop];
+        _ysAudioPlayer.delegate = nil;
+        _ysAudioPlayer = nil;
+    }
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -82,11 +91,28 @@ static NSString * const ListCellID = @"ListCellID";
     [self createDownBtn];
     [self createListTableView];
     [self createProgressView];
+    
+    [self playOnBackground];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+/*****************   控制台   *****************/
+#pragma mark - 声明App接收远程控制事件
+-(void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [[UIApplication sharedApplication] beginReceivingRemoteControlEvents];
+    [self becomeFirstResponder];
+}
+
+#pragma mark - App结束声明接收远程控制事件
+- (void) viewWillDisappear:(BOOL)animated {
+    [super viewWillDisappear:animated];
+    [[UIApplication sharedApplication] endReceivingRemoteControlEvents];
+    [self resignFirstResponder];
 }
 
 #pragma mark - 
@@ -100,6 +126,24 @@ static NSString * const ListCellID = @"ListCellID";
     for (NSData * songData in songsArr) {
         YSSongModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:songData];
         [_audioArr addObject:model];
+    }
+}
+
+- (void)playOnBackground
+{
+    NSError * error = nil;
+    NSError * activeError = nil;
+    
+    AVAudioSession * session = [AVAudioSession sharedInstance];
+    [session setCategory:AVAudioSessionCategoryPlayback error:&error];
+    [session setActive:YES error:&activeError];
+    
+    if (error) {
+        DDLogInfo(@"-------- AVAudioSession setCategory error: %@", error.localizedDescription);
+    }
+    
+    if (activeError) {
+        DDLogInfo(@"-------- AVAudioSession setActive error: %@", activeError.localizedDescription);
     }
 }
 
@@ -232,6 +276,86 @@ static NSString * const ListCellID = @"ListCellID";
     if (_playProgress.state == UIControlStateNormal) {
         [_playProgress setValue:_ysAudioPlayer.currentTime animated:YES];
     }
+}
+
+#pragma mark -- 接受控制台的控制事件
+- (void)remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+    if (receivedEvent.type == UIEventTypeRemoteControl) {
+        //判断点击按钮的类型
+        switch (receivedEvent.subtype) {
+                
+            case UIEventSubtypeRemoteControlPlay:
+                [self.ysAudioPlayer play];  //播放
+                break;
+            case UIEventSubtypeRemoteControlPause:
+                [self.ysAudioPlayer pause]; //暂停
+                break;
+            case UIEventSubtypeRemoteControlPreviousTrack:
+                [self playFrontSong]; //播放上一首
+                break;
+            case UIEventSubtypeRemoteControlNextTrack:
+                [self playNextSong];  //播放下一首
+                break;
+            default:
+                break;
+        }
+    }
+}
+
+#pragma mark - AVAudioPlayerDelegate
+// 播放完成
+- (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
+{
+    if (flag) {
+        NSLog(@"++++++++++++++++ 播放完成！");
+        
+        [self invalidTimer];
+        [_ysAudioPlayer stop];
+        _ysAudioPlayer = nil;
+        
+        
+        if (_settingType == AudioPlaySettingOne) {
+            
+            [self createAVPlayer:_audioArr[_currentIndex]];
+            [self updateSongInfo:_audioArr[_currentIndex]];
+            
+        }
+        else if (_settingType == AudioPlaySettingList) {
+            
+            if (_currentIndex < [_audioArr count] - 1) {
+                _currentIndex++;
+            }
+            else {
+                _currentIndex = 0;
+            }
+            [self createAVPlayer:_audioArr[_currentIndex]];
+            [self updateSongInfo:_audioArr[_currentIndex]];
+            
+        }
+        else if (_settingType == AudioPlaySettingAny){
+            
+            // 随机播放
+            NSInteger anyIndex = arc4random()%[_audioArr count];
+            while (anyIndex == _currentIndex) {
+                anyIndex = arc4random()%[_audioArr count];
+            }
+            _currentIndex = anyIndex;
+            
+            [self createAVPlayer:_audioArr[_currentIndex]];
+            [self updateSongInfo:_audioArr[_currentIndex]];
+            
+        }
+        
+    }
+    else {
+        
+    }
+    
+}
+
+// 后台播放被打断, 继续恢复播放 (比如打电话...)
+- (void)audioPlayerEndInterruption:(AVAudioPlayer *)player withOptions:(NSUInteger)flags {
+    [self.ysAudioPlayer play];
 }
 
 #pragma mark - UI
@@ -567,15 +691,7 @@ static NSString * const ListCellID = @"ListCellID";
 
 - (void)clickToFront:(UIButton *)sender
 {
-    // 上一首
-    if (_currentIndex > 0) {
-        _currentIndex--;
-    }
-    else {
-        _currentIndex = [_audioArr count] - 1;
-    }
-    [self createAVPlayer:_audioArr[_currentIndex]];
-    [self updateSongInfo:_audioArr[_currentIndex]];
+    [self playFrontSong];
 }
 
 - (void)clickToPlayOrPause:(UIButton *)sender
@@ -605,6 +721,24 @@ static NSString * const ListCellID = @"ListCellID";
 }
 
 - (void)clickToNext:(UIButton *)sender
+{
+    [self playNextSong];
+}
+
+- (void)playFrontSong
+{
+    // 上一首
+    if (_currentIndex > 0) {
+        _currentIndex--;
+    }
+    else {
+        _currentIndex = [_audioArr count] - 1;
+    }
+    [self createAVPlayer:_audioArr[_currentIndex]];
+    [self updateSongInfo:_audioArr[_currentIndex]];
+}
+
+- (void)playNextSong
 {
     // 下一首
     if (_currentIndex < [_audioArr count] - 1) {

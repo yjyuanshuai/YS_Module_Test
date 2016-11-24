@@ -11,6 +11,7 @@
  */
 
 #import "YSRootViewController.h"
+#import <AVFoundation/AVFoundation.h>
 
 typedef NS_ENUM(NSInteger, AudioPlaySetting)
 {
@@ -28,6 +29,7 @@ typedef NS_ENUM(NSInteger, AudioPlayStatus)
 @interface AudioPlayerVC : YSRootViewController
 
 @property (nonatomic, assign) NSInteger currentIndex;
+@property (nonatomic, strong) AVAudioPlayer * ysAudioPlayer;
 
 + (AudioPlayerVC *)defaultAudioVC;
 

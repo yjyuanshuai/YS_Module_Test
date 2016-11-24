@@ -9,6 +9,7 @@
 #import "AppDelegate.h"
 #import "YSTabBarController.h"
 #import "YSDDLogManager.h"
+#import "AudioPlayerVC.h"
 
 @interface AppDelegate ()
 
@@ -50,6 +51,11 @@
     // 所以要设置后台继续运行，则在这个函数里面设置即可
     // 使用这个方法来释放共享资源，保存用户数据，废止定时器，并存储足够的应用程序状态信息的情况下被终止后，将应用程序恢复到目前的状态。
     //如果你的应用程序支持后台运行，这种方法被调用
+    
+    
+    //程序进入后台后, 为了让音乐继续播放, 在此方法里创建该代理播放页, 并指定它播放器的代理
+    AudioPlayerVC *player = [AudioPlayerVC defaultAudioVC];
+    player.ysAudioPlayer.delegate = player;
 }
 
 #pragma mark - 切换到非活动状态
