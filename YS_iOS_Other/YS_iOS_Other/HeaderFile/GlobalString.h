@@ -87,5 +87,11 @@
 
 
 
+/*-------------------------------------------*/
+#pragma mark - 通知名
+
+#define BackgroundOperation     @"BackgroundOperation"
+
+
 
 #endif /* GlobalString_h */

@@ -76,6 +76,8 @@ static NSString * const ListCellID = @"ListCellID";
         _ysAudioPlayer.delegate = nil;
         _ysAudioPlayer = nil;
     }
+    
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
 
 - (void)viewDidLoad {
@@ -92,11 +94,50 @@ static NSString * const ListCellID = @"ListCellID";
     [self createProgressView];
     
     [self playOnBackground];
+    [self registNotification];
 }
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+#pragma mark - 
+- (void)registNotification
+{
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(sessionRouteChange:) name:AVAudioSessionRouteChangeNotification object:[AVAudioSession sharedInstance]];
+    
+    //监测被中断的事件
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(isPlayerPlaying:) name:AVAudioSessionInterruptionNotification object:nil];
+}
+
+- (void)sessionRouteChange:(NSNotification *)notification
+{
+    NSDictionary *interuptionDict = notification.userInfo;
+    NSInteger roteChangeReason = [[interuptionDict valueForKey:AVAudioSessionRouteChangeReasonKey] integerValue];
+    
+    switch (roteChangeReason) {
+        case AVAudioSessionRouteChangeReasonNewDeviceAvailable:
+            //插入耳机
+            DDLogInfo(@"------------ 插入耳机");
+            break;
+            
+        case AVAudioSessionRouteChangeReasonOldDeviceUnavailable:
+            //拔出耳机
+            DDLogInfo(@"------------ 拔出耳机");
+            [self playOrPause];
+            
+            break;
+            
+    }
+}
+
+//检测歌曲被打断事件（别的软件播放音乐，来电话）
+- (void)isPlayerPlaying:(NSNotification *)notification {
+    NSInteger type = [[notification.userInfo valueForKey:@"AVAudioSessionInterruptionTypeKey"] integerValue];
+    if (type == 1) {
+        //在这里进行你想要的操作
+    }
 }
 
 /*****************   控制台   *****************/

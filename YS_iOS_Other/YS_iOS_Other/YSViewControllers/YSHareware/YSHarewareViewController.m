@@ -59,12 +59,8 @@ static NSString * const HarewareCellID = @"HarewareCellID";
     _harewareTableView.dataSource = self;
     [self.view addSubview:_harewareTableView];
     [_harewareTableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.size.mas_equalTo(CGSizeMake(kScreenWidth, kScreenHeightNo64));
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(0, 0, 0, 0));
+        make.edges.equalTo(self.view);
     }];
-    
-    _harewareTableView.sectionHeaderHeight = 40;
-    _harewareTableView.sectionFooterHeight = 0.01;
     
     [_harewareTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:HarewareCellID];
 }
@@ -92,7 +88,15 @@ static NSString * const HarewareCellID = @"HarewareCellID";
     return _sectionTitleArr[section];
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
 
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {

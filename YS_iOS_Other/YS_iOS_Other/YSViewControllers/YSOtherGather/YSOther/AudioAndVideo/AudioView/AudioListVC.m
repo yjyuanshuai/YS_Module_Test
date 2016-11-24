@@ -173,7 +173,11 @@ static NSString * const AudioListCellID = @"AudioListCellID";
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 80;
+    NSArray * sectionArr = _audioArr[indexPath.section];
+    if (indexPath.row < [sectionArr count]) {
+        return 60;
+    }
+    return 44;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section

@@ -42,6 +42,9 @@
 - (void)applicationDidBecomeActive:(UIApplication *)application {
     
     // 重新获取焦点(能够和用户交互)
+    
+    //此时程序已经回到前台，如果需要的话可以让视频继续播放，让UI切换到播放的状态，如果不需要可以什么都不做
+    [[NSNotificationCenter defaultCenter] postNotificationName:BackgroundOperation object:@"didBecomeActive"];
 }
 
 #pragma mark - 切换到后台
@@ -64,6 +67,9 @@
     // 即将失去活动状态的时候调用(失去焦点, 不可交互)
     // 这可导致产生某些类型的临时中断（如传入电话呼叫或SMS消息），或者当用户退出应用程序，它开始过渡到的背景状态。
     // 使用此方法暂停正在进行的任务，禁用定时器，踩下油门， OpenGL ES的帧速率。游戏应该使用这种方法来暂停游戏。
+    
+    //这里可以用通知中心的方式，通知视频播放的界面将UI更新为暂停的状态（视频会自动暂停）
+    [[NSNotificationCenter defaultCenter] postNotificationName:BackgroundOperation object:@"willResignActive"];
 }
 
 - (void)applicationWillEnterForeground:(UIApplication *)application {
