@@ -56,6 +56,8 @@
 #define UserName                @"UserName"
 #define UserPassWord            @"UserPassWord"
 
+#define UserAudioPlayList       @"UserAudioPlayList"
+
 
 
 /*-------------------------------------------*/

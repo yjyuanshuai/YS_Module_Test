@@ -17,13 +17,16 @@ static NSString * const AudioListCellID = @"AudioListCellID";
 @interface AudioListVC ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * audioListTableView;
+@property (nonatomic, strong) NSMutableArray * currentPlayList;
 
 @end
 
 @implementation AudioListVC
 {
     AudioListType _type;
+    
     NSMutableArray * _audioArr;
+    NSMutableArray * _sectionTitleArr;
 }
 
 - (instancetype)initWithTitle:(NSString *)title audioListType:(AudioListType)type
@@ -55,6 +58,7 @@ static NSString * const AudioListCellID = @"AudioListCellID";
 - (void)initUIAndData
 {
     _audioArr = [@[] mutableCopy];
+    _sectionTitleArr = [@[] mutableCopy];
     
     if (_type == AudioListTypeLocalPlay_SystemSound ||
         _type == AudioListTypeLocalPlay_SystemMusic ||
@@ -67,7 +71,7 @@ static NSString * const AudioListCellID = @"AudioListCellID";
 
 - (void)createTableView
 {
-    _audioListTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _audioListTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _audioListTableView.delegate = self;
     _audioListTableView.dataSource = self;
     _audioListTableView.tableFooterView = [UIView new];
@@ -90,13 +94,22 @@ static NSString * const AudioListCellID = @"AudioListCellID";
         NSString * path = [[NSBundle mainBundle] pathForResource:@"YS_iOS_Audio" ofType:@"plist"];
         NSArray * arr = [NSArray arrayWithContentsOfFile:path];
         
-        NSDictionary * listFirstDict = [arr firstObject];
-        NSArray * listFirstArr = listFirstDict[@"songlist1"];
-        for (NSDictionary * audioDic in listFirstArr) {
-            YSSongModel * model = [[YSSongModel alloc] initWithWebSongDic:audioDic];
-            [_audioArr addObject:model];
+        for (NSDictionary * dict in arr) {
+            
+            NSString * groupName = dict[@"name"];
+            [_sectionTitleArr addObject:groupName];
+            
+            NSArray * listDictArr = dict[@"songs"];
+            NSMutableArray * groupSongs = [@[] mutableCopy];
+            for (NSDictionary * songDict in listDictArr) {
+                YSSongModel * model = [[YSSongModel alloc] initWithWebSongDic:songDict];
+                [groupSongs addObject:model];
+            }
+            
+            [_audioArr addObject:groupSongs];
         }
         
+        [_audioListTableView reloadData];
     }
     else if (_type == AudioListTypeLocalPlay_SystemMusic) {
     
@@ -107,28 +120,39 @@ static NSString * const AudioListCellID = @"AudioListCellID";
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return [_audioArr count];
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
     if (_type == AudioListTypeLocalPlay_SystemSound ||
         _type == AudioListTypeLocalPlay_Music ||
         _type == AudioListTypeLocalPlay_SystemMusic) {
         
-        return [_audioArr count] + 1;
+        if ([_audioArr count] > 0) {
+            if (section < [_audioArr count] - 1) {
+                return [_audioArr[section] count];
+            }
+            return [_audioArr[section] count] + 1;
+        }
+        return 0;
     }
-    return [_audioArr count];
+    return [_audioArr[section] count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    AudioOrVideoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AudioListCellID];
-    
     if (_type == AudioListTypeLocalPlay_SystemSound ||
         _type == AudioListTypeLocalPlay_Music ||
         _type == AudioListTypeLocalPlay_SystemMusic) {
         
-        if (indexPath.row < [_audioArr count]) {
-            YSSongModel * songModel = _audioArr[indexPath.row];
+        NSArray * sectionArr = _audioArr[indexPath.section];
+        if (indexPath.row < [sectionArr count]) {
             
+            AudioOrVideoTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:AudioListCellID];
+            YSSongModel * songModel = sectionArr[indexPath.row];
             [cell setCellContent:CellTypeAudio model:songModel];
             return cell;
         }
@@ -142,8 +166,29 @@ static NSString * const AudioListCellID = @"AudioListCellID";
             return cell;
         }
         
+        return nil;
     }
     return nil;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 80;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 40;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.01;
+}
+
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section
+{
+    return _sectionTitleArr[section];
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
@@ -158,7 +203,10 @@ static NSString * const AudioListCellID = @"AudioListCellID";
             break;
         case AudioListTypeLocalPlay_Music:
         {
-            if (indexPath.row < [_audioArr count]) {
+            NSArray * sectionArr = _audioArr[indexPath.section];
+            if (indexPath.row < [sectionArr count]) {
+                
+                [self storeCurrentPlayList:indexPath.section];
                 
                 AudioPlayerVC * audioPlayVC = [AudioPlayerVC defaultAudioVC];
                 audioPlayVC.currentIndex = indexPath.row;
@@ -213,29 +261,28 @@ static NSString * const AudioListCellID = @"AudioListCellID";
             break;
         case AudioListTypeLocalPlay_Music:
         {
+            
             // 将本地音频文件 写入沙盒
             [YSFileManager createDirectToPath:sbMedia_AudioDir];
             
-            for (YSSongModel * songModel in _audioArr) {
-                NSData * songData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:songModel.name ofType:songModel.expandType]];
-                
-                NSString * songPath = [NSString stringWithFormat:@"%@.%@", songModel.name, songModel.expandType];
-                
-                if ([YSFileManager fileHasExist:[sbMedia_AudioDir stringByAppendingPathComponent:songPath]]) {
-                    DDLogInfo(@"----------- 文件已存在");
+            for (NSArray * groupArr in _audioArr) {
+                for (YSSongModel * songModel in groupArr) {
+                    NSData * songData = [NSData dataWithContentsOfFile:[[NSBundle mainBundle] pathForResource:songModel.name ofType:songModel.expandType]];
+                    
+                    NSString * songPath = [NSString stringWithFormat:@"%@.%@", songModel.name, songModel.expandType];
+                    
+                    if ([YSFileManager fileHasExist:[sbMedia_AudioDir stringByAppendingPathComponent:songPath]]) {
+                        DDLogInfo(@"----------- 文件已存在");
+                    }
+                    else
+                    {
+                        [YSFileManager writeData:songData toFile:[sbMedia_AudioDir stringByAppendingPathComponent:songPath]];
+                    }
                 }
-                else
-                {
-                    [YSFileManager writeData:songData toFile:[sbMedia_AudioDir stringByAppendingPathComponent:songPath]];
-                }
+
             }
             // 创建 歌曲分组 plist
             [YSFileManager createFiletoDes:sbMedia_AudioGroupPlist];
-            
-            // 创建 当前播放列表 plist
-            [YSFileManager createFiletoDes:sbMedia_AudioCurrentPlist];
-            
-            [self writeSongsInfoToPlist];
 
         }
             break;
@@ -257,22 +304,29 @@ static NSString * const AudioListCellID = @"AudioListCellID";
     }
 }
 
-- (void)writeSongsInfoToPlist
+- (void)storeCurrentPlayList:(NSInteger)section
 {
-    // 当前播放列表 plist
-    NSMutableArray * currentSongsArr = [@[] mutableCopy];
-    for (YSSongModel * model in _audioArr) {
+    // 当前播放列表
+    NSArray * sectionSongs = _audioArr[section];
+
+    if (!_currentPlayList) {
+        _currentPlayList = [@[] mutableCopy];
+    }
+    [_currentPlayList removeAllObjects];
+    
+    for (YSSongModel * model in sectionSongs) {
         NSData * songData = [NSKeyedArchiver archivedDataWithRootObject:model];
-        [currentSongsArr addObject:songData];
+        [_currentPlayList addObject:songData];
     }
     
-    if ([currentSongsArr count] > 0) {
-        [currentSongsArr writeToFile:sbMedia_AudioCurrentPlist atomically:YES];
+    if ([_currentPlayList count] > 0) {
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithArray:_currentPlayList] forKey:UserAudioPlayList];
     }
     
     // 歌曲分组 plist
     NSArray * webPlistArr = [NSArray arrayWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"YS_iOS_Audio" ofType:@"plist"]];
     [webPlistArr writeToFile:sbMedia_AudioGroupPlist atomically:YES];
 }
+
 
 @end

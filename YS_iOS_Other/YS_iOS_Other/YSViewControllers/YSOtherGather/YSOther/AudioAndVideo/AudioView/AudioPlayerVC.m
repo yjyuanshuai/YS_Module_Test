@@ -41,6 +41,12 @@ static NSString * const ListCellID = @"ListCellID";
 @property (nonatomic, strong) UIButton * volBtn;
 @property (nonatomic, strong) UIButton * tempBtn;
 
+@property (nonatomic, strong) UIButton * playOrderBtn;
+@property (nonatomic, strong) UIButton * frontBtn;
+@property (nonatomic, strong) UIButton * playOrPauseBtn;
+@property (nonatomic, strong) UIButton * nextBtn;
+@property (nonatomic, strong) UIButton * listBtn;
+
 //------------------//
 
 @end
@@ -61,14 +67,6 @@ static NSString * const ListCellID = @"ListCellID";
     return instance;
 }
 
-- (instancetype)init
-{
-    if (self = [super init]) {
-        [self obtainCurrentSongList];
-    }
-    return self;
-}
-
 - (void)dealloc
 {
     [self invalidTimer];
@@ -84,6 +82,7 @@ static NSString * const ListCellID = @"ListCellID";
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
+    [self obtainCurrentSongList];
     [self initUIAndData];
     [self createUI];
     [self createShapeLayer];
@@ -122,7 +121,9 @@ static NSString * const ListCellID = @"ListCellID";
         _audioArr = [@[] mutableCopy];
     }
     
-    NSArray * songsArr = [NSArray arrayWithContentsOfFile:sbMedia_AudioCurrentPlist];
+    [_audioArr removeAllObjects];
+    
+    NSArray * songsArr = [[NSUserDefaults standardUserDefaults] objectForKey:UserAudioPlayList];
     for (NSData * songData in songsArr) {
         YSSongModel * model = [NSKeyedUnarchiver unarchiveObjectWithData:songData];
         [_audioArr addObject:model];
@@ -167,77 +168,61 @@ static NSString * const ListCellID = @"ListCellID";
         _currentModel.hasDownload = NO;
     }
     
+    NSData * audioData = [NSData data];
+    __block NSError * playError = nil;
+    __block NSString * errorInfo = @"";
+    
     if (_currentModel.hasDownload) {
-        
-        //创建串行队列 (放入线程中,免得页面假死)
-        serialQueue = dispatch_queue_create("com.yjyuanshuai.auido", DISPATCH_QUEUE_SERIAL);
-        dispatch_async(serialQueue, ^{
-            
-            NSData * audioData = (NSData *)[YSFileManager readDataFromFile:[sbMedia_AudioDir stringByAppendingPathComponent:path] dataType:[NSData class]];
-            
-            NSError * error = nil;
-            
-            _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
-            //        _ysAudioPlayer.numberOfLoops = -1;      // 循环
-            _ysAudioPlayer.delegate = self;
-            [_ysAudioPlayer prepareToPlay];
-            [_ysAudioPlayer play];
-            
-            if (error) {
-                NSLog(@"------------- AVAudioPlayer - Local - Error: %@", error.localizedDescription);
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self creataTimer];
-                
-                NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
-                _allTime.text = str;
-                _playProgress.maximumValue = _ysAudioPlayer.duration;
-                _downloadBtn.selected = YES;
-            });
-            
-        });
-        
+        audioData = (NSData *)[YSFileManager readDataFromFile:[sbMedia_AudioDir stringByAppendingPathComponent:path] dataType:[NSData class]];
+        errorInfo = @"AVAudioPlayer - Local - Error:";
     }
     else {
-        
-        serialQueue = dispatch_queue_create("com.yjyuanshuai.auido", DISPATCH_QUEUE_SERIAL);
-        dispatch_async(serialQueue, ^{
-        
-            NSData * audioData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_currentModel.url]];
-            NSError * error = nil;
-            
-            _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
-            _ysAudioPlayer.delegate = self;
-            [_ysAudioPlayer prepareToPlay];
-            [_ysAudioPlayer play];
-            
-            if (error) {
-                NSLog(@"------------- AVAudioPlayer - Web - Error: %@", error.localizedDescription);
-            }
-            
-            dispatch_async(dispatch_get_main_queue(), ^{
-                
-                [self creataTimer];
-                
-                NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
-                _allTime.text = str;
-                _playProgress.maximumValue = _ysAudioPlayer.duration;
-                _downloadBtn.selected = NO;
-            });
-        
-        });
+        NSData * data = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_currentModel.url]];
+        // 存到本地
+        BOOL writeSuccess = [YSFileManager writeData:data toFile:[sbMedia_AudioDir stringByAppendingPathComponent:path]];
+        if (writeSuccess) {
+            audioData = (NSData *)[YSFileManager readDataFromFile:[sbMedia_AudioDir stringByAppendingPathComponent:path] dataType:[NSData class]];
+        }
+        errorInfo = @"AVAudioPlayer - Web - Error:";
     }
+    
+    serialQueue = dispatch_queue_create("com.yjyuanshuai.auido", DISPATCH_QUEUE_SERIAL);
+    dispatch_async(serialQueue, ^{
+        
+        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&playError];
+        //        _ysAudioPlayer.numberOfLoops = -1;      // 循环
+        _ysAudioPlayer.delegate = self;
+        [_ysAudioPlayer prepareToPlay];
+        [_ysAudioPlayer play];
+        
+        if (playError) {
+            NSLog(@"------------- %@ %@", errorInfo, playError.localizedDescription);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [self creataTimer];
+            
+            NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
+            _allTime.text = str;
+            _playProgress.maximumValue = _ysAudioPlayer.duration;
+            _downloadBtn.selected = YES;
+            [_listTableView reloadData];
+            self.title = _currentModel.name;
+            
+        });
+        
+    });
+
 }
 
-- (void)updateSongInfo:(YSSongModel *)model
-{
-    dispatch_async(dispatch_get_main_queue(), ^{
-        self.title = model.name;
-        [_listTableView reloadData];
-    });
-}
+//- (void)updateSongInfo:(YSSongModel *)model
+//{
+//    dispatch_async(dispatch_get_main_queue(), ^{
+//        self.title = model.name;
+//        [_listTableView reloadData];
+//    });
+//}
 
 - (void)creataTimer
 {
@@ -263,9 +248,11 @@ static NSString * const ListCellID = @"ListCellID";
 - (void)setCurrentIndex:(NSInteger)currentIndex
 {
     _currentIndex = currentIndex;
+    [self obtainCurrentSongList];
     
-    [self createAVPlayer:_audioArr[_currentIndex]];
-    [self updateSongInfo:_audioArr[_currentIndex]];
+    if (_currentIndex < [_audioArr count]) {
+        [self createAVPlayer:_audioArr[_currentIndex]];
+    }
 }
 
 #pragma mark - time update
@@ -278,17 +265,63 @@ static NSString * const ListCellID = @"ListCellID";
     }
 }
 
-#pragma mark -- 接受控制台的控制事件
-- (void)remoteControlReceivedWithEvent: (UIEvent *) receivedEvent {
+#pragma mark - 接受控制台的控制事件
+- (void)remoteControlReceivedWithEvent:(UIEvent *) receivedEvent {
+    
+    DDLogInfo(@"----------- EventType: %d ----------- SubType: %d", (int)receivedEvent.type, (int)receivedEvent.subtype);
+    
     if (receivedEvent.type == UIEventTypeRemoteControl) {
         //判断点击按钮的类型
         switch (receivedEvent.subtype) {
+                
+                /**
+                 // 不包含任何子事件类型
+                 UIEventSubtypeNone                              = 0,
+                 
+                 // 摇晃事件（从iOS3.0开始支持此事件）
+                 UIEventSubtypeMotionShake                       = 1,
+                 
+                 //远程控制子事件类型（从iOS4.0开始支持远程控制事件）
+                 //播放事件【操作：停止状态下，按耳机线控中间按钮一下】
+                 UIEventSubtypeRemoteControlPlay                 = 100,
+                 
+                 //暂停事件
+                 UIEventSubtypeRemoteControlPause                = 101,
+                 
+                 //停止事件
+                 UIEventSubtypeRemoteControlStop                 = 102,
+                 
+                 //播放或暂停切换【操作：播放或暂停状态下，按耳机线控中间按钮一下】
+                 UIEventSubtypeRemoteControlTogglePlayPause      = 103,
+                 
+                 //下一曲【操作：按耳机线控中间按钮两下】
+                 UIEventSubtypeRemoteControlNextTrack            = 104,
+                 
+                 //上一曲【操作：按耳机线控中间按钮三下】
+                 UIEventSubtypeRemoteControlPreviousTrack        = 105,
+                 
+                 //快退开始【操作：按耳机线控中间按钮三下不要松开】
+                 UIEventSubtypeRemoteControlBeginSeekingBackward = 106,
+                 
+                 //快退停止【操作：按耳机线控中间按钮三下到了快退的位置松开】
+                 UIEventSubtypeRemoteControlEndSeekingBackward   = 107,
+                 
+                 //快进开始【操作：按耳机线控中间按钮两下不要松开】
+                 UIEventSubtypeRemoteControlBeginSeekingForward  = 108,
+                 
+                 //快进停止【操作：按耳机线控中间按钮两下到了快进的位置松开】
+                 UIEventSubtypeRemoteControlEndSeekingForward    = 109,
+                 
+                 */
                 
             case UIEventSubtypeRemoteControlPlay:
                 [self.ysAudioPlayer play];  //播放
                 break;
             case UIEventSubtypeRemoteControlPause:
                 [self.ysAudioPlayer pause]; //暂停
+                break;
+            case UIEventSubtypeRemoteControlTogglePlayPause:
+                [self playOrPause];
                 break;
             case UIEventSubtypeRemoteControlPreviousTrack:
                 [self playFrontSong]; //播放上一首
@@ -307,8 +340,6 @@ static NSString * const ListCellID = @"ListCellID";
 - (void)audioPlayerDidFinishPlaying:(AVAudioPlayer *)player successfully:(BOOL)flag
 {
     if (flag) {
-        NSLog(@"++++++++++++++++ 播放完成！");
-        
         [self invalidTimer];
         [_ysAudioPlayer stop];
         _ysAudioPlayer = nil;
@@ -317,7 +348,7 @@ static NSString * const ListCellID = @"ListCellID";
         if (_settingType == AudioPlaySettingOne) {
             
             [self createAVPlayer:_audioArr[_currentIndex]];
-            [self updateSongInfo:_audioArr[_currentIndex]];
+//            [self updateSongInfo:_audioArr[_currentIndex]];
             
         }
         else if (_settingType == AudioPlaySettingList) {
@@ -329,7 +360,7 @@ static NSString * const ListCellID = @"ListCellID";
                 _currentIndex = 0;
             }
             [self createAVPlayer:_audioArr[_currentIndex]];
-            [self updateSongInfo:_audioArr[_currentIndex]];
+//            [self updateSongInfo:_audioArr[_currentIndex]];
             
         }
         else if (_settingType == AudioPlaySettingAny){
@@ -342,7 +373,7 @@ static NSString * const ListCellID = @"ListCellID";
             _currentIndex = anyIndex;
             
             [self createAVPlayer:_audioArr[_currentIndex]];
-            [self updateSongInfo:_audioArr[_currentIndex]];
+//            [self updateSongInfo:_audioArr[_currentIndex]];
             
         }
         
@@ -361,8 +392,6 @@ static NSString * const ListCellID = @"ListCellID";
 #pragma mark - UI
 - (void)initUIAndData
 {
-    _currentIndex = 0;
-    
     if ([_audioArr count] > 0) {
         _currentModel = _audioArr[_currentIndex];
         self.title = _currentModel.name;
@@ -484,80 +513,80 @@ static NSString * const ListCellID = @"ListCellID";
 - (void)createDownBtn
 {
     // 播放设置
-    UIButton * playOrderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _playOrderBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     if (_settingType == AudioPlaySettingOne) {
-        [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_one_prs"] forState:UIControlStateNormal];
+        [_playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_one_prs"] forState:UIControlStateNormal];
     }
     else if (_settingType == AudioPlaySettingList) {
-        [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
+        [_playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_loop_prs"] forState:UIControlStateNormal];
     }
     else if (_settingType == AudioPlaySettingAny){
-        [playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_shuffle_prs"] forState:UIControlStateNormal];
+        [_playOrderBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_shuffle_prs"] forState:UIControlStateNormal];
     }
-    [playOrderBtn addTarget:self action:@selector(clickToPlayOrder:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:playOrderBtn];
+    [_playOrderBtn addTarget:self action:@selector(clickToPlayOrder:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_playOrderBtn];
     
     // 前一首
-    UIButton * frontBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [frontBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_next_prs"] forState:UIControlStateNormal];
-    [frontBtn addTarget:self action:@selector(clickToFront:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:frontBtn];
-    frontBtn.transform = CGAffineTransformMakeRotation(M_PI);
+    _frontBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_frontBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_next_prs"] forState:UIControlStateNormal];
+    [_frontBtn addTarget:self action:@selector(clickToFront:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_frontBtn];
+    _frontBtn.transform = CGAffineTransformMakeRotation(M_PI);
     
     // 播放 、 暂停
-    UIButton * playOrPauseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    _playOrPauseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     if (_playStatus == AudioPlayStatusPause) {
-        [playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
+        [_playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
     }
     else {
-        [playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
+        [_playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
         
     }
-    [playOrPauseBtn addTarget:self action:@selector(clickToPlayOrPause:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:playOrPauseBtn];
+    [_playOrPauseBtn addTarget:self action:@selector(clickToPlayOrPause:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_playOrPauseBtn];
     
     // 后一首
-    UIButton * nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [nextBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_next_prs"] forState:UIControlStateNormal];
-    [nextBtn addTarget:self action:@selector(clickToNext:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:nextBtn];
+    _nextBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_nextBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_next_prs"] forState:UIControlStateNormal];
+    [_nextBtn addTarget:self action:@selector(clickToNext:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_nextBtn];
     
     // 播放列表
-    UIButton * listBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [listBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_list_prs"] forState:UIControlStateNormal];
-    [listBtn addTarget:self action:@selector(clickToList:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:listBtn];
+    _listBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_listBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_list_prs"] forState:UIControlStateNormal];
+    [_listBtn addTarget:self action:@selector(clickToList:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_listBtn];
     
     CGFloat spaceX = (kScreenWidth - 40*4 - 30 - 50)/4;
     CGFloat bottemX = -10;
     
-    [playOrderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_playOrderBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(40, 40));
         make.left.equalTo(self.view).mas_equalTo(15);
         make.bottom.equalTo(self.view).mas_equalTo(bottemX);
     }];
     
-    [frontBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_frontBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.left.equalTo(playOrderBtn).mas_equalTo(spaceX + 40);
+        make.left.equalTo(_playOrderBtn).mas_equalTo(spaceX + 40);
         make.bottom.equalTo(self.view).mas_equalTo(bottemX);
     }];
     
-    [playOrPauseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_playOrPauseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(50, 50));
-        make.left.equalTo(frontBtn).mas_equalTo(spaceX + 40);
+        make.left.equalTo(_frontBtn).mas_equalTo(spaceX + 40);
         make.bottom.equalTo(self.view).mas_equalTo(bottemX);
     }];
     
-    [nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_nextBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.left.equalTo(playOrPauseBtn).mas_equalTo(spaceX + 40);
+        make.left.equalTo(_playOrPauseBtn).mas_equalTo(spaceX + 40);
         make.bottom.equalTo(self.view).mas_equalTo(bottemX);
     }];
     
-    [listBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_listBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.left.equalTo(nextBtn).mas_equalTo(spaceX + 40);
+        make.left.equalTo(_nextBtn).mas_equalTo(spaceX + 40);
         make.bottom.equalTo(self.view).mas_equalTo(bottemX);
     }];
 }
@@ -570,7 +599,7 @@ static NSString * const ListCellID = @"ListCellID";
     _listTableView.rowHeight = UITableViewAutomaticDimension;
     _listTableView.estimatedRowHeight = 80;
     _listTableView.separatorStyle = UITableViewCellSeparatorStyleSingleLine;
-    _listTableView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:0.8];
+    _listTableView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:1];
     _listTableView.tableFooterView = [UIView new];
     _listTableView.separatorInset = UIEdgeInsetsMake(0, 0, 0, 0);
     _listTableView.layoutMargins = UIEdgeInsetsMake(0, 0, 0, 0);
@@ -696,7 +725,23 @@ static NSString * const ListCellID = @"ListCellID";
 
 - (void)clickToPlayOrPause:(UIButton *)sender
 {
-    if (_playStatus == AudioPlayStatusPlaying) {
+    [self playOrPause];
+}
+
+- (void)clickToNext:(UIButton *)sender
+{
+    [self playNextSong];
+}
+
+- (void)clickToList:(UIButton *)sender
+{
+    _listTableView.hidden = !_listTableView.hidden;
+    [self.view bringSubviewToFront:_listTableView];
+}
+
+- (void)playOrPause
+{
+    if (_ysAudioPlayer && [_ysAudioPlayer isPlaying]) {
         // 暂停
         _playStatus = AudioPlayStatusPause;
         [_ysAudioPlayer pause];
@@ -705,9 +750,9 @@ static NSString * const ListCellID = @"ListCellID";
         _ysTime.fireDate = [NSDate distantFuture];
         
         // 更新图片
-        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
+        [_playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_play"] forState:UIControlStateNormal];
     }
-    else {
+    else if (_ysAudioPlayer) {
         // 开始播放
         _playStatus = AudioPlayStatusPlaying;
         [_ysAudioPlayer play];
@@ -716,13 +761,8 @@ static NSString * const ListCellID = @"ListCellID";
         _ysTime.fireDate = [NSDate distantPast];
         
         // 更新图片
-        [sender setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
+        [_playOrPauseBtn setBackgroundImage:[UIImage imageNamed:@"cm2_btn_pause"] forState:UIControlStateNormal];
     }
-}
-
-- (void)clickToNext:(UIButton *)sender
-{
-    [self playNextSong];
 }
 
 - (void)playFrontSong
@@ -735,7 +775,7 @@ static NSString * const ListCellID = @"ListCellID";
         _currentIndex = [_audioArr count] - 1;
     }
     [self createAVPlayer:_audioArr[_currentIndex]];
-    [self updateSongInfo:_audioArr[_currentIndex]];
+//    [self updateSongInfo:_audioArr[_currentIndex]];
 }
 
 - (void)playNextSong
@@ -750,12 +790,7 @@ static NSString * const ListCellID = @"ListCellID";
     }
     
     [self createAVPlayer:_audioArr[_currentIndex]];
-    [self updateSongInfo:_audioArr[_currentIndex]];
-}
-
-- (void)clickToList:(UIButton *)sender
-{
-    _listTableView.hidden = !_listTableView.hidden;
+//    [self updateSongInfo:_audioArr[_currentIndex]];
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -796,7 +831,7 @@ static NSString * const ListCellID = @"ListCellID";
         _currentIndex = indexPath.row;
         YSSongModel * model = _audioArr[indexPath.row];
         [self createAVPlayer:model];
-        [self updateSongInfo:model];
+//        [self updateSongInfo:model];
         
     }
 }

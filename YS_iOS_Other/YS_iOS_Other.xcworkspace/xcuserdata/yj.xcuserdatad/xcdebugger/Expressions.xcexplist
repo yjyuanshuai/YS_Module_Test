@@ -46,10 +46,34 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[AudioListVC tableView:didSelectRowAtIndexPath:]:AudioListVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[OneSearchController didPresentSearchController:]:OneSearchController.m">
          <PersistentStrings>
             <PersistentString
                value = "self.edgesForExtendedLayout">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AudioPlayerVC setCurrentIndex:]:AudioPlayerVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AudioListVC analysisData]:AudioListVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioArr">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

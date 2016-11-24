@@ -3,7 +3,9 @@
 <plist version="1.0">
 <array>
 	<dict>
-		<key>songlist1</key>
+		<key>name</key>
+		<string>songlist1</string>
+		<key>songs</key>
 		<array>
 			<dict>
 				<key>hasdownlaod</key>
@@ -34,6 +36,83 @@
 				<string>https://cl.ly/1B2t170g0i3k</string>
 				<key>name</key>
 				<string>歌曲2</string>
+			</dict>
+		</array>
+	</dict>
+	<dict>
+		<key>name</key>
+		<string>songlist2</string>
+		<key>songs</key>
+		<array>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>英雄有路</string>
+			</dict>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>时光笔墨</string>
+			</dict>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>浮诛</string>
+			</dict>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>离思</string>
+			</dict>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>青衣谣</string>
+			</dict>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>青云志</string>
+			</dict>
+			<dict>
+				<key>hasdownlaod</key>
+				<true/>
+				<key>expand</key>
+				<string>mp3</string>
+				<key>url</key>
+				<string></string>
+				<key>name</key>
+				<string>如果我们不曾相遇</string>
 			</dict>
 		</array>
 	</dict>
