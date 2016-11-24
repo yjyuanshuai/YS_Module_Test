@@ -6,6 +6,8 @@
 //  Copyright © 2016年 YJ. All rights reserved.
 //
 
+#import "YSFileManager.h"
+
 #ifndef GlobalString_h
 #define GlobalString_h
 
@@ -44,6 +46,9 @@
 #define YSFont_Sys(font) [UIFont systemFontOfSize:font]
 
 
+
+
+
 /*-------------------------------------------*/
 #pragma mark - 用户偏好设置有关
 
@@ -65,6 +70,18 @@
 #pragma mark - 第三方有关
 /*********  百度地图 *******************/
 #define kBaiduMapAK     @"0o1W98wXRSCK6dgQoxl2T6XMEnGQIK2L"
+
+
+
+
+
+/*-------------------------------------------*/
+#pragma mark - 沙盒目录有关
+
+#define sbMedia_AudioDir [[YSFileManager getDocumentsPath] stringByAppendingPathComponent:@"YS_iOS_Media"]  // 音频文件夹
+#define sbMedia_AudioGroupPlist [sbMedia_AudioDir stringByAppendingPathComponent:@"GroupAudio.plist"]       // 音频分组
+#define sbMedia_AudioCurrentPlist [sbMedia_AudioDir stringByAppendingPathComponent:@"CurrentAudio.plist"]   // 当前音频文件
+
 
 
 

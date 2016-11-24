@@ -18,19 +18,15 @@
     BOOL isDir = NO;
     BOOL isExist = [fileManager fileExistsAtPath:diretPath isDirectory:&isDir];
     if (isExist && isDir) {
-        DDLogInfo(@"---------- %@ 已存在！", diretPath);
+        return YES;
     }
     else {
-        DDLogInfo(@"---------- %@ 不存在！", diretPath);
+        return NO;
     }
-    return isExist;
 }
 
-+ (BOOL)createDirectName:(NSString *)directName
-                  toPath:(NSString *)toDirect
++ (BOOL)createDirectToPath:(NSString *)path
 {
-    NSString * path = [toDirect stringByAppendingPathComponent:directName];
-    
     if (![YSFileManager directHasExist:path]) {
         NSError * error = nil;
         
@@ -39,13 +35,76 @@
         if (error) {
             DDLogInfo(@"------------- 目标目录: %@ 创建失败！----- error: %@", path, error.localizedDescription);
         }
-        if (createSuccess) {
-            DDLogInfo(@"---------- 目标目录: %@ 创建成功！", path);
-        }
         return createSuccess;
     }
+    else {
+        DDLogInfo(@"---------- 目标目录: %@ 已存在！不需新建", path);
+        return YES;
+    }
+}
+
++ (NSArray *)allFileOrDirectInDirect:(NSString *)path
+{
+    NSError * error = nil;
     
-    return NO;
+    NSFileManager * fileManager = [NSFileManager defaultManager];
+    NSArray * contentsArr = nil;
+    contentsArr = [fileManager contentsOfDirectoryAtPath:path error:&error];
+    
+    if (error) {
+        DDLogInfo(@"---------- 获取目标路径下: %@ 子文件/夹出错！error: %@", path, error.localizedDescription);
+    }
+    
+    return contentsArr;
+}
+
++ (BOOL)deleteAppointFileType:(NSString *)type inDirect:(NSString *)path
+{
+    BOOL deleteType = YES;
+    
+    NSArray * contentsArr = [YSFileManager allFileOrDirectInDirect:path];
+    
+    if ([contentsArr count] > 0) {
+        NSEnumerator * enu = [contentsArr objectEnumerator];
+        NSString * fileName;
+        while (fileName = [enu nextObject]) {
+            if ([[fileName pathExtension] isEqualToString:type]) {
+                deleteType = [YSFileManager deleteFile:[path stringByAppendingPathComponent:fileName]];
+                if (!deleteType) {
+                    return deleteType;
+                }
+            }
+        }
+    }
+    else {
+        deleteType = NO;
+        DDLogInfo(@"---------- 目标目录: %@ ，不存在扩展名为: %@ 的文件", path, type);
+    }
+    
+    return deleteType;
+}
+
++ (BOOL)deleteAllFileOrDirectInDirect:(NSString *)path
+{
+    BOOL deleteType = YES;
+    
+    NSArray * contentsArr = [YSFileManager allFileOrDirectInDirect:path];
+    if ([contentsArr count] > 0) {
+        NSEnumerator * enu = [contentsArr objectEnumerator];
+        NSString * fileName;
+        while (fileName = [enu nextObject]) {
+            deleteType = [YSFileManager deleteFile:[path stringByAppendingPathComponent:fileName]];
+            if (!deleteType) {
+                return deleteType;
+            }
+        }
+    }
+    else {
+        deleteType = NO;
+        DDLogInfo(@"---------- 目标目录: %@ 下没有任何子文件或目录", path);
+    }
+    
+    return deleteType;
 }
 
 #pragma mark - 文件管理
@@ -54,26 +113,22 @@
 {
     NSFileManager * fileManager = [NSFileManager defaultManager];
     if ([fileManager fileExistsAtPath:path]) {
-        DDLogInfo(@"------------ %@ 文件已存在！", path);
         return YES;
     }
-    DDLogInfo(@"------------ %@ 文件不存在！", path);
     return NO;
 }
 
-+ (BOOL)createFileWithName:(NSString *)fileName toDes:(NSString *)path
++ (BOOL)createFiletoDes:(NSString *)path
 {
-    NSString * desPath = [path stringByAppendingPathComponent:fileName];
-    
     NSFileManager * fileManager = [NSFileManager defaultManager];
-    BOOL createSuccess = [fileManager createFileAtPath:desPath contents:nil attributes:nil];
-    if (createSuccess) {
-        DDLogInfo(@"----------- %@ 创建成功", fileName);
+    if (![YSFileManager fileHasExist:path]) {
+        BOOL createSuccess = [fileManager createFileAtPath:path contents:nil attributes:nil];
+        return createSuccess;
     }
     else {
-        DDLogInfo(@"----------- %@ 创建失败", fileName);
+        DDLogInfo(@"----------- %@ 已存在！不需创建", path);
+        return YES;
     }
-    return createSuccess;
 }
 
 + (BOOL)deleteFile:(NSString *)path
@@ -88,6 +143,8 @@
     
     return deleteSuccess;
 }
+
+
 
 #pragma mark - 文件内容管理
 + (BOOL)writeData:(id)writeData toFile:(NSString *)path
@@ -120,8 +177,11 @@
     return writeSuccess;
 }
 
-+ (id)readDataFromFile:(NSString *)path
++ (id)readDataFromFile:(NSString *)path dataType:(Class *)className
 {
+//    if () {
+//        
+//    }
     return nil;
 }
 
@@ -136,14 +196,14 @@
 {
     // NSDocumentDirectory 表明我们正在查找 Documents 目录的路径
     // NSUserDomainMask 表示将搜索限制在引用程序的沙盒内
-    NSArray * arr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, NO);
+    NSArray * arr = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString * documentsPath = [arr objectAtIndex:0];
     return documentsPath;
 }
 
 + (NSString *)getLibraryPath
 {
-    NSArray * arr = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, NO);
+    NSArray * arr = NSSearchPathForDirectoriesInDomains(NSLibraryDirectory, NSUserDomainMask, YES);
     NSString * documentsPath = [arr objectAtIndex:0];
     return documentsPath;
     
@@ -153,7 +213,7 @@
 
 + (NSString *)getLibraryCachesPath
 {
-    NSArray * arr = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, NO);
+    NSArray * arr = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
     NSString * documentsPath = [arr objectAtIndex:0];
     return documentsPath;
 }

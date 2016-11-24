@@ -10,9 +10,10 @@
 #import <AVFoundation/AVFoundation.h>
 #import "YSSongModel.h"
 #import "ListTableViewCell.h"
+#import "YSFileManager.h"
 
-static NSString * const playerStatus = @"playerStatus";
-static NSString * const loadedTimeRanges = @"loadedTimeRanges";
+//static NSString * const playerStatus = @"playerStatus";
+//static NSString * const loadedTimeRanges = @"loadedTimeRanges";
 static NSString * const ListCellID = @"ListCellID";
 
 @interface YSPlayViewController () <UIScrollViewDelegate, AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -43,6 +44,8 @@ static NSString * const ListCellID = @"ListCellID";
 {
     YSSongModel * _currentModel;
 }
+
+
 
 #pragma mark -
 - (instancetype)initWithAudioType:(AudioType)type list:(NSMutableArray *)listArr currentIndex:(NSInteger)currentIndex
@@ -117,6 +120,9 @@ static NSString * const ListCellID = @"ListCellID";
     if (model != nil) {
         _currentModel = model;
     }
+    
+    // 判断音频是否已存入本地
+    
     
     if (_type == AudioTypeWeb) {
         

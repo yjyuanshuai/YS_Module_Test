@@ -34,6 +34,4 @@ typedef NS_ENUM(NSInteger, AudioPlayStatus)
                              list:(NSMutableArray *)listArr
                      currentIndex:(NSInteger)currentIndex;
 
-+ (instancetype)defaultPlayVC;
-
 @end

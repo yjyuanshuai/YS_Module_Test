@@ -114,7 +114,7 @@
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
 		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
 		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
-		395118E11D598063008E339D /* WebAudioList.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395118E01D598063008E339D /* WebAudioList.plist */; };
+		395118E11D598063008E339D /* YS_iOS_Audio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395118E01D598063008E339D /* YS_iOS_Audio.plist */; };
 		395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 395562581D41C3550079CF6B /* MyKeyChainHelper.m */; };
 		3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955625B1D41C3840079CF6B /* YSKeyChainViewController.m */; };
 		3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3955628D1D420A7D0079CF6B /* SQLViewController.m */; };
@@ -169,9 +169,9 @@
 		39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */; };
 		39C4F2461D910B9400E4FADE /* libCocoaLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
-		39CAB15C1D816DFD0078AFF5 /* 13010100001.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB1591D816DFD0078AFF5 /* 13010100001.mp3 */; };
-		39CAB15D1D816DFD0078AFF5 /* 1304090002.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15A1D816DFD0078AFF5 /* 1304090002.mp3 */; };
-		39CAB15E1D816DFD0078AFF5 /* 1407030003.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15B1D816DFD0078AFF5 /* 1407030003.mp3 */; };
+		39CAB15C1D816DFD0078AFF5 /* 歌曲1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB1591D816DFD0078AFF5 /* 歌曲1.mp3 */; };
+		39CAB15D1D816DFD0078AFF5 /* 歌曲2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */; };
+		39CAB15E1D816DFD0078AFF5 /* 歌曲3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */; };
 		39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCA9921D488E6700B78FA9 /* Stars@2x.png */; };
 		39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DB4C851D5AD75D009D2B1F /* YSEnDecryptionMethod.m */; };
 		39DE71321DACB56A00A04628 /* test20161011@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DE71311DACB56A00A04628 /* test20161011@2x.png */; };
@@ -409,7 +409,7 @@
 		3949E2761D1A3B890016BFF6 /* YSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSUserModel.m; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.m; sourceTree = SOURCE_ROOT; };
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
-		395118E01D598063008E339D /* WebAudioList.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = WebAudioList.plist; sourceTree = "<group>"; };
+		395118E01D598063008E339D /* YS_iOS_Audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YS_iOS_Audio.plist; sourceTree = "<group>"; };
 		395562571D41C3550079CF6B /* MyKeyChainHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyKeyChainHelper.h; sourceTree = "<group>"; };
 		395562581D41C3550079CF6B /* MyKeyChainHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyKeyChainHelper.m; sourceTree = "<group>"; };
 		3955625A1D41C3840079CF6B /* YSKeyChainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSKeyChainViewController.h; sourceTree = "<group>"; };
@@ -491,9 +491,9 @@
 		39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocoaLumberjack.a; path = "Pods/../build/Debug-iphoneos/CocoaLumberjack/libCocoaLumberjack.a"; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
 		39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionTestModel.m; path = YS_iOS_Other/Models/CollectionTestModel.m; sourceTree = SOURCE_ROOT; };
-		39CAB1591D816DFD0078AFF5 /* 13010100001.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 13010100001.mp3; sourceTree = "<group>"; };
-		39CAB15A1D816DFD0078AFF5 /* 1304090002.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1304090002.mp3; sourceTree = "<group>"; };
-		39CAB15B1D816DFD0078AFF5 /* 1407030003.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = 1407030003.mp3; sourceTree = "<group>"; };
+		39CAB1591D816DFD0078AFF5 /* 歌曲1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲1.mp3"; sourceTree = "<group>"; };
+		39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲2.mp3"; sourceTree = "<group>"; };
+		39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲3.mp3"; sourceTree = "<group>"; };
 		39CCA9921D488E6700B78FA9 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
 		39DB4C841D5AD75D009D2B1F /* YSEnDecryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSEnDecryptionMethod.h; sourceTree = "<group>"; };
 		39DB4C851D5AD75D009D2B1F /* YSEnDecryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSEnDecryptionMethod.m; sourceTree = "<group>"; };
@@ -1641,10 +1641,10 @@
 		39FF1FBC1D585A3000463160 /* Audio */ = {
 			isa = PBXGroup;
 			children = (
-				395118E01D598063008E339D /* WebAudioList.plist */,
-				39CAB1591D816DFD0078AFF5 /* 13010100001.mp3 */,
-				39CAB15A1D816DFD0078AFF5 /* 1304090002.mp3 */,
-				39CAB15B1D816DFD0078AFF5 /* 1407030003.mp3 */,
+				395118E01D598063008E339D /* YS_iOS_Audio.plist */,
+				39CAB1591D816DFD0078AFF5 /* 歌曲1.mp3 */,
+				39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */,
+				39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */,
 			);
 			path = Audio;
 			sourceTree = "<group>";
@@ -1791,7 +1791,7 @@
 				393AACE61D4B372A0004C41D /* cm2_fm_btn_loved@3x.png in Resources */,
 				39333BE41DE2CE3600035157 /* Web in Resources */,
 				39214A7D1D056A600019422D /* 5.jpg in Resources */,
-				39CAB15D1D816DFD0078AFF5 /* 1304090002.mp3 in Resources */,
+				39CAB15D1D816DFD0078AFF5 /* 歌曲2.mp3 in Resources */,
 				399129021D5C4D340099C279 /* tab_fiv_sel.png in Resources */,
 				39214A7C1D056A600019422D /* 4.jpg in Resources */,
 				39214A7B1D056A600019422D /* 3.jpg in Resources */,
@@ -1820,7 +1820,7 @@
 				395ACE9D1D937CF200C22165 /* test01.png in Resources */,
 				3991290A1D5C4D340099C279 /* tab_thr_sel.png in Resources */,
 				39FF1FB81D582CEB00463160 /* cm2_icn_loop_prs@2x.png in Resources */,
-				39CAB15C1D816DFD0078AFF5 /* 13010100001.mp3 in Resources */,
+				39CAB15C1D816DFD0078AFF5 /* 歌曲1.mp3 in Resources */,
 				39FF1FAF1D582AEC00463160 /* cm2_fm_btn_next_prs@2x.png in Resources */,
 				39214A771D056A600019422D /* 10.jpg in Resources */,
 				393AACE21D4B372A0004C41D /* cm2_fm_btn_loved_dis@2x.png in Resources */,
@@ -1835,7 +1835,7 @@
 				399129051D5C4D340099C279 /* tab_one_num.png in Resources */,
 				39FF1FAE1D582AEC00463160 /* cm2_fm_btn_next_prs.png in Resources */,
 				399C4A631D8FC63500D8E6F6 /* cm2_icn_one_prs@3x.png in Resources */,
-				39CAB15E1D816DFD0078AFF5 /* 1407030003.mp3 in Resources */,
+				39CAB15E1D816DFD0078AFF5 /* 歌曲3.mp3 in Resources */,
 				393AACF71D4B396F0004C41D /* cm2_icn_dlded_prs@2x.png in Resources */,
 				39FF1FB01D582AEC00463160 /* cm2_fm_btn_next_prs@3x.png in Resources */,
 				393AACE31D4B372A0004C41D /* cm2_fm_btn_loved_dis@3x.png in Resources */,
@@ -1846,7 +1846,7 @@
 				394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */,
 				39214A801D056A600019422D /* 8.jpg in Resources */,
 				399C4A641D8FC63500D8E6F6 /* cm2_icn_shuffle_prs.png in Resources */,
-				395118E11D598063008E339D /* WebAudioList.plist in Resources */,
+				395118E11D598063008E339D /* YS_iOS_Audio.plist in Resources */,
 				39FF1FA11D582AE400463160 /* cm2_btm_tab_icn_share@3x.png in Resources */,
 				39FF1FA01D582AE400463160 /* cm2_btm_tab_icn_share@2x.png in Resources */,
 				39214A7E1D056A600019422D /* 6.jpg in Resources */,

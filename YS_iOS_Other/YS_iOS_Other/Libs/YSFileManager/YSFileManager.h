@@ -19,11 +19,22 @@
 /**
  *  创建目录到指定路径下
  */
-+ (BOOL)createDirectName:(NSString *)directName
-                  toPath:(NSString *)toDirect;
++ (BOOL)createDirectToPath:(NSString *)path;
 
+/**
+ *  获取目标目录下所有的子文件/夹
+ */
++ (NSArray *)allFileOrDirectInDirect:(NSString *)path;
 
+/**
+ *  删除目标目录下制定的文件
+ */
++ (BOOL)deleteAppointFileType:(NSString *)type inDirect:(NSString *)path;
 
+/**
+ *  删除目标目录下所有的文件/文件夹
+ */
++ (BOOL)deleteAllFileOrDirectInDirect:(NSString *)path;
 
 
 
@@ -36,7 +47,7 @@
 /**
  *  创建文件到指定路径下
  */
-+ (BOOL)createFileWithName:(NSString *)fileName toDes:(NSString *)path;
++ (BOOL)createFiletoDes:(NSString *)path;
 
 /**
  *  删除文件
@@ -78,18 +89,19 @@
  */
 + (BOOL)writeData:(id)writeData toFile:(NSString *)path;
 
-
-
-
-
-
-
-
-
 /**
  *  从文件中读取数据
  */
-+ (id)readDataFromFile:(NSString *)path;
++ (id)readDataFromFile:(NSString *)path dataType:(Class *)className;
+
+
+
+
+
+
+
+
+
 
 /**
  *  比较2个文件的内容是否一样（YES 相同，NO 不同）

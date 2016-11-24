@@ -10,8 +10,10 @@
 
 @interface YSSongModel : NSObject <NSCoding>
 
-@property (nonatomic, copy) NSString * name;
+@property (nonatomic, copy) NSString * name;              //
+@property (nonatomic, copy) NSString * expandType;        // 文件扩展名
 @property (nonatomic, copy) NSString * url;
+@property (nonatomic, assign) BOOL hasDownload;           // 本地是否缓存
 @property (nonatomic, copy) NSString * songerName;
 
 - (instancetype)initWithWebSongDic:(NSDictionary *)dic;
