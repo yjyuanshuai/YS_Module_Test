@@ -177,11 +177,25 @@
     return writeSuccess;
 }
 
-+ (id)readDataFromFile:(NSString *)path dataType:(Class *)className
++ (id)readDataFromFile:(NSString *)path dataType:(Class)className
 {
-//    if () {
-//        
-//    }
+    if ([className isSubclassOfClass:[NSArray class]]) {
+        NSArray * retArr = [[NSArray alloc] initWithContentsOfFile:path];
+        return retArr;
+    }
+    else if ([className isSubclassOfClass:[NSDictionary class]]) {
+        NSDictionary * retDict = [[NSDictionary alloc] initWithContentsOfFile:path];
+        return retDict;
+    }
+    else if ([className isSubclassOfClass:[NSData class]]) {
+        NSData * retData = [NSData dataWithContentsOfFile:path];
+        return retData;
+    }
+    else if ([className isSubclassOfClass:[NSString class]]) {
+        NSString * retStr = [[NSString alloc] initWithData:[NSData dataWithContentsOfFile:path] encoding:NSUTF8StringEncoding];
+        return retStr;
+    }
+    
     return nil;
 }
 

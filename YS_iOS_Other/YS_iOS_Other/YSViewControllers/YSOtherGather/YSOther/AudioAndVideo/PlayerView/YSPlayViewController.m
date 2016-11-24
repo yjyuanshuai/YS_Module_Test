@@ -483,7 +483,9 @@ static NSString * const ListCellID = @"ListCellID";
 
 - (void)clickDownloadBtn:(UIButton *)sender
 {
-    
+    if (!sender.selected) {
+        sender.selected = YES;
+    }
 }
 
 - (void)clickCollectionBtn2:(UIButton *)sender

@@ -29,6 +29,6 @@ typedef NS_ENUM(NSInteger, AudioPlayStatus)
 
 @property (nonatomic, assign) NSInteger currentIndex;
 
-+ (instancetype)defaultAudioVC;
++ (AudioPlayerVC *)defaultAudioVC;
 
 @end

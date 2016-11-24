@@ -92,7 +92,7 @@
 /**
  *  从文件中读取数据
  */
-+ (id)readDataFromFile:(NSString *)path dataType:(Class *)className;
++ (id)readDataFromFile:(NSString *)path dataType:(Class)className;
 
 
 

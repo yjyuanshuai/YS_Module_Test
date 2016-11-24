@@ -11,6 +11,9 @@
 #import "ListTableViewCell.h"
 #import <AVFoundation/AVFoundation.h>
 
+dispatch_queue_t serialQueue;
+
+
 static NSString * const ListCellID = @"ListCellID";
 
 @interface AudioPlayerVC ()<AVAudioPlayerDelegate, UITableViewDelegate, UITableViewDataSource>
@@ -35,6 +38,10 @@ static NSString * const ListCellID = @"ListCellID";
 @property (nonatomic, strong) UILabel * allTime;
 @property (nonatomic, strong) UITableView * listTableView;
 
+@property (nonatomic, strong) UIButton * collectionBtn;
+@property (nonatomic, strong) UIButton * downloadBtn;
+@property (nonatomic, strong) UIButton * volBtn;
+@property (nonatomic, strong) UIButton * tempBtn;
 
 //------------------//
 
@@ -45,9 +52,9 @@ static NSString * const ListCellID = @"ListCellID";
     NSMutableArray * _audioArr;
 }
 
-+ (instancetype)defaultAudioVC
++ (AudioPlayerVC *)defaultAudioVC
 {
-    __block AudioPlayerVC * instance = nil;
+    static AudioPlayerVC * instance = nil;
     
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
@@ -74,8 +81,6 @@ static NSString * const ListCellID = @"ListCellID";
     [self createUpBtn];
     [self createDownBtn];
     [self createListTableView];
-    
-    [self createAVPlayer:nil];
     [self createProgressView];
 }
 
@@ -120,48 +125,72 @@ static NSString * const ListCellID = @"ListCellID";
     
     if (_currentModel.hasDownload) {
         
-        // 本地已存在
-        NSString * path = [[NSBundle mainBundle] pathForResource:_currentModel.name ofType:_currentModel.expandType];
-        NSError * error = nil;
+        //创建串行队列 (放入线程中,免得页面假死)
+        serialQueue = dispatch_queue_create("com.yjyuanshuai.auido", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(serialQueue, ^{
+            
+            NSData * audioData = (NSData *)[YSFileManager readDataFromFile:[sbMedia_AudioDir stringByAppendingPathComponent:path] dataType:[NSData class]];
+            
+            NSError * error = nil;
+            
+            _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
+            //        _ysAudioPlayer.numberOfLoops = -1;      // 循环
+            _ysAudioPlayer.delegate = self;
+            [_ysAudioPlayer prepareToPlay];
+            [_ysAudioPlayer play];
+            
+            if (error) {
+                NSLog(@"------------- AVAudioPlayer - Local - Error: %@", error.localizedDescription);
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self creataTimer];
+                
+                NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
+                _allTime.text = str;
+                _playProgress.maximumValue = _ysAudioPlayer.duration;
+                _downloadBtn.selected = YES;
+            });
+            
+        });
         
-        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:[NSURL URLWithString:path] error:&error];
-        //        _ysAudioPlayer.numberOfLoops = -1;      // 循环
-        _ysAudioPlayer.delegate = self;
-        [_ysAudioPlayer prepareToPlay];
-        [_ysAudioPlayer play];
-        
-        if (error) {
-            NSLog(@"------------- AVAudioPlayer - Local - Error: %@", error.localizedDescription);
-        }
     }
     else {
         
-        // 从网络下载
-        NSData * audioData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_currentModel.url]];
-        NSError * error = nil;
+        serialQueue = dispatch_queue_create("com.yjyuanshuai.auido", DISPATCH_QUEUE_SERIAL);
+        dispatch_async(serialQueue, ^{
         
-        _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
-        _ysAudioPlayer.delegate = self;
-        [_ysAudioPlayer prepareToPlay];
-        [_ysAudioPlayer play];
+            NSData * audioData = [[NSData alloc] initWithContentsOfURL:[NSURL URLWithString:_currentModel.url]];
+            NSError * error = nil;
+            
+            _ysAudioPlayer = [[AVAudioPlayer alloc] initWithData:audioData error:&error];
+            _ysAudioPlayer.delegate = self;
+            [_ysAudioPlayer prepareToPlay];
+            [_ysAudioPlayer play];
+            
+            if (error) {
+                NSLog(@"------------- AVAudioPlayer - Web - Error: %@", error.localizedDescription);
+            }
+            
+            dispatch_async(dispatch_get_main_queue(), ^{
+                
+                [self creataTimer];
+                
+                NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
+                _allTime.text = str;
+                _playProgress.maximumValue = _ysAudioPlayer.duration;
+                _downloadBtn.selected = NO;
+            });
         
-        if (error) {
-            NSLog(@"------------- AVAudioPlayer - Web - Error: %@", error.localizedDescription);
-        }
+        });
     }
-    
-    [self creataTimer];
-    dispatch_async(dispatch_get_main_queue(), ^{
-        NSString * str = [self turnIntoTimeWithTimeInterval:_ysAudioPlayer.duration];
-        _allTime.text = str;
-    });
 }
 
 - (void)updateSongInfo:(YSSongModel *)model
 {
-    self.title = model.name;
-    
     dispatch_async(dispatch_get_main_queue(), ^{
+        self.title = model.name;
         [_listTableView reloadData];
     });
 }
@@ -273,35 +302,35 @@ static NSString * const ListCellID = @"ListCellID";
 
 - (void)createUpBtn
 {
-    UIButton * collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [collectionBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_love"] forState:UIControlStateNormal];
-    [collectionBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateSelected];
-    [collectionBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_loved_dis"] forState:UIControlStateDisabled];
-    [collectionBtn addTarget:self action:@selector(clickCollectionBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:collectionBtn];
+    _collectionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_collectionBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_love"] forState:UIControlStateNormal];
+    [_collectionBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateSelected];
+    [_collectionBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_btn_loved_dis"] forState:UIControlStateDisabled];
+    [_collectionBtn addTarget:self action:@selector(clickCollectionBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_collectionBtn];
     
-    UIButton * downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [downloadBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_prs"] forState:UIControlStateNormal];
-    [downloadBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dlded_prs"] forState:UIControlStateSelected];
-    [downloadBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_dis"] forState:UIControlStateDisabled];
-    [downloadBtn addTarget:self action:@selector(clickDownloadBtn:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:downloadBtn];
+    _downloadBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_downloadBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_prs"] forState:UIControlStateNormal];
+    [_downloadBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dlded_prs"] forState:UIControlStateSelected];
+    [_downloadBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_dis"] forState:UIControlStateDisabled];
+    [_downloadBtn addTarget:self action:@selector(clickDownloadBtn:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_downloadBtn];
     
-    UIButton * collectionBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateNormal];
-    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateSelected];
-    [collectionBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateDisabled];
-    [collectionBtn2 addTarget:self action:@selector(clickCollectionBtn2:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:collectionBtn2];
+    _volBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_volBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateNormal];
+    [_volBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateSelected];
+    [_volBtn setBackgroundImage:[UIImage imageNamed:@"cm2_fm_vol_speaker"] forState:UIControlStateDisabled];
+    [_volBtn addTarget:self action:@selector(clickCollectionBtn2:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_volBtn];
     
-    UIButton * downloadBtn2 = [UIButton buttonWithType:UIButtonTypeCustom];
-    [downloadBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_prs"] forState:UIControlStateNormal];
-    [downloadBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dlded_prs"] forState:UIControlStateSelected];
-    [downloadBtn2 setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_dis"] forState:UIControlStateDisabled];
-    [downloadBtn2 addTarget:self action:@selector(clickDownloadBtn2:) forControlEvents:UIControlEventTouchUpInside];
-    [self.view addSubview:downloadBtn2];
+    _tempBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [_tempBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_prs"] forState:UIControlStateNormal];
+    [_tempBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dlded_prs"] forState:UIControlStateSelected];
+    [_tempBtn setBackgroundImage:[UIImage imageNamed:@"cm2_icn_dld_dis"] forState:UIControlStateDisabled];
+    [_tempBtn addTarget:self action:@selector(clickDownloadBtn2:) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:_tempBtn];
     
-    [collectionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_collectionBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).mas_equalTo(-120);
         make.left.equalTo(self.view).mas_equalTo(15);
         make.size.mas_equalTo(CGSizeMake(40, 40));
@@ -309,22 +338,22 @@ static NSString * const ListCellID = @"ListCellID";
     
     CGFloat space = (kScreenWidth - 30 - 4*40)/3;
     
-    [downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_downloadBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).mas_equalTo(-120);
         make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.left.equalTo(collectionBtn).mas_equalTo(space + 40);
+        make.left.equalTo(_collectionBtn).mas_equalTo(space + 40);
     }];
     
-    [collectionBtn2 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_volBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).mas_equalTo(-120);
         make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.left.equalTo(downloadBtn).mas_equalTo(space + 40);
+        make.left.equalTo(_downloadBtn).mas_equalTo(space + 40);
     }];
     
-    [downloadBtn2 mas_makeConstraints:^(MASConstraintMaker *make) {
+    [_tempBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.equalTo(self.view).mas_equalTo(-120);
         make.size.mas_equalTo(CGSizeMake(40, 40));
-        make.left.equalTo(collectionBtn2).mas_equalTo(space + 40);
+        make.left.equalTo(_volBtn).mas_equalTo(space + 40);
     }];
 }
 
@@ -455,7 +484,8 @@ static NSString * const ListCellID = @"ListCellID";
     _playProgress.maximumTrackTintColor = [UIColor whiteColor];
     _playProgress.value = 0.0;
     _playProgress.minimumValue = 0.0;
-    _playProgress.maximumValue = _ysAudioPlayer.duration;
+    _playProgress.maximumValue = 1.0;
+//    _playProgress.maximumValue = _ysAudioPlayer.duration;
     _playProgress.continuous = YES; //设置只有在离开滑动条的最后时刻才触发滑动事件 默认是YES
     //    [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_love"] forState:UIControlStateNormal];
     [_playProgress setThumbImage:[UIImage imageNamed:@"cm2_fm_btn_loved"] forState:UIControlStateHighlighted];
@@ -611,7 +641,7 @@ static NSString * const ListCellID = @"ListCellID";
         cell.contentView.backgroundColor = [UIColor colorWithWhite:0.4 alpha:0.8];
     }
     
-    [cell setListCellContent:_audioArr[indexPath.row] time:@""];
+    [cell setListCellContent:_audioArr[indexPath.row] time:@"" ];
     
     return cell;
 }
@@ -631,11 +661,8 @@ static NSString * const ListCellID = @"ListCellID";
         
         _currentIndex = indexPath.row;
         YSSongModel * model = _audioArr[indexPath.row];
-        
-//        if (_type == AudioTypeLocal) {
-//            [self createAVPlayer:model];
-//            [self updateSongInfo:model];
-//        }
+        [self createAVPlayer:model];
+        [self updateSongInfo:model];
         
     }
 }

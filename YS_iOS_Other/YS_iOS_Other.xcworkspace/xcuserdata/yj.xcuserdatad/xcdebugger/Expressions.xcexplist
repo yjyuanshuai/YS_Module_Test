@@ -38,6 +38,14 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
+         contextName = "-[AudioPlayerVC obtainCurrentSongList]:AudioPlayerVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[OneSearchController didPresentSearchController:]:OneSearchController.m">
          <PersistentStrings>
             <PersistentString

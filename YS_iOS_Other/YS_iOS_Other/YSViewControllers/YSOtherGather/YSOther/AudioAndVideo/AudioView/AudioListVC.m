@@ -159,9 +159,11 @@ static NSString * const AudioListCellID = @"AudioListCellID";
         case AudioListTypeLocalPlay_Music:
         {
             if (indexPath.row < [_audioArr count]) {
+                
                 AudioPlayerVC * audioPlayVC = [AudioPlayerVC defaultAudioVC];
                 audioPlayVC.currentIndex = indexPath.row;
                 [self.navigationController pushViewController:audioPlayVC animated:YES];
+                
             }
             else {
                 // 清除沙盒音频文件
