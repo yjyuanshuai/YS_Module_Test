@@ -29,6 +29,14 @@
 	</array>
 	<array>
 		<dict>
+			<key>alert</key>
+			<array>
+				<string>alert TABLE 表名 ADD 列名 类型
+ADD column_name datatype</string>
+				<string>alert TABLE 表名  DROP 列名 类型</string>
+			</array>
+		</dict>
+		<dict>
 			<key>insert</key>
 			<array>
 				<string>insert into 表名 (字段1, 字段2, …) values (字段1的值, 字段2的值, …) ; </string>
