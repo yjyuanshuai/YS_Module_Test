@@ -16,6 +16,7 @@
 #import "SevenBaiduViewController.h"
 
 // 3 图文混排
+#import "TextAttachmentViewController.h"
 #import "YSCoreTextViewController.h"
 
 // 4 音/视频
@@ -65,7 +66,7 @@ static NSString * const OtherCellID = @"OtherCellID";
     
     NSArray * sectionOne    = @[@"原生", @"百度", @"高德"];
     NSArray * sectionTwo    = @[@"本地化"];
-    NSArray * sectionThree  = @[@"CoreText"];
+    NSArray * sectionThree  = @[@"NSTextAttachment", @"CoreText"];
     NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
     NSArray * payArr        = @[@"招行一网通"];
     NSArray * someFun       = @[@"Quartz", @"OpenGL", @"桌面快捷方式"];
@@ -162,6 +163,13 @@ static NSString * const OtherCellID = @"OtherCellID";
         case 2:
         {
             if (indexPath.row == 0) {
+                
+                TextAttachmentViewController * textAttachVC = [[TextAttachmentViewController alloc] init];
+                textAttachVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:textAttachVC animated:YES];
+                
+            }
+            else if (indexPath.row == 1) {
                 
                 // CoreText 图文混排
                 YSCoreTextViewController * coreTextVC = [[YSCoreTextViewController alloc] init];
