@@ -40,6 +40,8 @@
 
 #define YSFontValidColor [UIColor colorWithRed:231.0/255.0 green:236.0/255.0 blue:218.0/255.0 alpha:1.0]
 
+#define YSDefaultGrayColor [UIColor colorWithRed:236.0/255.0 green:236.0/255.0 blue:236.0/255.0 alpha:1.0]
+
 /*-------------------------------------------*/
 #pragma mark - 字体
 

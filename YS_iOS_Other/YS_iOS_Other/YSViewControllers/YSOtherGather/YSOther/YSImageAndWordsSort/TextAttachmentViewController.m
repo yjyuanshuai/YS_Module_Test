@@ -7,16 +7,25 @@
 //
 
 #import "TextAttachmentViewController.h"
+#import "ChatViewController.h"
 
-@interface TextAttachmentViewController ()
+@interface TextAttachmentViewController ()<UITableViewDelegate, UITableViewDataSource>
+
+@property (nonatomic, strong) UITableView * selectTableView;
 
 @end
 
 @implementation TextAttachmentViewController
+{
+    NSArray * _dataArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initUIAndData];
+    [self createTableView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -34,10 +43,54 @@
  
  ****/
 
-- (void)analysePList
+- (void)initUIAndData
 {
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"emoticons" ofType:@"plist"];
-    NSArray * emoArr = [NSArray arrayWithContentsOfFile:path];
+    self.title = @"图文混排 - TextAttach";
+    
+    _dataArr = @[@"聊天", @"图文混排", @"朋友圈"];
+}
+
+- (void)createTableView
+{
+    _selectTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
+    _selectTableView.delegate = self;
+    _selectTableView.dataSource = self;
+    [self.view addSubview:_selectTableView];
+    
+    [_selectTableView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+}
+
+#pragma mark - UITableViewDelegate, UITableViewDataSource
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return [_dataArr count];
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:@"CellID"];
+    if (cell == nil) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"CellID"];
+    }
+    cell.textLabel.text = _dataArr[indexPath.row];
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if (indexPath.row == 0) {
+        ChatViewController * chatVC = [[ChatViewController alloc] init];
+        [self.navigationController pushViewController:chatVC animated:YES];
+    }
+    else if (indexPath.row == 1) {
+    
+    }
+    else if (indexPath.row == 2) {
+        
+    }
 }
 
 @end
