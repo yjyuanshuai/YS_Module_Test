@@ -36,6 +36,10 @@ PODS:
   - FMDB (2.6.2):
     - FMDB/standard (= 2.6.2)
   - FMDB/standard (2.6.2)
+  - FMDBMigrationManager (1.4.1):
+    - FMDBMigrationManager/System (= 1.4.1)
+  - FMDBMigrationManager/System (1.4.1):
+    - FMDB/standard (>= 2.3)
   - Masonry (1.0.1)
   - QBImagePickerController (3.4.0)
   - RESideMenu (4.0.7)
@@ -50,6 +54,7 @@ DEPENDENCIES:
   - CocoaHTTPServer (= 2.3)
   - CocoaLumberjack (= 2.3.0)
   - FMDB (= 2.6.2)
+  - FMDBMigrationManager (= 1.4.1)
   - Masonry (= 1.0.1)
   - QBImagePickerController (= 3.4.0)
   - RESideMenu (= 4.0.7)
@@ -63,12 +68,13 @@ SPEC CHECKSUMS:
   CocoaHTTPServer: 5624681fc3473d43b18202f635f9b3abb013b530
   CocoaLumberjack: 97fab7ee5f507fe54445cca7ea80f926729cfd15
   FMDB: 854a0341b4726e53276f2a8996f06f1b80f9259a
+  FMDBMigrationManager: d52007f328ea0665e8985ca8a33500707aef084f
   Masonry: a1a931a0d08870ed8ae415a2ea5ea68ebcac77df
   QBImagePickerController: d54cf93db6decf26baf6ed3472f336ef35cae022
   RESideMenu: f24c508404b49c667344c54aba7e590883533958
   SDWebImage: 35f9627a3e44b4f292a8a8ce6a531fa488239b91
   UITableView+FDTemplateLayoutCell: 234e1582bcc4e18461af91155123bb96538ed030
 
-PODFILE CHECKSUM: 3cd586482149c01ad1cd5457cb53f9ed72c47879
+PODFILE CHECKSUM: f1ff5f98ed30efd45b65d9904a811c245563c262
 
 COCOAPODS: 1.0.1

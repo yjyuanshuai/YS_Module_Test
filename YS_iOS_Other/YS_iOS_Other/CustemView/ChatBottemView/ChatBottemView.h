@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+@class EmotionModel;
 
 static NSInteger const FunctionBtnTag = 20161216;
 
@@ -27,9 +28,11 @@ typedef NS_ENUM(NSInteger, FunctionType)
 @property (nonatomic, strong) UITextView * chatTextView;
 @property (nonatomic, strong) UIButton * emotionBtn;
 @property (nonatomic, weak) id<ChatBottemViewDelegate> delegate;
+@property (nonatomic, assign) CGRect currentFrame;
 
 - (instancetype)initWithFrame:(CGRect)frame;
-- (void)receiveEmotionStr:(NSString *)emo;
 - (CGFloat)getBottemViewHeight;
+- (void)receviceEmoStr:(id)model;
+- (void)clearChatText;
 
 @end

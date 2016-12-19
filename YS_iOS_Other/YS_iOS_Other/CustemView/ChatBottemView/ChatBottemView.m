@@ -8,14 +8,14 @@
 
 #import "ChatBottemView.h"
 #import "NSString+YSStringDo.h"
+#import "EmotionModel.h"
+#import "YSImageAndTextSort.h"
 
-static CGFloat const CBViewMinHeight = 85;
-static CGFloat const CBViewMaxHeight = 145;
+static CGFloat const ConstHeight = 45;
+static CGFloat const TextViewMinHeight = 40;
+static CGFloat const TextViewMaxHeight = 100;
 
 @implementation ChatBottemView
-{
-    CGRect currentFrame;
-}
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
@@ -28,22 +28,37 @@ static CGFloat const CBViewMaxHeight = 145;
     return self;
 }
 
+- (void)dealloc
+{
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
 - (CGFloat)getBottemViewHeight
 {
     return self.frame.size.height;
 }
 
-- (void)receiveEmotionStr:(NSString *)emo
+- (void)receviceEmoStr:(id)model
 {
-    // 获取表情
-    
+    if ([model isKindOfClass:[EmotionModel class]]) {
+        EmotionModel * emoModel = (EmotionModel *)model;
+        _chatTextView.text = [NSString stringWithFormat:@"%@%@", _chatTextView.text, emoModel.cht];
+        [self updateUI];
+    }
+}
+
+- (void)clearChatText
+{
+    _chatTextView.text = @"";
+    [_chatTextView resignFirstResponder];
+    [self updateUI];
 }
 
 #pragma mark -
 - (void)checkFrame:(CGRect)frame
 {
-    if (frame.size.height != CBViewMinHeight) {
-        frame.size.height = CBViewMinHeight;
+    if (frame.size.height != ConstHeight + TextViewMinHeight) {
+        frame.size.height = ConstHeight + TextViewMinHeight;
     }
     
     if (frame.size.width != kScreenWidth) {
@@ -54,14 +69,21 @@ static CGFloat const CBViewMaxHeight = 145;
         frame.origin.x = 0;
     }
     
-    currentFrame = frame;
+    _currentFrame = frame;
     self.frame = frame;
 }
 
 - (void)createSubViews
 {
-    self.chatTextView = [[UITextView alloc] initWithFrame:CGRectMake(5, 5, self.frame.size.width - 10, 40)];
+    self.chatTextView = [[UITextView alloc] initWithFrame:CGRectMake(5, 5, self.frame.size.width - 10, TextViewMinHeight)];
     self.chatTextView.delegate = self;
+    self.chatTextView.contentInset = UIEdgeInsetsMake(3, 3, 3, 3);
+    self.chatTextView.font = YSFont_Sys(16);
+    self.chatTextView.showsHorizontalScrollIndicator = NO;
+    self.chatTextView.alwaysBounceHorizontal = NO;
+    self.chatTextView.bounces = NO;
+    self.chatTextView.clipsToBounds = YES;
+    self.chatTextView.layer.cornerRadius = 3;
     [self addSubview:self.chatTextView];
     
     self.emotionBtn = [UIButton buttonWithType:UIButtonTypeCustom];
@@ -83,6 +105,24 @@ static CGFloat const CBViewMaxHeight = 145;
     }
 }
 
+- (void)updateUI
+{
+    NSString * currentText = _chatTextView.text;
+    
+    CGFloat currentHeight = [currentText calculateHeightWithMaxWidth:_chatTextView.frame.size.width font:_chatTextView.font miniHeight:TextViewMinHeight];
+    if (currentHeight > TextViewMaxHeight) {
+        currentHeight = TextViewMaxHeight;
+    }
+    
+    __weak typeof(self) weakSelf = self;
+    
+    dispatch_async(dispatch_get_main_queue(), ^{
+        weakSelf.frame = CGRectMake(0, _currentFrame.origin.y - (currentHeight - TextViewMinHeight), _currentFrame.size.width, currentHeight + ConstHeight);
+        weakSelf.chatTextView.frame = CGRectMake(5, 5, kScreenWidth - 10, currentHeight);
+        weakSelf.emotionBtn.frame = CGRectMake(5, CGRectGetMaxY(weakSelf.chatTextView.frame) + 5, 30, 30);
+    });
+}
+
 #pragma mark - UITextViewDelegate
 - (BOOL)textViewShouldBeginEditing:(UITextView *)textView
 {
@@ -91,29 +131,13 @@ static CGFloat const CBViewMaxHeight = 145;
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    if ([text isEqualToString:@"\n"]) {
-        return YES;
-    }
-    
+    NSAttributedString * imageAttrStr = [YSImageAndTextSort textAttach:text emoArr:[EmotionFileAnalysis sharedEmotionFile].emoArr originY:-8];
     return YES;
 }
 
 - (void)textViewDidChange:(UITextView *)textView
 {
-    NSString * currentText = textView.text;
-    
-    CGFloat currentHeight = [currentText calculateHeightWithMaxWidth:textView.frame.size.width font:textView.font miniHeight:40];
-    if (currentHeight > 100) {
-        currentHeight = 100;
-    }
-    
-    // 刷新UI
-    __weak typeof(self) weakSelf = self;
-    
-    dispatch_async(dispatch_get_main_queue(), ^{
-        weakSelf.frame = CGRectMake(0, currentFrame.origin.y - (currentHeight - 40), currentFrame.size.width, currentHeight + 45);
-        weakSelf.chatTextView.frame = CGRectMake(5, 5, kScreenWidth - 10, currentHeight);
-    });
+    [self updateUI];
 }
 
 @end

@@ -14,3 +14,12 @@
 @property (nonatomic, copy) NSString * emo;     // 对应图片
 
 @end
+
+
+
+@interface EmotionFileAnalysis : NSObject
+
+@property (nonatomic, strong) NSMutableArray * emoArr;
++ (instancetype)sharedEmotionFile;
+
+@end

@@ -13,7 +13,7 @@
 
 static NSString * const ChatViewCellID = @"ChatViewCellID";
 
-@interface ChatViewController ()<UITableViewDelegate, UITableViewDataSource, ChatBottemViewDelegate>
+@interface ChatViewController ()<UITableViewDelegate, UITableViewDataSource, ChatBottemViewDelegate, EmotionViewDelegate>
 
 @property (nonatomic, strong) UITableView * messageTableView;
 @property (nonatomic, strong) ChatBottemView * chatBottemView;
@@ -62,6 +62,7 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
     
     _emotionView = [EmotionView shareEmotionView];
     _emotionView.hidden = YES;
+    _emotionView.delegate = self;
     _emotionView.frame = CGRectMake(0, kScreenHeightNo64, kScreenWidth, [_emotionView getEmotionViewHeight]);
     [self.view addSubview:_emotionView];
     
@@ -84,8 +85,6 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
     [_messageTableView registerClass:[ChatViewTableViewCell class] forCellReuseIdentifier:ChatViewCellID];
     
     [_messageTableView setTransform:CGAffineTransformMakeRotation(-M_PI)];
-    
-    _messageTableView.backgroundColor = [UIColor yellowColor];
 }
 
 #pragma mark -
@@ -98,13 +97,15 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
     NSNumber *duration = [userInfo objectForKey:UIKeyboardAnimationDurationUserInfoKey];
     NSNumber *curve = [userInfo objectForKey:UIKeyboardAnimationCurveUserInfoKey];
     
+    __weak typeof(self) weakSelf = self;
     // 添加移动动画，使视图跟随键盘移动
     [UIView animateWithDuration:duration.doubleValue animations:^{
         
         [UIView setAnimationBeginsFromCurrentState:YES];
         [UIView setAnimationCurve:[curve intValue]];
         
-        _chatBottemView.frame = CGRectMake(0, kScreenHeightNo64 - frame.size.height, kScreenWidth, [_chatBottemView getBottemViewHeight]);
+        weakSelf.chatBottemView.frame = CGRectMake(0, kScreenHeightNo64 - frame.size.height - [weakSelf.chatBottemView getBottemViewHeight], kScreenWidth, [_chatBottemView getBottemViewHeight]);
+        weakSelf.chatBottemView.currentFrame = weakSelf.chatBottemView.frame;
     }];
 }
 
@@ -124,13 +125,27 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
             CGFloat chatBottemViewHeight = [_chatBottemView getBottemViewHeight];
             CGFloat emoViewHeight = [_emotionView getEmotionViewHeight];
             _chatBottemView.frame = CGRectMake(0, kScreenHeightNo64 - chatBottemViewHeight - emoViewHeight, kScreenWidth, chatBottemViewHeight);
+            _chatBottemView.currentFrame = _chatBottemView.frame;
             
             _emotionView.frame = CGRectMake(0, kScreenHeightNo64 - emoViewHeight, kScreenWidth, emoViewHeight);
         }];
     }
 }
 
-#pragma mark - 
+#pragma mark - EmotionViewDelegate
+- (void)selectedEmotion:(EmotionModel *)model
+{
+    [_chatBottemView receviceEmoStr:model];
+}
+
+- (void)sendMessage
+{
+    // 1 存到数据库
+    // 2 刷新界面
+    // 3 清除输入
+    
+    [_chatBottemView clearChatText];
+}
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section

@@ -14,19 +14,25 @@
  */
 
 #import <UIKit/UIKit.h>
+@class EmotionModel;
 
-typedef void(^SelectEmoBlock) (NSString * emoStr);
+@protocol EmotionViewDelegate <NSObject>
+
+- (void)selectedEmotion:(EmotionModel *)model;
+- (void)sendMessage;
+
+@end
 
 @interface EmotionView : UIView <UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, strong) NSMutableArray * emotionsArr;
-@property (nonatomic, strong) SelectEmoBlock returnSelectBlock;
+@property (nonatomic, weak) id<EmotionViewDelegate> delegate;
 
 @property (nonatomic, strong) UICollectionView * emotionCollectionView;
-//@property (nonatomic, strong) UIPageControl * pageControl;
 
 @property (nonatomic, strong) UIView * selectEmotionView;
 @property (nonatomic, strong) UIButton * sendBtn;
+@property (nonatomic, strong) UIButton * deleteBtn;
 
 + (instancetype)shareEmotionView;
 - (CGFloat)getEmotionViewHeight;

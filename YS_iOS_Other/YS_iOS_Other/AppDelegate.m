@@ -10,6 +10,7 @@
 #import "YSTabBarController.h"
 #import "YSDDLogManager.h"
 #import "AudioPlayerVC.h"
+#import "YSTestDataBase.h"
 
 @interface AppDelegate ()
 
@@ -259,6 +260,9 @@
     YSTabBarController * ysTabBarCon = [YSTabBarController sharedYSTabBarController];
     ysTabBarCon.selectedIndex = 0;
     self.window.rootViewController = ysTabBarCon;
+    
+    // 创建数据库
+    [YSTestDataBase defaultYSTestDB];
 }
 
 /**

@@ -108,7 +108,6 @@
 		3923F8621E0396DA005A02D7 /* Expression_58@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3923F8231E0396DA005A02D7 /* Expression_58@2x.png */; };
 		3923F8631E0396DA005A02D7 /* Expression_59@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3923F8241E0396DA005A02D7 /* Expression_59@2x.png */; };
 		3923F8641E0396DA005A02D7 /* Expression_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3923F8251E0396DA005A02D7 /* Expression_60@2x.png */; };
-		3923F8661E03979D005A02D7 /* emotions.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3923F8651E03979D005A02D7 /* emotions.plist */; };
 		3923F86C1E03BE09005A02D7 /* EmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F86B1E03BE09005A02D7 /* EmotionView.m */; };
 		3923F86F1E03D68C005A02D7 /* EmotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F86E1E03D68C005A02D7 /* EmotionCollectionViewCell.m */; };
 		3923F8721E03D781005A02D7 /* EmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F8711E03D781005A02D7 /* EmotionModel.m */; };
@@ -252,6 +251,10 @@
 		39CAB15D1D816DFD0078AFF5 /* 歌曲2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */; };
 		39CAB15E1D816DFD0078AFF5 /* 歌曲3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */; };
 		39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCA9921D488E6700B78FA9 /* Stars@2x.png */; };
+		39D65A1E1E07BF8500FFCF78 /* ChatMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */; };
+		39D65A221E07C2E000FFCF78 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A211E07C2E000FFCF78 /* Utility.m */; };
+		39D65A251E07CB2A00FFCF78 /* YSImageAndTextSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A241E07CB2A00FFCF78 /* YSImageAndTextSort.m */; };
+		39D65A281E07E0A200FFCF78 /* YSTestDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A271E07E0A200FFCF78 /* YSTestDataBase.m */; };
 		39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */ = {isa = PBXBuildFile; fileRef = 39DB4C851D5AD75D009D2B1F /* YSEnDecryptionMethod.m */; };
 		39DE71321DACB56A00A04628 /* test20161011@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39DE71311DACB56A00A04628 /* test20161011@2x.png */; };
 		39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E311441D643F8700A631EA /* NSDate+Utilities.m */; };
@@ -433,7 +436,6 @@
 		3923F8231E0396DA005A02D7 /* Expression_58@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_58@2x.png"; sourceTree = "<group>"; };
 		3923F8241E0396DA005A02D7 /* Expression_59@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_59@2x.png"; sourceTree = "<group>"; };
 		3923F8251E0396DA005A02D7 /* Expression_60@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Expression_60@2x.png"; sourceTree = "<group>"; };
-		3923F8651E03979D005A02D7 /* emotions.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = emotions.plist; sourceTree = "<group>"; };
 		3923F86A1E03BE09005A02D7 /* EmotionView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionView.h; sourceTree = "<group>"; };
 		3923F86B1E03BE09005A02D7 /* EmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionView.m; sourceTree = "<group>"; };
 		3923F86D1E03D68C005A02D7 /* EmotionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionCollectionViewCell.h; sourceTree = "<group>"; };
@@ -660,6 +662,14 @@
 		39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲2.mp3"; sourceTree = "<group>"; };
 		39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲3.mp3"; sourceTree = "<group>"; };
 		39CCA9921D488E6700B78FA9 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
+		39D65A1C1E07BF8500FFCF78 /* ChatMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatMsgModel.h; path = YS_iOS_Other/Models/ChatMsgModel.h; sourceTree = SOURCE_ROOT; };
+		39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatMsgModel.m; path = YS_iOS_Other/Models/ChatMsgModel.m; sourceTree = SOURCE_ROOT; };
+		39D65A201E07C2E000FFCF78 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
+		39D65A211E07C2E000FFCF78 /* Utility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Utility.m; sourceTree = "<group>"; };
+		39D65A231E07CB2A00FFCF78 /* YSImageAndTextSort.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImageAndTextSort.h; sourceTree = "<group>"; };
+		39D65A241E07CB2A00FFCF78 /* YSImageAndTextSort.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSImageAndTextSort.m; sourceTree = "<group>"; };
+		39D65A261E07E0A200FFCF78 /* YSTestDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTestDataBase.h; sourceTree = "<group>"; };
+		39D65A271E07E0A200FFCF78 /* YSTestDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTestDataBase.m; sourceTree = "<group>"; };
 		39DB4C841D5AD75D009D2B1F /* YSEnDecryptionMethod.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSEnDecryptionMethod.h; sourceTree = "<group>"; };
 		39DB4C851D5AD75D009D2B1F /* YSEnDecryptionMethod.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSEnDecryptionMethod.m; sourceTree = "<group>"; };
 		39DE71311DACB56A00A04628 /* test20161011@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "test20161011@2x.png"; sourceTree = "<group>"; };
@@ -937,6 +947,8 @@
 		3923F7DC1E038743005A02D7 /* DBAndManager */ = {
 			isa = PBXGroup;
 			children = (
+				39D65A261E07E0A200FFCF78 /* YSTestDataBase.h */,
+				39D65A271E07E0A200FFCF78 /* YSTestDataBase.m */,
 			);
 			path = DBAndManager;
 			sourceTree = "<group>";
@@ -1552,6 +1564,7 @@
 		3966393E1D1781C20069E0E8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				39D65A1F1E07C2E000FFCF78 /* Utility */,
 				39FAEA8F1DE570FB000B37E0 /* YSDDLogManager */,
 				398100341DD1693300E398FB /* YSImageManager */,
 				398100301DD168F400E398FB /* YSFMDBManager */,
@@ -1745,7 +1758,6 @@
 			isa = PBXGroup;
 			children = (
 				3923F7E51E03961F005A02D7 /* expression.plist */,
-				3923F8651E03979D005A02D7 /* emotions.plist */,
 				39B218B91D19175E008DD042 /* homeDirectiory.plist */,
 				394640441D45BB0500124587 /* sqlKnowledge.plist */,
 				3948F2DE1D548C93002F1778 /* LocationStringFile.strings */,
@@ -1834,6 +1846,8 @@
 				3949E2761D1A3B890016BFF6 /* YSUserModel.m */,
 				3923F8701E03D781005A02D7 /* EmotionModel.h */,
 				3923F8711E03D781005A02D7 /* EmotionModel.m */,
+				39D65A1C1E07BF8500FFCF78 /* ChatMsgModel.h */,
+				39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */,
 			);
 			name = Models;
 			path = YSViewControllers/Models;
@@ -1846,6 +1860,17 @@
 			);
 			name = RESideMenuImage;
 			path = Image/RESideMenuImage;
+			sourceTree = "<group>";
+		};
+		39D65A1F1E07C2E000FFCF78 /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				39D65A201E07C2E000FFCF78 /* Utility.h */,
+				39D65A211E07C2E000FFCF78 /* Utility.m */,
+				39D65A231E07CB2A00FFCF78 /* YSImageAndTextSort.h */,
+				39D65A241E07CB2A00FFCF78 /* YSImageAndTextSort.m */,
+			);
+			path = Utility;
 			sourceTree = "<group>";
 		};
 		39E311401D643F8700A631EA /* NSDateCategory */ = {
@@ -2113,7 +2138,6 @@
 				3923F8271E0396DA005A02D7 /* chatBubble_Sending_Solid@2x.png in Resources */,
 				392651B61DE702C300B98D70 /* 时光笔墨.mp3 in Resources */,
 				3923F8321E0396DA005A02D7 /* Expression_10@2x.png in Resources */,
-				3923F8661E03979D005A02D7 /* emotions.plist in Resources */,
 				3923F8261E0396DA005A02D7 /* chatBubble_Receiving_Solid@2x.png in Resources */,
 				393AACE01D4B372A0004C41D /* cm2_fm_btn_love@3x.png in Resources */,
 				392651B21DE702C300B98D70 /* 离思.mp3 in Resources */,
@@ -2313,6 +2337,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3923F8751E03EA9C005A02D7 /* ChatViewTableViewCell.m in Sources */,
+				39D65A251E07CB2A00FFCF78 /* YSImageAndTextSort.m in Sources */,
 				395ACE751D9377D800C22165 /* TwoDemotionViewController.m in Sources */,
 				3921489D1DDEDCE100EBCFC1 /* GestureCollectionViewCell.m in Sources */,
 				39333C141DE2CEDA00035157 /* VideoViewController.m in Sources */,
@@ -2340,6 +2365,7 @@
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
 				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
+				39D65A1E1E07BF8500FFCF78 /* ChatMsgModel.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */,
 				392148A21DDEDCE100EBCFC1 /* YSTouchViewController.m in Sources */,
@@ -2392,6 +2418,7 @@
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				39333C1B1DE2CF0000035157 /* ImagesShowViewController.m in Sources */,
+				39D65A281E07E0A200FFCF78 /* YSTestDataBase.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,
 				390DCE3C1DD313A000D8F733 /* YSAlertController.m in Sources */,
 				39FAEA951DE5714A000B37E0 /* YSDDLogManager.m in Sources */,
@@ -2399,6 +2426,7 @@
 				394594B31D3879200017F4A3 /* YSHarewareViewController.m in Sources */,
 				39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */,
 				39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */,
+				39D65A221E07C2E000FFCF78 /* Utility.m in Sources */,
 				3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */,
 				394594A71D3878A50017F4A3 /* SearchResultViewController.m in Sources */,
 				3923F86F1E03D68C005A02D7 /* EmotionCollectionViewCell.m in Sources */,

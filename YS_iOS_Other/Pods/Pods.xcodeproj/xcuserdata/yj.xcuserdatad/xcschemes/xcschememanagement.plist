@@ -29,6 +29,11 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
+		<key>FMDBMigrationManager.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<false/>
+		</dict>
 		<key>Masonry.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -67,7 +72,7 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>024512B8BB33A18A35867609669FCF8E</key>
+		<key>1A655169D5D8FF2AE8DACDED19C638BF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -82,12 +87,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>48F687CDE9990BD471D7883061F7E5D4</key>
+		<key>325D7CE58816AF58C8C4C5B19E26E2D0</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>4D2DD42EB52B4146DD12C7B441CBFAD5</key>
+		<key>48F687CDE9990BD471D7883061F7E5D4</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -97,17 +102,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>6D1BA99FFE811297A4D4544D6276D593</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>6DD5BF0EC12A21878B6195A524542C69</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>7310384F9DD7DCFB664C8F3B29D735FD</key>
+		<key>5E54F087C327B454A449A20131C76436</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -122,7 +117,22 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>CAC8F4C02708445AE811819F520561EA</key>
+		<key>B1C0C0E9D71C890330B364ABD0E7A65E</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>BFA6AEC0D5BF625ACC4BC495EA830554</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>CDAD8F3003A6DE46C9C533F2AB476F85</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>DFF0F6EB62AFEBFD7717B77C0EFA21DE</key>
 		<dict>
 			<key>primary</key>
 			<true/>

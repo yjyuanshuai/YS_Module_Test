@@ -94,6 +94,10 @@
 
 #define BackgroundOperation     @"BackgroundOperation"
 
+#define EmotionNotification     @"EmotionNotification"
+#define emotionObject           @"emotionObject"
+#define isSend                  @"isSend"
+
 
 
 #endif /* GlobalString_h */

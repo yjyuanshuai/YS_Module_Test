@@ -30,9 +30,8 @@ static EmotionView * instance = nil;
     dispatch_once(&onceToken, ^{
         instance = [[self alloc] init];
         instance.frame = CGRectMake(0, kScreenHeightNo64 - 170, kScreenWidth, 170);
-        
-        [instance analysisEmoData];
         [instance createSubViews];
+        instance.emotionsArr = [EmotionFileAnalysis sharedEmotionFile].emoArr;
     });
     return instance;
 }
@@ -60,44 +59,38 @@ static EmotionView * instance = nil;
     self.selectEmotionView.backgroundColor = YSDefaultGrayColor;
     [self addSubview:self.selectEmotionView];
     
-    self.sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.selectEmotionView.frame) - 40, 0, 40, 40)];
-    [self.sendBtn setBackgroundImage:[UIImage imageNamed:@"DeleteEmoticonBtn_ios7"] forState:UIControlStateNormal];
+    self.sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.selectEmotionView.frame) - 10 - 80, 0, 80, 40)];
+    self.sendBtn.layer.borderColor = [UIColor blackColor].CGColor;
+    self.sendBtn.layer.borderWidth = 1;
+    [self.sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [self.sendBtn setTitle:@"发送" forState:UIControlStateNormal];
     [self.sendBtn addTarget:self action:@selector(sendMessage:) forControlEvents:UIControlEventTouchUpInside];
     [self.selectEmotionView addSubview:self.sendBtn];
+    
+//    self.deleteBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.selectEmotionView.frame) - 50, 0, 40, 40)];
+//    [self.deleteBtn setBackgroundImage:[UIImage imageNamed:@"DeleteEmoticonBtn_ios7"] forState:UIControlStateNormal];
+//    [self.deleteBtn addTarget:self action:@selector(clickDelete:) forControlEvents:UIControlEventTouchUpInside];
+//    [self.selectEmotionView addSubview:self.deleteBtn];
 }
 
 - (void)sendMessage:(UIButton *)sendBtn
 {
-    
+    if (_delegate && [_delegate respondsToSelector:@selector(sendMessage)]) {
+        [_delegate sendMessage];
+    }
 }
 
-- (void)analysisEmoData
-{
-    NSString * path = [[NSBundle mainBundle] pathForResource:@"expression" ofType:@"plist"];
-    NSDictionary * dict = [NSDictionary dictionaryWithContentsOfFile:path];
-    
-    if (!_emotionsArr) {
-        _emotionsArr = [@[] mutableCopy];
-    }
-    
-    // 枚举
-    NSString * key;
-    NSEnumerator * enumerator = [[dict allKeys] objectEnumerator];
-    while (key = [enumerator nextObject]) {
-        EmotionModel * model = [[EmotionModel alloc] init];
-        model.cht = key;
-        model.emo = dict[key];
-        
-        [_emotionsArr addObject:model];
-    }
-}
+//- (void)clickDelete:(UIButton *)deleteBtn
+//{
+//
+//}
 
 #pragma mark - UICollectionViewDelegate
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     EmotionModel * model = _emotionsArr[indexPath.row];
-    if (_returnSelectBlock) {
-        _returnSelectBlock(model.cht);
+    if (_delegate && [_delegate respondsToSelector:@selector(selectedEmotion:)]) {
+        [_delegate selectedEmotion:model];
     }
 }
 
