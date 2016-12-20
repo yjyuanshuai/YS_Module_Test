@@ -3,29 +3,10 @@
    version = "1.0">
    <ContextStates>
       <ContextState
-         contextName = "-[AudioViewController viewDidLoad]:AudioViewController.m">
+         contextName = "-[AudioPlayerVC setCurrentIndex:]:AudioPlayerVC.m">
          <PersistentStrings>
             <PersistentString
-               value = "_webAudiosArr">
-            </PersistentString>
-            <PersistentString
-               value = "_localAudiosArr">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[OneSearchController searchBarSearchButtonClicked:]:OneSearchController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_historyArr">
-            </PersistentString>
-         </PersistentStrings>
-      </ContextState>
-      <ContextState
-         contextName = "-[YSPlayViewController createAVPlayer]:YSPlayViewController.m">
-         <PersistentStrings>
-            <PersistentString
-               value = "_allTime.text">
+               value = "_audioArr">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -38,7 +19,7 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AudioPlayerVC obtainCurrentSongList]:AudioPlayerVC.m">
+         contextName = "-[AudioListVC analysisData]:AudioListVC.m">
          <PersistentStrings>
             <PersistentString
                value = "_audioArr">
@@ -46,7 +27,18 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AudioListVC tableView:didSelectRowAtIndexPath:]:AudioListVC.m">
+         contextName = "-[AudioViewController viewDidLoad]:AudioViewController.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_webAudiosArr">
+            </PersistentString>
+            <PersistentString
+               value = "_localAudiosArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AudioPlayerVC obtainCurrentSongList]:AudioPlayerVC.m">
          <PersistentStrings>
             <PersistentString
                value = "_audioArr">
@@ -62,18 +54,21 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AudioPlayerVC setCurrentIndex:]:AudioPlayerVC.m">
+         contextName = "-[YSPlayViewController createAVPlayer]:YSPlayViewController.m">
          <PersistentStrings>
             <PersistentString
-               value = "_audioArr">
+               value = "_allTime.text">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[AudioListVC analysisData]:AudioListVC.m">
+         contextName = "-[YSCustemSearchController searchBarTextDidBeginEditing:]:YSCustemSearchController.m">
          <PersistentStrings>
             <PersistentString
-               value = "_audioArr">
+               value = "self.active">
+            </PersistentString>
+            <PersistentString
+               value = "self.navigationController.navigationBar.hidden">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
@@ -89,13 +84,26 @@
          </PersistentStrings>
       </ContextState>
       <ContextState
-         contextName = "-[YSCustemSearchController searchBarTextDidBeginEditing:]:YSCustemSearchController.m">
+         contextName = "+[YSTestDataBase initDBMigrationManager]:YSTestDataBase.m">
          <PersistentStrings>
             <PersistentString
-               value = "self.active">
+               value = "hasMigrationsTable">
             </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[OneSearchController searchBarSearchButtonClicked:]:OneSearchController.m">
+         <PersistentStrings>
             <PersistentString
-               value = "self.navigationController.navigationBar.hidden">
+               value = "_historyArr">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[AudioListVC tableView:didSelectRowAtIndexPath:]:AudioListVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_audioArr">
             </PersistentString>
          </PersistentStrings>
       </ContextState>

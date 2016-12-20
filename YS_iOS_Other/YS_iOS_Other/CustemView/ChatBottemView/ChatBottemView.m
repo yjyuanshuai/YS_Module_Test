@@ -47,11 +47,21 @@ static CGFloat const TextViewMaxHeight = 100;
     }
 }
 
+- (void)registFirstRespon
+{
+    [_chatTextView resignFirstResponder];
+}
+
 - (void)clearChatText
 {
     _chatTextView.text = @"";
     [_chatTextView resignFirstResponder];
     [self updateUI];
+}
+
+- (NSString *)getChatText
+{
+    return _chatTextView.text;
 }
 
 #pragma mark -
@@ -131,7 +141,7 @@ static CGFloat const TextViewMaxHeight = 100;
 
 - (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
 {
-    NSAttributedString * imageAttrStr = [YSImageAndTextSort textAttach:text emoArr:[EmotionFileAnalysis sharedEmotionFile].emoArr originY:-8];
+//    NSAttributedString * imageAttrStr = [YSImageAndTextSort textAttach:text attributDic:@{NSFontAttributeName:} emoArr:[EmotionFileAnalysis sharedEmotionFile].emoArr originY:-8];
     return YES;
 }
 

@@ -82,9 +82,9 @@
 /*-------------------------------------------*/
 #pragma mark - 沙盒目录有关
 
-#define sbMedia_AudioDir [[YSFileManager getDocumentsPath] stringByAppendingPathComponent:@"YS_iOS_Media"]  // 音频文件夹
-#define sbMedia_AudioGroupPlist [sbMedia_AudioDir stringByAppendingPathComponent:@"GroupAudio.plist"]       // 音频分组
-#define sbMedia_AudioCurrentPlist [sbMedia_AudioDir stringByAppendingPathComponent:@"CurrentAudio.plist"]   // 当前音频文件
+#define sbMedia_AudioDir [[YSFileManager getDocumentsPath] stringByAppendingPathComponent:@"YS_iOS_Media"]          // 音频文件夹
+#define sbMedia_AudioGroupPlist [sbMedia_AudioDir stringByAppendingPathComponent:@"GroupAudio.plist"]      // 音频分组
+#define sbMedia_AudioCurrentPlist [sbMedia_AudioDir stringByAppendingPathComponent:@"CurrentAudio.plist"]    // 当前音频文件
 
 
 
@@ -94,9 +94,17 @@
 
 #define BackgroundOperation     @"BackgroundOperation"
 
-#define EmotionNotification     @"EmotionNotification"
-#define emotionObject           @"emotionObject"
-#define isSend                  @"isSend"
+
+
+
+
+/*-------------------------------------------*/
+#pragma mark - 数据库
+
+#define DB_PATH_NAME        @"YSTestDB.sqlite"
+#define DB_SQL_BUNDLE       @"DBManagerSql"
+
+#define TABLE_CHATMSG       @"Chat_Msg_Table"
 
 
 

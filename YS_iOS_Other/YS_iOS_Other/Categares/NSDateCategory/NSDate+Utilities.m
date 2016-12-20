@@ -495,4 +495,19 @@
     return time;
 }
 
++ (NSString *)getCurrentTimeStrWithDate
+{
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    [formatter setDateStyle:NSDateFormatterMediumStyle];
+    [formatter setTimeStyle:NSDateFormatterShortStyle];
+    [formatter setDateFormat:@"yyyyMMddHHmmssSSS"];
+    
+    NSTimeZone* timeZone = [NSTimeZone timeZoneWithName:@"Asia/Shanghai"];
+    [formatter setTimeZone:timeZone];
+    
+    NSString *time = [formatter stringFromDate:[NSDate date]];
+    
+    return time;
+}
+
 @end

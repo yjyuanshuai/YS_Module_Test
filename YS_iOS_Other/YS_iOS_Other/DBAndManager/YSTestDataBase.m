@@ -11,43 +11,57 @@
 
 @implementation YSTestDataBase
 
-static YSTestDataBase * instance = nil;
+static FMDatabaseQueue * dbQueue = nil;
 
-+ (instancetype)defaultYSTestDB
++ (void)initDB
 {
-    static dispatch_once_t onceToken;
-    dispatch_once(&onceToken, ^{
-        instance = [[YSTestDataBase alloc] init];
-        [instance createDB];
-    });
-    return instance;
+    [self closeDB];
+    [self getDBQueue];
+    [self initDBMigrationManager];
 }
 
 + (NSString *)dbPath
 {
     NSString * path = [YSFileManager getDocumentsPath];
-    return [path stringByAppendingPathComponent:@"YSTestDB.sqlite"];
+    return [path stringByAppendingPathComponent:DB_PATH_NAME];
 }
 
 + (FMDatabaseQueue *)getDBQueue
 {
-    FMDatabaseQueue * dbQueue = [FMDatabaseQueue databaseQueueWithPath:[YSTestDataBase dbPath]];
+    if (dbQueue) {
+        return dbQueue;
+    }
+    
+    @synchronized (self) {
+        dbQueue = [FMDatabaseQueue databaseQueueWithPath:[YSTestDataBase dbPath]];
+    }
     return dbQueue;
 }
 
-//+ (FMDB)
-
-//
-- (BOOL)createDB
++ (void)closeDB
 {
-    BOOL createSuc = [YSFileManager createFiletoDes:[YSTestDataBase dbPath]];
-    if (createSuc) {
-        DDLogInfo(@"--------- DB file create success!");
+    if (dbQueue) {
+        [dbQueue close];
     }
-    else {
-        DDLogInfo(@"--------- DB file create error!");
+}
+
++ (FMDBMigrationManager *)initDBMigrationManager
+{
+    // 1 创建数据库
+    NSBundle * dbSqlBundle = [NSBundle bundleWithPath:[[NSBundle mainBundle] pathForResource:DB_SQL_BUNDLE ofType:@"bundle"]];
+    FMDBMigrationManager * manager = [FMDBMigrationManager managerWithDatabaseAtPath:[YSTestDataBase dbPath] migrationsBundle:dbSqlBundle];
+    
+    // 2 创建迁移表 (表名 schema_migrations)
+    NSError * error = nil;
+    BOOL resultState = NO;
+    if (!manager.hasMigrationsTable) {
+        resultState = [manager createMigrationsTable:&error];
     }
-    return createSuc;
+    
+    // UINT64_MAX 表示把数据库迁移到最大的版本
+    resultState = [manager migrateDatabaseToVersion:UINT64_MAX progress:nil error:&error];
+    
+    return manager;
 }
 
 @end

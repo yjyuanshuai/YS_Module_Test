@@ -59,7 +59,7 @@ static EmotionView * instance = nil;
     self.selectEmotionView.backgroundColor = YSDefaultGrayColor;
     [self addSubview:self.selectEmotionView];
     
-    self.sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.selectEmotionView.frame) - 10 - 80, 0, 80, 40)];
+    self.sendBtn = [[UIButton alloc] initWithFrame:CGRectMake(CGRectGetWidth(self.selectEmotionView.frame) - 10 - 80, 0, 80, 35)];
     self.sendBtn.layer.borderColor = [UIColor blackColor].CGColor;
     self.sendBtn.layer.borderWidth = 1;
     [self.sendBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];

@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import "FMDB.h"
+#import "FMDBMigrationManager.h"
 
 @interface YSTestDataBase : NSObject
 
++ (void)initDB;
 + (NSString *)dbPath;
 + (FMDatabaseQueue *)getDBQueue;
-+ (instancetype)defaultYSTestDB;
++ (void)closeDB;
++ (FMDBMigrationManager *)initDBMigrationManager;
 
 @end

@@ -19,4 +19,10 @@
  *  图片压缩
  */
 
+
+/**
+ *  对话气泡
+ */
++ (UIImage *)chatImageWithOriginImage:(NSString *)image;
+
 @end

@@ -13,10 +13,22 @@ int ddLogLevel = DDLogLevelVerbose;
 
 @implementation YSDDLogManager
 
+static YSDDLogManager * instance = nil;
+
+/**
+ *  为了防止别人不小心利用alloc/init方式创建示例，也为了防止别人故意为之，我们要保证不管用什么方式创建都只能是同一个实例对象
+ */
++ (instancetype)allocWithZone:(struct _NSZone *)zone
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [super allocWithZone:zone];
+    });
+    return instance;
+}
+
 + (instancetype)shareDDLogManager
 {
-    __block YSDDLogManager * instance = nil;
-    
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         instance = [[YSDDLogManager alloc] init];
@@ -34,12 +46,12 @@ int ddLogLevel = DDLogLevelVerbose;
 #ifdef Project_Env
 
 #if Project_Env == 0x01
-        int ddLogLevel = DDLogLevelVerbose;
+        ddLogLevel = DDLogLevelVerbose;
 #else
-        int ddLogLevel = DDLogLevelWarning;
+        ddLogLevel = DDLogLevelWarning;
 #endif
 #elif
-        int ddLogLevel = DDLogLevelOff;
+        ddLogLevel = DDLogLevelOff;
 #endif
         
         

@@ -33,6 +33,8 @@ typedef NS_ENUM(NSInteger, FunctionType)
 - (instancetype)initWithFrame:(CGRect)frame;
 - (CGFloat)getBottemViewHeight;
 - (void)receviceEmoStr:(id)model;
+- (void)registFirstRespon;
 - (void)clearChatText;
+- (NSString *)getChatText;
 
 @end

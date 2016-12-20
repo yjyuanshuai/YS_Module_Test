@@ -10,6 +10,12 @@
 #import "ChatBottemView.h"
 #import "EmotionView.h"
 #import "ChatViewTableViewCell.h"
+#import "NSDate+Utilities.h"
+#import "ChatMsgModel.h"
+#import "ChatMsgManager.h"
+#import "YSHudView.h"
+#import "NSString+YSStringDo.h"
+#import "UITableView+FDTemplateLayoutCell.h"
 
 static NSString * const ChatViewCellID = @"ChatViewCellID";
 
@@ -48,7 +54,10 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
 - (void)initUIAndData
 {
     self.title = @"聊天界面";
-    _messageDataArr = [@[] mutableCopy];
+    _messageDataArr = [ChatMsgManager queryChatMsgsWithLimit:20 currentModel:nil];
+    
+    UIBarButtonItem * deleteAll = [[UIBarButtonItem alloc] initWithTitle:@"删除记录" style:UIBarButtonItemStylePlain target:self action:@selector(deleteAllHistory)];
+    self.navigationItem.rightBarButtonItem = deleteAll;
     
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillShow:) name:UIKeyboardWillShowNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(keyboardWillHide:) name:UIKeyboardWillHideNotification object:nil];
@@ -76,6 +85,8 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
     _messageTableView.delegate = self;
     _messageTableView.dataSource = self;
     _messageTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    _messageTableView.estimatedRowHeight = UITableViewAutomaticDimension;
+    _messageTableView.showsVerticalScrollIndicator = NO;
     [self.view addSubview:_messageTableView];
     
     [_messageTableView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -85,6 +96,9 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
     [_messageTableView registerClass:[ChatViewTableViewCell class] forCellReuseIdentifier:ChatViewCellID];
     
     [_messageTableView setTransform:CGAffineTransformMakeRotation(-M_PI)];
+    
+    UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelFocus)];
+    [_messageTableView addGestureRecognizer:tapGesture];
 }
 
 #pragma mark -
@@ -140,11 +154,35 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
 
 - (void)sendMessage
 {
-    // 1 存到数据库
-    // 2 刷新界面
-    // 3 清除输入
+    NSString * currentChatStr = [_chatBottemView getChatText];
     
-    [_chatBottemView clearChatText];
+    if (![currentChatStr isBlank]) {
+        
+        // 1 存到数据库
+        NSString * currentTime = [NSDate getCurrentTimeStrWithDate];
+        ChatMsgModel * model = [[ChatMsgModel alloc] init];
+        model.msgId = currentTime;
+        model.msgTime = currentTime;
+        model.msgType = ChatMsgTypeText;
+        model.userName = @"YJ";
+        model.userHeadImage = @"";
+        model.msgData = [_chatBottemView getChatText];
+        model.isSelfSend = YES;
+        BOOL insert = [ChatMsgManager insertChatMsg:model];
+        
+        if (insert) {
+            // 2 刷新界面
+            [_messageDataArr insertObject:model atIndex:0];
+            [_messageTableView reloadData];
+            
+            // 3 清除输入
+            [_chatBottemView clearChatText];
+            [self cancelFocus];
+        }
+        else {
+            [YSHudView yiBaoHUDStopOrShowWithMsg:@"数据插入失败，请重试！" finsh:nil];
+        }
+    }
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -156,8 +194,49 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ChatViewTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:ChatViewCellID];
-    
+    [cell setChatMsgCell:_messageDataArr[indexPath.row]];
     return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return [tableView fd_heightForCellWithIdentifier:ChatViewCellID cacheByIndexPath:indexPath configuration:^(id cell) {
+        
+        [cell setChatMsgCell:_messageDataArr[indexPath.row]];
+        
+    }];
+}
+
+#pragma mark -
+- (void)deleteAllHistory
+{
+    BOOL deleteAll = [ChatMsgManager deleteAllChatMsgs];
+    if (deleteAll) {
+        [YSHudView yiBaoHUDStopOrShowWithMsg:@"删除全部记录成功" finsh:^{
+            [_messageDataArr removeAllObjects];
+            [_messageTableView reloadData];
+        }];
+    }
+    else {
+        [YSHudView yiBaoHUDStopOrShowWithMsg:@"删除全部记录失败" finsh:nil];
+    }
+}
+
+- (void)cancelFocus
+{
+    [_chatBottemView registFirstRespon];
+    
+    [UIView animateWithDuration:0.3f animations:^{
+        
+        CGFloat chatBottemViewHeight = [_chatBottemView getBottemViewHeight];
+        CGFloat emoViewHeight = [_emotionView getEmotionViewHeight];
+        
+        _chatBottemView.frame = CGRectMake(0, kScreenHeightNo64 - chatBottemViewHeight, kScreenWidth, chatBottemViewHeight);
+        _chatBottemView.currentFrame = _chatBottemView.frame;
+        
+        _emotionView.frame = CGRectMake(0, kScreenHeightNo64, kScreenWidth, emoViewHeight);
+        _emotionView.hidden = YES;
+    }];
 }
 
 @end

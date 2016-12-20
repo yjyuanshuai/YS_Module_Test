@@ -12,6 +12,8 @@
 		390DCE3C1DD313A000D8F733 /* YSAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3B1DD313A000D8F733 /* YSAlertController.m */; };
 		390DCE3F1DD314C000D8F733 /* AlertControllerTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */; };
 		390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */; };
+		391A2E971E08CDFE0075CFD3 /* DBManagerSql.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 391A2E961E08CDFE0075CFD3 /* DBManagerSql.bundle */; };
+		391A2E9B1E08D3DC0075CFD3 /* ChatMsgManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2E9A1E08D3DC0075CFD3 /* ChatMsgManager.m */; };
 		3921488C1DDED3EB00EBCFC1 /* YSOtherGatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921488B1DDED3EB00EBCFC1 /* YSOtherGatherVC.m */; };
 		3921489C1DDEDCE100EBCFC1 /* GestureCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921488F1DDEDCE000EBCFC1 /* GestureCollectionReusableView.m */; };
 		3921489D1DDEDCE100EBCFC1 /* GestureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 392148911DDEDCE000EBCFC1 /* GestureCollectionViewCell.m */; };
@@ -210,7 +212,6 @@
 		395ACEA41D937D4F00C22165 /* UIView+UniformDistribution.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ACEA31D937D4F00C22165 /* UIView+UniformDistribution.m */; };
 		395ACEA81D9381B700C22165 /* JianShuNavAnimationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 395ACEA71D9381B700C22165 /* JianShuNavAnimationViewController.m */; };
 		395E69591D128BE900CBDFE0 /* btn1.png in Resources */ = {isa = PBXBuildFile; fileRef = 395E69581D128BE900CBDFE0 /* btn1.png */; };
-		398100331DD168FE00E398FB /* YSFMDBManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 398100321DD168FE00E398FB /* YSFMDBManager.m */; };
 		3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */; };
 		398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594501D13F0D900863A14 /* SevenBaiduViewController.m */; };
 		398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594531D13F11900863A14 /* SevenGaoDeViewController.m */; };
@@ -320,6 +321,9 @@
 		390DCE3E1DD314C000D8F733 /* AlertControllerTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AlertControllerTableViewCell.m; sourceTree = "<group>"; };
 		390DCE401DD318E800D8F733 /* NSString+YSStringDo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+YSStringDo.h"; sourceTree = "<group>"; };
 		390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+YSStringDo.m"; sourceTree = "<group>"; };
+		391A2E961E08CDFE0075CFD3 /* DBManagerSql.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBManagerSql.bundle; sourceTree = "<group>"; };
+		391A2E991E08D3DC0075CFD3 /* ChatMsgManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMsgManager.h; sourceTree = "<group>"; };
+		391A2E9A1E08D3DC0075CFD3 /* ChatMsgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMsgManager.m; sourceTree = "<group>"; };
 		3921488A1DDED3EB00EBCFC1 /* YSOtherGatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOtherGatherVC.h; sourceTree = "<group>"; };
 		3921488B1DDED3EB00EBCFC1 /* YSOtherGatherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOtherGatherVC.m; sourceTree = "<group>"; };
 		3921488E1DDEDCE000EBCFC1 /* GestureCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionReusableView.h; path = YSLanguage/YSOC/GestureCollectionReusableView.h; sourceTree = "<group>"; };
@@ -606,8 +610,6 @@
 		395ACEA61D9381B700C22165 /* JianShuNavAnimationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JianShuNavAnimationViewController.h; sourceTree = "<group>"; };
 		395ACEA71D9381B700C22165 /* JianShuNavAnimationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JianShuNavAnimationViewController.m; sourceTree = "<group>"; };
 		395E69581D128BE900CBDFE0 /* btn1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = btn1.png; path = Image/btn1.png; sourceTree = "<group>"; };
-		398100311DD168FE00E398FB /* YSFMDBManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSFMDBManager.h; sourceTree = "<group>"; };
-		398100321DD168FE00E398FB /* YSFMDBManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSFMDBManager.m; sourceTree = "<group>"; };
 		3985944C1D13F0B800863A14 /* SevenAppleLocationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenAppleLocationViewController.h; sourceTree = "<group>"; };
 		3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenAppleLocationViewController.m; sourceTree = "<group>"; };
 		3985944F1D13F0D900863A14 /* SevenBaiduViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenBaiduViewController.h; sourceTree = "<group>"; };
@@ -765,6 +767,22 @@
 			);
 			name = YSAlertController;
 			path = YSUI/YSAlertController;
+			sourceTree = "<group>";
+		};
+		391A2E981E08D3C60075CFD3 /* DBDetailManager */ = {
+			isa = PBXGroup;
+			children = (
+				391A2E991E08D3DC0075CFD3 /* ChatMsgManager.h */,
+				391A2E9A1E08D3DC0075CFD3 /* ChatMsgManager.m */,
+			);
+			path = DBDetailManager;
+			sourceTree = "<group>";
+		};
+		391A2E9C1E0903B10075CFD3 /* YSDate */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = YSDate;
 			sourceTree = "<group>";
 		};
 		392148861DDED36500EBCFC1 /* YSOtherGather */ = {
@@ -949,6 +967,8 @@
 			children = (
 				39D65A261E07E0A200FFCF78 /* YSTestDataBase.h */,
 				39D65A271E07E0A200FFCF78 /* YSTestDataBase.m */,
+				391A2E961E08CDFE0075CFD3 /* DBManagerSql.bundle */,
+				391A2E981E08D3C60075CFD3 /* DBDetailManager */,
 			);
 			path = DBAndManager;
 			sourceTree = "<group>";
@@ -1564,11 +1584,10 @@
 		3966393E1D1781C20069E0E8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				391A2E9C1E0903B10075CFD3 /* YSDate */,
 				39D65A1F1E07C2E000FFCF78 /* Utility */,
 				39FAEA8F1DE570FB000B37E0 /* YSDDLogManager */,
 				398100341DD1693300E398FB /* YSImageManager */,
-				398100301DD168F400E398FB /* YSFMDBManager */,
-				39FF1FBA1D5858B000463160 /* YSTime */,
 				393A07811D475B15005114B1 /* MBProgressHUD */,
 				395562561D41C3550079CF6B /* MyKeyChainHelper */,
 				395562521D41C0CA0079CF6B /* YSEncription */,
@@ -1586,15 +1605,6 @@
 				3945949C1D3878950017F4A3 /* OneHorizontalTableViewController.m */,
 			);
 			name = OneHorizontalTableView;
-			sourceTree = "<group>";
-		};
-		398100301DD168F400E398FB /* YSFMDBManager */ = {
-			isa = PBXGroup;
-			children = (
-				398100311DD168FE00E398FB /* YSFMDBManager.h */,
-				398100321DD168FE00E398FB /* YSFMDBManager.m */,
-			);
-			path = YSFMDBManager;
 			sourceTree = "<group>";
 		};
 		398100341DD1693300E398FB /* YSImageManager */ = {
@@ -1934,13 +1944,6 @@
 			path = YSOther/PayType;
 			sourceTree = "<group>";
 		};
-		39FF1FBA1D5858B000463160 /* YSTime */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = YSTime;
-			sourceTree = "<group>";
-		};
 		39FF1FBB1D585A2A00463160 /* Vedio */ = {
 			isa = PBXGroup;
 			children = (
@@ -2247,6 +2250,7 @@
 				3923F7E61E03961F005A02D7 /* expression.plist in Resources */,
 				395ACE9E1D937CF200C22165 /* test02.png in Resources */,
 				39214A7F1D056A600019422D /* 7.jpg in Resources */,
+				391A2E971E08CDFE0075CFD3 /* DBManagerSql.bundle in Resources */,
 				395ACE9F1D937CF200C22165 /* test03.png in Resources */,
 				393AACF21D4B396F0004C41D /* cm2_icn_dld_dis@3x.png in Resources */,
 				3923F8301E0396DA005A02D7 /* Expression_8@2x.png in Resources */,
@@ -2377,6 +2381,7 @@
 				3921489F1DDEDCE100EBCFC1 /* YSGCDTableViewCell.m in Sources */,
 				39333C0E1DE2CEDA00035157 /* AudioOrVideoTableViewCell.m in Sources */,
 				39399A0F1D24B57100409871 /* YSFileManager.m in Sources */,
+				391A2E9B1E08D3DC0075CFD3 /* ChatMsgManager.m in Sources */,
 				3926FB501D6557FD00E67C30 /* YSButton.m in Sources */,
 				39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */,
 				39333C1C1DE2CF0000035157 /* CanlenderViewController.m in Sources */,
@@ -2403,7 +2408,6 @@
 				39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */,
 				39FAEA8D1DE564CF000B37E0 /* AudioPlayerVC.m in Sources */,
 				3923275B1DDD58F200AB4401 /* ViewSearchController.m in Sources */,
-				398100331DD168FE00E398FB /* YSFMDBManager.m in Sources */,
 				392327581DDD58DA00AB4401 /* TableHeadSearchController.m in Sources */,
 				3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */,
 				394594961D3878850017F4A3 /* OneCollectionCollectionViewCell.m in Sources */,

@@ -262,7 +262,7 @@
     self.window.rootViewController = ysTabBarCon;
     
     // 创建数据库
-    [YSTestDataBase defaultYSTestDB];
+    [YSTestDataBase initDB];
 }
 
 /**

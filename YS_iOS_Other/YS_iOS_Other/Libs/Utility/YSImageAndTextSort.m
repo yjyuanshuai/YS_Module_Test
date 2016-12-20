@@ -12,10 +12,10 @@
 @implementation YSImageAndTextSort
 
 // 将一长串的字符串
-+ (NSMutableAttributedString *)textAttach:(NSString *)text emoArr:(NSArray *)emoArr originY:(CGFloat)originY
++ (NSMutableAttributedString *)textAttach:(NSString *)text attributDic:(NSDictionary *)dict emoArr:(NSArray *)emoArr originY:(CGFloat)originY
 {
     // 1 创建可变字符串
-    NSMutableAttributedString * mulAttrStr = [[NSMutableAttributedString alloc] initWithString:text];
+    NSMutableAttributedString * mulAttrStr = [[NSMutableAttributedString alloc] initWithString:text attributes:dict];
     
     // 2 通过正则表达式匹配
     NSString * reg_emo = @"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";

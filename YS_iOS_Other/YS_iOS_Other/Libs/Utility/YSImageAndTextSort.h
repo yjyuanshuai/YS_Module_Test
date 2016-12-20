@@ -10,6 +10,6 @@
 
 @interface YSImageAndTextSort : NSObject
 
-+ (NSMutableAttributedString *)textAttach:(NSString *)text emoArr:(NSArray *)emoArr originY:(CGFloat)originY;
++ (NSMutableAttributedString *)textAttach:(NSString *)text  attributDic:(NSDictionary *)dict emoArr:(NSArray *)emoArr originY:(CGFloat)originY;
 
 @end
