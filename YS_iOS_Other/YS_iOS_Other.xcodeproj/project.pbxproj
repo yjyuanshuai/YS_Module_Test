@@ -14,6 +14,9 @@
 		390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */ = {isa = PBXBuildFile; fileRef = 390DCE411DD318E800D8F733 /* NSString+YSStringDo.m */; };
 		391A2E971E08CDFE0075CFD3 /* DBManagerSql.bundle in Resources */ = {isa = PBXBuildFile; fileRef = 391A2E961E08CDFE0075CFD3 /* DBManagerSql.bundle */; };
 		391A2E9B1E08D3DC0075CFD3 /* ChatMsgManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2E9A1E08D3DC0075CFD3 /* ChatMsgManager.m */; };
+		391A2E9F1E093D630075CFD3 /* FriendCircleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2E9E1E093D630075CFD3 /* FriendCircleVC.m */; };
+		391A2EA21E093EA30075CFD3 /* FriendCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2EA11E093EA30075CFD3 /* FriendCircleTableViewCell.m */; };
+		391A2EA51E093F6D0075CFD3 /* FriendCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2EA41E093F6D0075CFD3 /* FriendCircleModel.m */; };
 		3921488C1DDED3EB00EBCFC1 /* YSOtherGatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921488B1DDED3EB00EBCFC1 /* YSOtherGatherVC.m */; };
 		3921489C1DDEDCE100EBCFC1 /* GestureCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921488F1DDEDCE000EBCFC1 /* GestureCollectionReusableView.m */; };
 		3921489D1DDEDCE100EBCFC1 /* GestureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 392148911DDEDCE000EBCFC1 /* GestureCollectionViewCell.m */; };
@@ -324,6 +327,12 @@
 		391A2E961E08CDFE0075CFD3 /* DBManagerSql.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = DBManagerSql.bundle; sourceTree = "<group>"; };
 		391A2E991E08D3DC0075CFD3 /* ChatMsgManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatMsgManager.h; sourceTree = "<group>"; };
 		391A2E9A1E08D3DC0075CFD3 /* ChatMsgManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatMsgManager.m; sourceTree = "<group>"; };
+		391A2E9D1E093D630075CFD3 /* FriendCircleVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCircleVC.h; sourceTree = "<group>"; };
+		391A2E9E1E093D630075CFD3 /* FriendCircleVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCircleVC.m; sourceTree = "<group>"; };
+		391A2EA01E093EA30075CFD3 /* FriendCircleTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FriendCircleTableViewCell.h; sourceTree = "<group>"; };
+		391A2EA11E093EA30075CFD3 /* FriendCircleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCircleTableViewCell.m; sourceTree = "<group>"; };
+		391A2EA31E093F6D0075CFD3 /* FriendCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendCircleModel.h; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/YSImageAndWordsSort/FriendCircleModel.h; sourceTree = SOURCE_ROOT; };
+		391A2EA41E093F6D0075CFD3 /* FriendCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendCircleModel.m; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/YSImageAndWordsSort/FriendCircleModel.m; sourceTree = SOURCE_ROOT; };
 		3921488A1DDED3EB00EBCFC1 /* YSOtherGatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOtherGatherVC.h; sourceTree = "<group>"; };
 		3921488B1DDED3EB00EBCFC1 /* YSOtherGatherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOtherGatherVC.m; sourceTree = "<group>"; };
 		3921488E1DDEDCE000EBCFC1 /* GestureCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionReusableView.h; path = YSLanguage/YSOC/GestureCollectionReusableView.h; sourceTree = "<group>"; };
@@ -958,6 +967,10 @@
 				3923F7DE1E038D27005A02D7 /* ChatViewController.m */,
 				3923F8731E03EA9C005A02D7 /* ChatViewTableViewCell.h */,
 				3923F8741E03EA9C005A02D7 /* ChatViewTableViewCell.m */,
+				391A2E9D1E093D630075CFD3 /* FriendCircleVC.h */,
+				391A2E9E1E093D630075CFD3 /* FriendCircleVC.m */,
+				391A2EA01E093EA30075CFD3 /* FriendCircleTableViewCell.h */,
+				391A2EA11E093EA30075CFD3 /* FriendCircleTableViewCell.m */,
 			);
 			name = TextAttach;
 			sourceTree = "<group>";
@@ -1858,6 +1871,8 @@
 				3923F8711E03D781005A02D7 /* EmotionModel.m */,
 				39D65A1C1E07BF8500FFCF78 /* ChatMsgModel.h */,
 				39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */,
+				391A2EA31E093F6D0075CFD3 /* FriendCircleModel.h */,
+				391A2EA41E093F6D0075CFD3 /* FriendCircleModel.m */,
 			);
 			name = Models;
 			path = YSViewControllers/Models;
@@ -2363,6 +2378,7 @@
 				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
 				39333C131DE2CEDA00035157 /* YSVideoPlayerViewController.m in Sources */,
 				395ACE761D9377D800C22165 /* ViewSimpleViewController.m in Sources */,
+				391A2EA21E093EA30075CFD3 /* FriendCircleTableViewCell.m in Sources */,
 				39F994211D9A4A830097DC26 /* YSCustemSearchBar.m in Sources */,
 				395ACE721D9377D800C22165 /* PictureAnimateViewController.m in Sources */,
 				39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */,
@@ -2392,6 +2408,7 @@
 				395ACEA41D937D4F00C22165 /* UIView+UniformDistribution.m in Sources */,
 				39333BF41DE2CE9A00035157 /* YSCoreTextViewController.m in Sources */,
 				39B218B41D1911BE008DD042 /* TwoDocumentViewController.m in Sources */,
+				391A2EA51E093F6D0075CFD3 /* FriendCircleModel.m in Sources */,
 				3923F7DF1E038D27005A02D7 /* ChatViewController.m in Sources */,
 				395ACE741D9377D800C22165 /* ThreeDemotionViewController.m in Sources */,
 				3921489C1DDEDCE100EBCFC1 /* GestureCollectionReusableView.m in Sources */,
@@ -2420,6 +2437,7 @@
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392148A11DDEDCE100EBCFC1 /* YSLanguageViewController.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
+				391A2E9F1E093D630075CFD3 /* FriendCircleVC.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
 				39333C1B1DE2CF0000035157 /* ImagesShowViewController.m in Sources */,
 				39D65A281E07E0A200FFCF78 /* YSTestDataBase.m in Sources */,
