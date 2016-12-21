@@ -120,6 +120,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
         switch (index) {
             case 0:
             {
+                // 帧动画
                 PictureAnimateViewController * pictureVC = [PictureAnimateViewController new];
                 pictureVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:pictureVC animated:YES];
@@ -127,6 +128,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
                 break;
             case 1:
             {
+                // 2D 位移
                 TwoDemotionViewController * twoVC = [TwoDemotionViewController new];
                 twoVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:twoVC animated:YES];
@@ -134,6 +136,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
                 break;
             case 2:
             {
+                // 3D 位移
                 ThreeDemotionViewController * threeVC = [ThreeDemotionViewController new];
                 threeVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:threeVC animated:YES];
@@ -141,6 +144,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
                 break;
             case 3:
             {
+                // 翻页 CATransition
                 TurnPageViewController * tureVC = [TurnPageViewController new];
                 tureVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:tureVC animated:YES];
@@ -148,6 +152,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
                 break;
             case 4:
             {
+                // UIView 动画
                 ViewSimpleViewController * viewSimpleVC = [ViewSimpleViewController new];
                 viewSimpleVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:viewSimpleVC animated:YES];
@@ -155,6 +160,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
                 break;
             case 5:
             {
+                // 模态跳转
                 CoreAnimationViewController * coreVC = [CoreAnimationViewController new];
                 coreVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:coreVC animated:YES];
@@ -162,6 +168,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
                 break;
             case 6:
             {
+                // CALayer + UIBezierPath
                 PresentViewController * presentVC = [PresentViewController new];
                 presentVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:presentVC animated:YES];

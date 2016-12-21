@@ -40,11 +40,13 @@
     [self.view addSubview:view];
     
     [view mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.view).with.insets(UIEdgeInsetsMake(70, 10, 100, 10));
+        make.size.mas_equalTo(CGSizeMake(150, 250));
+        make.top.equalTo(self.view).offset(10);
+        make.centerX.equalTo(self.view);
     }];
     
     tran = [CATransition animation];
-    [tran setDuration:3.0];
+    [tran setDuration:2.0];
 }
 
 - (void)createStartBtn
@@ -85,10 +87,22 @@
     [scaleBtn2 addTarget:self action:@selector(animationSix) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:scaleBtn2];
     
+    UIButton * cameraOpenBtn = [UIButton new];
+    [cameraOpenBtn setTitle:@"镜头打开" forState:UIControlStateNormal];
+    [cameraOpenBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cameraOpenBtn addTarget:self action:@selector(animationSeven) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cameraOpenBtn];
+    
+    UIButton * cameraCloseBtn = [UIButton new];
+    [cameraCloseBtn setTitle:@"镜头关闭" forState:UIControlStateNormal];
+    [cameraCloseBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [cameraCloseBtn addTarget:self action:@selector(animationEight) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:cameraCloseBtn];
+    
     [makeScaleBtn mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(30);
         make.left.equalTo(self.view.mas_left).with.offset(10);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-50);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-90);
         
         make.centerY.equalTo(@[rotationBtn, scaleBtn]);
         make.size.equalTo(@[rotationBtn, scaleBtn]);
@@ -99,14 +113,24 @@
     [makeScaleBtn2 mas_makeConstraints:^(MASConstraintMaker *make) {
         make.height.mas_offset(30);
         make.left.equalTo(self.view.mas_left).with.offset(10);
-        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-50);
         
         make.centerY.equalTo(@[rotationBtn2, scaleBtn2]);
         make.size.equalTo(@[rotationBtn2, scaleBtn2]);
     }];
     
-    
     [self.view distributeSpacingHorizontallyWith:@[makeScaleBtn2, rotationBtn2, scaleBtn2]];
+    
+    [cameraOpenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.height.mas_offset(30);
+        make.left.equalTo(self.view.mas_left).with.offset(10);
+        make.bottom.equalTo(self.view.mas_bottom).with.offset(-10);
+        
+        make.centerY.equalTo(@[cameraCloseBtn]);
+        make.size.equalTo(@[cameraCloseBtn]);
+    }];
+    
+    [self.view distributeSpacingVerticallyWith:@[cameraOpenBtn, cameraCloseBtn]];
 }
 
 #pragma mark -
@@ -154,6 +178,20 @@
     [tran setSubtype:kCATransitionFromTop];
     [view.layer addAnimation:tran forKey:nil];
 
+}
+
+- (void)animationSeven
+{
+    [tran setType:@"cameraIrisHollowOpen"];
+//    [tran setSubtype:kCATransitionFromTop];
+    [view.layer addAnimation:tran forKey:nil];
+}
+
+- (void)animationEight
+{
+    [tran setType:@"cameraIrisHollowClose"];
+//    [tran setSubtype:kCATransitionFromTop];
+    [view.layer addAnimation:tran forKey:nil];
 }
 
 @end

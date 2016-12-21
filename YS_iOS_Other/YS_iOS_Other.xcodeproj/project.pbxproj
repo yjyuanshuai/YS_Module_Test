@@ -194,6 +194,10 @@
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
 		3949E2771D1A3B890016BFF6 /* YSUserModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2761D1A3B890016BFF6 /* YSUserModel.m */; };
+		394B6D8A1E0A178D00206CBB /* jsandoc.html in Resources */ = {isa = PBXBuildFile; fileRef = 394B6D891E0A178D00206CBB /* jsandoc.html */; };
+		394B6D8D1E0A17B800206CBB /* JSAndOCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 394B6D8C1E0A17B800206CBB /* JSAndOCVC.m */; };
+		394B6D8F1E0A199900206CBB /* jsandoc2.html in Resources */ = {isa = PBXBuildFile; fileRef = 394B6D8E1E0A199900206CBB /* jsandoc2.html */; };
+		394B6D921E0A19F000206CBB /* JSAndOCMethodListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 394B6D911E0A19F000206CBB /* JSAndOCMethodListVC.m */; };
 		394FF77D1D34CA1300B80D24 /* deleteBtnImage.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */; };
 		394FF77F1D34DBAF00B80D24 /* editBtn.png in Resources */ = {isa = PBXBuildFile; fileRef = 394FF77E1D34DBAF00B80D24 /* editBtn.png */; };
 		395118E11D598063008E339D /* YS_iOS_Audio.plist in Resources */ = {isa = PBXBuildFile; fileRef = 395118E01D598063008E339D /* YS_iOS_Audio.plist */; };
@@ -585,6 +589,12 @@
 		3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSDefaultsViewController.m; sourceTree = "<group>"; };
 		3949E2751D1A3B890016BFF6 /* YSUserModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSUserModel.h; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.h; sourceTree = SOURCE_ROOT; };
 		3949E2761D1A3B890016BFF6 /* YSUserModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSUserModel.m; path = YS_iOS_Other/YSViewControllers/SectionTwo/YSUserModel.m; sourceTree = SOURCE_ROOT; };
+		394B6D891E0A178D00206CBB /* jsandoc.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = jsandoc.html; sourceTree = "<group>"; };
+		394B6D8B1E0A17B800206CBB /* JSAndOCVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAndOCVC.h; sourceTree = "<group>"; };
+		394B6D8C1E0A17B800206CBB /* JSAndOCVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAndOCVC.m; sourceTree = "<group>"; };
+		394B6D8E1E0A199900206CBB /* jsandoc2.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = jsandoc2.html; sourceTree = "<group>"; };
+		394B6D901E0A19F000206CBB /* JSAndOCMethodListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSAndOCMethodListVC.h; sourceTree = "<group>"; };
+		394B6D911E0A19F000206CBB /* JSAndOCMethodListVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSAndOCMethodListVC.m; sourceTree = "<group>"; };
 		394FF77C1D34CA1300B80D24 /* deleteBtnImage.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = deleteBtnImage.png; sourceTree = "<group>"; };
 		394FF77E1D34DBAF00B80D24 /* editBtn.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = editBtn.png; sourceTree = "<group>"; };
 		395118E01D598063008E339D /* YS_iOS_Audio.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = YS_iOS_Audio.plist; sourceTree = "<group>"; };
@@ -1291,6 +1301,7 @@
 				39333C181DE2CF0000035157 /* CanlenderThings */,
 				39FF1F8F1D58183000463160 /* PayType */,
 				39333C1D1DE2CF3E00035157 /* AddIconToDesktop */,
+				394B6D881E0A171A00206CBB /* JSAndOC */,
 				390C9ABA1D62BE8100F01C2F /* YSTemp */,
 			);
 			name = YSOther;
@@ -1351,6 +1362,20 @@
 				39FCB8D91D66E69A00195C20 /* CodeManagerView.m */,
 			);
 			name = CodingAndFile;
+			sourceTree = "<group>";
+		};
+		394B6D881E0A171A00206CBB /* JSAndOC */ = {
+			isa = PBXGroup;
+			children = (
+				394B6D891E0A178D00206CBB /* jsandoc.html */,
+				394B6D8E1E0A199900206CBB /* jsandoc2.html */,
+				394B6D901E0A19F000206CBB /* JSAndOCMethodListVC.h */,
+				394B6D911E0A19F000206CBB /* JSAndOCMethodListVC.m */,
+				394B6D8B1E0A17B800206CBB /* JSAndOCVC.h */,
+				394B6D8C1E0A17B800206CBB /* JSAndOCVC.m */,
+			);
+			name = JSAndOC;
+			path = YSOtherGather/YSOther/JSAndOC;
 			sourceTree = "<group>";
 		};
 		394FF77A1D34C9FC00B80D24 /* Images */ = {
@@ -2217,6 +2242,7 @@
 				393AACE31D4B372A0004C41D /* cm2_fm_btn_loved_dis@3x.png in Resources */,
 				3923F8451E0396DA005A02D7 /* Expression_29@2x.png in Resources */,
 				3923F8641E0396DA005A02D7 /* Expression_60@2x.png in Resources */,
+				394B6D8A1E0A178D00206CBB /* jsandoc.html in Resources */,
 				3923F85C1E0396DA005A02D7 /* Expression_52@2x.png in Resources */,
 				39FF1F9F1D582AE400463160 /* cm2_btm_tab_icn_share.png in Resources */,
 				3923F82B1E0396DA005A02D7 /* Expression_3@2x.png in Resources */,
@@ -2259,6 +2285,7 @@
 				39FF1FB31D582AEC00463160 /* cm2_icn_list_prs@3x.png in Resources */,
 				393AACD11D4B32390004C41D /* audioPlayer_image@2x.png in Resources */,
 				39214A781D056A600019422D /* 11.jpg in Resources */,
+				394B6D8F1E0A199900206CBB /* jsandoc2.html in Resources */,
 				3923F8581E0396DA005A02D7 /* Expression_48@2x.png in Resources */,
 				39B218B71D19126C008DD042 /* docImage.png in Resources */,
 				3923F8631E0396DA005A02D7 /* Expression_59@2x.png in Resources */,
@@ -2418,6 +2445,7 @@
 				3955625C1D41C3840079CF6B /* YSKeyChainViewController.m in Sources */,
 				39399A191D24BB5700409871 /* YSHistoryView.m in Sources */,
 				395ACE621D936F5F00C22165 /* YSAnimationsViewController.m in Sources */,
+				394B6D8D1E0A17B800206CBB /* JSAndOCVC.m in Sources */,
 				39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */,
 				3923F7E41E038E18005A02D7 /* ChatBottemView.m in Sources */,
 				394640431D45AE5700124587 /* SQLDetailViewController.m in Sources */,
@@ -2460,6 +2488,7 @@
 				39333C201DE2CFA900035157 /* AddIconToDesktopVC.m in Sources */,
 				39DB4C861D5AD75D009D2B1F /* YSEnDecryptionMethod.m in Sources */,
 				390C593C1DE4393C0087990C /* AudioListVC.m in Sources */,
+				394B6D921E0A19F000206CBB /* JSAndOCMethodListVC.m in Sources */,
 				395ACE731D9377D800C22165 /* PresentViewController.m in Sources */,
 				39FCB8DD1D66E81C00195C20 /* FileOrCodeViewController.m in Sources */,
 				394640491D45FFC600124587 /* CoreDataViewController.m in Sources */,

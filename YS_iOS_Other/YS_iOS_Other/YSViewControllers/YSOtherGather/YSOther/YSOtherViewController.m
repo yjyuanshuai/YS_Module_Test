@@ -29,7 +29,9 @@
 // 5 支付
 
 // 6 琐碎功能集合
-#import "AddIconToDesktopVC.h"
+#import "AddIconToDesktopVC.h"      // 添加桌面快捷方式
+#import "JSAndOCMethodListVC.h"     // JS 与 OC交互
+
 
 static NSString * const OtherCellID = @"OtherCellID";
 
@@ -69,7 +71,7 @@ static NSString * const OtherCellID = @"OtherCellID";
     NSArray * sectionThree  = @[@"NSTextAttachment", @"CoreText"];
     NSArray * audioArr      = @[@"主界面", @"音频", @"视频"];
     NSArray * payArr        = @[@"招行一网通"];
-    NSArray * someFun       = @[@"Quartz", @"OpenGL", @"桌面快捷方式"];
+    NSArray * someFun       = @[@"Quartz", @"OpenGL", @"桌面快捷方式", @"JS与OC交互"];
     NSArray * tempArr       = @[@"temp1"];
     
     _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree, audioArr, payArr, someFun, tempArr] mutableCopy];
@@ -245,6 +247,12 @@ static NSString * const OtherCellID = @"OtherCellID";
                 AddIconToDesktopVC * addIconVC = [[AddIconToDesktopVC alloc] init];
                 addIconVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:addIconVC animated:YES];
+            }
+            else if (indexPath.row == 3) {
+                // JS与交互
+                JSAndOCMethodListVC * jsMethodVC = [[JSAndOCMethodListVC alloc] init];
+                jsMethodVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:jsMethodVC animated:YES];
             }
         }
             break;

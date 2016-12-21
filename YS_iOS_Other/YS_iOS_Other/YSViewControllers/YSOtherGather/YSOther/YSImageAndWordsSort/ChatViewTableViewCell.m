@@ -108,6 +108,11 @@
         make.left.greaterThanOrEqualTo(self.contentView).offset(80);
         make.bottom.equalTo(self.contentView).offset(-25);
     }];
+    
+//    [_msgContentLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+//    [_msgContentLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+//    [_msgContentLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+//    [_msgContentLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 - (void)layoutSubviews
