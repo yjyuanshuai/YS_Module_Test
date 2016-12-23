@@ -15,6 +15,7 @@
 #import "TurnPageViewController.h"
 #import "ViewSimpleViewController.h"
 #import "CoreAnimationViewController.h"
+#import "CALayerAndBerzierVC.h"
 #import "PresentViewController.h"
 
 // 2
@@ -54,7 +55,7 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
     
     _sectionTitlesArr = [@[@"各种动画", @"一些效果"] mutableCopy];
     
-    NSArray * sectionOne = @[@"帧动画", @"2D", @"3D", @"翻页", @"UIView简单", @"模态跳转", @"CALayer"];
+    NSArray * sectionOne = @[@"帧动画", @"2D", @"3D", @"翻页", @"UIView简单", @"模态跳转", @"CoreAnimation", @"CALayer+UIBezierPath"];
     NSArray * sectionTwo = @[@"导航栏效果"];
     
     if (_animationsArr == nil) {
@@ -161,17 +162,25 @@ static NSString * const AnimationTableViewCellID = @"AnimationTableViewCellID";
             case 5:
             {
                 // 模态跳转
+                PresentViewController * presentVC = [PresentViewController new];
+                presentVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:presentVC animated:YES];
+            }
+                break;
+            case 6:
+            {
+                // CoreAnimation
                 CoreAnimationViewController * coreVC = [CoreAnimationViewController new];
                 coreVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:coreVC animated:YES];
             }
                 break;
-            case 6:
+            case 7:
             {
                 // CALayer + UIBezierPath
-                PresentViewController * presentVC = [PresentViewController new];
-                presentVC.hidesBottomBarWhenPushed = YES;
-                [self.navigationController pushViewController:presentVC animated:YES];
+                CALayerAndBerzierVC * calayerAndBerVC = [[CALayerAndBerzierVC alloc] init];
+                calayerAndBerVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:calayerAndBerVC animated:YES];
             }
                 break;
         }

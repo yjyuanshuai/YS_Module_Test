@@ -272,6 +272,7 @@
 		39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8ED01D40BC060053EE02 /* YSScrollView.m */; };
 		39F994211D9A4A830097DC26 /* YSCustemSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F994201D9A4A830097DC26 /* YSCustemSearchBar.m */; };
 		39F994241D9A4FF80097DC26 /* YSCustemSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39F994231D9A4FF80097DC26 /* YSCustemSearchController.m */; };
+		39FA13A91E0BABFB0000D69A /* CALayerAndBerzierVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FA13A81E0BABFB0000D69A /* CALayerAndBerzierVC.m */; };
 		39FAEA8D1DE564CF000B37E0 /* AudioPlayerVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FAEA8C1DE564CF000B37E0 /* AudioPlayerVC.m */; };
 		39FAEA951DE5714A000B37E0 /* YSDDLogManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FAEA941DE5714A000B37E0 /* YSDDLogManager.m */; };
 		39FCB8D71D66E68A00195C20 /* FileManagerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39FCB8D61D66E68A00195C20 /* FileManagerView.m */; };
@@ -708,6 +709,8 @@
 		39F994201D9A4A830097DC26 /* YSCustemSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSCustemSearchBar.m; path = YSUI/YSCustemSearchBar.m; sourceTree = "<group>"; };
 		39F994221D9A4FF80097DC26 /* YSCustemSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSCustemSearchController.h; path = YSUI/YSCustemSearchController.h; sourceTree = "<group>"; };
 		39F994231D9A4FF80097DC26 /* YSCustemSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSCustemSearchController.m; path = YSUI/YSCustemSearchController.m; sourceTree = "<group>"; };
+		39FA13A71E0BABFB0000D69A /* CALayerAndBerzierVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CALayerAndBerzierVC.h; sourceTree = "<group>"; };
+		39FA13A81E0BABFB0000D69A /* CALayerAndBerzierVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CALayerAndBerzierVC.m; sourceTree = "<group>"; };
 		39FAEA8B1DE564CF000B37E0 /* AudioPlayerVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioPlayerVC.h; sourceTree = "<group>"; };
 		39FAEA8C1DE564CF000B37E0 /* AudioPlayerVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AudioPlayerVC.m; sourceTree = "<group>"; };
 		39FAEA8E1DE56FF5000B37E0 /* YSDevSettingFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSDevSettingFile.h; sourceTree = "<group>"; };
@@ -1466,13 +1469,14 @@
 		395ACE631D93746400C22165 /* YSAnimationsSummary */ = {
 			isa = PBXGroup;
 			children = (
-				395ACE771D9377E400C22165 /* 帧动画 */,
-				395ACE781D9377F500C22165 /* 二维动画 */,
-				395ACE791D9377FF00C22165 /* 三维动画 */,
-				395ACE7D1D93784000C22165 /* 翻页动画 */,
-				395ACE7E1D93785D00C22165 /* UIView简单动画 */,
-				395ACE7F1D93787300C22165 /* CALayer */,
-				395ACE801D93787C00C22165 /* 模态动画 */,
+				395ACE771D9377E400C22165 /* PictureAnimation */,
+				395ACE781D9377F500C22165 /* 2D */,
+				395ACE791D9377FF00C22165 /* 3D */,
+				395ACE7D1D93784000C22165 /* TurePage */,
+				395ACE7E1D93785D00C22165 /* UIViewSimple */,
+				39FA13A61E0BAB700000D69A /* CoreAnimation */,
+				395ACE7F1D93787300C22165 /* CALayerAndBerzier */,
+				395ACE801D93787C00C22165 /* PresentView */,
 			);
 			path = YSAnimationsSummary;
 			sourceTree = "<group>";
@@ -1485,67 +1489,67 @@
 			path = YSSomeEffects;
 			sourceTree = "<group>";
 		};
-		395ACE771D9377E400C22165 /* 帧动画 */ = {
+		395ACE771D9377E400C22165 /* PictureAnimation */ = {
 			isa = PBXGroup;
 			children = (
 				395ACE671D9377D800C22165 /* PictureAnimateViewController.h */,
 				395ACE681D9377D800C22165 /* PictureAnimateViewController.m */,
 			);
-			name = "帧动画";
+			name = PictureAnimation;
 			sourceTree = "<group>";
 		};
-		395ACE781D9377F500C22165 /* 二维动画 */ = {
+		395ACE781D9377F500C22165 /* 2D */ = {
 			isa = PBXGroup;
 			children = (
 				395ACE6D1D9377D800C22165 /* TwoDemotionViewController.h */,
 				395ACE6E1D9377D800C22165 /* TwoDemotionViewController.m */,
 			);
-			name = "二维动画";
+			name = 2D;
 			sourceTree = "<group>";
 		};
-		395ACE791D9377FF00C22165 /* 三维动画 */ = {
+		395ACE791D9377FF00C22165 /* 3D */ = {
 			isa = PBXGroup;
 			children = (
 				395ACE6B1D9377D800C22165 /* ThreeDemotionViewController.h */,
 				395ACE6C1D9377D800C22165 /* ThreeDemotionViewController.m */,
 			);
-			name = "三维动画";
+			name = 3D;
 			sourceTree = "<group>";
 		};
-		395ACE7D1D93784000C22165 /* 翻页动画 */ = {
+		395ACE7D1D93784000C22165 /* TurePage */ = {
 			isa = PBXGroup;
 			children = (
 				395ACE7A1D93782E00C22165 /* TurnPageViewController.h */,
 				395ACE7B1D93782E00C22165 /* TurnPageViewController.m */,
 			);
-			name = "翻页动画";
+			name = TurePage;
 			sourceTree = "<group>";
 		};
-		395ACE7E1D93785D00C22165 /* UIView简单动画 */ = {
+		395ACE7E1D93785D00C22165 /* UIViewSimple */ = {
 			isa = PBXGroup;
 			children = (
 				395ACE6F1D9377D800C22165 /* ViewSimpleViewController.h */,
 				395ACE701D9377D800C22165 /* ViewSimpleViewController.m */,
 			);
-			name = "UIView简单动画";
+			name = UIViewSimple;
 			sourceTree = "<group>";
 		};
-		395ACE7F1D93787300C22165 /* CALayer */ = {
+		395ACE7F1D93787300C22165 /* CALayerAndBerzier */ = {
 			isa = PBXGroup;
 			children = (
-				395ACE651D9377D800C22165 /* CoreAnimationViewController.h */,
-				395ACE661D9377D800C22165 /* CoreAnimationViewController.m */,
+				39FA13A71E0BABFB0000D69A /* CALayerAndBerzierVC.h */,
+				39FA13A81E0BABFB0000D69A /* CALayerAndBerzierVC.m */,
 			);
-			name = CALayer;
+			name = CALayerAndBerzier;
 			sourceTree = "<group>";
 		};
-		395ACE801D93787C00C22165 /* 模态动画 */ = {
+		395ACE801D93787C00C22165 /* PresentView */ = {
 			isa = PBXGroup;
 			children = (
 				395ACE691D9377D800C22165 /* PresentViewController.h */,
 				395ACE6A1D9377D800C22165 /* PresentViewController.m */,
 			);
-			name = "模态动画";
+			name = PresentView;
 			sourceTree = "<group>";
 		};
 		395ACE981D937CF200C22165 /* animationImage */ = {
@@ -1950,6 +1954,15 @@
 				39EA8ED01D40BC060053EE02 /* YSScrollView.m */,
 			);
 			path = YSScrollView;
+			sourceTree = "<group>";
+		};
+		39FA13A61E0BAB700000D69A /* CoreAnimation */ = {
+			isa = PBXGroup;
+			children = (
+				395ACE651D9377D800C22165 /* CoreAnimationViewController.h */,
+				395ACE661D9377D800C22165 /* CoreAnimationViewController.m */,
+			);
+			name = CoreAnimation;
 			sourceTree = "<group>";
 		};
 		39FAEA8F1DE570FB000B37E0 /* YSDDLogManager */ = {
@@ -2390,6 +2403,7 @@
 				3945948C1D38785D0017F4A3 /* ViewController.m in Sources */,
 				394594AD1D3878C20017F4A3 /* CustemSearchViewController.m in Sources */,
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
+				39FA13A91E0BABFB0000D69A /* CALayerAndBerzierVC.m in Sources */,
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
 				3998D8791DCC7A6500704E26 /* YSNetRequestManager.m in Sources */,
