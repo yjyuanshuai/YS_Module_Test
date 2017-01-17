@@ -190,6 +190,8 @@
 		394640451D45BB0500124587 /* sqlKnowledge.plist in Resources */ = {isa = PBXBuildFile; fileRef = 394640441D45BB0500124587 /* sqlKnowledge.plist */; };
 		394640491D45FFC600124587 /* CoreDataViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 394640481D45FFC600124587 /* CoreDataViewController.m */; };
 		3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946404C1D46031B00124587 /* YSTableHeaderView.m */; };
+		3946B9C51E2DEF7200BA7F95 /* JSonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946B9C41E2DEF7200BA7F95 /* JSonViewController.m */; };
+		3946B9C81E2DEF7E00BA7F95 /* XmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946B9C71E2DEF7E00BA7F95 /* XmlViewController.m */; };
 		3948F2DC1D548C93002F1778 /* LocationStringFile.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3948F2DE1D548C93002F1778 /* LocationStringFile.strings */; };
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
@@ -580,6 +582,10 @@
 		394640481D45FFC600124587 /* CoreDataViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CoreDataViewController.m; sourceTree = "<group>"; };
 		3946404B1D46031B00124587 /* YSTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSTableHeaderView.h; sourceTree = "<group>"; };
 		3946404C1D46031B00124587 /* YSTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSTableHeaderView.m; sourceTree = "<group>"; };
+		3946B9C31E2DEF7200BA7F95 /* JSonViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JSonViewController.h; sourceTree = "<group>"; };
+		3946B9C41E2DEF7200BA7F95 /* JSonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSonViewController.m; sourceTree = "<group>"; };
+		3946B9C61E2DEF7E00BA7F95 /* XmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlViewController.h; sourceTree = "<group>"; };
+		3946B9C71E2DEF7E00BA7F95 /* XmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlViewController.m; sourceTree = "<group>"; };
 		3948F2DA1D548C78002F1778 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3948F2DB1D548C78002F1778 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3948F2DD1D548C93002F1778 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LocationStringFile.strings"; sourceTree = "<group>"; };
@@ -1339,6 +1345,17 @@
 			path = YSTableHeaderView;
 			sourceTree = "<group>";
 		};
+		3946B9C21E2DEF4600BA7F95 /* DataAnalysis */ = {
+			isa = PBXGroup;
+			children = (
+				3946B9C31E2DEF7200BA7F95 /* JSonViewController.h */,
+				3946B9C41E2DEF7200BA7F95 /* JSonViewController.m */,
+				3946B9C61E2DEF7E00BA7F95 /* XmlViewController.h */,
+				3946B9C71E2DEF7E00BA7F95 /* XmlViewController.m */,
+			);
+			name = DataAnalysis;
+			sourceTree = "<group>";
+		};
 		3949E26D1D1A2D6E0016BFF6 /* UserDefaults */ = {
 			isa = PBXGroup;
 			children = (
@@ -1786,6 +1803,7 @@
 				394594521D3875DF0017F4A3 /* YSSaveDataViewController.h */,
 				394594531D3875DF0017F4A3 /* YSSaveDataViewController.m */,
 				39B218D41D193AEB008DD042 /* SandBox */,
+				3946B9C21E2DEF4600BA7F95 /* DataAnalysis */,
 				3949E2781D1A3D660016BFF6 /* CodingAndFile */,
 				3949E26D1D1A2D6E0016BFF6 /* UserDefaults */,
 				395562511D41C0040079CF6B /* YSKeyChain */,
@@ -2429,6 +2447,8 @@
 				39D65A1E1E07BF8500FFCF78 /* ChatMsgModel.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
 				39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */,
+				3946B9C81E2DEF7E00BA7F95 /* XmlViewController.m in Sources */,
+				3946B9C51E2DEF7200BA7F95 /* JSonViewController.m in Sources */,
 				392148A21DDEDCE100EBCFC1 /* YSTouchViewController.m in Sources */,
 				39333BF11DE2CE9A00035157 /* FirstSimpleView.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,

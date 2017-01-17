@@ -22,7 +22,12 @@
 #import "CoreDataViewController.h"
 
 
-// 3 其他
+// 3 数据解析
+#import "JSonViewController.h"
+#import "XmlViewController.h"
+
+
+// 4 其他
 
 
 
@@ -59,13 +64,14 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
     self.title = @"数据持久化";
     self.tabBarItem.title = @"数据";
     
-    _sectionTitleArr = @[@"1 存储", @"2 数据库", @"3 其他"];
+    _sectionTitleArr = @[@"1 存储", @"2 数据库", @"3 数据解析", @"4 其他"];
     
     NSArray * sectionOne    = @[@"沙盒", @"文件", @"归档", @"偏好设置", @"钥匙串"];
     NSArray * sectionTwo    = @[@"sqlite", @"CoreData"];
     NSArray * sectionThree  = @[@"使用UIDocument管理文件存储", @"添加iCloud支持"];
+    NSArray * dataAnalysis  = @[@"JSon", @"XML"];
     
-    _sectionCellContent = [@[sectionOne, sectionTwo, sectionThree] mutableCopy];
+    _sectionCellContent = [@[sectionOne, sectionTwo, dataAnalysis, sectionThree] mutableCopy];
 }
 
 - (void)createTableView
@@ -271,11 +277,13 @@ static NSString * const SaveDataCellID = @"SaveDataCellID";
         {
             if (indexPath.row == 0)
             {
-                
+                JSonViewController * jsonVC = [[JSonViewController alloc] init];
+                [self.navigationController pushViewController:jsonVC animated:YES];
             }
             else if (indexPath.row == 1)
             {
-                
+                XmlViewController * XMLVC = [[XmlViewController alloc] init];
+                [self.navigationController pushViewController:XMLVC animated:YES];
             }
         }
             break;
