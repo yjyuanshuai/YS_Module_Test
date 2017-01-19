@@ -12,6 +12,8 @@ pod 'SDWebImage','3.8.1'
 pod 'FMDB','2.6.2'
 pod 'CocoaHTTPServer','2.3'
 pod 'FMDBMigrationManager','1.4.1'
+pod 'JSPatch'
+
 
 end
 

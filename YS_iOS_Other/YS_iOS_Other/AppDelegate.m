@@ -263,6 +263,9 @@
     
     // 创建数据库
     [YSTestDataBase initDB];
+    
+    // 热修复
+    
 }
 
 /**

@@ -252,6 +252,9 @@
 		39B218C11D1920C4008DD042 /* NSObject+RNSwizzle.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C01D1920C4008DD042 /* NSObject+RNSwizzle.m */; };
 		39B218CA1D192794008DD042 /* TwoDocumentTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */; };
 		39B218CB1D192794008DD042 /* TwoDocumentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */; };
+		39B269481E30AD8F0047D6A4 /* YSJSPatchManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B269471E30AD8F0047D6A4 /* YSJSPatchManager.m */; };
+		39B2694A1E30AE540047D6A4 /* libz.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B269491E30AE540047D6A4 /* libz.tbd */; };
+		39B2694C1E30AE5D0047D6A4 /* JavaScriptCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39B2694B1E30AE5D0047D6A4 /* JavaScriptCore.framework */; };
 		39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */; };
 		39BEAD031D7FE50800FD36A5 /* FileKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */; };
 		39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */; };
@@ -677,6 +680,10 @@
 		39B218C71D192794008DD042 /* TwoDocumentTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TwoDocumentTableViewCell.h; sourceTree = "<group>"; };
 		39B218C81D192794008DD042 /* TwoDocumentTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TwoDocumentTableViewCell.m; sourceTree = "<group>"; };
 		39B218C91D192794008DD042 /* TwoDocumentTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TwoDocumentTableViewCell.xib; sourceTree = "<group>"; };
+		39B269461E30AD8F0047D6A4 /* YSJSPatchManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSJSPatchManager.h; sourceTree = "<group>"; };
+		39B269471E30AD8F0047D6A4 /* YSJSPatchManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSJSPatchManager.m; sourceTree = "<group>"; };
+		39B269491E30AE540047D6A4 /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
+		39B2694B1E30AE5D0047D6A4 /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		39BBEA651D5DA46500F192F2 /* UIImage+YSImageCategare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+YSImageCategare.h"; sourceTree = "<group>"; };
 		39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+YSImageCategare.m"; sourceTree = "<group>"; };
 		39BEAD011D7FE50800FD36A5 /* FileKnowledgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FileKnowledgeView.h; sourceTree = "<group>"; };
@@ -756,6 +763,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39B2694C1E30AE5D0047D6A4 /* JavaScriptCore.framework in Frameworks */,
+				39B2694A1E30AE540047D6A4 /* libz.tbd in Frameworks */,
 				39C4F2461D910B9400E4FADE /* libCocoaLumberjack.a in Frameworks */,
 				50D75D14D975D3AE20792831 /* libPods-YS_iOS_Other.a in Frameworks */,
 			);
@@ -1643,6 +1652,7 @@
 		3966393E1D1781C20069E0E8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
+				39B269451E30AD6C0047D6A4 /* YSJSPatch */,
 				391A2E9C1E0903B10075CFD3 /* YSDate */,
 				39D65A1F1E07C2E000FFCF78 /* Utility */,
 				39FAEA8F1DE570FB000B37E0 /* YSDDLogManager */,
@@ -1872,6 +1882,15 @@
 			name = SandBox;
 			sourceTree = "<group>";
 		};
+		39B269451E30AD6C0047D6A4 /* YSJSPatch */ = {
+			isa = PBXGroup;
+			children = (
+				39B269461E30AD8F0047D6A4 /* YSJSPatchManager.h */,
+				39B269471E30AD8F0047D6A4 /* YSJSPatchManager.m */,
+			);
+			path = YSJSPatch;
+			sourceTree = "<group>";
+		};
 		39BBEA641D5DA42E00F192F2 /* UIImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2060,6 +2079,8 @@
 		D6C183E4E3E19DB390670CA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39B2694B1E30AE5D0047D6A4 /* JavaScriptCore.framework */,
+				39B269491E30AE540047D6A4 /* libz.tbd */,
 				39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */,
 				9AD2527BB6BD7D815F0CCF07 /* libPods-YS_iOS_Other.a */,
 			);
@@ -2403,7 +2424,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -2498,6 +2519,7 @@
 				39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */,
 				394594B01D3878D20017F4A3 /* ApplicationSettingViewController.m in Sources */,
 				392148A11DDEDCE100EBCFC1 /* YSLanguageViewController.m in Sources */,
+				39B269481E30AD8F0047D6A4 /* YSJSPatchManager.m in Sources */,
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
 				391A2E9F1E093D630075CFD3 /* FriendCircleVC.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
