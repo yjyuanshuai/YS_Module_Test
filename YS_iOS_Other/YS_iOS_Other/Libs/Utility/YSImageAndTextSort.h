@@ -8,8 +8,40 @@
 
 #import <Foundation/Foundation.h>
 
-@interface YSImageAndTextSort : NSObject
+/**
+    表情 Model
+ */
+@interface EmotionModel : NSObject
 
-+ (NSMutableAttributedString *)textAttach:(NSString *)text  attributDic:(NSDictionary *)dict emoArr:(NSArray *)emoArr originY:(CGFloat)originY;
+@property (nonatomic, copy) NSString * cht;     // 中文字符
+@property (nonatomic, copy) NSString * emo;     // 对应图片
 
 @end
+
+
+/**
+    解析
+ */
+@interface EmotionFileAnalysis : NSObject
+
+@property (nonatomic, strong) NSMutableArray * emoArr;
++ (instancetype)sharedEmotionFile;
+- (NSMutableArray *)analysisEmoData:(NSString *)fileName type:(NSString *)fileType;
+
+@end
+
+
+/**
+    图文混排
+ */
+
+@interface YSImageAndTextSort : NSObject
+
++ (NSMutableAttributedString *)textAttach:(NSString *)text attributDic:(NSDictionary *)dict emoArr:(NSArray *)emoArr originY:(CGFloat)originY;
+
++ (NSMutableAttributedString *)textAttach:(NSString *)text attributDic:(NSDictionary *)dict exchangeStr:(NSString *)str image:(NSString *)image;
+
+@end
+
+
+

@@ -8,7 +8,6 @@
 
 #import "ChatBottemView.h"
 #import "NSString+YSStringDo.h"
-#import "EmotionModel.h"
 #import "YSImageAndTextSort.h"
 
 static CGFloat const ConstHeight = 45;

@@ -115,7 +115,6 @@
 		3923F8641E0396DA005A02D7 /* Expression_60@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 3923F8251E0396DA005A02D7 /* Expression_60@2x.png */; };
 		3923F86C1E03BE09005A02D7 /* EmotionView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F86B1E03BE09005A02D7 /* EmotionView.m */; };
 		3923F86F1E03D68C005A02D7 /* EmotionCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F86E1E03D68C005A02D7 /* EmotionCollectionViewCell.m */; };
-		3923F8721E03D781005A02D7 /* EmotionModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F8711E03D781005A02D7 /* EmotionModel.m */; };
 		3923F8751E03EA9C005A02D7 /* ChatViewTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3923F8741E03EA9C005A02D7 /* ChatViewTableViewCell.m */; };
 		392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */ = {isa = PBXBuildFile; fileRef = 392621961D2365D700CF4C90 /* UIColor+Image.m */; };
 		392651B11DE702C300B98D70 /* 浮诛.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 392651AA1DE702C300B98D70 /* 浮诛.mp3 */; };
@@ -126,7 +125,7 @@
 		392651B61DE702C300B98D70 /* 时光笔墨.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 392651AF1DE702C300B98D70 /* 时光笔墨.mp3 */; };
 		392651B71DE702C300B98D70 /* 英雄有路.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 392651B01DE702C300B98D70 /* 英雄有路.mp3 */; };
 		3926FB501D6557FD00E67C30 /* YSButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 3926FB4F1D6557FD00E67C30 /* YSButton.m */; };
-		3930F4871E4ABAA0006D877F /* NSDate+TimeFormat.m in Sources */ = {isa = PBXBuildFile; fileRef = 3930F4861E4ABAA0006D877F /* NSDate+TimeFormat.m */; };
+		3930F48A1E4B1098006D877F /* ImageTextVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3930F4891E4B1098006D877F /* ImageTextVC.m */; };
 		39333BE41DE2CE3600035157 /* Web in Resources */ = {isa = PBXBuildFile; fileRef = 39333BE31DE2CE3600035157 /* Web */; };
 		39333BE71DE2CE6C00035157 /* YSOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BE61DE2CE6C00035157 /* YSOtherViewController.m */; };
 		39333BF11DE2CE9A00035157 /* FirstSimpleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BEA1DE2CE9A00035157 /* FirstSimpleView.m */; };
@@ -464,8 +463,6 @@
 		3923F86B1E03BE09005A02D7 /* EmotionView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionView.m; sourceTree = "<group>"; };
 		3923F86D1E03D68C005A02D7 /* EmotionCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmotionCollectionViewCell.h; sourceTree = "<group>"; };
 		3923F86E1E03D68C005A02D7 /* EmotionCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmotionCollectionViewCell.m; sourceTree = "<group>"; };
-		3923F8701E03D781005A02D7 /* EmotionModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EmotionModel.h; path = YS_iOS_Other/CustemView/ChatBottemView/EmotionModel.h; sourceTree = SOURCE_ROOT; };
-		3923F8711E03D781005A02D7 /* EmotionModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EmotionModel.m; path = YS_iOS_Other/CustemView/ChatBottemView/EmotionModel.m; sourceTree = SOURCE_ROOT; };
 		3923F8731E03EA9C005A02D7 /* ChatViewTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatViewTableViewCell.h; sourceTree = "<group>"; };
 		3923F8741E03EA9C005A02D7 /* ChatViewTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChatViewTableViewCell.m; sourceTree = "<group>"; };
 		392621951D2365D700CF4C90 /* UIColor+Image.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+Image.h"; sourceTree = "<group>"; };
@@ -479,8 +476,8 @@
 		392651B01DE702C300B98D70 /* 英雄有路.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "英雄有路.mp3"; sourceTree = "<group>"; };
 		3926FB4E1D6557FD00E67C30 /* YSButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSButton.h; sourceTree = "<group>"; };
 		3926FB4F1D6557FD00E67C30 /* YSButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSButton.m; sourceTree = "<group>"; };
-		3930F4851E4ABAA0006D877F /* NSDate+TimeFormat.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+TimeFormat.h"; sourceTree = "<group>"; };
-		3930F4861E4ABAA0006D877F /* NSDate+TimeFormat.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+TimeFormat.m"; sourceTree = "<group>"; };
+		3930F4881E4B1098006D877F /* ImageTextVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ImageTextVC.h; sourceTree = "<group>"; };
+		3930F4891E4B1098006D877F /* ImageTextVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ImageTextVC.m; sourceTree = "<group>"; };
 		39333BE31DE2CE3600035157 /* Web */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Web; sourceTree = SOURCE_ROOT; };
 		39333BE51DE2CE6C00035157 /* YSOtherViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = YSOtherViewController.h; path = YSOtherGather/YSOther/YSOtherViewController.h; sourceTree = "<group>"; };
 		39333BE61DE2CE6C00035157 /* YSOtherViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = YSOtherViewController.m; path = YSOtherGather/YSOther/YSOtherViewController.m; sourceTree = "<group>"; };
@@ -818,15 +815,6 @@
 			path = DBDetailManager;
 			sourceTree = "<group>";
 		};
-		391A2E9C1E0903B10075CFD3 /* YSDate */ = {
-			isa = PBXGroup;
-			children = (
-				3930F4851E4ABAA0006D877F /* NSDate+TimeFormat.h */,
-				3930F4861E4ABAA0006D877F /* NSDate+TimeFormat.m */,
-			);
-			path = YSDate;
-			sourceTree = "<group>";
-		};
 		392148861DDED36500EBCFC1 /* YSOtherGather */ = {
 			isa = PBXGroup;
 			children = (
@@ -1000,6 +988,8 @@
 				3923F7DE1E038D27005A02D7 /* ChatViewController.m */,
 				3923F8731E03EA9C005A02D7 /* ChatViewTableViewCell.h */,
 				3923F8741E03EA9C005A02D7 /* ChatViewTableViewCell.m */,
+				3930F4881E4B1098006D877F /* ImageTextVC.h */,
+				3930F4891E4B1098006D877F /* ImageTextVC.m */,
 				391A2E9D1E093D630075CFD3 /* FriendCircleVC.h */,
 				391A2E9E1E093D630075CFD3 /* FriendCircleVC.m */,
 				391A2EA01E093EA30075CFD3 /* FriendCircleTableViewCell.h */,
@@ -1658,7 +1648,6 @@
 			isa = PBXGroup;
 			children = (
 				39B269451E30AD6C0047D6A4 /* YSJSPatch */,
-				391A2E9C1E0903B10075CFD3 /* YSDate */,
 				39D65A1F1E07C2E000FFCF78 /* Utility */,
 				39FAEA8F1DE570FB000B37E0 /* YSDDLogManager */,
 				398100341DD1693300E398FB /* YSImageManager */,
@@ -1938,8 +1927,6 @@
 				39B218BC1D191DC4008DD042 /* docModel.m */,
 				3949E2751D1A3B890016BFF6 /* YSUserModel.h */,
 				3949E2761D1A3B890016BFF6 /* YSUserModel.m */,
-				3923F8701E03D781005A02D7 /* EmotionModel.h */,
-				3923F8711E03D781005A02D7 /* EmotionModel.m */,
 				39D65A1C1E07BF8500FFCF78 /* ChatMsgModel.h */,
 				39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */,
 				391A2EA31E093F6D0075CFD3 /* FriendCircleModel.h */,
@@ -2472,6 +2459,7 @@
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
 				39D65A1E1E07BF8500FFCF78 /* ChatMsgModel.m in Sources */,
 				39214A141D05203B0019422D /* AppDelegate.m in Sources */,
+				3930F48A1E4B1098006D877F /* ImageTextVC.m in Sources */,
 				39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */,
 				3946B9C81E2DEF7E00BA7F95 /* XmlViewController.m in Sources */,
 				3946B9C51E2DEF7200BA7F95 /* JSonViewController.m in Sources */,
@@ -2479,7 +2467,6 @@
 				39333BF11DE2CE9A00035157 /* FirstSimpleView.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
 				39333BE71DE2CE6C00035157 /* YSOtherViewController.m in Sources */,
-				3930F4871E4ABAA0006D877F /* NSDate+TimeFormat.m in Sources */,
 				390C59391DE432970087990C /* YSSongModel.m in Sources */,
 				39333BF31DE2CE9A00035157 /* YSAttributeStrView.m in Sources */,
 				3921489F1DDEDCE100EBCFC1 /* YSGCDTableViewCell.m in Sources */,
@@ -2558,7 +2545,6 @@
 				3945949E1D3878950017F4A3 /* OneHorizontalTableViewController.m in Sources */,
 				394594501D3875A70017F4A3 /* YSRootViewController.m in Sources */,
 				395ACEA81D9381B700C22165 /* JianShuNavAnimationViewController.m in Sources */,
-				3923F8721E03D781005A02D7 /* EmotionModel.m in Sources */,
 				394594511D3875A70017F4A3 /* YSTabBarController.m in Sources */,
 				393A07871D475B4A005114B1 /* YSHudView.m in Sources */,
 				394594611D3877AE0017F4A3 /* YSWebViewController.m in Sources */,
@@ -2665,7 +2651,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
@@ -2704,7 +2690,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";

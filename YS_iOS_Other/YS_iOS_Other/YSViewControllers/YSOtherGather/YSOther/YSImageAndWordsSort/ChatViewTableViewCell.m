@@ -9,7 +9,6 @@
 #import "ChatViewTableViewCell.h"
 #import "ChatMsgModel.h"
 #import "YSImageAndTextSort.h"
-#import "EmotionModel.h"
 #import "NSString+YSStringDo.h"
 
 @implementation ChatViewTableViewCell

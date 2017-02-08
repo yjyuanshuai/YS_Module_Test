@@ -7,17 +7,69 @@
 //
 
 #import "YSImageAndTextSort.h"
-#import "EmotionModel.h"
+
+#pragma mark -
+@implementation EmotionModel
+
+
+
+@end
+
+
+#pragma mark - EmotionFileAnalysis
+
+static EmotionFileAnalysis * instance = nil;
+
+@implementation EmotionFileAnalysis
+
++ (instancetype)sharedEmotionFile
+{
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        instance = [[self alloc] init];
+    });
+    return instance;
+}
+
+- (NSMutableArray *)analysisEmoData:(NSString *)fileName type:(NSString *)fileType
+{
+    NSString * path = [[NSBundle mainBundle] pathForResource:fileName ofType:fileType];
+    NSDictionary * dict = [NSDictionary dictionaryWithContentsOfFile:path];
+    
+    if (!_emoArr) {
+        _emoArr = [@[] mutableCopy];
+    }
+    
+    // 枚举
+    NSString * key;
+    NSEnumerator * enumerator = [[dict allKeys] objectEnumerator];
+    while (key = [enumerator nextObject]) {
+        EmotionModel * model = [[EmotionModel alloc] init];
+        model.cht = key;
+        model.emo = dict[key];
+        
+        [_emoArr addObject:model];
+    }
+    
+    return _emoArr;
+}
+@end
+
+
+#pragma mark - YSImageAndTextSort
 
 @implementation YSImageAndTextSort
 
-// 将一长串的字符串
+/**
+    图文混排 - 表情
+ */
+
 + (NSMutableAttributedString *)textAttach:(NSString *)text attributDic:(NSDictionary *)dict emoArr:(NSArray *)emoArr originY:(CGFloat)originY
 {
     // 1 创建可变字符串
     NSMutableAttributedString * mulAttrStr = [[NSMutableAttributedString alloc] initWithString:text attributes:dict];
     
-    // 2 通过正则表达式匹配
+    // 2 通过正则表达式匹配表情
     NSString * reg_emo = @"\\[[a-zA-Z0-9\\/\\u4e00-\\u9fa5]+\\]";
     
     NSError * error = nil;
@@ -27,8 +79,8 @@
         return mulAttrStr;
     }
     
-    NSArray * retArr = [re matchesInString:text options:0 range:NSMakeRange(0, text.length)];
     // 3 获取所有表情及位置
+    NSArray * retArr = [re matchesInString:text options:0 range:NSMakeRange(0, text.length)];
     // 3-1 字典存放图片和图片对应位置
     NSMutableArray * imageArray = [NSMutableArray arrayWithCapacity:retArr.count];
     
@@ -75,4 +127,43 @@
     return mulAttrStr;
 }
 
+/**
+    图片
+ */
++ (NSMutableAttributedString *)textAttach:(NSString *)text attributDic:(NSDictionary *)dict exchangeStr:(NSString *)str image:(NSString *)image
+{
+    // 1 创建可变字符串
+    NSMutableAttributedString * mulAttrStr = [[NSMutableAttributedString alloc] initWithString:text attributes:dict];
+    
+    // 2 匹配字符串
+    NSError * error = nil;
+    NSRegularExpression * re = [NSRegularExpression regularExpressionWithPattern:str options:0 error:&error];
+    if (error) {
+        DDLogInfo(@"-------- error:%@", [error localizedDescription]);
+        return mulAttrStr;
+    }
+    
+    // 3 获取所有图片的位置
+    NSArray * retArr = [re matchesInString:text options:NSMatchingReportProgress range:NSMakeRange(0, text.length)];
+    
+    NSMutableArray * rangeArr = [NSMutableArray arrayWithCapacity:retArr.count];
+    for (NSTextCheckingResult * match in retArr) {
+        NSRange range = [match range];
+        [rangeArr addObject:[NSValue valueWithRange:range]];
+    }
+    
+    // 4 从后往前替换，否则会引起位子问题
+    for (int i = (int)rangeArr.count-1; i>=0; i--) {
+        NSRange range = [rangeArr[i] rangeValue];
+        NSTextAttachment * textAttch = [[NSTextAttachment alloc] init];
+        textAttch.image = [UIImage imageNamed:image];
+        textAttch.bounds = CGRectMake(0, 0, textAttch.image.size.width, textAttch.image.size.height);
+        NSAttributedString * attrStr = [NSAttributedString attributedStringWithAttachment:textAttch];
+        [mulAttrStr replaceCharactersInRange:range withAttributedString:attrStr];
+    }
+    
+    return mulAttrStr;
+}
+
 @end
+

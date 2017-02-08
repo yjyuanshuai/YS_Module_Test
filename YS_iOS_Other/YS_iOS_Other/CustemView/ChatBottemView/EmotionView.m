@@ -8,7 +8,8 @@
 
 #import "EmotionView.h"
 #import "EmotionCollectionViewCell.h"
-#import "EmotionModel.h"
+#import "YSImageAndTextSort.h"
+
 
 @implementation EmotionView
 
@@ -31,7 +32,7 @@ static EmotionView * instance = nil;
         instance = [[self alloc] init];
         instance.frame = CGRectMake(0, kScreenHeightNo64 - 170, kScreenWidth, 170);
         [instance createSubViews];
-        instance.emotionsArr = [EmotionFileAnalysis sharedEmotionFile].emoArr;
+        instance.emotionsArr = [[EmotionFileAnalysis sharedEmotionFile] analysisEmoData:@"expression" type:@"plist"];
     });
     return instance;
 }

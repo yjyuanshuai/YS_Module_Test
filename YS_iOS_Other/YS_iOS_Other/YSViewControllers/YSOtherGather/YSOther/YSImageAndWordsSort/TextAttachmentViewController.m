@@ -8,6 +8,8 @@
 
 #import "TextAttachmentViewController.h"
 #import "ChatViewController.h"
+#import "ImageTextVC.h"
+#import "FriendCircleVC.h"
 
 @interface TextAttachmentViewController ()<UITableViewDelegate, UITableViewDataSource>
 
@@ -82,14 +84,17 @@
 {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     if (indexPath.row == 0) {
+        // 聊天
         ChatViewController * chatVC = [[ChatViewController alloc] init];
         [self.navigationController pushViewController:chatVC animated:YES];
     }
     else if (indexPath.row == 1) {
-    
+        // 图文混排
+        ImageTextVC * imageTextVC = [[ImageTextVC alloc] init];
+        [self.navigationController pushViewController:imageTextVC animated:YES];
     }
     else if (indexPath.row == 2) {
-        
+        // 朋友圈
     }
 }
 

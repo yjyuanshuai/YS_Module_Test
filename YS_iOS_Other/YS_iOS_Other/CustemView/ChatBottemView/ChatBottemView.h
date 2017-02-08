@@ -13,7 +13,8 @@ static NSInteger const FunctionBtnTag = 20161216;
 
 typedef NS_ENUM(NSInteger, FunctionType)
 {
-    FunctionType_Emotion        // 表情
+    FunctionType_Emotion,   // 表情
+    FunctionType_Photos     // 相册
 };
 
 @protocol ChatBottemViewDelegate <NSObject>
@@ -25,8 +26,9 @@ typedef NS_ENUM(NSInteger, FunctionType)
 
 @interface ChatBottemView : UIView <UITextViewDelegate>
 
-@property (nonatomic, strong) UITextView * chatTextView;
-@property (nonatomic, strong) UIButton * emotionBtn;
+@property (nonatomic, strong) UITextView * chatTextView;        // 输入框
+@property (nonatomic, strong) UIButton * emotionBtn;            // 表情按钮
+@property (nonatomic, strong) UIButton * photoBtn;              // 相册
 @property (nonatomic, weak) id<ChatBottemViewDelegate> delegate;
 @property (nonatomic, assign) CGRect currentFrame;
 
