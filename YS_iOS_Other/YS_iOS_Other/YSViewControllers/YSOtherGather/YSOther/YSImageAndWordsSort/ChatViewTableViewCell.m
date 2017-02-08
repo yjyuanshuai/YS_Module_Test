@@ -22,7 +22,6 @@
         self.contentView.transform = CGAffineTransformMakeRotation(-M_PI);
         [self createSubViews];
         [self addConstraintsToSelf];
-        
     }
     return self;
 }
@@ -37,6 +36,14 @@
     if (![model.msgData isBlank]) {
         _msgContentLabel.attributedText = [YSImageAndTextSort textAttach:model.msgData attributDic:@{NSFontAttributeName:_msgContentLabel.font} emoArr:[EmotionFileAnalysis sharedEmotionFile].emoArr originY:-8];
     }
+}
+
++ (CGFloat)getChatViewTableViewHeight:(ChatMsgModel *)model
+{
+    // 时间
+    
+    
+    return 0;
 }
 
 #pragma mark -
@@ -98,10 +105,6 @@
         make.right.equalTo(_userHeadBtn.mas_left).offset(-10);
     }];
     
-    [_msgBgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(_msgContentLabel).insets(UIEdgeInsetsMake(-10, -10, -10, -15));
-    }];
-    
     [_msgContentLabel mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(_userNameLabel.mas_bottom).offset(20);
         make.right.equalTo(_userNameLabel).offset(-10);
@@ -109,10 +112,12 @@
         make.bottom.equalTo(self.contentView).offset(-25);
     }];
     
-//    [_msgContentLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
-//    [_msgContentLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-//    [_msgContentLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
-//    [_msgContentLabel setContentHuggingPriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
+    [_msgBgBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(_msgContentLabel).insets(UIEdgeInsetsMake(-10, -10, -10, -15));
+    }];
+    
+    [_msgContentLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisVertical];
+    [_msgContentLabel setContentCompressionResistancePriority:UILayoutPriorityRequired forAxis:UILayoutConstraintAxisHorizontal];
 }
 
 - (void)layoutSubviews

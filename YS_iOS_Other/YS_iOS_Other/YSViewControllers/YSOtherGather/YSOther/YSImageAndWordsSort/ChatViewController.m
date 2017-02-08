@@ -95,7 +95,7 @@ static NSString * const ChatViewCellID = @"ChatViewCellID";
     
     [_messageTableView registerClass:[ChatViewTableViewCell class] forCellReuseIdentifier:ChatViewCellID];
     
-    [_messageTableView setTransform:CGAffineTransformMakeRotation(-M_PI)];
+    [_messageTableView setTransform:CGAffineTransformMakeRotation(-M_PI)];      // 倒置
     
     UITapGestureRecognizer * tapGesture = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(cancelFocus)];
     [_messageTableView addGestureRecognizer:tapGesture];
