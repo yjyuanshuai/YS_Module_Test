@@ -8,14 +8,15 @@
 
 #import "YSHarewareViewController.h"
 
-// 1-1 相机&照相
-#import <QBImagePickerController/QBImagePickerController.h>
-#import "ImagesShowViewController.h"
+// 1
+#import "CameraOrImageListVC.h"
+
+//2
 #import "CanlenderViewController.h"
 
 static NSString * const HarewareCellID = @"HarewareCellID";
 
-@interface YSHarewareViewController ()<UITableViewDelegate, UITableViewDataSource, QBImagePickerControllerDelegate>
+@interface YSHarewareViewController ()<UITableViewDelegate, UITableViewDataSource>
 
 @property (nonatomic, strong) UITableView * harewareTableView;
 
@@ -46,7 +47,7 @@ static NSString * const HarewareCellID = @"HarewareCellID";
     
     _sectionTitleArr = @[@"1 系统功能", @"2 其他"];
     
-    NSArray * sectionOne  = @[@"相册", @"相机", @"闹钟", @"健康", @"日历", @"硬件连接", @"蓝牙", @"耳机", @"麦克风", @"邮件"];
+    NSArray * sectionOne  = @[@"相册相机", @"闹钟", @"健康", @"日历", @"硬件连接", @"蓝牙", @"耳机", @"麦克风", @"邮件"];
     NSArray * sectionTwo  = @[@"陀螺仪", @"加速器"];
     
     _sectionCellContent = [@[sectionOne, sectionTwo] mutableCopy];
@@ -109,23 +110,9 @@ static NSString * const HarewareCellID = @"HarewareCellID";
             switch (indexPath.row) {
                 case 0:
                 {
-                    QBImagePickerController * QBImagePC = [[QBImagePickerController alloc] init];
-                    QBImagePC.delegate = self;
-                    QBImagePC.allowsMultipleSelection = YES;        // 默认是NO
-                    QBImagePC.minimumNumberOfSelection = 1;         // 最小选择数
-                    QBImagePC.maximumNumberOfSelection = 9;         // 最大选择数
-                    QBImagePC.showsNumberOfSelectedAssets = YES;    //
-                    QBImagePC.mediaType = QBImagePickerMediaTypeImage;  // 类型
-                    //                QBImagePC.prompt = @"选择照片";
-                    QBImagePC.numberOfColumnsInPortrait = 4;        // 竖屏时一排数
-                    QBImagePC.numberOfColumnsInLandscape = 7;       // 横屏时一排数
-                    QBImagePC.assetCollectionSubtypes = @[@(PHAssetCollectionSubtypeSmartAlbumUserLibrary), // 相机胶卷
-                                                          @(PHAssetCollectionSubtypeAlbumMyPhotoStream),    // 照片流
-                                                          @(PHAssetCollectionSubtypeSmartAlbumPanoramas),   // 全景图片
-                                                          @(PHAssetCollectionSubtypeSmartAlbumVideos),      // 视频
-                                                          @(PHAssetCollectionSubtypeSmartAlbumBursts)       // 连拍快照
-                                                          ];
-                    [self presentViewController:QBImagePC animated:YES completion:nil];
+                    CameraOrImageListVC * listVC = [[CameraOrImageListVC alloc] init];
+                    listVC.hidesBottomBarWhenPushed = YES;
+                    [self.navigationController pushViewController:listVC animated:YES];
                 }
                     break;
                 case 1:
@@ -180,36 +167,5 @@ static NSString * const HarewareCellID = @"HarewareCellID";
     }
 }
 
-#pragma mark - QBImagePickerControllerDelegate
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets
-{
-    // 完成选择
-    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
-    
-    ImagesShowViewController * imagePC = [[ImagesShowViewController alloc] initWithImageAsset:assets];
-    [self.navigationController pushViewController:imagePC animated:YES];
-}
-
-- (void)qb_imagePickerControllerDidCancel:(QBImagePickerController *)imagePickerController
-{
-    // 取消
-    
-    [imagePickerController dismissViewControllerAnimated:YES completion:nil];
-}
-
-- (BOOL)qb_imagePickerController:(QBImagePickerController *)imagePickerController shouldSelectAsset:(PHAsset *)asset
-{
-    return YES;
-}
-
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didSelectAsset:(PHAsset *)asset
-{
-    
-}
-
-- (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didDeselectAsset:(PHAsset *)asset
-{
-    
-}
 
 @end

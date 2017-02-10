@@ -3,6 +3,22 @@
    version = "1.0">
    <ContextStates>
       <ContextState
+         contextName = "-[ImagePickerManager initQBImagePickerVC]:ImagePickerManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_QBImagePC">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[ImagePickerManager initWithPickerType:listViewController:backMediaBlock:]:ImagePickerManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "_QBImagePC">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
          contextName = "-[AudioPlayerVC setCurrentIndex:]:AudioPlayerVC.m">
          <PersistentStrings>
             <PersistentString
@@ -80,6 +96,17 @@
             </PersistentString>
             <PersistentString
                value = "self.textFeildContentInset.right">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "-[CameraOrImageListVC tableView:didSelectRowAtIndexPath:]:CameraOrImageListVC.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "imageManager.QBImagePC">
+            </PersistentString>
+            <PersistentString
+               value = "imageManager.imagePickerCon">
             </PersistentString>
          </PersistentStrings>
       </ContextState>
