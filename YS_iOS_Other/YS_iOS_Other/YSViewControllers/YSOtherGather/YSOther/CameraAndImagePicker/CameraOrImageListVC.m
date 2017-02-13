@@ -8,7 +8,10 @@
 
 #import "CameraOrImageListVC.h"
 #import "ImagePickerManager.h"
+
 #import <MobileCoreServices/MobileCoreServices.h>
+#import "ImagesShowViewController.h"
+
 #import "ImagesShowViewController.h"
 
 @interface CameraOrImageListVC ()<UITableViewDelegate, UITableViewDataSource>
@@ -20,6 +23,8 @@
 @implementation CameraOrImageListVC
 {
     NSArray *_listTitleArr;
+    NSMutableArray * _photosArr;
+    NSMutableArray * _assetsArr;
 }
 
 - (void)viewDidLoad {
@@ -38,7 +43,9 @@
 {
     self.title = @"相机 / 相册";
     
-    _listTitleArr = @[@"相册 - 系统", @"相册 - QBImage", @"相机 - 系统", @"相机 - QBImage"];
+    _listTitleArr = @[@"相册 - 系统", @"相册 - QBImage", @"相册 - TZImage", @"相机 - 系统", @"相机 - QBImage"];
+    _photosArr = [@[] mutableCopy];
+    _assetsArr = [@[] mutableCopy];
     
     _listTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStylePlain];
     _listTableView.delegate = self;
@@ -77,6 +84,9 @@
         type = PickTypeQBImagePickerImageLibrary;
     }
     else if (indexPath.row == 2) {
+        type = PickTypeTZImagePickerImageLibrary;
+    }
+    else if (indexPath.row == 3) {
         type = PickTypeSystemCamera;
     }
     else {
@@ -85,13 +95,14 @@
     
     typeof(self) weakSelf = self;
     
-    ImagePickerManager * imageManager = [[ImagePickerManager alloc] initWithPickerType:type listViewController:weakSelf];
+    ImagePickerManager * imageManager = [[ImagePickerManager alloc] initWithPickerType:type selectedImageArr:nil listViewController:weakSelf];
 }
 
 #pragma mark - UINavigationControllerDelegate, UIImagePickerControllerDelegate
 // 完成
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info
 {
+    /*
     NSString * mediaType = [info objectForKey:UIImagePickerControllerMediaType];
     // 根据资源类型处理
     if ([mediaType isEqualToString:(NSString *)kUTTypeImage]) {
@@ -102,7 +113,24 @@
     else {
         // 视频
     }
+     */
+    
+    [picker dismissViewControllerAnimated:YES completion:nil];
+    
+    NSString * mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+    
 }
+
+#pragma mark - TZImagePickerControllerDelegate
+- (void)imagePickerController:(TZImagePickerController *)picker didFinishPickingPhotos:(NSArray<UIImage *> *)photos sourceAssets:(NSArray *)assets isSelectOriginalPhoto:(BOOL)isSelectOriginalPhoto
+{
+    _photosArr = [photos mutableCopy];
+    _assetsArr = [assets mutableCopy];
+    
+    ImagesShowViewController * imageShowVC = [[ImagesShowViewController alloc] initWithPhoto:_photosArr imageAsset:_assetsArr];
+    [self.navigationController pushViewController:imageShowVC animated:YES];
+}
+
 
 
 #pragma mark - QBImagePickerControllerDelegate

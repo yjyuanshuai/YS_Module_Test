@@ -13,19 +13,26 @@
 {
     PickType _pickType;
     UIViewController * _listViewController;
+    NSMutableArray * _selectedImageArr;
 }
 
 - (instancetype)initWithPickerType:(PickType)type
+                  selectedImageArr:(NSMutableArray *)selectedImageArr
                 listViewController:(UIViewController *)viewController
 {
     if (self = [super init]) {
+        _selectedImageArr = (_selectedImageArr != nil) ? _selectedImageArr : [@[] mutableCopy];
+        
         _pickType = type;
         _listViewController = viewController;
-        
+        /*
         UIImagePickerControllerSourceType soucreType = -1;
         
         if (_pickType == PickTypeSystemCamera || _pickType == PickTypeQBImagePickerCamera) {
             soucreType = UIImagePickerControllerSourceTypeCamera;
+        }
+        else if (_pickType == PickTypeTZImagePickerImageLibrary) {
+            soucreType =
         }
         else {
             soucreType = UIImagePickerControllerSourceTypePhotoLibrary;
@@ -40,6 +47,16 @@
             else {
                 [self initQBImagePickerVC];
             }
+        }
+         */
+        if (_pickType == PickTypeSystemCamera || _pickType == PickTypeSystemImageLibrary) {
+            [self initSystemImagePickerVC];
+        }
+        else if (_pickType == PickTypeTZImagePickerImageLibrary) {
+            [self initTZImagePickerVC];
+        }
+        else {
+            [self initQBImagePickerVC];
         }
     }
     return self;
@@ -86,6 +103,33 @@
                                            @(PHAssetCollectionSubtypeSmartAlbumBursts)       // 连拍快照
                                            ];
     [_listViewController presentViewController:_QBImagePC animated:YES completion:nil];
+}
+
+- (void)initTZImagePickerVC
+{
+    _TZImagePC = [[TZImagePickerController alloc] initWithMaxImagesCount:10 delegate:_listViewController];
+    _TZImagePC.isSelectOriginalPhoto = NO;
+    if ([_selectedImageArr count] > 0) {
+        _TZImagePC.selectedAssets = _selectedImageArr;
+    }
+    _TZImagePC.allowTakePicture = NO;
+    
+    // 设置导航栏样式
+    _TZImagePC.navigationBar.barTintColor = _listViewController.navigationController.navigationBar.barTintColor;
+    
+    //
+    _TZImagePC.allowPickingVideo = NO;
+    _TZImagePC.allowPickingImage = YES;
+    _TZImagePC.allowPickingOriginalPhoto = YES;
+    
+//    _TZImagePC.sortAscendingByModificationDate = YES;
+    _TZImagePC.maxImagesCount = 10;
+    
+//    [_TZImagePC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *, NSArray *, BOOL) {
+//        
+//    }];
+    
+    [_listViewController presentViewController:_TZImagePC animated:YES completion:nil];
 }
 
 

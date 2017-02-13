@@ -8,12 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <QBImagePickerController/QBImagePickerController.h>
+#import <TZImagePickerController/TZImagePickerController.h>
 
 typedef NS_ENUM(NSInteger, PickType){
     PickTypeSystemImageLibrary,
     PickTypeSystemCamera,
     PickTypeQBImagePickerImageLibrary,
-    PickTypeQBImagePickerCamera
+    PickTypeQBImagePickerCamera,
+    PickTypeTZImagePickerImageLibrary
 };
 
 //typedef void(^MediaBackBlock)(id mediaSet, UIViewController * viewControl);
@@ -23,8 +25,10 @@ typedef NS_ENUM(NSInteger, PickType){
 
 @property (nonatomic, strong) UIImagePickerController * imagePickerCon;
 @property (nonatomic, strong) QBImagePickerController * QBImagePC;
+@property (nonatomic, strong) TZImagePickerController * TZImagePC;
 
 - (instancetype)initWithPickerType:(PickType)type
+                  selectedImageArr:(NSMutableArray *)selectedImageArr
                 listViewController:(UIViewController *)viewController;
 
 @end

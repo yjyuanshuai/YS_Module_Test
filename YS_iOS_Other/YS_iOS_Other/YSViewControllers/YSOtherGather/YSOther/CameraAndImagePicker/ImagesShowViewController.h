@@ -10,6 +10,6 @@
 
 @interface ImagesShowViewController : YSRootViewController
 
-- (instancetype)initWithImageAsset:(NSArray *)asset;
+- (instancetype)initWithPhoto:(NSMutableArray *)photos imageAsset:(NSMutableArray *)assets;
 
 @end

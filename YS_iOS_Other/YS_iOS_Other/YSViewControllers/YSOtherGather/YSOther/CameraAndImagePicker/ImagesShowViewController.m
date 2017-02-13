@@ -8,8 +8,11 @@
 
 #import "ImagesShowViewController.h"
 #import <Photos/Photos.h>
+#import "PhotoCollectionViewCell.h"
 
-@interface ImagesShowViewController ()
+static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
+
+@interface ImagesShowViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
 
 @property (nonatomic, strong) UICollectionView * ysImageCollectionView;
 
@@ -17,16 +20,15 @@
 
 @implementation ImagesShowViewController
 {
-    NSMutableArray * _imagesArr;
+    NSMutableArray * _photosArr;
+    NSMutableArray * _assetsArr;
 }
 
-- (instancetype)initWithImageAsset:(NSArray *)asset
+- (instancetype)initWithPhoto:(NSMutableArray *)photos imageAsset:(NSMutableArray *)assets
 {
     if (self = [super init]) {
-        for (PHAsset * phAsset in asset) {
-            UIImage * image = [self getImageWithBaseAsset:phAsset];
-            [_imagesArr addObject:image];
-        }
+        _photosArr = [NSMutableArray arrayWithArray:photos];
+        _assetsArr = [NSMutableArray arrayWithArray:assets];
     }
     return self;
 }
@@ -43,8 +45,45 @@
 
 - (void)createCollectionView
 {
-
+    UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc] init];
+    
+    _ysImageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowayout];
+    _ysImageCollectionView.delegate = self;
+    _ysImageCollectionView.dataSource = self;
+    [self.view addSubview:_ysImageCollectionView];
+    
+    [_ysImageCollectionView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self.view);
+    }];
+    
+    [_ysImageCollectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:PhotoCollectionCellID];
 }
+
+#pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
+- (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    return YES;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    
+}
+
+- (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
+{
+    return [_photosArr count];
+}
+
+- (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PhotoCollectionCellID forIndexPath:indexPath];
+    
+    return cell;
+}
+
+
+
 
 #pragma mark - PHAssert 转 UIImage
 - (UIImage *)getImageWithBaseAsset:(PHAsset *)asset {
