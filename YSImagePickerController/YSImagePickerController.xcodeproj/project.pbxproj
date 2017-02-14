@@ -13,6 +13,14 @@
 		39C25E2D1E529D4400D3415F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C25E2B1E529D4400D3415F /* Main.storyboard */; };
 		39C25E2F1E529D4400D3415F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C25E2E1E529D4400D3415F /* Assets.xcassets */; };
 		39C25E321E529D4400D3415F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C25E301E529D4400D3415F /* LaunchScreen.storyboard */; };
+		39C25E3D1E52D00F00D3415F /* CamareAndLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E3C1E52D00F00D3415F /* CamareAndLibraryManager.m */; };
+		39C25E401E52DF6B00D3415F /* YSImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E3F1E52DF6B00D3415F /* YSImagePickerController.m */; };
+		39C25E431E52DF9100D3415F /* YSPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E421E52DF9100D3415F /* YSPhotosViewController.m */; };
+		39C25E461E52DFC700D3415F /* YSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E451E52DFC700D3415F /* YSAlbumsViewController.m */; };
+		39C25E491E52E19900D3415F /* YSAlbumsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E481E52E19900D3415F /* YSAlbumsTableViewCell.m */; };
+		39C25E4C1E52E32C00D3415F /* YSPhotosModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E4B1E52E32C00D3415F /* YSPhotosModel.m */; };
+		39C25E501E52EA3100D3415F /* YSPhotosCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E4F1E52EA3100D3415F /* YSPhotosCollectionViewCell.m */; };
+		39C25E531E52ED8B00D3415F /* YSPreviewMediaViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E521E52ED8B00D3415F /* YSPreviewMediaViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +34,23 @@
 		39C25E2E1E529D4400D3415F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39C25E311E529D4400D3415F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39C25E331E529D4400D3415F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		39C25E3B1E52D00F00D3415F /* CamareAndLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamareAndLibraryManager.h; sourceTree = "<group>"; };
+		39C25E3C1E52D00F00D3415F /* CamareAndLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamareAndLibraryManager.m; sourceTree = "<group>"; };
+		39C25E3E1E52DF6B00D3415F /* YSImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImagePickerController.h; sourceTree = "<group>"; };
+		39C25E3F1E52DF6B00D3415F /* YSImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSImagePickerController.m; sourceTree = "<group>"; };
+		39C25E411E52DF9100D3415F /* YSPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPhotosViewController.h; sourceTree = "<group>"; };
+		39C25E421E52DF9100D3415F /* YSPhotosViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPhotosViewController.m; sourceTree = "<group>"; };
+		39C25E441E52DFC700D3415F /* YSAlbumsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAlbumsViewController.h; sourceTree = "<group>"; };
+		39C25E451E52DFC700D3415F /* YSAlbumsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAlbumsViewController.m; sourceTree = "<group>"; };
+		39C25E471E52E19900D3415F /* YSAlbumsTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAlbumsTableViewCell.h; sourceTree = "<group>"; };
+		39C25E481E52E19900D3415F /* YSAlbumsTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAlbumsTableViewCell.m; sourceTree = "<group>"; };
+		39C25E4A1E52E32C00D3415F /* YSPhotosModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPhotosModel.h; sourceTree = "<group>"; };
+		39C25E4B1E52E32C00D3415F /* YSPhotosModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPhotosModel.m; sourceTree = "<group>"; };
+		39C25E4D1E52E36F00D3415F /* YSImagePickerHead.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = YSImagePickerHead.h; sourceTree = "<group>"; };
+		39C25E4E1E52EA3100D3415F /* YSPhotosCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPhotosCollectionViewCell.h; sourceTree = "<group>"; };
+		39C25E4F1E52EA3100D3415F /* YSPhotosCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPhotosCollectionViewCell.m; sourceTree = "<group>"; };
+		39C25E511E52ED8B00D3415F /* YSPreviewMediaViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPreviewMediaViewController.h; sourceTree = "<group>"; };
+		39C25E521E52ED8B00D3415F /* YSPreviewMediaViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSPreviewMediaViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -58,6 +83,7 @@
 		39C25E211E529D4400D3415F /* YSImagePickerController */ = {
 			isa = PBXGroup;
 			children = (
+				39C25E3A1E52B01000D3415F /* YSSystemManager */,
 				39C25E251E529D4400D3415F /* AppDelegate.h */,
 				39C25E261E529D4400D3415F /* AppDelegate.m */,
 				39C25E281E529D4400D3415F /* ViewController.h */,
@@ -77,6 +103,30 @@
 				39C25E231E529D4400D3415F /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		39C25E3A1E52B01000D3415F /* YSSystemManager */ = {
+			isa = PBXGroup;
+			children = (
+				39C25E3B1E52D00F00D3415F /* CamareAndLibraryManager.h */,
+				39C25E3C1E52D00F00D3415F /* CamareAndLibraryManager.m */,
+				39C25E4D1E52E36F00D3415F /* YSImagePickerHead.h */,
+				39C25E3E1E52DF6B00D3415F /* YSImagePickerController.h */,
+				39C25E3F1E52DF6B00D3415F /* YSImagePickerController.m */,
+				39C25E471E52E19900D3415F /* YSAlbumsTableViewCell.h */,
+				39C25E481E52E19900D3415F /* YSAlbumsTableViewCell.m */,
+				39C25E441E52DFC700D3415F /* YSAlbumsViewController.h */,
+				39C25E451E52DFC700D3415F /* YSAlbumsViewController.m */,
+				39C25E4E1E52EA3100D3415F /* YSPhotosCollectionViewCell.h */,
+				39C25E4F1E52EA3100D3415F /* YSPhotosCollectionViewCell.m */,
+				39C25E411E52DF9100D3415F /* YSPhotosViewController.h */,
+				39C25E421E52DF9100D3415F /* YSPhotosViewController.m */,
+				39C25E511E52ED8B00D3415F /* YSPreviewMediaViewController.h */,
+				39C25E521E52ED8B00D3415F /* YSPreviewMediaViewController.m */,
+				39C25E4A1E52E32C00D3415F /* YSPhotosModel.h */,
+				39C25E4B1E52E32C00D3415F /* YSPhotosModel.m */,
+			);
+			path = YSSystemManager;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -151,7 +201,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39C25E3D1E52D00F00D3415F /* CamareAndLibraryManager.m in Sources */,
 				39C25E2A1E529D4400D3415F /* ViewController.m in Sources */,
+				39C25E461E52DFC700D3415F /* YSAlbumsViewController.m in Sources */,
+				39C25E401E52DF6B00D3415F /* YSImagePickerController.m in Sources */,
+				39C25E431E52DF9100D3415F /* YSPhotosViewController.m in Sources */,
+				39C25E531E52ED8B00D3415F /* YSPreviewMediaViewController.m in Sources */,
+				39C25E501E52EA3100D3415F /* YSPhotosCollectionViewCell.m in Sources */,
+				39C25E491E52E19900D3415F /* YSAlbumsTableViewCell.m in Sources */,
+				39C25E4C1E52E32C00D3415F /* YSPhotosModel.m in Sources */,
 				39C25E271E529D4400D3415F /* AppDelegate.m in Sources */,
 				39C25E241E529D4400D3415F /* main.m in Sources */,
 			);
@@ -312,6 +370,7 @@
 				39C25E381E529D4400D3415F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
