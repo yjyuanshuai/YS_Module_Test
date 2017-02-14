@@ -131,8 +131,6 @@
     [self.navigationController pushViewController:imageShowVC animated:YES];
 }
 
-
-
 #pragma mark - QBImagePickerControllerDelegate
 /** 完成选择 */
 - (void)qb_imagePickerController:(QBImagePickerController *)imagePickerController didFinishPickingAssets:(NSArray *)assets

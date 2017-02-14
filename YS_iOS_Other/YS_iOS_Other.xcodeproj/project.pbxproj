@@ -260,13 +260,13 @@
 		39BBEA671D5DA46500F192F2 /* UIImage+YSImageCategare.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BBEA661D5DA46500F192F2 /* UIImage+YSImageCategare.m */; };
 		39BEAD031D7FE50800FD36A5 /* FileKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */; };
 		39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */; };
+		39C25E141E528B6700D3415F /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E131E528B6700D3415F /* PhotoCollectionViewCell.m */; };
 		39C4F2461D910B9400E4FADE /* libCocoaLumberjack.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */; };
 		39C6219F1D0EABDF00A34040 /* CollectionTestModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */; };
 		39CAB15C1D816DFD0078AFF5 /* 歌曲1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB1591D816DFD0078AFF5 /* 歌曲1.mp3 */; };
 		39CAB15D1D816DFD0078AFF5 /* 歌曲2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */; };
 		39CAB15E1D816DFD0078AFF5 /* 歌曲3.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */; };
 		39CCA9931D488E6700B78FA9 /* Stars@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 39CCA9921D488E6700B78FA9 /* Stars@2x.png */; };
-		39CD13811E51BA9900A1CBE4 /* PhotoCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 39CD13801E51BA9900A1CBE4 /* PhotoCollectionViewCell.m */; };
 		39D65A1E1E07BF8500FFCF78 /* ChatMsgModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */; };
 		39D65A221E07C2E000FFCF78 /* Utility.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A211E07C2E000FFCF78 /* Utility.m */; };
 		39D65A251E07CB2A00FFCF78 /* YSImageAndTextSort.m in Sources */ = {isa = PBXBuildFile; fileRef = 39D65A241E07CB2A00FFCF78 /* YSImageAndTextSort.m */; };
@@ -697,6 +697,8 @@
 		39BEAD021D7FE50800FD36A5 /* FileKnowledgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FileKnowledgeView.m; sourceTree = "<group>"; };
 		39BEAD041D7FE52300FD36A5 /* CodeKnowledgeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CodeKnowledgeView.h; sourceTree = "<group>"; };
 		39BEAD051D7FE52300FD36A5 /* CodeKnowledgeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CodeKnowledgeView.m; sourceTree = "<group>"; };
+		39C25E121E528B6700D3415F /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
+		39C25E131E528B6700D3415F /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libCocoaLumberjack.a; path = "Pods/../build/Debug-iphoneos/CocoaLumberjack/libCocoaLumberjack.a"; sourceTree = "<group>"; };
 		39C6219D1D0EABDF00A34040 /* CollectionTestModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionTestModel.h; path = YS_iOS_Other/Models/CollectionTestModel.h; sourceTree = SOURCE_ROOT; };
 		39C6219E1D0EABDF00A34040 /* CollectionTestModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionTestModel.m; path = YS_iOS_Other/Models/CollectionTestModel.m; sourceTree = SOURCE_ROOT; };
@@ -704,8 +706,6 @@
 		39CAB15A1D816DFD0078AFF5 /* 歌曲2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲2.mp3"; sourceTree = "<group>"; };
 		39CAB15B1D816DFD0078AFF5 /* 歌曲3.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "歌曲3.mp3"; sourceTree = "<group>"; };
 		39CCA9921D488E6700B78FA9 /* Stars@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Stars@2x.png"; sourceTree = "<group>"; };
-		39CD137F1E51BA9900A1CBE4 /* PhotoCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PhotoCollectionViewCell.h; sourceTree = "<group>"; };
-		39CD13801E51BA9900A1CBE4 /* PhotoCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PhotoCollectionViewCell.m; sourceTree = "<group>"; };
 		39D65A1C1E07BF8500FFCF78 /* ChatMsgModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChatMsgModel.h; path = YS_iOS_Other/Models/ChatMsgModel.h; sourceTree = SOURCE_ROOT; };
 		39D65A1D1E07BF8500FFCF78 /* ChatMsgModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChatMsgModel.m; path = YS_iOS_Other/Models/ChatMsgModel.m; sourceTree = SOURCE_ROOT; };
 		39D65A201E07C2E000FFCF78 /* Utility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utility.h; sourceTree = "<group>"; };
@@ -1128,8 +1128,8 @@
 				3939864B1E4D915500B1553C /* ImagePickerManager.m */,
 				39333C161DE2CF0000035157 /* ImagesShowViewController.h */,
 				39333C171DE2CF0000035157 /* ImagesShowViewController.m */,
-				39CD137F1E51BA9900A1CBE4 /* PhotoCollectionViewCell.h */,
-				39CD13801E51BA9900A1CBE4 /* PhotoCollectionViewCell.m */,
+				39C25E121E528B6700D3415F /* PhotoCollectionViewCell.h */,
+				39C25E131E528B6700D3415F /* PhotoCollectionViewCell.m */,
 			);
 			name = CameraAndImagePicker;
 			path = YSOtherGather/YSOther/CameraAndImagePicker;
@@ -2532,7 +2532,7 @@
 				392621971D2365D700CF4C90 /* UIColor+Image.m in Sources */,
 				391A2E9F1E093D630075CFD3 /* FriendCircleVC.m in Sources */,
 				395562591D41C3550079CF6B /* MyKeyChainHelper.m in Sources */,
-				39CD13811E51BA9900A1CBE4 /* PhotoCollectionViewCell.m in Sources */,
+				39C25E141E528B6700D3415F /* PhotoCollectionViewCell.m in Sources */,
 				39333C1B1DE2CF0000035157 /* ImagesShowViewController.m in Sources */,
 				39D65A281E07E0A200FFCF78 /* YSTestDataBase.m in Sources */,
 				39214A111D05203B0019422D /* main.m in Sources */,

@@ -9,10 +9,11 @@
 #import "ImagesShowViewController.h"
 #import <Photos/Photos.h>
 #import "PhotoCollectionViewCell.h"
+#import <TZImagePickerController/TZImagePickerController.h>
 
 static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
 
-@interface ImagesShowViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@interface ImagesShowViewController ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout, PhotoCollectionDelegate>
 
 @property (nonatomic, strong) UICollectionView * ysImageCollectionView;
 
@@ -36,6 +37,9 @@ static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    
+    [self initUIAndData];
+    [self createCollectionView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -43,11 +47,17 @@ static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
     // Dispose of any resources that can be recreated.
 }
 
+- (void)initUIAndData
+{
+    self.title = @"已选图片";
+}
+
 - (void)createCollectionView
 {
     UICollectionViewFlowLayout *flowayout = [[UICollectionViewFlowLayout alloc] init];
     
     _ysImageCollectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowayout];
+    _ysImageCollectionView.backgroundColor = [UIColor whiteColor];
     _ysImageCollectionView.delegate = self;
     _ysImageCollectionView.dataSource = self;
     [self.view addSubview:_ysImageCollectionView];
@@ -59,6 +69,14 @@ static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
     [_ysImageCollectionView registerClass:[PhotoCollectionViewCell class] forCellWithReuseIdentifier:PhotoCollectionCellID];
 }
 
+#pragma mark - PhotoCollectionDelegate
+- (void)clickToCheckDetailCurrentIndex:(NSInteger)index
+{
+    TZImagePickerController * imagePC = [[TZImagePickerController alloc] initWithSelectedAssets:_assetsArr selectedPhotos:_photosArr index:index];
+    
+    [self presentViewController:imagePC animated:YES completion:nil];
+}
+
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource
 - (BOOL)collectionView:(UICollectionView *)collectionView shouldSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -67,6 +85,7 @@ static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
+    // 点击图片，阅览
     
 }
 
@@ -79,11 +98,32 @@ static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
 {
     PhotoCollectionViewCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:PhotoCollectionCellID forIndexPath:indexPath];
     
+    [cell setPhotoCellWithImage:_photosArr[indexPath.row] currentIndex:indexPath.row];
+    cell.delegate = self;
+    
     return cell;
 }
 
+#pragma mark - UICollectionViewDelegateFlowLayout
+- (CGSize)collectionView:(UICollectionView *)collectionView layout:(nonnull UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(nonnull NSIndexPath *)indexPath
+{
+    return CGSizeMake(80, 80);
+}
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 10;
+}
 
+- (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
+{
+    return 20;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section
+{
+    return UIEdgeInsetsMake(10, 10, 10, 10);
+}
 
 #pragma mark - PHAssert 转 UIImage
 - (UIImage *)getImageWithBaseAsset:(PHAsset *)asset {

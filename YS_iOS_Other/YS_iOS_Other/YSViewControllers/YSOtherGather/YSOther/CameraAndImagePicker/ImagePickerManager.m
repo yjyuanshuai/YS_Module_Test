@@ -116,6 +116,7 @@
     
     // 设置导航栏样式
     _TZImagePC.navigationBar.barTintColor = _listViewController.navigationController.navigationBar.barTintColor;
+    _TZImagePC.navigationBar.tintColor = [UIColor redColor];
     
     //
     _TZImagePC.allowPickingVideo = NO;
