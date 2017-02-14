@@ -19,7 +19,7 @@
 
 
 /** 获取相册 */
-+ (BOOL)getAlbums:(void (^)(id albums))block;
++ (BOOL)getAlbums;
 
 
 @end

@@ -10,6 +10,6 @@
 
 @interface YSAlbumsViewController : UIViewController
 
-
+- (instancetype)initWithAlbums:(NSMutableArray *)albums;
 
 @end

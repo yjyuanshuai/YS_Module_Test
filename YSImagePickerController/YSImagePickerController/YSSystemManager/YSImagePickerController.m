@@ -8,6 +8,8 @@
 
 #import "YSImagePickerController.h"
 #import "YSImagePickerHead.h"
+#import "YSAlbumsViewController.h"
+#import "YSPhotosViewController.h"
 
 static NSInteger YSTOOLBAR_BTNTAG = 20170214;
 
@@ -21,11 +23,19 @@ static NSInteger YSTOOLBAR_BTNTAG = 20170214;
 
 #pragma mark - init
 // 选择图片、视频
-- (instancetype)initWithMaxCount:(NSInteger)maxCount delegate:(id<YSImagePickerDelegate>)delegate
+
+
+
+
+- (instancetype)initWithMaxCount:(NSInteger)maxCount delegate:(id<YSImagePickerDelegate>)delegate photos:(NSMutableArray *)photos assets:(NSMutableArray *)assets
 {
-    if (self = [super init]) {
+    // 获取所有相册
+    
+    YSAlbumsViewController * albumsVC = [[YSAlbumsViewController alloc] init];
+    
+    if (self = [super initWithRootViewController:albumsVC]) {
         self.maxCount = maxCount;
-        self.delegate = delegate;
+        self.imageDelegate = delegate;
     }
     return self;
 }

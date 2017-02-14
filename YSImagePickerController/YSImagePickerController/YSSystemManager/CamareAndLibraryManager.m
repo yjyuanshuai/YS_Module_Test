@@ -10,9 +10,23 @@
 #import <AVFoundation/AVFoundation.h>
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#import "YSImagePickerHead.h"
 
 @implementation CamareAndLibraryManager
 
+// 获取所有相册
+- (BOOL)getAlbums
+{
+    if (iOS_Version >= 8.0) {
+        
+    }
+    else {
+    
+    }
+    return NO;
+}
+
+#pragma mark -
 + (BOOL)userHasCamareRoot
 {
     BOOL hasRoot = NO;

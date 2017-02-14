@@ -15,11 +15,20 @@ static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
 
 @property (nonatomic, strong) UITableView * albumsTableView;
 
-@property (nonatomic, strong) NSMutableArray * albumsArr;
-
 @end
 
 @implementation YSAlbumsViewController
+{
+    NSMutableArray * _albumsArr;
+}
+
+- (instancetype)initWithAlbums:(NSMutableArray *)albums
+{
+    if (self = [super init]) {
+        _albumsArr = albums;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];

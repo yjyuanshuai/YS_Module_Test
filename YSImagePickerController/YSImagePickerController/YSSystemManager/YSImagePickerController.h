@@ -22,7 +22,7 @@
 @property (nonatomic, strong) NSMutableArray * allAssets;
 
 // delegate
-@property (nonatomic, weak) id<YSImagePickerDelegate> delegate;
+@property (nonatomic, weak) id<YSImagePickerDelegate> imageDelegate;
 
 // 初始化方法
 - (instancetype)initWithMaxCount:(NSInteger)maxCount delegate:(id<YSImagePickerDelegate>)delegate;
