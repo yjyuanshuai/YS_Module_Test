@@ -8,6 +8,9 @@
 
 #import "YSAlbumsViewController.h"
 #import "YSAlbumsTableViewCell.h"
+#import "MediaLibraryManager.h"
+#import "YSPhotosModel.h"
+#import "YSImagePickerHead.h"
 
 static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
 
@@ -22,20 +25,13 @@ static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
     NSMutableArray * _albumsArr;
 }
 
-- (instancetype)initWithAlbums:(NSMutableArray *)albums
-{
-    if (self = [super init]) {
-        _albumsArr = albums;
-    }
-    return self;
-}
-
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
     [self initUIAndData];
     [self createTableView];
+    [self getAllAlbums];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -45,21 +41,34 @@ static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
 
 - (void)initUIAndData
 {
-    if (!_albumsArr) {
-        _albumsArr = [@[] mutableCopy];
-    }
-    
+    _albumsArr = [@[] mutableCopy];
     self.title = @"照片";
+    
+    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancleClick)];
+}
+
+- (void)cancleClick
+{
+    [self.navigationController dismissViewControllerAnimated:YES completion:nil];
 }
 
 - (void)createTableView
 {
-    _albumsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, self.view.frame.size.height) style:UITableViewStylePlain];
+    _albumsTableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kMainScreenWidth, kNo64Height) style:UITableViewStylePlain];
     _albumsTableView.delegate = self;
     _albumsTableView.dataSource = self;
+    _albumsTableView.tableFooterView = [UIView new];
     [self.view addSubview:_albumsTableView];
     
     [_albumsTableView registerClass:[YSAlbumsTableViewCell class] forCellReuseIdentifier:YSAlbumsCellID];
+}
+
+- (void)getAllAlbums
+{
+    [[MediaLibraryManager sharedMediaLibrary] getAllAlbums:^(NSMutableArray *retAlbumsArr) {
+        _albumsArr = [NSMutableArray arrayWithArray:retAlbumsArr];
+        [_albumsTableView reloadData];
+    }];
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource
@@ -72,8 +81,14 @@ static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
 {
     YSAlbumsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:YSAlbumsCellID];
     
+    YSAlbumsModel * albumModel = _albumsArr[indexPath.row];
+    [cell setYSAlbumsCellContent:[UIImage imageNamed:@"defalut_image"] albumName:albumModel.name photosNumber:albumModel.count];
     
     return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return 50;
+}
 @end

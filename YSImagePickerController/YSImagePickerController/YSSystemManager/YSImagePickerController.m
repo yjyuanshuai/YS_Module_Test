@@ -11,11 +11,7 @@
 #import "YSAlbumsViewController.h"
 #import "YSPhotosViewController.h"
 
-static NSInteger YSTOOLBAR_BTNTAG = 20170214;
-
 @interface YSImagePickerController ()
-
-@property (nonatomic, strong) UIToolbar * bottemToolBar;
 
 @end
 
@@ -23,19 +19,22 @@ static NSInteger YSTOOLBAR_BTNTAG = 20170214;
 
 #pragma mark - init
 // 选择图片、视频
-
-
-
-
-- (instancetype)initWithMaxCount:(NSInteger)maxCount delegate:(id<YSImagePickerDelegate>)delegate photos:(NSMutableArray *)photos assets:(NSMutableArray *)assets
+- (instancetype)initWithMaxCount:(NSInteger)maxCount delegate:(id<YSImagePickerDelegate>)delegate
 {
-    // 获取所有相册
-    
+    return [self initWithMaxCount:maxCount colument:4 delegate:delegate];
+}
+
+- (instancetype)initWithMaxCount:(NSInteger)maxCount colument:(NSInteger)colument delegate:(id<YSImagePickerDelegate>)delegate
+{
     YSAlbumsViewController * albumsVC = [[YSAlbumsViewController alloc] init];
     
-    if (self = [super initWithRootViewController:albumsVC]) {
+    self = [super initWithRootViewController:albumsVC];
+    if (self) {
+        
         self.maxCount = maxCount;
+        self.columentNum = colument;
         self.imageDelegate = delegate;
+        
     }
     return self;
 }
@@ -45,7 +44,8 @@ static NSInteger YSTOOLBAR_BTNTAG = 20170214;
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     
-    [self createToolBar];
+    self.navigationBar.translucent = YES;
+    [self initValue];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -53,50 +53,25 @@ static NSInteger YSTOOLBAR_BTNTAG = 20170214;
     // Dispose of any resources that can be recreated.
 }
 
-- (void)createToolBar
+#pragma mark - init
+- (void)initValue
 {
-    _bottemToolBar = [[UIToolbar alloc] initWithFrame:CGRectMake(0, kNoToolBarHeight, kMainScreenWidth, 50)];
-    [self.view addSubview:_bottemToolBar];
-    
-    _bottemToolBar.barTintColor = [UIColor yellowColor];
-    
-    UIButton * editBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [editBtn setTitle:@"编辑" forState:UIControlStateNormal];
-    [editBtn addTarget:self action:@selector(edit) forControlEvents:UIControlEventTouchUpInside];
-    editBtn.tag = YSTOOLBAR_BTNTAG + 1;
-    [_bottemToolBar addSubview:editBtn];
-    
-    UIButton * numBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    numBtn.backgroundColor = [UIColor greenColor];
-    [numBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    numBtn.userInteractionEnabled = NO;
-    numBtn.tag = YSTOOLBAR_BTNTAG + 2;
-    [_bottemToolBar addSubview:numBtn];
-    
-    UIButton * sureBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-    [sureBtn setTitle:@"确认" forState:UIControlStateNormal];
-    [sureBtn addTarget:self action:@selector(sure) forControlEvents:UIControlEventTouchUpInside];
-    sureBtn.tag = YSTOOLBAR_BTNTAG + 3;
-    [_bottemToolBar addSubview:sureBtn];
-    
-    [_bottemToolBar setItems:@[editBtn, numBtn, sureBtn]];
+    self.maxCount = (self.maxCount > 0) ? self.maxCount : 9;
+    self.columentNum = (self.columentNum > 0) ? self.columentNum : 4;
+    self.showPickerView = YES;
 }
 
-#pragma mark - 
-- (void)updateToolBar
+#pragma mark - set
+- (void)setShowPickerView:(BOOL)showPickerView
 {
-    
+    self.showPickerView = showPickerView;
+    if (self.showPickerView) {
+        NSLog(@"----- 首次推出照片选择页");
+        YSPhotosViewController * photo = [[YSPhotosViewController alloc] init];
+        [self pushViewController:photo animated:NO];
+    }
 }
 
-#pragma mark - 
-- (void)edit
-{
-    
-}
 
-- (void)sure
-{
-
-}
 
 @end

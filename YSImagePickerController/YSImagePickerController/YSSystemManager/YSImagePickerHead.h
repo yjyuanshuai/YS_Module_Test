@@ -9,10 +9,10 @@
 #ifndef YSImagePickerHead_h
 #define YSImagePickerHead_h
 
-
 #define kMainScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kMainScreenHeight [[UIScreen mainScreen] bounds].size.height
-#define kNoToolBarHeight kMainScreenHeight-50
+#define kNo64Height (kMainScreenHeight-64)
+#define kNoToolBarHeight kNo64Height-50
 
 
 

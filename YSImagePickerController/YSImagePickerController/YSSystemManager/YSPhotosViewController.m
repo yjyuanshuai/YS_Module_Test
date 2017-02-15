@@ -42,7 +42,7 @@ static NSString * const YSPhotosCollectionCellID = @"YSPhotosCollectionCellID";
     // Do any additional setup after loading the view.
     
     [self initUIAndData];
-    [self createCollectionView];
+//    [self createCollectionView];
 }
 
 - (void)didReceiveMemoryWarning {

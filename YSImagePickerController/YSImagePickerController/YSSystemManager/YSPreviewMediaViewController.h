@@ -6,8 +6,8 @@
 //  Copyright © 2017年 YJ. All rights reserved.
 //
 
-#import <UIKit/UIKit.h>
+#import "YSImagePickerRootVC.h"
 
-@interface YSPreviewMediaViewController : UIViewController
+@interface YSPreviewMediaViewController : YSImagePickerRootVC
 
 @end

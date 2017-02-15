@@ -7,13 +7,15 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		39B71D841E543152003B4BE5 /* defalut_image.png in Resources */ = {isa = PBXBuildFile; fileRef = 39B71D831E543152003B4BE5 /* defalut_image.png */; };
+		39B71D871E54339D003B4BE5 /* YSImagePickerRootVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 39B71D861E54339D003B4BE5 /* YSImagePickerRootVC.m */; };
 		39C25E241E529D4400D3415F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E231E529D4400D3415F /* main.m */; };
 		39C25E271E529D4400D3415F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E261E529D4400D3415F /* AppDelegate.m */; };
 		39C25E2A1E529D4400D3415F /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E291E529D4400D3415F /* ViewController.m */; };
 		39C25E2D1E529D4400D3415F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C25E2B1E529D4400D3415F /* Main.storyboard */; };
 		39C25E2F1E529D4400D3415F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39C25E2E1E529D4400D3415F /* Assets.xcassets */; };
 		39C25E321E529D4400D3415F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39C25E301E529D4400D3415F /* LaunchScreen.storyboard */; };
-		39C25E3D1E52D00F00D3415F /* CamareAndLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E3C1E52D00F00D3415F /* CamareAndLibraryManager.m */; };
+		39C25E3D1E52D00F00D3415F /* MediaLibraryManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E3C1E52D00F00D3415F /* MediaLibraryManager.m */; };
 		39C25E401E52DF6B00D3415F /* YSImagePickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E3F1E52DF6B00D3415F /* YSImagePickerController.m */; };
 		39C25E431E52DF9100D3415F /* YSPhotosViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E421E52DF9100D3415F /* YSPhotosViewController.m */; };
 		39C25E461E52DFC700D3415F /* YSAlbumsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39C25E451E52DFC700D3415F /* YSAlbumsViewController.m */; };
@@ -24,6 +26,9 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		39B71D831E543152003B4BE5 /* defalut_image.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = defalut_image.png; sourceTree = "<group>"; };
+		39B71D851E54339D003B4BE5 /* YSImagePickerRootVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImagePickerRootVC.h; sourceTree = "<group>"; };
+		39B71D861E54339D003B4BE5 /* YSImagePickerRootVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSImagePickerRootVC.m; sourceTree = "<group>"; };
 		39C25E1F1E529D4400D3415F /* YSImagePickerController.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSImagePickerController.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39C25E231E529D4400D3415F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		39C25E251E529D4400D3415F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -34,8 +39,8 @@
 		39C25E2E1E529D4400D3415F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		39C25E311E529D4400D3415F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		39C25E331E529D4400D3415F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		39C25E3B1E52D00F00D3415F /* CamareAndLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CamareAndLibraryManager.h; sourceTree = "<group>"; };
-		39C25E3C1E52D00F00D3415F /* CamareAndLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CamareAndLibraryManager.m; sourceTree = "<group>"; };
+		39C25E3B1E52D00F00D3415F /* MediaLibraryManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MediaLibraryManager.h; sourceTree = "<group>"; };
+		39C25E3C1E52D00F00D3415F /* MediaLibraryManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MediaLibraryManager.m; sourceTree = "<group>"; wrapsLines = 0; };
 		39C25E3E1E52DF6B00D3415F /* YSImagePickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSImagePickerController.h; sourceTree = "<group>"; };
 		39C25E3F1E52DF6B00D3415F /* YSImagePickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSImagePickerController.m; sourceTree = "<group>"; };
 		39C25E411E52DF9100D3415F /* YSPhotosViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSPhotosViewController.h; sourceTree = "<group>"; };
@@ -64,6 +69,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		39B71D821E543152003B4BE5 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				39B71D831E543152003B4BE5 /* defalut_image.png */,
+			);
+			path = Image;
+			sourceTree = "<group>";
+		};
 		39C25E161E529D4400D3415F = {
 			isa = PBXGroup;
 			children = (
@@ -100,6 +113,7 @@
 		39C25E221E529D4400D3415F /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				39B71D821E543152003B4BE5 /* Image */,
 				39C25E231E529D4400D3415F /* main.m */,
 			);
 			name = "Supporting Files";
@@ -108,11 +122,13 @@
 		39C25E3A1E52B01000D3415F /* YSSystemManager */ = {
 			isa = PBXGroup;
 			children = (
-				39C25E3B1E52D00F00D3415F /* CamareAndLibraryManager.h */,
-				39C25E3C1E52D00F00D3415F /* CamareAndLibraryManager.m */,
+				39C25E3B1E52D00F00D3415F /* MediaLibraryManager.h */,
+				39C25E3C1E52D00F00D3415F /* MediaLibraryManager.m */,
 				39C25E4D1E52E36F00D3415F /* YSImagePickerHead.h */,
 				39C25E3E1E52DF6B00D3415F /* YSImagePickerController.h */,
 				39C25E3F1E52DF6B00D3415F /* YSImagePickerController.m */,
+				39B71D851E54339D003B4BE5 /* YSImagePickerRootVC.h */,
+				39B71D861E54339D003B4BE5 /* YSImagePickerRootVC.m */,
 				39C25E471E52E19900D3415F /* YSAlbumsTableViewCell.h */,
 				39C25E481E52E19900D3415F /* YSAlbumsTableViewCell.m */,
 				39C25E441E52DFC700D3415F /* YSAlbumsViewController.h */,
@@ -191,6 +207,7 @@
 				39C25E321E529D4400D3415F /* LaunchScreen.storyboard in Resources */,
 				39C25E2F1E529D4400D3415F /* Assets.xcassets in Resources */,
 				39C25E2D1E529D4400D3415F /* Main.storyboard in Resources */,
+				39B71D841E543152003B4BE5 /* defalut_image.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -201,8 +218,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				39C25E3D1E52D00F00D3415F /* CamareAndLibraryManager.m in Sources */,
+				39C25E3D1E52D00F00D3415F /* MediaLibraryManager.m in Sources */,
 				39C25E2A1E529D4400D3415F /* ViewController.m in Sources */,
+				39B71D871E54339D003B4BE5 /* YSImagePickerRootVC.m in Sources */,
 				39C25E461E52DFC700D3415F /* YSAlbumsViewController.m in Sources */,
 				39C25E401E52DF6B00D3415F /* YSImagePickerController.m in Sources */,
 				39C25E431E52DF9100D3415F /* YSPhotosViewController.m in Sources */,

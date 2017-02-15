@@ -13,4 +13,6 @@
 @property (nonatomic, strong) UIImageView * iconImageView;
 @property (nonatomic, strong) UILabel * albumNameLabel;
 
+- (void)setYSAlbumsCellContent:(UIImage *)image albumName:(NSString *)albumName photosNumber:(NSInteger)photos;
+
 @end

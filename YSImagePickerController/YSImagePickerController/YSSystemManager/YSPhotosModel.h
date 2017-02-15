@@ -10,7 +10,7 @@
 
 @interface YSPhotosModel : NSObject
 
-@property (nonatomic, strong) id asset;
+@property (nonatomic, strong) id asset;     // PHAsset 或 ALAsset
 @property (nonatomic, assign) BOOL isSelected;
 
 
@@ -27,5 +27,7 @@
 @property (nonatomic, assign) NSUInteger selectedCount;
 @property (nonatomic, strong) NSMutableArray * selectedMedias;
 @property (nonatomic, strong) NSMutableArray * allMedias;
+
+- (instancetype)initWithAlbum:(id)album name:(NSString *)name;
 
 @end

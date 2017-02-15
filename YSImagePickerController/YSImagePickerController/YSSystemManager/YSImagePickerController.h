@@ -14,12 +14,16 @@
 
 // 最大选择数，默认是 9
 @property (nonatomic, assign) NSInteger maxCount;
+// 一行的个数
+@property (nonatomic, assign) NSInteger columentNum;
+// 是否默认展示图片选择页
+@property (nonatomic, assign) BOOL showPickerView;
 // 相册
-@property (nonatomic, strong) NSMutableArray * allAlbums;
+@property (nonatomic, strong, readonly) NSMutableArray * allAlbums;
 // 已选中的
-@property (nonatomic, strong) NSMutableArray * selectedAssets;
+//@property (nonatomic, strong) NSMutableArray * selectedAssets;
 // 所有图片
-@property (nonatomic, strong) NSMutableArray * allAssets;
+//@property (nonatomic, strong) NSMutableArray * allAssets;
 
 // delegate
 @property (nonatomic, weak) id<YSImagePickerDelegate> imageDelegate;
@@ -27,15 +31,14 @@
 // 初始化方法
 - (instancetype)initWithMaxCount:(NSInteger)maxCount delegate:(id<YSImagePickerDelegate>)delegate;
 
-// 更新
-- (void)updateToolBar;
+
 
 @end
 
 
 @protocol YSImagePickerDelegate <NSObject>
 
-- (void)clickToEdit;
-- (void)clickToSure;
+@optional
+
 
 @end

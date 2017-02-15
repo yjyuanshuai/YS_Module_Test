@@ -9,21 +9,24 @@
 #import "ViewController.h"
 #import "YSImagePickerController.h"
 
-@interface ViewController ()
+@interface ViewController ()<YSImagePickerDelegate>
 
 @end
 
 @implementation ViewController
+{
+    UIButton * btn;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
     
-    UIButton * btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn = [UIButton buttonWithType:UIButtonTypeCustom];
     btn.frame = CGRectMake(100, 100, 100, 40);
     [btn setTitle:@"调用" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btn addTarget:self action:@selector(clickLibrary) forControlEvents:UIControlEventTouchUpInside];
+    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    [btn addTarget:self action:@selector(clickLibrary:) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:btn];
 }
 
@@ -33,12 +36,15 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (void)clickLibrary
+- (void)clickLibrary:(UIButton *)clickBtn
 {
-    YSImagePickerController * imagePC = [[YSImagePickerController alloc] init];
-    
-    [self presentViewController:imagePC animated:YES completion:nil];
+    YSImagePickerController * imagePickVC = [[YSImagePickerController alloc] initWithMaxCount:10 delegate:self];
+//    imagePickVC.showPickerView = YES;
+    [self presentViewController:imagePickVC animated:YES completion:nil];
 }
+
+#pragma mark - YSImagePickerDelegate
+
 
 
 @end
