@@ -24,13 +24,24 @@
 
 - (void)setYSAlbumsCellContent:(UIImage *)image albumName:(NSString *)albumName photosNumber:(NSInteger)photos
 {
-    _iconImageView.image = image;
-    _albumNameLabel.text = [NSString stringWithFormat:@"%@ - %ld", albumName, photos];
+    if (!image) {
+        _iconImageView.image = [UIImage imageWithContentsOfFile:[[NSBundle mainBundle] pathForResource:@"defalut_image" ofType:@"png"]];
+    }
+    else {
+        _iconImageView.image = image;
+    }
+    
+    if (photos > 0) {
+        _albumNameLabel.text = [NSString stringWithFormat:@"%@ - %ld", albumName, photos];
+    }
+    else {
+        _albumNameLabel.text = [NSString stringWithFormat:@"%@", albumName];
+    }
 }
 
 - (void)createSubViews
 {
-    _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
+    _iconImageView = [[UIImageView alloc] initWithFrame:CGRectMake(0, 0, thumbImageWidth, thumbImageWidth)];
     [self.contentView addSubview:_iconImageView];
     
     _albumNameLabel = [[UILabel alloc] initWithFrame:CGRectMake(CGRectGetMaxX(_iconImageView.frame), 0, kMainScreenWidth - CGRectGetWidth(_iconImageView.frame) - 50, CGRectGetHeight(_iconImageView.frame))];

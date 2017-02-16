@@ -20,18 +20,28 @@
 /** 相册权限  */
 - (BOOL)hasMediaLibraryRoot;
 
+
+
 #pragma mark - Album
+/** 获取指定的相册 */
+- (void)getAlbum:(NSString *)albumName albumBlock:(void (^)(YSAlbumsModel * model))block;
+
 /** 获取所有相册 */
 - (void)getAllAlbums:(void (^)(NSMutableArray * retAlbumsArr))block;
 
-/** 获取相册中所有原图 */
-- (NSMutableArray *)getAllPhotosWithAlbum:(YSAlbumsModel *)model ascending:(BOOL)ascending;
 
-/** 获取相册中所有缩略图 */
-- (NSMutableArray *)getAllThumbPhotosWithAlbum:(YSAlbumsModel *)model ascending:(BOOL)ascending;
 
 
 #pragma mark - Photo
 /** 获取相册的封面图 */
-- (YSPhotosModel *)getAlbumPostImage:(YSAlbumsModel *)model size:(CGSize)size;
+- (void)getAlbumPostImage:(YSAlbumsModel *)model
+                     size:(CGSize)size resizeMode:(PHImageRequestOptionsResizeMode)resizeMode
+                postBlock:(void (^)(YSPhotosModel *model, UIImage *postImage, NSDictionary * info))block;
+
+/** 获取相册中所有原图 */
+- (void)getOriginAssetsFromAlbum:(YSAlbumsModel *)model ascending:(BOOL)ascending originBlock:(void (^)(NSMutableArray *originArr))block;
+
+/** 获取相册中所有缩略图 */
+- (void)getAllThumbPhotosWithAlbum:(YSAlbumsModel *)model size:(CGSize)size ascending:(BOOL)ascending thumbBlock:(void (^)(NSMutableArray *thumbArr))block;
+
 @end

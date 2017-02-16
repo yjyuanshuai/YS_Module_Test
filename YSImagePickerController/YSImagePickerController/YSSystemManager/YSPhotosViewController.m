@@ -9,6 +9,8 @@
 #import "YSPhotosViewController.h"
 #import "YSPhotosCollectionViewCell.h"
 #import "YSImagePickerHead.h"
+#import "YSPhotosModel.h"
+#import "MediaLibraryManager.h"
 
 static NSString * const YSPhotosCollectionCellID = @"YSPhotosCollectionCellID";
 
@@ -20,18 +22,16 @@ static NSString * const YSPhotosCollectionCellID = @"YSPhotosCollectionCellID";
 
 @implementation YSPhotosViewController
 {
-    NSMutableArray *_photos;
-    NSMutableArray *_assets;
+    YSAlbumsModel * _albumModel;
     NSInteger _horNum;
+    NSMutableArray *_photos;
 }
 
-- (instancetype)initWithPhotos:(NSMutableArray *)photos
-                        assets:(NSMutableArray *)assets
-                        horNum:(NSInteger)horNum
+- (instancetype)initWithAlbum:(YSAlbumsModel *)album
+                       horNum:(NSInteger)horNum
 {
     if (self = [super init]) {
-        _photos = photos;
-        _assets = assets;
+        _albumModel = album;
         _horNum = horNum;
     }
     return self;
@@ -42,7 +42,8 @@ static NSString * const YSPhotosCollectionCellID = @"YSPhotosCollectionCellID";
     // Do any additional setup after loading the view.
     
     [self initUIAndData];
-//    [self createCollectionView];
+    [self createCollectionView];
+    [self getPhotos];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -52,7 +53,21 @@ static NSString * const YSPhotosCollectionCellID = @"YSPhotosCollectionCellID";
 
 - (void)initUIAndData
 {
-    self.title = @"相册的名字";
+    if (!_albumModel) {
+        self.title = @"相册的名字";
+        
+        __block YSAlbumsModel * tempModel = nil;
+        [[MediaLibraryManager sharedMediaLibrary] getAlbum:@"相机胶卷" albumBlock:^(YSAlbumsModel * model) {
+            tempModel = model;
+        }];
+        
+        _albumModel = tempModel;
+    }
+    else {
+        self.title = _albumModel.name;
+    }
+    
+    _photos = [@[] mutableCopy];
 }
 
 - (void)createCollectionView
@@ -66,6 +81,11 @@ static NSString * const YSPhotosCollectionCellID = @"YSPhotosCollectionCellID";
     [self.view addSubview:_photoCollectionView];
     
     [_photoCollectionView registerClass:[YSPhotosCollectionViewCell class] forCellWithReuseIdentifier:YSPhotosCollectionCellID];
+}
+
+- (void)getPhotos
+{
+    
 }
 
 #pragma mark - UICollectionViewDelegate, UICollectionViewDataSource

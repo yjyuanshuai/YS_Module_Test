@@ -13,7 +13,7 @@
 @property (nonatomic, strong) id asset;     // PHAsset 或 ALAsset
 @property (nonatomic, assign) BOOL isSelected;
 
-
+- (instancetype)initWithAsset:(id)asset;
 
 @end
 

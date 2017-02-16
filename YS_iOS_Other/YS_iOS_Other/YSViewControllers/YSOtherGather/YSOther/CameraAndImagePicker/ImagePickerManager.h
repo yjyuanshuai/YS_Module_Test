@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import <QBImagePickerController/QBImagePickerController.h>
-#import <TZImagePickerController/TZImagePickerController.h>
+#import "TZImagePickerController.h"
 
 typedef NS_ENUM(NSInteger, PickType){
     PickTypeSystemImageLibrary,

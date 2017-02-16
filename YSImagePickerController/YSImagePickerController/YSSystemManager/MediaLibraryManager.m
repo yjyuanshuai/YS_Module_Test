@@ -7,9 +7,6 @@
 //
 
 #import "MediaLibraryManager.h"
-//#import <AVFoundation/AVFoundation.h>
-//#import <Foundation/Foundation.h>
-//#import <UIKit/UIKit.h>
 #import "YSImagePickerHead.h"
 #import "YSPhotosModel.h"
 
@@ -30,7 +27,7 @@ static dispatch_queue_t media_library_queue = nil;
 - (instancetype)init
 {
     if (self = [super init]) {
-        media_library_queue = dispatch_queue_create("media_library_queue", NULL);
+        media_library_queue = dispatch_queue_create("media_library_queue", DISPATCH_QUEUE_CONCURRENT);
     }
     return self;
 }
@@ -44,6 +41,29 @@ static dispatch_queue_t media_library_queue = nil;
 }
 
 #pragma mark - Album
+// 获取指定相册
+- (void)getAlbum:(NSString *)albumName albumBlock:(void (^)(YSAlbumsModel *))block
+{
+    dispatch_async(media_library_queue, ^{
+        
+        __block YSAlbumsModel * retAlbum = nil;
+        [self getAllAlbums:^(NSMutableArray *retAlbumsArr) {
+            
+            for (YSAlbumsModel * album in retAlbumsArr) {
+                if ([album.name isEqualToString:albumName]) {
+                    retAlbum = album;
+                }
+            }
+        }];
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block(retAlbum);
+            }
+        });
+    });
+}
+
 // 获取所有相册
 - (void)getAllAlbums:(void (^)(NSMutableArray *))block
 {
@@ -71,18 +91,6 @@ static dispatch_queue_t media_library_queue = nil;
                 [albumsArr addObject:albumModel];
             }
         }
-        else {
-            ALAssetsLibrary * alassetLibrary = [[ALAssetsLibrary alloc] init];
-            [alassetLibrary enumerateGroupsWithTypes:ALAssetsGroupAll usingBlock:^(ALAssetsGroup *group, BOOL *stop) {
-                
-                if ([group numberOfAssets] < 1) return;
-                NSString * name = [group valueForProperty:ALAssetsGroupPropertyName];
-                
-                
-            } failureBlock:^(NSError *error) {
-                NSLog(@"-------- 相册访问失败！");
-            }];
-        }
         
         dispatch_async(dispatch_get_main_queue(), ^{
             if (block) {
@@ -92,25 +100,79 @@ static dispatch_queue_t media_library_queue = nil;
     });
 }
 
-#pragma mark - Photo
-//- (UIImage *)getAlbumPostImage:(YSAlbumsModel *)model size:(CGSize)size
-//{
-//    if (iOS_Version >= 8.0) {
-//        //
-//        PHFetchResult * fetchRet = (PHFetchResult *)model.albumPhotos;
-//        PHAsset * lastAsset = fetchRet.lastObject;
-//    }
-//    else {
-//        
-//    }
-//}
 
-- (void)requestThumbImage:(PHAsset *)phasset 
+#pragma mark - Photo
+/** 获取相册的封面图 */
+- (void)getAlbumPostImage:(YSAlbumsModel *)model
+                     size:(CGSize)size resizeMode:(PHImageRequestOptionsResizeMode)resizeMode
+                postBlock:(void (^)(YSPhotosModel *model, UIImage *postImage, NSDictionary * info))block
 {
-//    PHImageRequestID * imageRequest = [[PHImageManager defaultManager] requestImageForAsset:phasset targetSize:<#(CGSize)#> contentMode:<#(PHImageContentMode)#> options:<#(nullable PHImageRequestOptions *)#> resultHandler:<#^(UIImage * _Nullable result, NSDictionary * _Nullable info)resultHandler#>];
+    dispatch_async(media_library_queue, ^{
+    
+        __block YSPhotosModel * retPhotoModel = nil;
+        __block UIImage * retImage = nil;
+        __block NSDictionary * retInfo = [NSDictionary dictionary];
+    
+        if (iOS_Version >= 8.0) {
+            [self getAllAlbums:^(NSMutableArray *retAlbumsArr) {
+                
+                for (YSAlbumsModel * album in retAlbumsArr) {
+                    if ([album.name isEqualToString:model.name]) {
+                        
+                        PHFetchResult * ret = (PHFetchResult *)album.albumPhotos;
+                        PHAsset * lastAsset = ret.lastObject;
+                        
+                        retPhotoModel = [[YSPhotosModel alloc] initWithAsset:lastAsset];
+                        
+                        PHImageRequestOptions * imageRequestOption = [[PHImageRequestOptions alloc] init];
+                        imageRequestOption.deliveryMode = PHImageRequestOptionsDeliveryModeOpportunistic;
+                        imageRequestOption.resizeMode = resizeMode;
+                        
+                        [[PHImageManager defaultManager] requestImageForAsset:lastAsset
+                                                                   targetSize:size
+                                                                  contentMode:PHImageContentModeAspectFit
+                                                                      options:imageRequestOption
+                                                                resultHandler:^(UIImage * _Nullable result, NSDictionary * _Nullable info) {
+                            
+                                                                    
+                            NSLog(@"--------- image: %@", result);
+                            retImage = result;
+                            retInfo = info;
+                            
+                        }];
+                        
+                        break;
+                    }
+                }
+            }];
+
+        }
+    
+    
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            if (block) {
+                block(retPhotoModel, retImage, retInfo);
+            }
+        });
+    });
+    
+//    dispatch_release(media_library_queue);
 }
 
-#pragma mark -
+/** 获取相册中所有原图 */
+- (void)getOriginAssetsFromAlbum:(YSAlbumsModel *)model ascending:(BOOL)ascending originBlock:(void (^)(NSMutableArray *originArr))block
+{
+    
+}
+
+/** 获取相册中所有缩略图 */
+- (void)getAllThumbPhotosWithAlbum:(YSAlbumsModel *)model size:(CGSize)size ascending:(BOOL)ascending thumbBlock:(void (^)(NSMutableArray *thumbArr))block
+{
+
+}
+
+#pragma mark - PHAsset 转 UIImage
 
 
 

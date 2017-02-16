@@ -8,7 +8,7 @@
 
 #import "YSRootViewController.h"
 #import <QBImagePickerController/QBImagePickerController.h>
-#import <TZImagePickerController/TZImagePickerController.h>
+#import "TZImagePickerController.h"
 
 @interface CameraOrImageListVC : YSRootViewController <QBImagePickerControllerDelegate, UINavigationControllerDelegate, UIImagePickerControllerDelegate, TZImagePickerControllerDelegate>
 

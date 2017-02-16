@@ -14,6 +14,15 @@
 
 @implementation YSPhotosModel
 
+- (instancetype)initWithAsset:(id)asset
+{
+    if (self = [super init]) {
+        self.asset = asset;
+        self.isSelected = NO;
+    }
+    return self;
+}
+
 
 
 @end

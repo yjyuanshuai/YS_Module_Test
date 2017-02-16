@@ -108,23 +108,20 @@
 - (void)initTZImagePickerVC
 {
     _TZImagePC = [[TZImagePickerController alloc] initWithMaxImagesCount:10 delegate:_listViewController];
-    _TZImagePC.isSelectOriginalPhoto = NO;
-    if ([_selectedImageArr count] > 0) {
-        _TZImagePC.selectedAssets = _selectedImageArr;
-    }
-    _TZImagePC.allowTakePicture = NO;
-    
+    _TZImagePC.allowTakePicture = YES;
+
     // 设置导航栏样式
     _TZImagePC.navigationBar.barTintColor = _listViewController.navigationController.navigationBar.barTintColor;
-    _TZImagePC.navigationBar.tintColor = [UIColor redColor];
+    
+    NSDictionary * dict = @{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:20.0]};
+    [_TZImagePC setNavigationBarItem:dict];
     
     //
     _TZImagePC.allowPickingVideo = NO;
     _TZImagePC.allowPickingImage = YES;
-    _TZImagePC.allowPickingOriginalPhoto = YES;
+    _TZImagePC.allowPickingOriginalPhoto = NO;
     
-//    _TZImagePC.sortAscendingByModificationDate = YES;
-    _TZImagePC.maxImagesCount = 10;
+    _TZImagePC.maxImagesCount = 5;
     
 //    [_TZImagePC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *, NSArray *, BOOL) {
 //        
@@ -133,19 +130,5 @@
     [_listViewController presentViewController:_TZImagePC animated:YES completion:nil];
 }
 
-
-// 判断是否有权限
-- (BOOL)hasRootToUseWithMediaType:(UIImagePickerControllerSourceType)mediaType
-{
-    BOOL hasRoot = NO;
-    
-    if (![UIImagePickerController isSourceTypeAvailable:mediaType]) {
-        DDLogInfo(@"---------- 没有权限，获取相册 / 相机");
-    }
-    else {
-        hasRoot = YES;
-    }
-    return hasRoot;
-}
 
 @end

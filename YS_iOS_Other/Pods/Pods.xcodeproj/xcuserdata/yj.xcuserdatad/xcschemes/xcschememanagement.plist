@@ -69,11 +69,6 @@
 			<key>isShown</key>
 			<false/>
 		</dict>
-		<key>TZImagePickerController.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-		</dict>
 		<key>UITableView+FDTemplateLayoutCell.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -82,27 +77,12 @@
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
-		<key>128EE2BA8D199B9DD6A63CF09A753054</key>
+		<key>1C80F558B426BF2F765A5746CFF89449</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>2B0299E71F4C0DDFA569FAEAB88DEB92</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>4FD796CC251959803ABC0CA76D9617DD</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>51F3E005A77908CB827EEA5FF379AC1C</key>
-		<dict>
-			<key>primary</key>
-			<true/>
-		</dict>
-		<key>5FE05C3F534362835E8798B79DF02D1E</key>
+		<key>4CD7C6AEA03BD9F05AFE03E532A4D6CF</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -112,12 +92,12 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
+		<key>77C532507F5637D52EE9B99EBD4723E8</key>
 		<dict>
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>9163B940DE121BB6EB6426FB3DC33FD2</key>
+		<key>8642CC820CE8C5B88C113D7F47AF4BC3</key>
 		<dict>
 			<key>primary</key>
 			<true/>
@@ -132,6 +112,16 @@
 			<key>primary</key>
 			<true/>
 		</dict>
+		<key>A7B16D0206325FAFC2E9EB44CDD7CAFD</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>AB6CE323D00CFEFA4C3F368E55B30868</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
 		<key>C92FE3681884E565A5AB3C622863B4C8</key>
 		<dict>
 			<key>primary</key>
@@ -142,7 +132,7 @@
 			<key>primary</key>
 			<true/>
 		</dict>
-		<key>D050AA66085E6486ED96DD9F35DA26FC</key>
+		<key>D68BB759982A735C67FDED04A1BC67E3</key>
 		<dict>
 			<key>primary</key>
 			<true/>

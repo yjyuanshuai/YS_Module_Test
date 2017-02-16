@@ -18,6 +18,7 @@
 @property (nonatomic, assign) NSInteger columentNum;
 // 是否默认展示图片选择页
 @property (nonatomic, assign) BOOL showPickerView;
+@property (nonatomic, assign, readonly) BOOL hadShowPickerView;
 // 相册
 @property (nonatomic, strong, readonly) NSMutableArray * allAlbums;
 // 已选中的

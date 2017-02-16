@@ -9,7 +9,7 @@
 #import "ImagesShowViewController.h"
 #import <Photos/Photos.h>
 #import "PhotoCollectionViewCell.h"
-#import <TZImagePickerController/TZImagePickerController.h>
+#import "TZImagePickerController.h"
 
 static NSString * const PhotoCollectionCellID = @"PhotoCollectionCellID";
 

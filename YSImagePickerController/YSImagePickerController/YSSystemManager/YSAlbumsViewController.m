@@ -11,6 +11,8 @@
 #import "MediaLibraryManager.h"
 #import "YSPhotosModel.h"
 #import "YSImagePickerHead.h"
+#import "YSImagePickerController.h"
+#import "YSPhotosViewController.h"
 
 static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
 
@@ -82,13 +84,44 @@ static NSString * const YSAlbumsCellID = @"YSAlbumsCellID";
     YSAlbumsTableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:YSAlbumsCellID];
     
     YSAlbumsModel * albumModel = _albumsArr[indexPath.row];
-    [cell setYSAlbumsCellContent:[UIImage imageNamed:@"defalut_image"] albumName:albumModel.name photosNumber:albumModel.count];
+    CGSize size = CGSizeMake(thumbImageWidth, thumbImageWidth);
+    
+    [[MediaLibraryManager sharedMediaLibrary] getAlbumPostImage:albumModel size:size resizeMode:PHImageRequestOptionsResizeModeFast postBlock:^(YSPhotosModel *model, UIImage *postImage, NSDictionary *info) {
+        
+        if (albumModel.count > 0) {
+            [cell setYSAlbumsCellContent:postImage albumName:albumModel.name photosNumber:albumModel.count];
+        }
+        else {
+            [cell setYSAlbumsCellContent:nil albumName:albumModel.name photosNumber:albumModel.count];
+        }
+    }];
     
     return cell;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 50;
+    return thumbImageWidth;
 }
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // 跳转到具体相册
+    YSImagePickerController * imagePickerVC = (YSImagePickerController *)self.navigationController;
+    
+    if (imagePickerVC) {
+        
+        if ([imagePickerVC.viewControllers count] > 1) {
+            YSPhotosViewController * photosVC = imagePickerVC.viewControllers[1];
+            [imagePickerVC pushViewController:photosVC animated:YES];
+        }
+        else {
+            YSPhotosViewController * photosVC = [[YSPhotosViewController alloc] initWithAlbum:_albumsArr[indexPath.row] horNum:imagePickerVC.columentNum];
+            [imagePickerVC pushViewController:photosVC animated:YES];
+        }
+    }
+}
+
 @end

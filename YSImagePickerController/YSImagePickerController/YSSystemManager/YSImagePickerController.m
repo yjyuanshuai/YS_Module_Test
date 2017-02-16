@@ -62,12 +62,14 @@
 }
 
 #pragma mark - set
-- (void)setShowPickerView:(BOOL)showPickerView
+
+
+#pragma mark - 
+- (void)pushToPickPhoto
 {
-    self.showPickerView = showPickerView;
-    if (self.showPickerView) {
+    if (!self.hadShowPickerView && self.showPickerView) {
         NSLog(@"----- 首次推出照片选择页");
-        YSPhotosViewController * photo = [[YSPhotosViewController alloc] init];
+        YSPhotosViewController * photo = [[YSPhotosViewController alloc] initWithAlbum:nil horNum:self.columentNum];
         [self pushViewController:photo animated:NO];
     }
 }

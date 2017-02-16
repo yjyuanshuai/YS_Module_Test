@@ -9,6 +9,8 @@
 #ifndef YSImagePickerHead_h
 #define YSImagePickerHead_h
 
+
+
 #define kMainScreenWidth [[UIScreen mainScreen] bounds].size.width
 #define kMainScreenHeight [[UIScreen mainScreen] bounds].size.height
 #define kNo64Height (kMainScreenHeight-64)
@@ -18,6 +20,9 @@
 
 
 #define iOS_Version [[UIDevice currentDevice] systemVersion].floatValue
+
+
+#define thumbImageWidth 80
 
 
 #endif /* YSImagePickerHead_h */
