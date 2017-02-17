@@ -17,6 +17,8 @@
 		391A2E9F1E093D630075CFD3 /* FriendCircleVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2E9E1E093D630075CFD3 /* FriendCircleVC.m */; };
 		391A2EA21E093EA30075CFD3 /* FriendCircleTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2EA11E093EA30075CFD3 /* FriendCircleTableViewCell.m */; };
 		391A2EA51E093F6D0075CFD3 /* FriendCircleModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 391A2EA41E093F6D0075CFD3 /* FriendCircleModel.m */; };
+		391B89BC1E56DC9D0033108A /* YSActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 391B89B91E56DC9D0033108A /* YSActivityIndicator.m */; };
+		391B89BD1E56DC9D0033108A /* YSActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 391B89BB1E56DC9D0033108A /* YSActivityIndicatorManager.m */; };
 		3921488C1DDED3EB00EBCFC1 /* YSOtherGatherVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921488B1DDED3EB00EBCFC1 /* YSOtherGatherVC.m */; };
 		3921489C1DDEDCE100EBCFC1 /* GestureCollectionReusableView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3921488F1DDEDCE000EBCFC1 /* GestureCollectionReusableView.m */; };
 		3921489D1DDEDCE100EBCFC1 /* GestureCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 392148911DDEDCE000EBCFC1 /* GestureCollectionViewCell.m */; };
@@ -283,8 +285,6 @@
 		39E175D21E55A0DB0095FC7D /* TZPhotoPreviewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E175C61E55A0DB0095FC7D /* TZPhotoPreviewController.m */; };
 		39E175D31E55A0DB0095FC7D /* TZVideoPlayerController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E175C81E55A0DB0095FC7D /* TZVideoPlayerController.m */; };
 		39E175D41E55A0DB0095FC7D /* UIView+Layout.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E175CA1E55A0DB0095FC7D /* UIView+Layout.m */; };
-		39E175DA1E55A4040095FC7D /* YSActivityIndicator.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E175D71E55A4040095FC7D /* YSActivityIndicator.m */; };
-		39E175DB1E55A4040095FC7D /* YSActivityIndicatorManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E175D91E55A4040095FC7D /* YSActivityIndicatorManager.m */; };
 		39E311461D643F8700A631EA /* NSDate+Utilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E311441D643F8700A631EA /* NSDate+Utilities.m */; };
 		39E5661B1D7ACBCF00531331 /* YSSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 39E5661A1D7ACBCF00531331 /* YSSearchBar.m */; };
 		39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39EA8EC91D40BB6C0053EE02 /* YSLoginViewController.m */; };
@@ -358,6 +358,10 @@
 		391A2EA11E093EA30075CFD3 /* FriendCircleTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FriendCircleTableViewCell.m; sourceTree = "<group>"; };
 		391A2EA31E093F6D0075CFD3 /* FriendCircleModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = FriendCircleModel.h; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/YSImageAndWordsSort/FriendCircleModel.h; sourceTree = SOURCE_ROOT; };
 		391A2EA41E093F6D0075CFD3 /* FriendCircleModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = FriendCircleModel.m; path = YS_iOS_Other/YSViewControllers/YSOtherGather/YSOther/YSImageAndWordsSort/FriendCircleModel.m; sourceTree = SOURCE_ROOT; };
+		391B89B81E56DC9D0033108A /* YSActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSActivityIndicator.h; sourceTree = "<group>"; };
+		391B89B91E56DC9D0033108A /* YSActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSActivityIndicator.m; sourceTree = "<group>"; };
+		391B89BA1E56DC9D0033108A /* YSActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSActivityIndicatorManager.h; sourceTree = "<group>"; };
+		391B89BB1E56DC9D0033108A /* YSActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSActivityIndicatorManager.m; sourceTree = "<group>"; };
 		3921488A1DDED3EB00EBCFC1 /* YSOtherGatherVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOtherGatherVC.h; sourceTree = "<group>"; };
 		3921488B1DDED3EB00EBCFC1 /* YSOtherGatherVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOtherGatherVC.m; sourceTree = "<group>"; };
 		3921488E1DDEDCE000EBCFC1 /* GestureCollectionReusableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = GestureCollectionReusableView.h; path = YSLanguage/YSOC/GestureCollectionReusableView.h; sourceTree = "<group>"; };
@@ -748,10 +752,6 @@
 		39E175C81E55A0DB0095FC7D /* TZVideoPlayerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TZVideoPlayerController.m; sourceTree = "<group>"; };
 		39E175C91E55A0DB0095FC7D /* UIView+Layout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+Layout.h"; sourceTree = "<group>"; };
 		39E175CA1E55A0DB0095FC7D /* UIView+Layout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+Layout.m"; sourceTree = "<group>"; };
-		39E175D61E55A4040095FC7D /* YSActivityIndicator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSActivityIndicator.h; sourceTree = "<group>"; };
-		39E175D71E55A4040095FC7D /* YSActivityIndicator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSActivityIndicator.m; sourceTree = "<group>"; };
-		39E175D81E55A4040095FC7D /* YSActivityIndicatorManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSActivityIndicatorManager.h; sourceTree = "<group>"; };
-		39E175D91E55A4040095FC7D /* YSActivityIndicatorManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSActivityIndicatorManager.m; sourceTree = "<group>"; };
 		39E311431D643F8700A631EA /* NSDate+Utilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+Utilities.h"; sourceTree = "<group>"; };
 		39E311441D643F8700A631EA /* NSDate+Utilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+Utilities.m"; sourceTree = "<group>"; };
 		39E566191D7ACBCF00531331 /* YSSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSSearchBar.h; sourceTree = "<group>"; };
@@ -857,6 +857,17 @@
 				391A2E9A1E08D3DC0075CFD3 /* ChatMsgManager.m */,
 			);
 			path = DBDetailManager;
+			sourceTree = "<group>";
+		};
+		391B89B71E56DC9D0033108A /* YSNavigationLoadingView */ = {
+			isa = PBXGroup;
+			children = (
+				391B89B81E56DC9D0033108A /* YSActivityIndicator.h */,
+				391B89B91E56DC9D0033108A /* YSActivityIndicator.m */,
+				391B89BA1E56DC9D0033108A /* YSActivityIndicatorManager.h */,
+				391B89BB1E56DC9D0033108A /* YSActivityIndicatorManager.m */,
+			);
+			path = YSNavigationLoadingView;
 			sourceTree = "<group>";
 		};
 		392148861DDED36500EBCFC1 /* YSOtherGather */ = {
@@ -1697,7 +1708,7 @@
 		3966393E1D1781C20069E0E8 /* Libs */ = {
 			isa = PBXGroup;
 			children = (
-				39E175D51E55A4040095FC7D /* YSNavigationLoadingView */,
+				391B89B71E56DC9D0033108A /* YSNavigationLoadingView */,
 				39E175B71E55A0DB0095FC7D /* TZImagePickerController */,
 				39B269451E30AD6C0047D6A4 /* YSJSPatch */,
 				39D65A1F1E07C2E000FFCF78 /* Utility */,
@@ -2033,18 +2044,6 @@
 			);
 			name = TZImagePickerController;
 			path = ../../../../Desktop/TZImagePickerController;
-			sourceTree = "<group>";
-		};
-		39E175D51E55A4040095FC7D /* YSNavigationLoadingView */ = {
-			isa = PBXGroup;
-			children = (
-				39E175D61E55A4040095FC7D /* YSActivityIndicator.h */,
-				39E175D71E55A4040095FC7D /* YSActivityIndicator.m */,
-				39E175D81E55A4040095FC7D /* YSActivityIndicatorManager.h */,
-				39E175D91E55A4040095FC7D /* YSActivityIndicatorManager.m */,
-			);
-			name = YSNavigationLoadingView;
-			path = ../../../../Desktop/YSNavigationLoadingView;
 			sourceTree = "<group>";
 		};
 		39E311401D643F8700A631EA /* NSDateCategory */ = {
@@ -2528,7 +2527,7 @@
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
 				39FA13A91E0BABFB0000D69A /* CALayerAndBerzierVC.m in Sources */,
 				39E175CF1E55A0DB0095FC7D /* TZImagePickerController.m in Sources */,
-				39E175DB1E55A4040095FC7D /* YSActivityIndicatorManager.m in Sources */,
+				391B89BD1E56DC9D0033108A /* YSActivityIndicatorManager.m in Sources */,
 				394594981D3878850017F4A3 /* OneCollectionViewController.m in Sources */,
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
 				3998D8791DCC7A6500704E26 /* YSNetRequestManager.m in Sources */,
@@ -2541,7 +2540,7 @@
 				39A108BF1E028985000D7839 /* TextAttachmentViewController.m in Sources */,
 				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,
 				39333C101DE2CEDA00035157 /* ListTableViewCell.m in Sources */,
-				39E175DA1E55A4040095FC7D /* YSActivityIndicator.m in Sources */,
+				391B89BC1E56DC9D0033108A /* YSActivityIndicator.m in Sources */,
 				3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */,
 				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
 				39333C131DE2CEDA00035157 /* YSVideoPlayerViewController.m in Sources */,
