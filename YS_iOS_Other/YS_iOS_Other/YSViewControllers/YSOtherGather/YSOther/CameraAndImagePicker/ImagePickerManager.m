@@ -108,19 +108,14 @@
 - (void)initTZImagePickerVC
 {
     _TZImagePC = [[TZImagePickerController alloc] initWithMaxImagesCount:10 delegate:_listViewController];
-    _TZImagePC.allowTakePicture = NO;
+    _TZImagePC.allowTakePicture = YES;
     _TZImagePC.allowPickingVideo = NO;
     _TZImagePC.allowPickingImage = YES;
     _TZImagePC.allowPickingOriginalPhoto = NO;
     _TZImagePC.maxImagesCount = 5;
 
     // 设置导航栏样式
-//    _TZImagePC.navigationBar.barTintColor = _listViewController.navigationController.navigationBar.barTintColor;
-    
-    UIColor * barTintColor = _listViewController.navigationController.navigationBar.barTintColor;
-    
-    NSDictionary * dict = @{NSForegroundColorAttributeName:[UIColor blackColor], NSFontAttributeName:[UIFont systemFontOfSize:20.0]};
-    [_TZImagePC setNavigationBarTintColor:barTintColor tintColor:[UIColor blackColor] barItemDic:dict];
+    _TZImagePC.navigationBar.barTintColor = _listViewController.navigationController.navigationBar.barTintColor;
     
 //    [_TZImagePC setDidFinishPickingPhotosHandle:^(NSArray<UIImage *> *, NSArray *, BOOL) {
 //        
