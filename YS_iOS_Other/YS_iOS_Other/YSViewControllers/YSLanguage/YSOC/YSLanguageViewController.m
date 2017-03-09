@@ -10,6 +10,8 @@
 
 // 1
 #import "YSGCDViewController.h"
+#import "YSOperationVC.h"
+#import "YSThreadVC.h"
 
 // 2
 #import "SixGestureViewController.h"
@@ -51,7 +53,7 @@ static NSString * const LanguageCellID = @"LanguageCellID";
     
     _sectionTitleArr = @[@"1 线程", @"2 触摸"];
     
-    NSArray * sectionOne    = @[@"GCD"];
+    NSArray * sectionOne    = @[@"GCD", @"NSOperation", @"NSThread"];
     NSArray * sectionTwo    = @[@"手势", @"自定义手势", @"触摸"];
     
     _sectionCellContent = [@[sectionOne, sectionTwo] mutableCopy];
@@ -110,16 +112,24 @@ static NSString * const LanguageCellID = @"LanguageCellID";
     switch (indexSection) {
         case 0:
         {
-            if (indexPath.row == 0)
-            {
+            if (indexPath.row == 0) {
                 // GCD
                 YSGCDViewController * gcdVC = [[YSGCDViewController alloc] init];
                 gcdVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:gcdVC animated:YES];
             }
-            else if (indexPath.row == 1)
-            {
+            else if (indexPath.row == 1) {
+                // NSOperation
+                YSOperationVC * operationVC = [[YSOperationVC alloc] init];
+                operationVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:operationVC animated:YES];
+            }
+            else if (indexPath.row == 2) {
                 
+                // NSThread
+                YSThreadVC * threadVC = [[YSThreadVC alloc] init];
+                threadVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:threadVC animated:YES];
             }
         }
             break;

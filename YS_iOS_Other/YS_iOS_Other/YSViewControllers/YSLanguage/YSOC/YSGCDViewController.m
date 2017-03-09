@@ -9,6 +9,7 @@
 #import "YSGCDViewController.h"
 #import <UITableView+FDTemplateLayoutCell.h>
 #import "YSGCDTableViewCell.h"
+#import "GlobalWebVC.h"
 
 @interface YSGCDViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -17,6 +18,9 @@
 @end
 
 @implementation YSGCDViewController
+{
+    NSArray * _titleArr;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,6 +37,7 @@
 - (void)initUIAndData
 {
     self.title = @"GCD";
+    _titleArr = @[@"Objc中国-并发编程：API及挑战"];
     
     _gcdTableView = [[UITableView alloc] initWithFrame:CGRectZero style:UITableViewStyleGrouped];
     _gcdTableView.delegate = self;
@@ -67,18 +72,43 @@
 #pragma mark - UITableViewDelegate & UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 0;
+    return [_titleArr count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return nil;
+    static NSString * cell_id = @"Cell_Id";
+    UITableViewCell * cell = [tableView dequeueReusableCellWithIdentifier:cell_id];
+    if (!cell) {
+        cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cell_id];
+    }
+    cell.textLabel.text = _titleArr[indexPath.row];
+    return cell;
 }
 
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 15;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
+{
+    return 0.05;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    if (indexPath.row == 0) {
+        GlobalWebVC * webVC = [[GlobalWebVC alloc] initWithTitle:_titleArr[indexPath.row] webUrl:@"https://objccn.io/issue-2-1/"];
+        [self.navigationController pushViewController:webVC animated:YES];
+    }
+}
 
 @end

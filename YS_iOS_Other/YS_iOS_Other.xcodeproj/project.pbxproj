@@ -228,6 +228,11 @@
 		3985944E1D13F0B800863A14 /* SevenAppleLocationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3985944D1D13F0B800863A14 /* SevenAppleLocationViewController.m */; };
 		398594511D13F0D900863A14 /* SevenBaiduViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594501D13F0D900863A14 /* SevenBaiduViewController.m */; };
 		398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 398594531D13F11900863A14 /* SevenGaoDeViewController.m */; };
+		39865E551E70F8C70095B6C1 /* YSOperation.m in Sources */ = {isa = PBXBuildFile; fileRef = 39865E541E70F8C70095B6C1 /* YSOperation.m */; };
+		39865E581E7123CC0095B6C1 /* YSOperationVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 39865E571E7123CC0095B6C1 /* YSOperationVC.m */; };
+		39865E5B1E71241D0095B6C1 /* YSThreadVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 39865E5A1E71241D0095B6C1 /* YSThreadVC.m */; };
+		39865E5F1E7126900095B6C1 /* GlobalWebVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 39865E5E1E7126900095B6C1 /* GlobalWebVC.m */; };
+		39865E611E713D690095B6C1 /* WebKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39865E601E713D690095B6C1 /* WebKit.framework */; };
 		399129011D5C4D340099C279 /* tab_fiv_num.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128F51D5C4D340099C279 /* tab_fiv_num.png */; };
 		399129021D5C4D340099C279 /* tab_fiv_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128F61D5C4D340099C279 /* tab_fiv_sel.png */; };
 		399129031D5C4D340099C279 /* tab_fou_num.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128F71D5C4D340099C279 /* tab_fou_num.png */; };
@@ -668,6 +673,15 @@
 		398594501D13F0D900863A14 /* SevenBaiduViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenBaiduViewController.m; sourceTree = "<group>"; };
 		398594521D13F11900863A14 /* SevenGaoDeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SevenGaoDeViewController.h; sourceTree = "<group>"; };
 		398594531D13F11900863A14 /* SevenGaoDeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SevenGaoDeViewController.m; sourceTree = "<group>"; };
+		39865E531E70F8C70095B6C1 /* YSOperation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOperation.h; sourceTree = "<group>"; };
+		39865E541E70F8C70095B6C1 /* YSOperation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOperation.m; sourceTree = "<group>"; };
+		39865E561E7123CC0095B6C1 /* YSOperationVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOperationVC.h; sourceTree = "<group>"; };
+		39865E571E7123CC0095B6C1 /* YSOperationVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOperationVC.m; sourceTree = "<group>"; };
+		39865E591E71241D0095B6C1 /* YSThreadVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSThreadVC.h; sourceTree = "<group>"; };
+		39865E5A1E71241D0095B6C1 /* YSThreadVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSThreadVC.m; sourceTree = "<group>"; };
+		39865E5D1E7126900095B6C1 /* GlobalWebVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GlobalWebVC.h; sourceTree = "<group>"; };
+		39865E5E1E7126900095B6C1 /* GlobalWebVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GlobalWebVC.m; sourceTree = "<group>"; };
+		39865E601E713D690095B6C1 /* WebKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = WebKit.framework; path = System/Library/Frameworks/WebKit.framework; sourceTree = SDKROOT; };
 		399128F51D5C4D340099C279 /* tab_fiv_num.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fiv_num.png; sourceTree = "<group>"; };
 		399128F61D5C4D340099C279 /* tab_fiv_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fiv_sel.png; sourceTree = "<group>"; };
 		399128F71D5C4D340099C279 /* tab_fou_num.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_fou_num.png; sourceTree = "<group>"; };
@@ -807,6 +821,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39865E611E713D690095B6C1 /* WebKit.framework in Frameworks */,
 				39B2694C1E30AE5D0047D6A4 /* JavaScriptCore.framework in Frameworks */,
 				39B2694A1E30AE540047D6A4 /* libz.tbd in Frameworks */,
 				39C4F2461D910B9400E4FADE /* libCocoaLumberjack.a in Frameworks */,
@@ -885,6 +900,8 @@
 		3921488D1DDEDCE000EBCFC1 /* YSOC */ = {
 			isa = PBXGroup;
 			children = (
+				39865E521E70F3560095B6C1 /* Thread */,
+				39865E511E70EA610095B6C1 /* Operation */,
 				393A078A1D475BD7005114B1 /* GCD */,
 				393A07881D475B9C005114B1 /* Gesture */,
 				393A07891D475BAE005114B1 /* Touch */,
@@ -973,6 +990,7 @@
 				39214A121D05203B0019422D /* AppDelegate.h */,
 				39214A131D05203B0019422D /* AppDelegate.m */,
 				3945944B1D3875A70017F4A3 /* GlobalCustemController */,
+				39865E5C1E71266B0095B6C1 /* GlobalToolController */,
 				39EA8EC71D40BB4A0053EE02 /* LoginAndRegisterVC */,
 				394594551D38762E0017F4A3 /* YSLanguage */,
 				39214A471D0548D90019422D /* YSUI */,
@@ -1765,6 +1783,35 @@
 			name = "Header File";
 			sourceTree = "<group>";
 		};
+		39865E511E70EA610095B6C1 /* Operation */ = {
+			isa = PBXGroup;
+			children = (
+				39865E561E7123CC0095B6C1 /* YSOperationVC.h */,
+				39865E571E7123CC0095B6C1 /* YSOperationVC.m */,
+				39865E531E70F8C70095B6C1 /* YSOperation.h */,
+				39865E541E70F8C70095B6C1 /* YSOperation.m */,
+			);
+			name = Operation;
+			sourceTree = "<group>";
+		};
+		39865E521E70F3560095B6C1 /* Thread */ = {
+			isa = PBXGroup;
+			children = (
+				39865E591E71241D0095B6C1 /* YSThreadVC.h */,
+				39865E5A1E71241D0095B6C1 /* YSThreadVC.m */,
+			);
+			name = Thread;
+			sourceTree = "<group>";
+		};
+		39865E5C1E71266B0095B6C1 /* GlobalToolController */ = {
+			isa = PBXGroup;
+			children = (
+				39865E5D1E7126900095B6C1 /* GlobalWebVC.h */,
+				39865E5E1E7126900095B6C1 /* GlobalWebVC.m */,
+			);
+			path = GlobalToolController;
+			sourceTree = "<group>";
+		};
 		399128F41D5C4D340099C279 /* tabImage */ = {
 			isa = PBXGroup;
 			children = (
@@ -2161,6 +2208,7 @@
 		D6C183E4E3E19DB390670CA7 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				39865E601E713D690095B6C1 /* WebKit.framework */,
 				39B2694B1E30AE5D0047D6A4 /* JavaScriptCore.framework */,
 				39B269491E30AE540047D6A4 /* libz.tbd */,
 				39C4F2451D910B9400E4FADE /* libCocoaLumberjack.a */,
@@ -2524,6 +2572,7 @@
 				39333C141DE2CEDA00035157 /* VideoViewController.m in Sources */,
 				3945948C1D38785D0017F4A3 /* ViewController.m in Sources */,
 				394594AD1D3878C20017F4A3 /* CustemSearchViewController.m in Sources */,
+				39865E551E70F8C70095B6C1 /* YSOperation.m in Sources */,
 				3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */,
 				39FA13A91E0BABFB0000D69A /* CALayerAndBerzierVC.m in Sources */,
 				39E175CF1E55A0DB0095FC7D /* TZImagePickerController.m in Sources */,
@@ -2532,6 +2581,7 @@
 				398594541D13F11900863A14 /* SevenGaoDeViewController.m in Sources */,
 				3998D8791DCC7A6500704E26 /* YSNetRequestManager.m in Sources */,
 				39333C0F1DE2CEDA00035157 /* RightMenuViewController.m in Sources */,
+				39865E5B1E71241D0095B6C1 /* YSThreadVC.m in Sources */,
 				39333C0D1DE2CEDA00035157 /* AudioAndVideoMainViewController.m in Sources */,
 				39E175CB1E55A0DB0095FC7D /* TZAssetCell.m in Sources */,
 				3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */,
@@ -2541,6 +2591,7 @@
 				39EA8ECD1D40BB7D0053EE02 /* YSRegisterViewController.m in Sources */,
 				39333C101DE2CEDA00035157 /* ListTableViewCell.m in Sources */,
 				391B89BC1E56DC9D0033108A /* YSActivityIndicator.m in Sources */,
+				39865E5F1E7126900095B6C1 /* GlobalWebVC.m in Sources */,
 				3955628E1D420A7D0079CF6B /* SQLViewController.m in Sources */,
 				393A07841D475B15005114B1 /* MBProgressHUD.m in Sources */,
 				39333C131DE2CEDA00035157 /* YSVideoPlayerViewController.m in Sources */,
@@ -2550,6 +2601,7 @@
 				393986491E4D8E9900B1553C /* CameraOrImageListVC.m in Sources */,
 				395ACE721D9377D800C22165 /* PictureAnimateViewController.m in Sources */,
 				39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */,
+				39865E581E7123CC0095B6C1 /* YSOperationVC.m in Sources */,
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
 				39EA8ECA1D40BB6C0053EE02 /* YSLoginViewController.m in Sources */,
 				3945948F1D3878740017F4A3 /* OnePickerViewController.m in Sources */,
@@ -2761,6 +2813,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Debug;
 		};
@@ -2800,6 +2853,7 @@
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
+				VALID_ARCHS = "armv7 armv7s arm64";
 			};
 			name = Release;
 		};
