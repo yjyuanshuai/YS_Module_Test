@@ -971,6 +971,19 @@ willPerformHTTPRedirection:(NSHTTPURLResponse *)response
     }
 }
 
+
+/**
+ *  认证处理
+ */
+/*
+ *http://www.cnblogs.com/polobymulberry/p/5140806.html
+ *web服务器接收到客户端请求时，有时候需要先验证客户端是否为正常用户，再决定是够返回真实数据。
+ *这种情况称之为服务端要求客户端接收挑战（NSURLAuthenticationChallenge *challenge）。
+ *接收到挑战后，
+ *客户端要根据服务端传来的challenge来生成completionHandler所需的NSURLSessionAuthChallengeDisposition disposition和NSURLCredential *credential
+ *（disposition指定应对这个挑战的方法，而credential是客户端生成的挑战证书，注意只有challenge中认证方法为NSURLAuthenticationMethodServerTrust的时候，才需要生成挑战证书）。
+ *最后调用completionHandler回应服务器端的挑战。
+ */
 - (void)URLSession:(NSURLSession *)session
               task:(NSURLSessionTask *)task
 didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge

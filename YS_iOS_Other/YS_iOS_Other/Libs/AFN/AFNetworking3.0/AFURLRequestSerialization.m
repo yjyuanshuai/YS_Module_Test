@@ -171,10 +171,15 @@ NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
 
 #pragma mark -
 
+// 定义了一个static的方法，表示该方法只能在本文件中使用
+// 函数整体上使用了单例模式
 static NSArray * AFHTTPRequestSerializerObservedKeyPaths() {
     static NSArray *_AFHTTPRequestSerializerObservedKeyPaths = nil;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
+        
+        // 此处需要observer的keypath为  allowsCellularAccess、cachePolicy、HTTPShouldHandleCookies
+        // HTTPShouldUsePipelining、networkServiceType、timeoutInterval
         _AFHTTPRequestSerializerObservedKeyPaths = @[NSStringFromSelector(@selector(allowsCellularAccess)), NSStringFromSelector(@selector(cachePolicy)), NSStringFromSelector(@selector(HTTPShouldHandleCookies)), NSStringFromSelector(@selector(HTTPShouldUsePipelining)), NSStringFromSelector(@selector(networkServiceType)), NSStringFromSelector(@selector(timeoutInterval))];
     });
 
@@ -357,6 +362,7 @@ forHTTPHeaderField:(NSString *)field
                                 parameters:(id)parameters
                                      error:(NSError *__autoreleasing *)error
 {
+    // 方法或函数应当在代码最开始处使用 NSParameterAssert / NSCParameterAssert 来强制输入的值满足先验条件，这是一条金科玉律；其他情况下使用 NSAssert / NSCAssert。
     NSParameterAssert(method);
     NSParameterAssert(URLString);
 

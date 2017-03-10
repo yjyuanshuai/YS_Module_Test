@@ -122,6 +122,7 @@ FOUNDATION_EXPORT NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id 
 NSString * AFQueryStringFromParameters(NSDictionary *parameters) {
     NSMutableArray *mutablePairs = [NSMutableArray array];
     for (AFQueryStringPair *pair in AFQueryStringPairsFromDictionary(parameters)) {
+        // Percent-encoding（百分号编码）
         [mutablePairs addObject:[pair URLEncodedStringValue]];
     }
 
@@ -135,6 +136,9 @@ NSArray * AFQueryStringPairsFromDictionary(NSDictionary *dictionary) {
 NSArray * AFQueryStringPairsFromKeyAndValue(NSString *key, id value) {
     NSMutableArray *mutableQueryStringComponents = [NSMutableArray array];
 
+    // 根据需要排列的对象的description来进行升序排列，并且selector使用的是compare:
+    // 因为对象的description返回的是NSString，所以此处compare:使用的是NSString的compare函数
+    // 即@[@"foo", @"bar", @"bae"] ----> @[@"bae", @"bar",@"foo"]
     NSSortDescriptor *sortDescriptor = [NSSortDescriptor sortDescriptorWithKey:@"description" ascending:YES selector:@selector(compare:)];
 
     if ([value isKindOfClass:[NSDictionary class]]) {
@@ -462,7 +466,9 @@ forHTTPHeaderField:(NSString *)field
 }
 
 #pragma mark - AFURLRequestSerialization
-
+/**
+ *  设置 Header 和 请求参数
+ */
 - (NSURLRequest *)requestBySerializingRequest:(NSURLRequest *)request
                                withParameters:(id)parameters
                                         error:(NSError *__autoreleasing *)error
@@ -473,12 +479,15 @@ forHTTPHeaderField:(NSString *)field
 
     [self.HTTPRequestHeaders enumerateKeysAndObjectsUsingBlock:^(id field, id value, BOOL * __unused stop) {
         if (![request valueForHTTPHeaderField:field]) {
+            //判断header的field是否存在,如果不存在则设置，存在则跳过
             [mutableRequest setValue:value forHTTPHeaderField:field];
         }
     }];
 
     NSString *query = nil;
     if (parameters) {
+        
+        //用传进来的自定义block格式化请求参数
         if (self.queryStringSerialization) {
             NSError *serializationError;
             query = self.queryStringSerialization(request, parameters, &serializationError);
@@ -493,14 +502,19 @@ forHTTPHeaderField:(NSString *)field
         } else {
             switch (self.queryStringSerializationStyle) {
                 case AFHTTPRequestQueryStringDefaultStyle:
+                    
+                    //默认的格式化方式
                     query = AFQueryStringFromParameters(parameters);
                     break;
             }
         }
     }
 
+    //判断是否是GET/HEAD/DELETE方法， 对于GET/HEAD/DELETE方法，把参数加到URL后面
     if ([self.HTTPMethodsEncodingParametersInURI containsObject:[[request HTTPMethod] uppercaseString]]) {
+        //判断是否有参数
         if (query && query.length > 0) {
+            //拼接请求参数
             mutableRequest.URL = [NSURL URLWithString:[[mutableRequest.URL absoluteString] stringByAppendingFormat:mutableRequest.URL.query ? @"&%@" : @"?%@", query]];
         }
     } else {
@@ -508,6 +522,7 @@ forHTTPHeaderField:(NSString *)field
         if (!query) {
             query = @"";
         }
+        //参数带在body上，大多是POST PUT
         if (![mutableRequest valueForHTTPHeaderField:@"Content-Type"]) {
             [mutableRequest setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
         }
