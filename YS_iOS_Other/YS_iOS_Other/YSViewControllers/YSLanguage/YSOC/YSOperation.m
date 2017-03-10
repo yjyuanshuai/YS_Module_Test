@@ -9,39 +9,37 @@
 #import "YSOperation.h"
 
 @interface YSOperation()
-
-@end
-
-@implementation YSOperation
 {
     BOOL cancelled;
     BOOL finished;
     BOOL executing;
 }
 
+@end
+
+@implementation YSOperation
+{
+    
+}
+
 - (instancetype)init
 {
     self = [super init];
     if (self) {
-        
+        cancelled = NO;
+        finished = NO;
+        executing = NO;
     }
     return self;
 }
 
 - (void)start
 {
-
-}
-
-- (void)finished
-{
     
 }
 
-- (void)cancel
-{
-    
-}
+
+
 
 /*
 
