@@ -8,12 +8,16 @@
 
 #import <Foundation/Foundation.h>
 
+typedef void(^CallBackBlock)(NSString * retCode, id response, NSString * retMessage, NSError * error);
+
 @interface YSOperation : NSOperation
 
 @property (nonatomic, assign) BOOL ys_cancelled;
 @property (nonatomic, assign) BOOL ys_finished;
 @property (nonatomic, assign) BOOL ys_executing;
 
-- (instancetype)init;
+- (instancetype)initWithUrl:(NSString *)urlStr              //@"https://httpbin.org/image/png"
+               successBlock:(CallBackBlock)successBlock
+                  failBlock:(CallBackBlock)failBlock;
 
 @end

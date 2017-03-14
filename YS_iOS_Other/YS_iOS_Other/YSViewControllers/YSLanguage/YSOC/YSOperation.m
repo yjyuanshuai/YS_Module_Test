@@ -26,17 +26,27 @@ static NSString * const ExecutingKey = @"isExecuting";
 
 @interface YSOperation()
 {
-
+    NSString * _urlStr;
+    CallBackBlock _complementBlock;
+    CallBackBlock _successBlock;
+    CallBackBlock _failBlock;
 }
 
 @end
 
 @implementation YSOperation
 
-- (instancetype)init
+- (instancetype)initWithUrl:(NSString *)urlStr
+               successBlock:(CallBackBlock)successBlock
+                  failBlock:(CallBackBlock)failBlock
 {
     self = [super init];
     if (self) {
+        
+        _urlStr = urlStr;
+        _successBlock = successBlock;
+        _failBlock = failBlock;
+        
         self.ys_cancelled = NO;
         self.ys_finished = NO;
         self.ys_executing = NO;
@@ -122,7 +132,7 @@ static NSString * const ExecutingKey = @"isExecuting";
             if (!taskIsFinished && ![self isCancelled]) {
                 
                 // 自定义操作
-                
+                [self getSession];
                 
                 // 操作完成
                 taskIsFinished = YES;
@@ -140,6 +150,32 @@ static NSString * const ExecutingKey = @"isExecuting";
     }
 }
  
+- (void)getSession
+{
+    NSURL * url = [NSURL URLWithString:_urlStr];
+    NSURLRequest * request = [NSURLRequest requestWithURL:url];
+    
+    NSURLSessionDataTask * task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+        
+        DDLogInfo(@"------------- current thread: %@", [NSThread currentThread]);
+        
+        if ([data length] > 0) {
+//            dispatch_async(dispatch_get_main_queue(), ^{
+                if (error) {
+                    if (_failBlock) {
+                        _failBlock(@"300000", nil, @"图片下载失败", nil);
+                    }
+                }
+                else {
+                    if (_successBlock) {
+                        _successBlock(@"000000", data, @"图片下载成功", error);
+                    }
+                }
+//            });
+        }
+    }];
 
+    [task resume];
+}
 
 @end

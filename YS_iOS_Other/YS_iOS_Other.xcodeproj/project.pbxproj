@@ -261,6 +261,8 @@
 		3991290B1D5C4D340099C279 /* tab_two_num.png in Resources */ = {isa = PBXBuildFile; fileRef = 399128FF1D5C4D340099C279 /* tab_two_num.png */; };
 		3991290C1D5C4D340099C279 /* tab_two_sel.png in Resources */ = {isa = PBXBuildFile; fileRef = 399129001D5C4D340099C279 /* tab_two_sel.png */; };
 		399129121D5C87250099C279 /* YSCustemGesture.m in Sources */ = {isa = PBXBuildFile; fileRef = 399129111D5C87250099C279 /* YSCustemGesture.m */; };
+		3994B1071E77C1FA00142754 /* YSOperationDetailUserVC.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994B1061E77C1FA00142754 /* YSOperationDetailUserVC.m */; };
+		3994B10A1E77D8A600142754 /* YSOperationDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3994B1091E77D8A600142754 /* YSOperationDetailCollectionViewCell.m */; };
 		3998D8791DCC7A6500704E26 /* YSNetRequestManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 3998D8781DCC7A6500704E26 /* YSNetRequestManager.m */; };
 		399C4A611D8FC63500D8E6F6 /* cm2_icn_one_prs.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */; };
 		399C4A621D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 399C4A5C1D8FC63500D8E6F6 /* cm2_icn_one_prs@2x.png */; };
@@ -744,6 +746,10 @@
 		399129001D5C4D340099C279 /* tab_two_sel.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = tab_two_sel.png; sourceTree = "<group>"; };
 		399129101D5C87250099C279 /* YSCustemGesture.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCustemGesture.h; sourceTree = "<group>"; };
 		399129111D5C87250099C279 /* YSCustemGesture.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCustemGesture.m; sourceTree = "<group>"; };
+		3994B1051E77C1FA00142754 /* YSOperationDetailUserVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOperationDetailUserVC.h; sourceTree = "<group>"; };
+		3994B1061E77C1FA00142754 /* YSOperationDetailUserVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOperationDetailUserVC.m; sourceTree = "<group>"; };
+		3994B1081E77D8A600142754 /* YSOperationDetailCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSOperationDetailCollectionViewCell.h; sourceTree = "<group>"; };
+		3994B1091E77D8A600142754 /* YSOperationDetailCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSOperationDetailCollectionViewCell.m; sourceTree = "<group>"; };
 		3998D8771DCC7A6500704E26 /* YSNetRequestManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSNetRequestManager.h; sourceTree = "<group>"; };
 		3998D8781DCC7A6500704E26 /* YSNetRequestManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSNetRequestManager.m; sourceTree = "<group>"; };
 		399C4A5B1D8FC63500D8E6F6 /* cm2_icn_one_prs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = cm2_icn_one_prs.png; sourceTree = "<group>"; };
@@ -1895,6 +1901,10 @@
 				39865E571E7123CC0095B6C1 /* YSOperationVC.m */,
 				39865E531E70F8C70095B6C1 /* YSOperation.h */,
 				39865E541E70F8C70095B6C1 /* YSOperation.m */,
+				3994B1051E77C1FA00142754 /* YSOperationDetailUserVC.h */,
+				3994B1061E77C1FA00142754 /* YSOperationDetailUserVC.m */,
+				3994B1081E77D8A600142754 /* YSOperationDetailCollectionViewCell.h */,
+				3994B1091E77D8A600142754 /* YSOperationDetailCollectionViewCell.m */,
 			);
 			name = Operation;
 			sourceTree = "<group>";
@@ -2707,6 +2717,7 @@
 				39F994211D9A4A830097DC26 /* YSCustemSearchBar.m in Sources */,
 				393986491E4D8E9900B1553C /* CameraOrImageListVC.m in Sources */,
 				395ACE721D9377D800C22165 /* PictureAnimateViewController.m in Sources */,
+				3994B1071E77C1FA00142754 /* YSOperationDetailUserVC.m in Sources */,
 				39FCB8DA1D66E69A00195C20 /* CodeManagerView.m in Sources */,
 				39865E581E7123CC0095B6C1 /* YSOperationVC.m in Sources */,
 				39EA8ED11D40BC060053EE02 /* YSScrollView.m in Sources */,
@@ -2718,6 +2729,7 @@
 				39BEAD061D7FE52300FD36A5 /* CodeKnowledgeView.m in Sources */,
 				3946B9C81E2DEF7E00BA7F95 /* XmlViewController.m in Sources */,
 				3946B9C51E2DEF7200BA7F95 /* JSonViewController.m in Sources */,
+				3994B10A1E77D8A600142754 /* YSOperationDetailCollectionViewCell.m in Sources */,
 				392148A21DDEDCE100EBCFC1 /* YSTouchViewController.m in Sources */,
 				39333BF11DE2CE9A00035157 /* FirstSimpleView.m in Sources */,
 				399129121D5C87250099C279 /* YSCustemGesture.m in Sources */,
