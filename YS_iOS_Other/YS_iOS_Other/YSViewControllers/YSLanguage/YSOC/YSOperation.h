@@ -10,6 +10,10 @@
 
 @interface YSOperation : NSOperation
 
+@property (nonatomic, assign) BOOL ys_cancelled;
+@property (nonatomic, assign) BOOL ys_finished;
+@property (nonatomic, assign) BOOL ys_executing;
+
 - (instancetype)init;
 
 @end
