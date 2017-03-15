@@ -14,7 +14,6 @@
     UILabel * _titleLabel;
     UILabel * _descLabel;
     NSTimer * _loadingTimer;
-//    MBProgressHUD * _msgHud;
 }
 
 #pragma mark - class method -
@@ -25,6 +24,8 @@
     loadingView.blongToViewController = viewController;
     [loadingView initTimer];
     viewController.navigationItem.titleView = loadingView;
+    viewController.navigationItem.titleView.backgroundColor = [UIColor redColor];
+    loadingView.backgroundColor = [UIColor grayColor];
     return loadingView;
 }
 
@@ -80,7 +81,7 @@
     }
 }
 
-#pragma mark - init/dealloc -
+#pragma mark - init/dealloc
 - (instancetype)init
 {
     return [self initWithFrame:CGRectMake(0, 0, 180, 44)];
@@ -105,6 +106,9 @@
         [self createSystemActivityIndicator];
         [self updateLoadingView];
         [self registerKVO];
+        
+        _titleLabel.backgroundColor = [UIColor yellowColor];
+        _ysAcitityIndicator.backgroundColor = [UIColor greenColor];
     }
     return self;
 }
@@ -114,7 +118,7 @@
     [self unregisterKVO];
 }
 
-#pragma mark - private method -
+#pragma mark - private method
 - (void)createLabels
 {
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
@@ -189,7 +193,7 @@
     }
 }
 
-#pragma mark - 超时 -
+#pragma mark - 超时
 - (void)overTime
 {
     [YSActivityIndicator hideInViewController:_blongToViewController msgHUDTitle:@"操作超时，请重试!"];
@@ -201,7 +205,7 @@
     _blongToViewController = nil;
 }
 
-#pragma mark - layout -
+#pragma mark - layout
 - (void)layoutSubviews
 {
     self.autoresizingMask = UIViewAutoresizingFlexibleWidth | UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin;
@@ -215,9 +219,13 @@
         CGSize titleSize = [_titleStr sizeWithAttributes:@{NSFontAttributeName:_titleFont}];
         
         CGFloat titleHeight = MIN(titleSize.height, 30);
-        _titleLabel.frame = CGRectMake((maxWidth - titleSize.width)/2, (maxHeight - titleHeight)/2, titleSize.width, titleHeight);
         
-        _ysAcitityIndicator.frame = CGRectMake((maxWidth - titleSize.width)/2 - 30 - 5, (maxHeight - 30)/2, 30, 30);
+        CGFloat space_left = (maxWidth - 30 - 5 - titleSize.width)/2;
+        space_left = (space_left>0)?space_left:0;
+        
+        _ysAcitityIndicator.frame = CGRectMake(space_left, (maxHeight - 30)/2, 30, 30);
+        
+        _titleLabel.frame = CGRectMake(space_left+30+5, (maxHeight - titleHeight)/2, titleSize.width, titleHeight);
         
     } else if (_ysType == YSLoadViewTypeSystemActIndicatorDetail) {
         
@@ -229,11 +237,14 @@
         
         CGFloat labelWidth  = MAX(titleSize.width, descSize.width);
         
-        _titleLabel.frame = CGRectMake((maxWidth - labelWidth)/2, (maxHeight - titleHeight - descHeight)/2, labelWidth, titleHeight);
+        CGFloat space_left = (maxWidth - 30 - 5 - labelWidth)/2;
+        space_left = (space_left>0)?space_left:0;
         
-        _descLabel.frame = CGRectMake((maxWidth - labelWidth)/2, CGRectGetMaxY(_titleLabel.frame), labelWidth, descHeight);
+        _ysAcitityIndicator.frame = CGRectMake(space_left, (maxHeight - 30)/2, 30, 30);
         
-        _ysAcitityIndicator.frame = CGRectMake((maxWidth - labelWidth)/2 - 30 - 5, (maxHeight - 30)/2, 30, 30);
+        _titleLabel.frame = CGRectMake(space_left+30+5, (maxHeight - titleHeight - descHeight)/2, labelWidth, titleHeight);
+        
+        _descLabel.frame = CGRectMake(space_left+30+5, CGRectGetMaxY(_titleLabel.frame), labelWidth, descHeight);
         
     } else if (_ysType == YSLoadViewTypeTextDefault) {
         
@@ -261,7 +272,7 @@
     }
 }
 
-#pragma mark - KVO -
+#pragma mark - KVO
 
 - (NSArray *)propertyArr
 {

@@ -10,8 +10,10 @@
 #import "YSOperation.h"
 #import "YSOperationDetailCollectionViewCell.h"
 
+#import "AFNetworking.h"
+
 static NSString * const OperationCollectionCellID = @"OperationCollectionCellID";
-//static dispatch_queue_t addtaskqueue = dispatch_queue_create("AddTaskQueue", );
+static dispatch_queue_t addtaskqueue;
 
 @interface YSOperationDetailUserVC ()<UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout>
 
@@ -47,9 +49,7 @@ static NSString * const OperationCollectionCellID = @"OperationCollectionCellID"
         _failImagesArr = [@[] mutableCopy];
         
         [self createCollectionView];
-        [self operationQueue];
-        //    [self obtainImage];
-        
+        [self testWithOperationQueue];
         
         UIBarButtonItem * rightBtn = [[UIBarButtonItem alloc] initWithTitle:@"取消" style:UIBarButtonItemStylePlain target:self action:@selector(cancelRequestData)];
         self.navigationItem.rightBarButtonItem = rightBtn;
@@ -84,7 +84,7 @@ static NSString * const OperationCollectionCellID = @"OperationCollectionCellID"
     [_collecionView registerClass:[YSOperationDetailCollectionViewCell class] forCellWithReuseIdentifier:OperationCollectionCellID];
 }
 
-- (void)operationQueue
+- (void)testWithOperationQueue
 {
     NSInteger requestNum = 100;
     
@@ -92,7 +92,9 @@ static NSString * const OperationCollectionCellID = @"OperationCollectionCellID"
     _currentOperationQueue.maxConcurrentOperationCount = 3;
     
     for (int i = 0; i < requestNum; i++) {
+        /**/
         YSOperation * operation = [[YSOperation alloc] initWithUrl:@"https://httpbin.org/image/png" successBlock:^(NSString *retCode, id response, NSString *retMessage, NSError *error) {
+            
             dispatch_async(dispatch_get_main_queue(), ^{
                 
                 [_imagesArr addObject:response];
@@ -104,8 +106,31 @@ static NSString * const OperationCollectionCellID = @"OperationCollectionCellID"
             DDLogInfo(@"------- request error");
             
         }];
-        dispatch_sync(, <#^(void)block#>)
         [_currentOperationQueue addOperation:operation];
+        
+        /*
+        [_currentOperationQueue addOperationWithBlock:^{
+            NSURL * url = [NSURL URLWithString:@"https://httpbin.org/image/png"];
+            NSURLRequest * request = [NSURLRequest requestWithURL:url];
+            
+            NSURLSessionDataTask * task = [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
+                
+                DDLogInfo(@"------- current thread: %@", [NSThread currentThread]);
+                
+                if (!error && [data length] > 0) {
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        [_imagesArr addObject:data];
+                        [_collecionView reloadData];
+                    });
+                }
+                else {
+                    DDLogInfo(@"---------- error !");
+                }
+            }];
+            
+            [task resume];
+        }];
+         */
     }
 }
 
