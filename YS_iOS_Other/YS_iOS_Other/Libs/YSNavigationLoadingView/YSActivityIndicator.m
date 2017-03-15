@@ -24,8 +24,6 @@
     loadingView.blongToViewController = viewController;
     [loadingView initTimer];
     viewController.navigationItem.titleView = loadingView;
-    viewController.navigationItem.titleView.backgroundColor = [UIColor redColor];
-    loadingView.backgroundColor = [UIColor grayColor];
     return loadingView;
 }
 
@@ -84,7 +82,7 @@
 #pragma mark - init/dealloc
 - (instancetype)init
 {
-    return [self initWithFrame:CGRectMake(0, 0, 180, 44)];
+    return [self initWithFrame:CGRectMake(0, 0, 200, 44)];
 }
 
 - (instancetype)initWithFrame:(CGRect)frame
@@ -106,9 +104,6 @@
         [self createSystemActivityIndicator];
         [self updateLoadingView];
         [self registerKVO];
-        
-        _titleLabel.backgroundColor = [UIColor yellowColor];
-        _ysAcitityIndicator.backgroundColor = [UIColor greenColor];
     }
     return self;
 }
@@ -122,19 +117,19 @@
 - (void)createLabels
 {
     _titleLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _titleLabel.textColor       = [UIColor whiteColor];
     _titleLabel.textAlignment   = NSTextAlignmentCenter;
     _titleLabel.font            = _titleFont;
     _titleLabel.textColor       = _titleTextColor;
     _titleLabel.text            = _titleStr;
+    _titleLabel.lineBreakMode   = NSLineBreakByTruncatingMiddle;
     [self addSubview:_titleLabel];
     
     _descLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    _descLabel.textColor        = [UIColor whiteColor];
     _descLabel.textAlignment    = NSTextAlignmentCenter;
     _descLabel.font             = _descFont;
     _descLabel.textColor        = _descTextColor;
     _descLabel.text             = _descStr;
+    _descLabel.lineBreakMode   = NSLineBreakByTruncatingMiddle;
     [self addSubview:_descLabel];
 }
 
@@ -217,15 +212,11 @@
     if (_ysType == YSLoadViewTypeSystemActIndicatorDefault) {
         
         CGSize titleSize = [_titleStr sizeWithAttributes:@{NSFontAttributeName:_titleFont}];
-        
         CGFloat titleHeight = MIN(titleSize.height, 30);
-        
-        CGFloat space_left = (maxWidth - 30 - 5 - titleSize.width)/2;
-        space_left = (space_left>0)?space_left:0;
-        
+        CGFloat titleWidth = MIN(titleSize.width, maxWidth-35);
+        CGFloat space_left = (maxWidth - 30 - 5 - titleWidth)/2;
         _ysAcitityIndicator.frame = CGRectMake(space_left, (maxHeight - 30)/2, 30, 30);
-        
-        _titleLabel.frame = CGRectMake(space_left+30+5, (maxHeight - titleHeight)/2, titleSize.width, titleHeight);
+        _titleLabel.frame = CGRectMake(space_left+30+5, (maxHeight - titleHeight)/2, titleWidth, titleHeight);
         
     } else if (_ysType == YSLoadViewTypeSystemActIndicatorDetail) {
         
@@ -236,14 +227,12 @@
         CGFloat descHeight  = MIN(descSize.height, maxHeight - titleHeight);
         
         CGFloat labelWidth  = MAX(titleSize.width, descSize.width);
+        labelWidth = MIN(labelWidth, maxWidth-35);
         
         CGFloat space_left = (maxWidth - 30 - 5 - labelWidth)/2;
-        space_left = (space_left>0)?space_left:0;
         
         _ysAcitityIndicator.frame = CGRectMake(space_left, (maxHeight - 30)/2, 30, 30);
-        
         _titleLabel.frame = CGRectMake(space_left+30+5, (maxHeight - titleHeight - descHeight)/2, labelWidth, titleHeight);
-        
         _descLabel.frame = CGRectMake(space_left+30+5, CGRectGetMaxY(_titleLabel.frame), labelWidth, descHeight);
         
     } else if (_ysType == YSLoadViewTypeTextDefault) {
