@@ -211,6 +211,7 @@
 		3946404D1D46031B00124587 /* YSTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946404C1D46031B00124587 /* YSTableHeaderView.m */; };
 		3946B9C51E2DEF7200BA7F95 /* JSonViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946B9C41E2DEF7200BA7F95 /* JSonViewController.m */; };
 		3946B9C81E2DEF7E00BA7F95 /* XmlViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3946B9C71E2DEF7E00BA7F95 /* XmlViewController.m */; };
+		3948BBD61E7A669D00D5CE84 /* AssetSaveInPlist.m in Sources */ = {isa = PBXBuildFile; fileRef = 3948BBD51E7A669D00D5CE84 /* AssetSaveInPlist.m */; };
 		3948F2DC1D548C93002F1778 /* LocationStringFile.strings in Resources */ = {isa = PBXBuildFile; fileRef = 3948F2DE1D548C93002F1778 /* LocationStringFile.strings */; };
 		3949E2701D1A2DA30016BFF6 /* YSUserDefaults.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E26F1D1A2DA30016BFF6 /* YSUserDefaults.m */; };
 		3949E2741D1A327D0016BFF6 /* YSDefaultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3949E2731D1A327D0016BFF6 /* YSDefaultsViewController.m */; };
@@ -667,6 +668,8 @@
 		3946B9C41E2DEF7200BA7F95 /* JSonViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JSonViewController.m; sourceTree = "<group>"; };
 		3946B9C61E2DEF7E00BA7F95 /* XmlViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XmlViewController.h; sourceTree = "<group>"; };
 		3946B9C71E2DEF7E00BA7F95 /* XmlViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XmlViewController.m; sourceTree = "<group>"; };
+		3948BBD41E7A669D00D5CE84 /* AssetSaveInPlist.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AssetSaveInPlist.h; sourceTree = "<group>"; };
+		3948BBD51E7A669D00D5CE84 /* AssetSaveInPlist.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AssetSaveInPlist.m; sourceTree = "<group>"; };
 		3948F2DA1D548C78002F1778 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
 		3948F2DB1D548C78002F1778 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
 		3948F2DD1D548C93002F1778 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LocationStringFile.strings"; sourceTree = "<group>"; };
@@ -1296,6 +1299,8 @@
 		39333C151DE2CF0000035157 /* CameraAndImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				3948BBD41E7A669D00D5CE84 /* AssetSaveInPlist.h */,
+				3948BBD51E7A669D00D5CE84 /* AssetSaveInPlist.m */,
 				393986471E4D8E9900B1553C /* CameraOrImageListVC.h */,
 				393986481E4D8E9900B1553C /* CameraOrImageListVC.m */,
 				3939864A1E4D915500B1553C /* ImagePickerManager.h */,
@@ -2749,6 +2754,7 @@
 				39333BF21DE2CE9A00035157 /* ShowImageWordSortViewController.m in Sources */,
 				394594A61D3878A50017F4A3 /* OneSearchDisplayController.m in Sources */,
 				390DCE421DD318E800D8F733 /* NSString+YSStringDo.m in Sources */,
+				3948BBD61E7A669D00D5CE84 /* AssetSaveInPlist.m in Sources */,
 				39E175D11E55A0DB0095FC7D /* TZPhotoPreviewCell.m in Sources */,
 				395ACEA41D937D4F00C22165 /* UIView+UniformDistribution.m in Sources */,
 				39333BF41DE2CE9A00035157 /* YSCoreTextViewController.m in Sources */,

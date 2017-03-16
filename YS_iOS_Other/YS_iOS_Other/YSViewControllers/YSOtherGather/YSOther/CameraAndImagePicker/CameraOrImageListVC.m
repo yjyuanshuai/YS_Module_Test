@@ -8,6 +8,7 @@
 
 #import "CameraOrImageListVC.h"
 #import "ImagePickerManager.h"
+#import "AssetSaveInPlist.h"
 
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "ImagesShowViewController.h"
@@ -126,6 +127,11 @@
 {
     _photosArr = [photos mutableCopy];
     _assetsArr = [assets mutableCopy];
+    
+    for (int i = 0; i < [_assetsArr count]; i++) {
+        AssetSaveInPlist * imageModel = [[AssetSaveInPlist alloc] initWithAsset:_assetsArr[i] sort:[NSString stringWithFormat:@"%d", i]];
+        
+    }
     
     ImagesShowViewController * imageShowVC = [[ImagesShowViewController alloc] initWithPhoto:_photosArr imageAsset:_assetsArr];
     [self.navigationController pushViewController:imageShowVC animated:YES];
