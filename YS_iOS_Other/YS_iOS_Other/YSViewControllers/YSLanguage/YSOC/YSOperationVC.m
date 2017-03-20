@@ -39,14 +39,6 @@
     self.title = @"NSOperation";
     
     _titleArr = @[@"Invocation", @"Block", @"自定义"];
-    
-//    [YSActivityIndicatorManager addDetailIndicatorInController:self titleStr:@"测试测试测试测试测试测试" desc:@"这里是描述..."];
-//    
-//    UIButton * rightBtn = [UIButton buttonWithType:UIButtonTypeCustom];
-//    rightBtn.frame = CGRectMake(0, 0, 70, 32);
-//    [rightBtn setTitle:@"右键右键右键" forState:UIControlStateNormal];
-//    rightBtn.backgroundColor = [UIColor greenColor];
-//    self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
 }
 
 - (void)createTableView

@@ -160,18 +160,16 @@ static NSString * const ExecutingKey = @"isExecuting";
         DDLogInfo(@"------------- current thread: %@", [NSThread currentThread]);
         
         if ([data length] > 0) {
-//            dispatch_async(dispatch_get_main_queue(), ^{
-                if (error) {
-                    if (_failBlock) {
-                        _failBlock(@"300000", nil, @"图片下载失败", nil);
-                    }
+            if (error) {
+                if (_failBlock) {
+                    _failBlock(@"300000", nil, @"图片下载失败", nil);
                 }
-                else {
-                    if (_successBlock) {
-                        _successBlock(@"000000", data, @"图片下载成功", error);
-                    }
+            }
+            else {
+                if (_successBlock) {
+                    _successBlock(@"000000", data, @"图片下载成功", error);
                 }
-//            });
+            }
         }
     }];
 
