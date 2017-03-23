@@ -20,6 +20,9 @@
 // 3
 #import "YSTouchViewController.h"
 
+//test
+#import "YSTestVC.h"
+
 static NSString * const LanguageCellID = @"LanguageCellID";
 
 @interface YSLanguageViewController ()<UITableViewDelegate, UITableViewDataSource>
@@ -53,10 +56,12 @@ static NSString * const LanguageCellID = @"LanguageCellID";
     
     _sectionTitleArr = @[@"1 线程", @"2 触摸"];
     
-    NSArray * sectionOne    = @[@"GCD", @"NSOperation", @"NSThread"];
+    NSArray * sectionOne    = @[@"GCD", @"NSOperation", @"NSThread", @"test"];
     NSArray * sectionTwo    = @[@"手势", @"自定义手势", @"触摸"];
     
     _sectionCellContent = [@[sectionOne, sectionTwo] mutableCopy];
+    
+//    NSURLSessionUploadTask
 }
 
 - (void)createTableView
@@ -130,6 +135,11 @@ static NSString * const LanguageCellID = @"LanguageCellID";
                 YSThreadVC * threadVC = [[YSThreadVC alloc] init];
                 threadVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:threadVC animated:YES];
+            }
+            else {
+                YSTestVC * testVC = [[YSTestVC alloc] init];
+                testVC.hidesBottomBarWhenPushed = YES;
+                [self.navigationController pushViewController:testVC animated:YES];
             }
         }
             break;
