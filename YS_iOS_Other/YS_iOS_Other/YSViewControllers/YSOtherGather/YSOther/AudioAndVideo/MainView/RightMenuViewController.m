@@ -8,7 +8,7 @@
 
 #import "RightMenuViewController.h"
 #import "AudioViewController.h"
-#import "VideoViewController.h"
+#import "VideoListVC.h"
 #import <RESideMenu.h>
 
 @interface RightMenuViewController () <UITableViewDelegate, UITableViewDataSource>
@@ -80,7 +80,7 @@
         [self.sideMenuViewController.navigationController pushViewController:audioVC animated:YES];
     }
     else if (indexPath.row == 1) {
-        VideoViewController * videoVC = [[VideoViewController alloc] init];
+        VideoListVC * videoVC = [[VideoListVC alloc] init];
         [self.sideMenuViewController.navigationController pushViewController:videoVC animated:YES];
     }
 }

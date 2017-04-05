@@ -7,7 +7,6 @@
 //
 
 #import "VideoViewController.h"
-#import "LandScapeVideoVC.h"
 
 static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 
@@ -19,7 +18,7 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 
 @implementation VideoViewController
 {
-    NSArray * _dataTitleArr;
+    NSMutableArray * _dataTitleArr;
 }
 
 - (void)viewDidLoad {
@@ -38,10 +37,7 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 - (void)initUIAndData
 {
     self.title = @"视频";
-    
-    NSArray * sectionOne = @[@"视频横屏效果"];
-    
-    _dataTitleArr = @[sectionOne];
+    _dataTitleArr = [@[] mutableCopy];
 }
 
 - (void)createTableView
@@ -59,21 +55,12 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     [_videoTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:YSVideoControlCellID];
 }
 
-#pragma mark - UITableViewDelegate, UITableViewDataSource
-- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-{
-    return [_dataTitleArr count];
-}
 
+
+#pragma mark - UITableViewDelegate, UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    for (int i = 0; i < [_dataTitleArr count]; i++) {
-        if (i == section) {
-            NSArray * arr = _dataTitleArr[i];
-            return [arr count];
-        }
-    }
-    return 0;
+    return [_dataTitleArr count];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -90,11 +77,8 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.section == 0) {
-        LandScapeVideoVC * landScapeVC = [[LandScapeVideoVC alloc] init];
-        landScapeVC.modalPresentationStyle = UIModalPresentationOverFullScreen;
-        [self presentViewController:landScapeVC animated:YES completion:nil];
-    }
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-//  LandScapeVideoVC.h
+//  VideoListVC.h
 //  YS_iOS_Other
 //
 //  Created by YJ on 17/4/5.
@@ -8,6 +8,6 @@
 
 #import "YSRootViewController.h"
 
-@interface LandScapeVideoVC : YSRootViewController
+@interface VideoListVC : YSRootViewController
 
 @end

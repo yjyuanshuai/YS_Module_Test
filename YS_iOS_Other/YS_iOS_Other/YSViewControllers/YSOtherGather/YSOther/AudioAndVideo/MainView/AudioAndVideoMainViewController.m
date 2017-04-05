@@ -8,7 +8,7 @@
 
 #import "AudioAndVideoMainViewController.h"
 #import "AudioViewController.h"
-#import "VideoViewController.h"
+#import "VideoListVC.h"
 
 @interface AudioAndVideoMainViewController () <UITableViewDelegate, UITableViewDataSource>
 
@@ -92,7 +92,7 @@
     }
     else {
         
-        VideoViewController * videoVC = [[VideoViewController alloc] init];
+        VideoListVC * videoVC = [[VideoListVC alloc] init];
         [self.navigationController pushViewController:videoVC animated:YES];
         
     }
