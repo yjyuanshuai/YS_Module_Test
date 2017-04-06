@@ -11,6 +11,7 @@
 #import "YSDDLogManager.h"
 #import "AudioPlayerVC.h"
 #import "YSTestDataBase.h"
+#import "YSVideoPlayerView.h"
 
 @interface AppDelegate ()
 
@@ -197,8 +198,12 @@
 #pragma mark -
 - (UIInterfaceOrientationMask)application:(UIApplication *)application supportedInterfaceOrientationsForWindow:(UIWindow *)window
 {
-    // 禁止横屏
-    return UIInterfaceOrientationMaskPortrait;
+    if ([YSVideoPlayerView shareVideoPlayerView].isLandScape) {
+        return UIInterfaceOrientationMaskAll;
+    }
+    else {
+        return UIInterfaceOrientationMaskPortrait;
+    }
 }
 
 - (BOOL)application:(UIApplication *)application openURL:(NSURL *)url sourceApplication:(NSString *)sourceApplication annotation:(id)annotation

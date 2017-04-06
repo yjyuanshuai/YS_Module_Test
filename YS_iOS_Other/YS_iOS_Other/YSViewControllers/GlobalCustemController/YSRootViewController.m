@@ -72,4 +72,19 @@
     [self.view endEditing:YES];
 }
 
+#pragma mark - 转屏
+- (BOOL)shouldAutorotate
+{
+    return YES;
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return UIInterfaceOrientationMaskLandscape | UIInterfaceOrientationMaskPortrait;
+}
+
+-(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+    return UIInterfaceOrientationPortrait;
+}
+
 @end

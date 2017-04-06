@@ -24,7 +24,7 @@
 #import "RightMenuViewController.h"
 #import "AudioAndVideoMainViewController.h"
 #import "AudioViewController.h"
-#import "VideoViewController.h"
+#import "VideoListVC.h"
 
 // 5 支付
 
@@ -219,7 +219,7 @@ static NSString * const OtherCellID = @"OtherCellID";
             }
             else if (indexPath.row == 2) {
                 // 视频
-                VideoViewController * videoVC = [[VideoViewController alloc] init];
+                VideoListVC * videoVC = [[VideoListVC alloc] init];
                 videoVC.hidesBottomBarWhenPushed = YES;
                 [self.navigationController pushViewController:videoVC animated:YES];
             }

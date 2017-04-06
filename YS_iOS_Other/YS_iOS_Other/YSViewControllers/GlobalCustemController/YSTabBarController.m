@@ -8,6 +8,7 @@
 
 #import "YSTabBarController.h"
 
+#import "YSNavController.h"
 #import "ViewController.h"
 #import "YSSaveDataViewController.h"
 #import "YSLanguageViewController.h"
@@ -21,11 +22,11 @@ NSInteger const TabBarTag = 20160715;
 @property (nonatomic, strong) NSArray * tabbarItemTitles;
 @property (nonatomic, strong) NSArray * navItemTitles;
 
-@property (nonatomic, strong) UINavigationController * languageNavCon;
-@property (nonatomic, strong) UINavigationController * uiNavCon;
-@property (nonatomic, strong) UINavigationController * saveDataNavCon;
-@property (nonatomic, strong) UINavigationController * webNavCon;
-@property (nonatomic, strong) UINavigationController * otherNavCon;
+@property (nonatomic, strong) YSNavController * languageNavCon;
+@property (nonatomic, strong) YSNavController * uiNavCon;
+@property (nonatomic, strong) YSNavController * saveDataNavCon;
+@property (nonatomic, strong) YSNavController * webNavCon;
+@property (nonatomic, strong) YSNavController * otherNavCon;
 
 @end
 
@@ -76,7 +77,7 @@ NSInteger const TabBarTag = 20160715;
                                                           image:[self deleteMaskImage:@"tab_thr_num"]
                                                   selectedImage:[UIImage imageNamed:@"tab_thr_sel"]];
     languageVC.tabBarItem.title = _tabbarItemTitles[0];
-    _languageNavCon = [[UINavigationController alloc] initWithRootViewController:languageVC];
+    _languageNavCon = [[YSNavController alloc] initWithRootViewController:languageVC];
     _languageNavCon.navigationItem.title = _navItemTitles[0];
     
     ViewController * uiVC = [[ViewController alloc] init];
@@ -84,7 +85,7 @@ NSInteger const TabBarTag = 20160715;
                                                     image:[self deleteMaskImage:@"tab_one_num"]
                                             selectedImage:[UIImage imageNamed:@"tab_one_sel"]];
     uiVC.tabBarItem.title = _tabbarItemTitles[1];
-    _uiNavCon = [[UINavigationController alloc] initWithRootViewController:uiVC];
+    _uiNavCon = [[YSNavController alloc] initWithRootViewController:uiVC];
     _uiNavCon.navigationItem.title = _navItemTitles[1];
     
     YSSaveDataViewController * savedataVC = [[YSSaveDataViewController alloc] init];
@@ -92,7 +93,7 @@ NSInteger const TabBarTag = 20160715;
                                                           image:[self deleteMaskImage:@"tab_two_num"]
                                                   selectedImage:[UIImage imageNamed:@"tab_two_sel"]];
     savedataVC.tabBarItem.title = _tabbarItemTitles[2];
-    _saveDataNavCon = [[UINavigationController alloc] initWithRootViewController:savedataVC];
+    _saveDataNavCon = [[YSNavController alloc] initWithRootViewController:savedataVC];
     _saveDataNavCon.navigationItem.title = _navItemTitles[2];
     
     YSWebViewController * webVC = [[YSWebViewController alloc] init];
@@ -100,7 +101,7 @@ NSInteger const TabBarTag = 20160715;
                                                      image:[self deleteMaskImage:@"tab_fou_num"]
                                              selectedImage:[UIImage imageNamed:@"tab_fou_sel"]];
     webVC.tabBarItem.title = _tabbarItemTitles[3];
-    _webNavCon = [[UINavigationController alloc] initWithRootViewController:webVC];
+    _webNavCon = [[YSNavController alloc] initWithRootViewController:webVC];
     _webNavCon.navigationItem.title = _navItemTitles[3];
     
     YSOtherGatherVC * otherVC = [[YSOtherGatherVC alloc] init];
@@ -108,7 +109,7 @@ NSInteger const TabBarTag = 20160715;
                                                        image:[self deleteMaskImage:@"tab_six_num"]
                                                selectedImage:[UIImage imageNamed:@"tab_six_sel"]];
     otherVC.tabBarItem.title = _tabbarItemTitles[5];
-    _otherNavCon = [[UINavigationController alloc] initWithRootViewController:otherVC];
+    _otherNavCon = [[YSNavController alloc] initWithRootViewController:otherVC];
     _otherNavCon.navigationItem.title = _navItemTitles[5];
     
     self.viewControllers = @[_languageNavCon, _uiNavCon, _saveDataNavCon, _webNavCon, _otherNavCon];
@@ -128,6 +129,22 @@ NSInteger const TabBarTag = 20160715;
     UIImage * orgImage = [UIImage imageNamed:orgImageStr];
     UIImage * retImage = [orgImage imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     return retImage;
+}
+
+#pragma mark - 
+- (BOOL)shouldAutorotate
+{
+    return [[self.viewControllers objectAtIndex:(int)self.selectedIndex] shouldAutorotate];
+}
+
+- (UIInterfaceOrientationMask)supportedInterfaceOrientations
+{
+    return [[self.viewControllers objectAtIndex:(int)self.selectedIndex] supportedInterfaceOrientations];
+}
+
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
+    return [[self.viewControllers objectAtIndex:(int)self.selectedIndex] preferredInterfaceOrientationForPresentation];
 }
 
 @end
