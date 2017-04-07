@@ -127,18 +127,21 @@
         case 0:
         {
             YSOtherViewController * otherVC = [[YSOtherViewController alloc] init];
+            otherVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:otherVC animated:YES];
         }
             break;
         case 1:
         {
             YSHarewareViewController * hareAndSystemVC = [[YSHarewareViewController alloc] init];
+            hareAndSystemVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:hareAndSystemVC animated:YES];
         }
             break;
         case 2:
         {
             YSAnimationsViewController * animationVC = [[YSAnimationsViewController alloc] init];
+            animationVC.hidesBottomBarWhenPushed = YES;
             [self.navigationController pushViewController:animationVC animated:YES];
         }
             break;

@@ -21,6 +21,20 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 {
     BOOL _isLandScape;
     NSMutableArray * _dataTitleArr;
+    
+    // add by yj
+    BOOL _didSavePreviousStateOfNavBar;
+    BOOL                _previousNavBarHidden;
+    BOOL                _previousNavToolbarHidden;
+    UIBarStyle          _previousNavBarStyle;
+    UIStatusBarStyle    _previousStatusBarStyle;
+    UIColor             *_previousNavBarTintColor;
+    UIColor             *_previousNavBarBarTintColor;
+    UIBarButtonItem     *_previousViewControllerBackButton;
+    UIImage             *_previousNavigationBarBackgroundImageDefault;
+    UIImage             *_previousNavigationBarBackgroundImageLandscapePhone;
+    
+    NSDictionary *_previousNavtitleTextAttributes;
 }
 
 - (void)viewDidLoad {
@@ -32,6 +46,18 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     [self createTableView];
 }
 
+- (void)viewWillAppear:(BOOL)animated
+{
+    [super viewWillAppear:animated];
+    
+//    [self storePreviousNavBarAppearance];
+//    [self setNavBarAppearance:YES];
+    [self.navigationController setNavigationBarHidden:YES];
+    if (kSystemVersion <= 9.0) {
+        [[UIApplication sharedApplication] setStatusBarHidden:YES withAnimation:UIStatusBarAnimationNone];
+    }
+}
+
 - (void)viewWillDisappear:(BOOL)animated
 {
     [super viewWillDisappear:animated];
@@ -40,6 +66,10 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     [[YSVideoPlayerView shareVideoPlayerView] updateVideoPlayerViewWithIsLandScape:NO];
     [self showSmallWindow];
     DDLogInfo(@"------- 关闭横屏");
+    
+//    [self restorePreviousNavBarAppearance:YES];
+    [self.navigationController setNavigationBarHidden:NO];
+    [[UIApplication sharedApplication] setStatusBarHidden:NO];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -49,7 +79,6 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 
 - (void)initUIAndData
 {
-    self.title = @"视频";
     _isLandScape = NO;
     _dataTitleArr = [@[] mutableCopy];
     
@@ -66,7 +95,6 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
 - (void)createVideoPlayerView
 {
     YSVideoPlayerView * playerView = [YSVideoPlayerView shareVideoPlayerView];
-    playerView.backgroundColor = [UIColor redColor];
     playerView.delegate = self;
     [self.view addSubview:playerView];
 }
@@ -85,6 +113,11 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     
     [_videoTableView registerClass:[UITableViewCell class] forCellReuseIdentifier:YSVideoControlCellID];
     _videoTableView.backgroundColor = [UIColor yellowColor];
+}
+
+- (BOOL)prefersStatusBarHidden      // 7.0 后生效
+{
+    return YES;
 }
 
 #pragma mark - 旋转屏有关
@@ -148,9 +181,9 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     }
 }
 
-- (void)clickTapGesure
+- (void)clickBackBtn
 {
-    
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)showSmallWindow
@@ -182,5 +215,84 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
         
     }];
 }
+
+#pragma mark - navigationBar
+- (void)storePreviousNavBarAppearance
+{
+    _didSavePreviousStateOfNavBar = YES;
+    
+    _previousNavtitleTextAttributes = self.navigationController.navigationBar.titleTextAttributes;
+    _previousStatusBarStyle = [[UIApplication sharedApplication] statusBarStyle];
+    
+    if ([UINavigationBar instancesRespondToSelector:@selector(barTintColor)]) {
+        _previousNavBarBarTintColor = self.navigationController.navigationBar.barTintColor;
+    }
+    
+    _previousNavBarTintColor = self.navigationController.navigationBar.tintColor;
+    _previousNavBarHidden = self.navigationController.navigationBarHidden;
+    _previousNavBarStyle = self.navigationController.navigationBar.barStyle;
+    
+    if ([[UINavigationBar class] respondsToSelector:@selector(appearance)]) {
+        _previousNavigationBarBackgroundImageDefault = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsDefault];
+        _previousNavigationBarBackgroundImageLandscapePhone = [self.navigationController.navigationBar backgroundImageForBarMetrics:UIBarMetricsCompact];
+    }
+}
+
+- (void)setNavBarAppearance:(BOOL)animated
+{
+    UINavigationBar *navBar = self.navigationController.navigationBar;
+    
+    navBar.tintColor = (kSystemVersion > 7.0) ?[UIColor whiteColor] : nil;
+    
+    if ([navBar respondsToSelector:@selector(setBarTintColor:)]) {
+        navBar.barTintColor = nil;
+        navBar.shadowImage = nil;
+    }
+    
+    navBar.barStyle = UIBarStyleDefault;//UIBarStyleBlackTranslucent;
+    
+    [UIApplication sharedApplication].statusBarStyle = UIStatusBarStyleDefault;//UIStatusBarStyleLightContent;
+    
+    [self setNeedsStatusBarAppearanceUpdate];
+    
+    self.navigationController.navigationBar.titleTextAttributes = @{NSForegroundColorAttributeName:[UIColor whiteColor], NSFontAttributeName:[UIFont boldSystemFontOfSize:20.0f]};
+    
+    if ([[UINavigationBar class] respondsToSelector:@selector(appearance)]) {
+        [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsDefault];
+        [navBar setBackgroundImage:nil forBarMetrics:UIBarMetricsCompact];
+    }
+}
+
+- (void)restorePreviousNavBarAppearance:(BOOL)animated
+{
+    if (_didSavePreviousStateOfNavBar) {
+        [[UIApplication sharedApplication] setStatusBarStyle:_previousStatusBarStyle animated:animated];
+        
+        [self.navigationController setNavigationBarHidden:_previousNavBarHidden animated:animated];
+        UINavigationBar *navBar = self.navigationController.navigationBar;
+        navBar.tintColor = _previousNavBarTintColor;
+        
+        if ([UINavigationBar instancesRespondToSelector:@selector(barTintColor)]) {
+            navBar.barTintColor = _previousNavBarBarTintColor;
+        }
+        
+        navBar.barStyle = _previousNavBarStyle;
+        
+        self.navigationController.navigationBar.titleTextAttributes = _previousNavtitleTextAttributes;
+        
+        if ([[UINavigationBar class] respondsToSelector:@selector(appearance)]) {
+            [navBar setBackgroundImage:_previousNavigationBarBackgroundImageDefault forBarMetrics:UIBarMetricsDefault];
+            [navBar setBackgroundImage:_previousNavigationBarBackgroundImageLandscapePhone forBarMetrics:UIBarMetricsCompact];
+        }
+        
+        // Restore back button if we need to
+        if (_previousViewControllerBackButton) {
+            UIViewController *previousViewController = [self.navigationController topViewController]; //
+            previousViewController.navigationItem.backBarButtonItem = _previousViewControllerBackButton;
+            _previousViewControllerBackButton = nil;
+        }
+    }
+}
+
 
 @end

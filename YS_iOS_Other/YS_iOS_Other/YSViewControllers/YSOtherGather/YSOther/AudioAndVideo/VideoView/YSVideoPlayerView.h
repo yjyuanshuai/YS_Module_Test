@@ -12,10 +12,13 @@
 
 @interface YSVideoPlayerView : UIView
 
-@property (nonatomic, assign) BOOL isLandScape; //是否横屏
+@property (nonatomic, assign) BOOL isShowToolBar;
+@property (nonatomic, assign) BOOL isLandScape;         //是否横屏
 @property (nonatomic, strong) UIImageView * imageView;  //临时
+@property (nonatomic, strong) UIButton * backBtn;
 @property (nonatomic, strong) UIButton * spaceBtn;
-@property (nonatomic, assign) BOOL isShowToolBar;   
+@property (nonatomic, strong) UIView * topToolBar;
+@property (nonatomic, strong) UIView * bottemToolBar;
 @property (nonatomic, strong) UITapGestureRecognizer * tapGesure;
 @property (nonatomic, weak) id<YSVideoPlayerViewDelegate> delegate;
 
@@ -31,5 +34,6 @@
 
 - (void)clickSpaceBtn;
 - (void)clickTapGesure;
+- (void)clickBackBtn;
 
 @end
