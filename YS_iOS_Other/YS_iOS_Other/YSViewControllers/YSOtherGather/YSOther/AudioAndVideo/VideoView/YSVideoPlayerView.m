@@ -49,7 +49,6 @@ static YSVideoPlayerView * instance = nil;
 {
     self = [super initWithFrame:frame];
     if (self) {
-        self.backgroundColor = [UIColor greenColor];
         _isLandScape = NO;
         [self createSubViews];
     }
@@ -60,7 +59,7 @@ static YSVideoPlayerView * instance = nil;
 {
     self.spaceBtn = [UIButton buttonWithType:UIButtonTypeCustom];
     [self.spaceBtn setBackgroundImage:[UIImage imageNamed:@"tab_fiv_sel"] forState:UIControlStateNormal];
-    [self.spaceBtn addTarget:self action:@selector(clickBtn) forControlEvents:UIControlEventTouchUpInside];
+    [self.spaceBtn addTarget:self action:@selector(selfClickSpaceBtn) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.spaceBtn];
     
     _imageView = [UIImageView new];
@@ -79,10 +78,23 @@ static YSVideoPlayerView * instance = nil;
     }];
 }
 
-- (void)clickBtn
+- (void)createTapGesure
+{
+    _tapGesure = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(selfClickTapGesure)];
+    [self addGestureRecognizer:_tapGesure];
+}
+
+- (void)selfClickSpaceBtn
 {
     if (_delegate && [_delegate respondsToSelector:@selector(clickSpaceBtn)]) {
         [_delegate clickSpaceBtn];
+    }
+}
+
+- (void)selfClickTapGesure
+{
+    if (_delegate && [_delegate respondsToSelector:@selector(clickTapGesure)]) {
+        [_delegate clickTapGesure];
     }
 }
 

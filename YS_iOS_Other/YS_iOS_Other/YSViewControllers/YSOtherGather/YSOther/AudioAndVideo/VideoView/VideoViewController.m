@@ -39,7 +39,6 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     _isLandScape = NO;
     [[YSVideoPlayerView shareVideoPlayerView] updateVideoPlayerViewWithIsLandScape:NO];
     [self showSmallWindow];
-    
     DDLogInfo(@"------- 关闭横屏");
 }
 
@@ -58,11 +57,16 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     [_dataTitleArr addObject:sectionOne];
     
     self.view.backgroundColor = [UIColor redColor];
+    
+    if ([self respondsToSelector:@selector(setEdgesForExtendedLayout:)]) {
+        self.edgesForExtendedLayout = UIRectEdgeAll;
+    }
 }
 
 - (void)createVideoPlayerView
 {
     YSVideoPlayerView * playerView = [YSVideoPlayerView shareVideoPlayerView];
+    playerView.backgroundColor = [UIColor redColor];
     playerView.delegate = self;
     [self.view addSubview:playerView];
 }
@@ -83,6 +87,7 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     _videoTableView.backgroundColor = [UIColor yellowColor];
 }
 
+#pragma mark - 旋转屏有关
 - (BOOL)shouldAutorotate
 {
     return YES;
@@ -98,7 +103,8 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
     }
 }
 
--(UIInterfaceOrientation)preferredInterfaceOrientationForPresentation{
+- (UIInterfaceOrientation)preferredInterfaceOrientationForPresentation
+{
     return UIInterfaceOrientationPortrait;
 }
 
@@ -140,6 +146,11 @@ static NSString * YSVideoControlCellID = @"YSVideoControlCellID";
         // 全屏
         [self showFullWindow];
     }
+}
+
+- (void)clickTapGesure
+{
+    
 }
 
 - (void)showSmallWindow
