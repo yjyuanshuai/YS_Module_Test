@@ -8,6 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface YSAttributeStrView : UIView
+@interface AttributeBaseView : UIView
 
 @end

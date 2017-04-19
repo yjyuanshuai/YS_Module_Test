@@ -37,8 +37,8 @@
     
     // 2、存储数据
     [tempDefault setBool:_isRememberPassWord forKey:UserRememberPassWord];
-    [tempDefault setObject:_userName forKey:UserName];
-    [tempDefault setObject:_passWord forKey:UserPassWord];
+    [tempDefault setObject:_userName forKey:UserNameKey];
+    [tempDefault setObject:_passWord forKey:UserPassWordKey];
     
     // 3、强制立即存储
     [tempDefault synchronize];
@@ -49,8 +49,8 @@
     NSUserDefaults * tempDefault = [NSUserDefaults standardUserDefaults];
     
     _isRememberPassWord = [tempDefault boolForKey:UserRememberPassWord];
-    _userName = [tempDefault objectForKey:UserName];
-    _passWord = [tempDefault objectForKey:UserPassWord];
+    _userName = [tempDefault objectForKey:UserNameKey];
+    _passWord = [tempDefault objectForKey:UserPassWordKey];
     
     NSLog(@"------------- %@ ----------- %@ ---------- %d", _userName, _passWord, _isRememberPassWord);
 }

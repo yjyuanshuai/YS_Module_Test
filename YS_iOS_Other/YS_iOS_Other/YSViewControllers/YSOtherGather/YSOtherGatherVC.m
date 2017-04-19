@@ -7,6 +7,7 @@
 //
 
 #import "YSOtherGatherVC.h"
+#import "YSNavController.h"
 
 #import "YSOtherViewController.h"
 #import "YSHarewareViewController.h"
@@ -31,6 +32,7 @@
     
     [self initUIAndData];
     [self createTableView];
+    [self createFootView];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -69,6 +71,38 @@
 //    if ([_otherGatherTableView respondsToSelector:@selector(setSeparatorInset:)]) {
 //        [_otherGatherTableView setSeparatorInset:UIEdgeInsetsZero];
 //    }
+}
+
+- (void)createFootView
+{
+    UIView * footView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 120)];
+    
+    UIView * contentView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kScreenWidth, 120)];
+    [footView addSubview:contentView];
+    
+    UIButton * logOutBtn = [UIButton buttonWithType:UIButtonTypeCustom];
+    [logOutBtn setTitle:@"退出" forState:UIControlStateNormal];
+    [logOutBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    logOutBtn.layer.borderColor = [UIColor redColor].CGColor;
+    logOutBtn.layer.borderWidth = 1;
+    [logOutBtn addTarget:self action:@selector(clickLogOut) forControlEvents:UIControlEventTouchUpInside];
+    [contentView addSubview:logOutBtn];
+    
+    [logOutBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(contentView).insets(UIEdgeInsetsMake(60, 15, 20, 15));
+    }];
+    
+    _otherGatherTableView.tableFooterView = footView;
+}
+
+- (void)clickLogOut
+{
+    [[NSUserDefaults standardUserDefaults] setObject:@(NO) forKey:HasLogin];
+    [[NSUserDefaults standardUserDefaults] setObject:@(YES) forKey:HasKickOut];
+    
+    YSNavController * navCon = [YSNavController sharedYSTabBarController];
+    [navCon saveAccountOrPassWord];
+    [UIApplication sharedApplication].keyWindow.rootViewController = navCon;
 }
 
 #pragma mark - UITableViewDelegate, UITableViewDataSource

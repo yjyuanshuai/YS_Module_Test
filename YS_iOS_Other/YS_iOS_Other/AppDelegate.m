@@ -12,6 +12,8 @@
 #import "AudioPlayerVC.h"
 #import "YSTestDataBase.h"
 #import "YSVideoPlayerView.h"
+#import "YSEnDecryptionMethod.h"
+#import "YSNavController.h"
 
 @interface AppDelegate ()
 
@@ -30,7 +32,6 @@
     
     // app 启动完成时调用
     
-    [YSDDLogManager shareDDLogManager];
     [self initSetting];
     [self login];
     [self startBaiduMap];
@@ -255,6 +256,8 @@
     // TabBarItem
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor blackColor]} forState:UIControlStateNormal];
     [[UITabBarItem appearance] setTitleTextAttributes:@{NSForegroundColorAttributeName:[UIColor whiteColor]} forState:UIControlStateSelected];
+    
+    
 }
 
 /**
@@ -262,15 +265,25 @@
  */
 - (void)login
 {
-    YSTabBarController * ysTabBarCon = [YSTabBarController sharedYSTabBarController];
-    ysTabBarCon.selectedIndex = 0;
-    self.window.rootViewController = ysTabBarCon;
-    
     // 创建数据库
     [YSTestDataBase initDB];
     
+    // 日志
+    [YSDDLogManager shareDDLogManager];
+    
     // 热修复
     
+    BOOL hasLogin = [[[NSUserDefaults standardUserDefaults] objectForKey:HasLogin] boolValue];
+    if (hasLogin) {
+        YSTabBarController * ysTabBarCon = [YSTabBarController sharedYSTabBarController];
+        ysTabBarCon.selectedIndex = 0;
+        self.window.rootViewController = ysTabBarCon;
+    }
+    else {
+        YSNavController * loginNav = [YSNavController sharedYSTabBarController];
+        [loginNav saveAccountOrPassWord];
+        self.window.rootViewController = loginNav;
+    }
 }
 
 /**

@@ -50,6 +50,7 @@ static YSDDLogManager * instance = nil;
 #else
         ddLogLevel = DDLogLevelWarning;
 #endif
+        
 #elif
         ddLogLevel = DDLogLevelOff;
 #endif

@@ -10,4 +10,6 @@
 
 @interface YSLoginViewController : YSRootViewController
 
+- (void)saveAccountOrPassWord;
+
 @end

@@ -25,7 +25,7 @@
     CGPathRef initPath = CGPathCreateWithRect(self.bounds, nil);
     
     // 4、初始化字符串
-    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithString:@"Hello CoreText"];
+    NSMutableAttributedString * attrStr = [[NSMutableAttributedString alloc] initWithString:@"CoreText 图文混排之简单的应用"];
     
     // 5、初始化 framesetter
     CTFramesetterRef frameSetter = CTFramesetterCreateWithAttributedString((CFMutableAttributedStringRef)attrStr);

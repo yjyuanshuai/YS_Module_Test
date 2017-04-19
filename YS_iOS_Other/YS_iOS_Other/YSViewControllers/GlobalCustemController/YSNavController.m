@@ -7,12 +7,39 @@
 //
 
 #import "YSNavController.h"
+#import "YSLoginViewController.h"
 
 @interface YSNavController ()
+
+@property (nonatomic, strong) YSLoginViewController * loginVC;
 
 @end
 
 @implementation YSNavController
+
++ (instancetype)sharedYSTabBarController
+{
+    static YSNavController * instance;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        
+        YSLoginViewController * instanceLoginVC = [[YSLoginViewController alloc] init];
+        instance = [[YSNavController alloc] initWithRootViewController:instanceLoginVC];
+        
+    });
+    return instance;
+}
+
+- (instancetype)initWithRootViewController:(UIViewController *)rootViewController
+{
+    self = [super initWithRootViewController:rootViewController];
+    if (self) {
+        if ([rootViewController isKindOfClass:[YSLoginViewController class]]) {
+            _loginVC = (YSLoginViewController *)rootViewController;
+        }
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -22,6 +49,13 @@
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
+}
+
+- (void)saveAccountOrPassWord
+{
+    if (_loginVC) {
+        [_loginVC saveAccountOrPassWord];
+    }
 }
 
 #pragma mark - 

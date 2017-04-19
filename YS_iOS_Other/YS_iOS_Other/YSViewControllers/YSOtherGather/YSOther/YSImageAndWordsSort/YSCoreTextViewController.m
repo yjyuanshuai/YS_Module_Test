@@ -11,7 +11,7 @@
 #import "ShowImageWordSortViewController.h"
 
 #import "FirstSimpleView.h"
-#import "YSAttributeStrView.h"
+#import "AttributeBaseView.h"
 
 static NSString * const CoreTextCellID = @"CoreTextCellID";
 
@@ -43,7 +43,7 @@ static NSString * const CoreTextCellID = @"CoreTextCellID";
 {
     self.title = @"CoreText";
     
-    _coretextArr = [@[@"基本应用", @"简单富文本", @"", @"自动识别链接及跳转", @"插入图片"] mutableCopy];
+    _coretextArr = [@[@"简单实现", @"各种基本样式设置", @"", @"自动识别链接及跳转", @"插入图片"] mutableCopy];
 }
 
 - (void)createTableView
@@ -81,7 +81,7 @@ static NSString * const CoreTextCellID = @"CoreTextCellID";
         
         // 简单文字
         
-        ShowImageWordSortViewController * simpleVC = [[ShowImageWordSortViewController alloc] initWithView:[FirstSimpleView class] title:@"简单应用"];
+        ShowImageWordSortViewController * simpleVC = [[ShowImageWordSortViewController alloc] initWithView:[FirstSimpleView class] title:@"简单实现"];
         simpleVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:simpleVC animated:YES];
         
@@ -89,7 +89,7 @@ static NSString * const CoreTextCellID = @"CoreTextCellID";
     else if (indexPath.row == 1) {
         
         // 富文本
-        ShowImageWordSortViewController * attributeStrVC = [[ShowImageWordSortViewController alloc] initWithView:[YSAttributeStrView class] title:@"富文本"];
+        ShowImageWordSortViewController * attributeStrVC = [[ShowImageWordSortViewController alloc] initWithView:[AttributeBaseView class] title:@"各种基本样式设置"];
         attributeStrVC.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:attributeStrVC animated:YES];
     

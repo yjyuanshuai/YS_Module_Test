@@ -55,10 +55,18 @@
 #pragma mark - 用户偏好设置有关
 
 #define UserRememberPassWord    @"UserRememberPassWord"
-#define UserName                @"UserName"
-#define UserPassWord            @"UserPassWord"
+#define UserNameKey             @"UserNameKey"
+#define UserPassWordKey         @"UserPassWordKey"
 
 #define UserAudioPlayList       @"UserAudioPlayList"
+
+
+// 暂时固定死密码和用户名
+#define CurrentAccout           @"1771234"
+#define CurrentPassword         @"123"
+
+#define HasLogin                @"CurrentLoginStatus_HasLogin"      // 是否已登录
+#define HasKickOut              @"CurrentLoginStatus_HasKickOut"    // 是否被踢出
 
 
 

@@ -206,8 +206,8 @@
 
 - (void)clickToSee
 {
-    NSString * name = [MyKeyChainHelper getUserNameWithService:KeyChainUserAccount];
-    NSString * password = [MyKeyChainHelper getPasswordWithService:KeyChainUserPassword];
+    NSString * name = [MyKeyChainHelper getUserNameWithService:UserNameKey];
+    NSString * password = [MyKeyChainHelper getPasswordWithService:UserPassWordKey];
     
     name = [name isBlank] ? @"" : name;
     password = [password isBlank] ? @"" : password;

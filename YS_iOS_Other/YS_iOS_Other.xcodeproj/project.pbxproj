@@ -147,7 +147,7 @@
 		39333BE71DE2CE6C00035157 /* YSOtherViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BE61DE2CE6C00035157 /* YSOtherViewController.m */; };
 		39333BF11DE2CE9A00035157 /* FirstSimpleView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BEA1DE2CE9A00035157 /* FirstSimpleView.m */; };
 		39333BF21DE2CE9A00035157 /* ShowImageWordSortViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BEC1DE2CE9A00035157 /* ShowImageWordSortViewController.m */; };
-		39333BF31DE2CE9A00035157 /* YSAttributeStrView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BEE1DE2CE9A00035157 /* YSAttributeStrView.m */; };
+		39333BF31DE2CE9A00035157 /* AttributeBaseView.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BEE1DE2CE9A00035157 /* AttributeBaseView.m */; };
 		39333BF41DE2CE9A00035157 /* YSCoreTextViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BF01DE2CE9A00035157 /* YSCoreTextViewController.m */; };
 		39333C0C1DE2CEDA00035157 /* AudioViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BF81DE2CEDA00035157 /* AudioViewController.m */; };
 		39333C0D1DE2CEDA00035157 /* AudioAndVideoMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 39333BFB1DE2CEDA00035157 /* AudioAndVideoMainViewController.m */; };
@@ -569,8 +569,8 @@
 		39333BEA1DE2CE9A00035157 /* FirstSimpleView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstSimpleView.m; sourceTree = "<group>"; };
 		39333BEB1DE2CE9A00035157 /* ShowImageWordSortViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShowImageWordSortViewController.h; sourceTree = "<group>"; };
 		39333BEC1DE2CE9A00035157 /* ShowImageWordSortViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShowImageWordSortViewController.m; sourceTree = "<group>"; };
-		39333BED1DE2CE9A00035157 /* YSAttributeStrView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSAttributeStrView.h; sourceTree = "<group>"; };
-		39333BEE1DE2CE9A00035157 /* YSAttributeStrView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSAttributeStrView.m; sourceTree = "<group>"; };
+		39333BED1DE2CE9A00035157 /* AttributeBaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AttributeBaseView.h; sourceTree = "<group>"; };
+		39333BEE1DE2CE9A00035157 /* AttributeBaseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AttributeBaseView.m; sourceTree = "<group>"; };
 		39333BEF1DE2CE9A00035157 /* YSCoreTextViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSCoreTextViewController.h; sourceTree = "<group>"; };
 		39333BF01DE2CE9A00035157 /* YSCoreTextViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSCoreTextViewController.m; sourceTree = "<group>"; };
 		39333BF71DE2CEDA00035157 /* AudioViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AudioViewController.h; sourceTree = "<group>"; };
@@ -1126,14 +1126,14 @@
 		3923F7DA1E038324005A02D7 /* CoreText */ = {
 			isa = PBXGroup;
 			children = (
-				39333BE91DE2CE9A00035157 /* FirstSimpleView.h */,
-				39333BEA1DE2CE9A00035157 /* FirstSimpleView.m */,
-				39333BEB1DE2CE9A00035157 /* ShowImageWordSortViewController.h */,
-				39333BEC1DE2CE9A00035157 /* ShowImageWordSortViewController.m */,
-				39333BED1DE2CE9A00035157 /* YSAttributeStrView.h */,
-				39333BEE1DE2CE9A00035157 /* YSAttributeStrView.m */,
 				39333BEF1DE2CE9A00035157 /* YSCoreTextViewController.h */,
 				39333BF01DE2CE9A00035157 /* YSCoreTextViewController.m */,
+				39333BEB1DE2CE9A00035157 /* ShowImageWordSortViewController.h */,
+				39333BEC1DE2CE9A00035157 /* ShowImageWordSortViewController.m */,
+				39333BE91DE2CE9A00035157 /* FirstSimpleView.h */,
+				39333BEA1DE2CE9A00035157 /* FirstSimpleView.m */,
+				39333BED1DE2CE9A00035157 /* AttributeBaseView.h */,
+				39333BEE1DE2CE9A00035157 /* AttributeBaseView.m */,
 			);
 			name = CoreText;
 			sourceTree = "<group>";
@@ -2790,7 +2790,7 @@
 				390C59391DE432970087990C /* YSSongModel.m in Sources */,
 				3932AA9C1E7250C20044D681 /* UIImageView+AFNetworking.m in Sources */,
 				3946CA381E962673003E0D5B /* TZImageManager.m in Sources */,
-				39333BF31DE2CE9A00035157 /* YSAttributeStrView.m in Sources */,
+				39333BF31DE2CE9A00035157 /* AttributeBaseView.m in Sources */,
 				3921489F1DDEDCE100EBCFC1 /* YSGCDTableViewCell.m in Sources */,
 				3932AA921E7250C20044D681 /* AFNetworkReachabilityManager.m in Sources */,
 				39333C0E1DE2CEDA00035157 /* AudioOrVideoTableViewCell.m in Sources */,

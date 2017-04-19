@@ -27,10 +27,23 @@
     self.ysScrollView.contentOffset = CGPointZero;
     [self addSubview:self.ysScrollView];
     
-    self.ysPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, 0, frame.size.width, 20)];
+    self.ysPageControl = [[UIPageControl alloc] initWithFrame:CGRectMake(0, frame.size.height - 20, frame.size.width, 20)];
     self.ysPageControl.currentPageIndicatorTintColor = [UIColor whiteColor];
     self.ysPageControl.pageIndicatorTintColor = [UIColor lightGrayColor];
     [self addSubview:self.ysPageControl];
 }
+
+#pragma mark - set
+- (void)setYsContentSize:(CGSize)ysContentSize
+{
+    _ysContentSize = ysContentSize;
+}
+
+- (void)setYsContentOffSet:(CGPoint)ysContentOffSet
+{
+    _ysContentOffSet = ysContentOffSet;
+}
+
+
 
 @end
