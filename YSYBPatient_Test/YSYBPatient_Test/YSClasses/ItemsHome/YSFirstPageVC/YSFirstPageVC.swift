@@ -44,7 +44,7 @@ class YSFirstPageVC: YSRootVC, UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if section < dataArr.count {
-            
+
             return 0;
         }
         return 0;
