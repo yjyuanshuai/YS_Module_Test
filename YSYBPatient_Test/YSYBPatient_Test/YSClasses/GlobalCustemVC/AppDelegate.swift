@@ -16,13 +16,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+
         
-        let ysTabBarCon = YSTabBarController()
-        
-        self.window?.screen = UIScreen.main
-        self.window?.rootViewController = ysTabBarCon
+        self.window = UIWindow(frame: UIScreen.main.bounds)
         self.window?.makeKeyAndVisible()
-        
+
+        let hasLogin = self.hasLogin()
+        if hasLogin {
+
+        }
+        else {
+
+        }
+
+        self.initSetting()
+
         return true
     }
 
@@ -48,6 +56,31 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
 
+    // MARK: - 登录逻辑
+    func hasLogin() -> Bool {
+        let hasLoginKey = UserDefaults.standard.object(forKey: kUserHasLoginKey) as? Bool
+        if hasLoginKey == true {
+            // 已登录
+            let ysTabBarCon = YSTabBarController()
+            self.window?.rootViewController = ysTabBarCon
 
+            return true
+        }
+        else {
+            // 未登录
+            self.window?.rootViewController = UINavigationController(rootViewController:YSLoginVC())
+            return false
+        }
+    }
+
+    // MARK: - 设置
+    func initSetting() -> () {
+        if kSystemVersion <= 9.0 {
+            UIApplication.shared.setStatusBarStyle(.lightContent, animated: false)
+        }
+
+        UINavigationBar.appearance().tintColor = UIColor.white
+        UINavigationBar.appearance().barTintColor = kMainColor
+    }
 }
 

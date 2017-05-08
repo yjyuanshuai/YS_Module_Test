@@ -17,6 +17,8 @@ class YSFirstPageVC: YSRootVC, UITableViewDelegate, UITableViewDataSource {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        self.initDataAndUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -25,9 +27,7 @@ class YSFirstPageVC: YSRootVC, UITableViewDelegate, UITableViewDataSource {
     }
 
     func initDataAndUI() -> () {
-        self.title = "我的首页"
-        
-        
+        self.navigationItem.title = "我的首页"
     }
     
     func createTableView() -> () {

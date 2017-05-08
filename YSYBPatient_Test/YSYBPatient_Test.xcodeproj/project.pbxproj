@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3962BCF81EC0412E00D7472C /* ProjectEnvSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCF71EC0412E00D7472C /* ProjectEnvSetting.swift */; };
+		3962BCFB1EC041C100D7472C /* YSLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCFA1EC041C100D7472C /* YSLoginVC.swift */; };
+		3962BCFD1EC041D800D7472C /* YSRegistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCFC1EC041D800D7472C /* YSRegistVC.swift */; };
+		39EAF9261EC055C30062B21A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EAF9251EC055C30062B21A /* SnapKit.framework */; };
 		39FA4E661EBC570700C4D74F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E641EBC570700C4D74F /* Main.storyboard */; };
 		39FA4E681EBC570700C4D74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E671EBC570700C4D74F /* Assets.xcassets */; };
 		39FA4E6B1EBC570700C4D74F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E691EBC570700C4D74F /* LaunchScreen.storyboard */; };
@@ -23,6 +27,10 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3962BCF71EC0412E00D7472C /* ProjectEnvSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectEnvSetting.swift; sourceTree = "<group>"; };
+		3962BCFA1EC041C100D7472C /* YSLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSLoginVC.swift; sourceTree = "<group>"; };
+		3962BCFC1EC041D800D7472C /* YSRegistVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSRegistVC.swift; sourceTree = "<group>"; };
+		39EAF9251EC055C30062B21A /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
 		39FA4E5D1EBC570700C4D74F /* YSYBPatient_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSYBPatient_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FA4E651EBC570700C4D74F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39FA4E671EBC570700C4D74F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
@@ -44,12 +52,22 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39EAF9261EC055C30062B21A /* SnapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3962BCF91EC041A100D7472C /* YSLoginAndRegist */ = {
+			isa = PBXGroup;
+			children = (
+				3962BCFA1EC041C100D7472C /* YSLoginVC.swift */,
+				3962BCFC1EC041D800D7472C /* YSRegistVC.swift */,
+			);
+			path = YSLoginAndRegist;
+			sourceTree = "<group>";
+		};
 		39FA4E541EBC570600C4D74F = {
 			isa = PBXGroup;
 			children = (
@@ -114,6 +132,7 @@
 		39FA4E811EBC5B0000C4D74F /* ItemsHome */ = {
 			isa = PBXGroup;
 			children = (
+				3962BCF91EC041A100D7472C /* YSLoginAndRegist */,
 				39FA4E901EBC5E7100C4D74F /* YSFirstPageVC */,
 				39FA4E921EBC5E7100C4D74F /* YSHealthFileVC */,
 				39FA4E941EBC5E7100C4D74F /* YSNoticeVC */,
@@ -150,6 +169,7 @@
 		39FA4E881EBC5B0F00C4D74F /* YSLibs */ = {
 			isa = PBXGroup;
 			children = (
+				39EAF9251EC055C30062B21A /* SnapKit.framework */,
 			);
 			path = YSLibs;
 			sourceTree = "<group>";
@@ -220,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				39FA4EA31EBC72DC00C4D74F /* ProjectMacroSetting.swift */,
+				3962BCF71EC0412E00D7472C /* ProjectEnvSetting.swift */,
 			);
 			path = YSFile;
 			sourceTree = "<group>";
@@ -298,13 +319,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3962BCF81EC0412E00D7472C /* ProjectEnvSetting.swift in Sources */,
 				39FA4E961EBC5E9800C4D74F /* YSFirstPageVC.swift in Sources */,
 				39FA4E861EBC5B0000C4D74F /* YSRootVC.swift in Sources */,
 				39FA4E9A1EBC5EC100C4D74F /* YSNoticeVC.swift in Sources */,
 				39FA4EA41EBC72DC00C4D74F /* ProjectMacroSetting.swift in Sources */,
 				39FA4E8D1EBC5C7300C4D74F /* YSTabBarController.swift in Sources */,
+				3962BCFD1EC041D800D7472C /* YSRegistVC.swift in Sources */,
 				39FA4E981EBC5EB400C4D74F /* YSHealthFileVC.swift in Sources */,
 				39FA4E851EBC5B0000C4D74F /* AppDelegate.swift in Sources */,
+				3962BCFB1EC041C100D7472C /* YSLoginVC.swift in Sources */,
 				39FA4E9E1EBC5EDE00C4D74F /* YSMeVC.swift in Sources */,
 				39FA4E9C1EBC5ED200C4D74F /* YSHealthEduVC.swift in Sources */,
 			);
@@ -432,6 +456,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MNH692X4AB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YSYBPatient_Test/YSLibs",
+				);
 				INFOPLIST_FILE = YSYBPatient_Test/SupportFile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yjyuanshuai.YSYBPatient-Test";
@@ -445,6 +473,10 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MNH692X4AB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YSYBPatient_Test/YSLibs",
+				);
 				INFOPLIST_FILE = YSYBPatient_Test/SupportFile/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.yjyuanshuai.YSYBPatient-Test";
