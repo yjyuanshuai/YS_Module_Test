@@ -11,6 +11,9 @@
 		3962BCFB1EC041C100D7472C /* YSLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCFA1EC041C100D7472C /* YSLoginVC.swift */; };
 		3962BCFD1EC041D800D7472C /* YSRegistVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCFC1EC041D800D7472C /* YSRegistVC.swift */; };
 		39EAF9261EC055C30062B21A /* SnapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 39EAF9251EC055C30062B21A /* SnapKit.framework */; };
+		39EAF92E1EC06A190062B21A /* YSDeugConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */; };
+		39EAF9301EC06A470062B21A /* YSLANRealseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */; };
+		39EAF9341EC06A880062B21A /* YSAppStoreConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */; };
 		39FA4E661EBC570700C4D74F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E641EBC570700C4D74F /* Main.storyboard */; };
 		39FA4E681EBC570700C4D74F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E671EBC570700C4D74F /* Assets.xcassets */; };
 		39FA4E6B1EBC570700C4D74F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E691EBC570700C4D74F /* LaunchScreen.storyboard */; };
@@ -31,6 +34,10 @@
 		3962BCFA1EC041C100D7472C /* YSLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSLoginVC.swift; sourceTree = "<group>"; };
 		3962BCFC1EC041D800D7472C /* YSRegistVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSRegistVC.swift; sourceTree = "<group>"; };
 		39EAF9251EC055C30062B21A /* SnapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = SnapKit.framework; sourceTree = "<group>"; };
+		39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YSDeugConfig.xcconfig; sourceTree = "<group>"; };
+		39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YSLANRealseConfig.xcconfig; sourceTree = "<group>"; };
+		39EAF9311EC06A6B0062B21A /* YSOutSideRealseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = YSOutSideRealseConfig.xcconfig; sourceTree = "<group>"; };
+		39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YSAppStoreConfig.xcconfig; sourceTree = "<group>"; };
 		39FA4E5D1EBC570700C4D74F /* YSYBPatient_Test.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = YSYBPatient_Test.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		39FA4E651EBC570700C4D74F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		39FA4E671EBC570700C4D74F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
@@ -66,6 +73,17 @@
 				3962BCFC1EC041D800D7472C /* YSRegistVC.swift */,
 			);
 			path = YSLoginAndRegist;
+			sourceTree = "<group>";
+		};
+		39EAF92A1EC069C70062B21A /* YSConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */,
+				39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */,
+				39EAF9311EC06A6B0062B21A /* YSOutSideRealseConfig.xcconfig */,
+				39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */,
+			);
+			path = YSConfiguration;
 			sourceTree = "<group>";
 		};
 		39FA4E541EBC570600C4D74F = {
@@ -177,6 +195,7 @@
 		39FA4E891EBC5B0F00C4D74F /* YSResources */ = {
 			isa = PBXGroup;
 			children = (
+				39EAF92A1EC069C70062B21A /* YSConfiguration */,
 				39FA4EA21EBC72BA00C4D74F /* YSFile */,
 			);
 			path = YSResources;
@@ -305,9 +324,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				39EAF9301EC06A470062B21A /* YSLANRealseConfig.xcconfig in Resources */,
 				39FA4E7A1EBC58D800C4D74F /* Info.plist in Resources */,
 				39FA4E6B1EBC570700C4D74F /* LaunchScreen.storyboard in Resources */,
 				39FA4E681EBC570700C4D74F /* Assets.xcassets in Resources */,
+				39EAF9341EC06A880062B21A /* YSAppStoreConfig.xcconfig in Resources */,
+				39EAF92E1EC06A190062B21A /* YSDeugConfig.xcconfig in Resources */,
 				39FA4E661EBC570700C4D74F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -358,7 +380,129 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
-		39FA4E6D1EBC570700C4D74F /* Debug */ = {
+		39EAF9351EC06A9A0062B21A /* OutSideRelease */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = OutSideRelease;
+		};
+		39EAF9361EC06A9A0062B21A /* OutSideRelease */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39EAF9311EC06A6B0062B21A /* YSOutSideRealseConfig.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MNH692X4AB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YSYBPatient_Test/YSLibs",
+				);
+				INFOPLIST_FILE = YSYBPatient_Test/SupportFile/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yjyuanshuai.YSYBPatient-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = OutSideRelease;
+		};
+		39EAF9371EC06AC90062B21A /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = AppStore;
+		};
+		39EAF9381EC06AC90062B21A /* AppStore */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MNH692X4AB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YSYBPatient_Test/YSLibs",
+				);
+				INFOPLIST_FILE = YSYBPatient_Test/SupportFile/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yjyuanshuai.YSYBPatient-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = AppStore;
+		};
+		39FA4E6D1EBC570700C4D74F /* Dev */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -406,9 +550,9 @@
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
-			name = Debug;
+			name = Dev;
 		};
-		39FA4E6E1EBC570700C4D74F /* Release */ = {
+		39FA4E6E1EBC570700C4D74F /* LANRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -449,10 +593,11 @@
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 			};
-			name = Release;
+			name = LANRelease;
 		};
-		39FA4E701EBC570700C4D74F /* Debug */ = {
+		39FA4E701EBC570700C4D74F /* Dev */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MNH692X4AB;
@@ -466,10 +611,11 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
-			name = Debug;
+			name = Dev;
 		};
-		39FA4E711EBC570700C4D74F /* Release */ = {
+		39FA4E711EBC570700C4D74F /* LANRelease */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = MNH692X4AB;
@@ -483,7 +629,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 3.0;
 			};
-			name = Release;
+			name = LANRelease;
 		};
 /* End XCBuildConfiguration section */
 
@@ -491,20 +637,24 @@
 		39FA4E581EBC570600C4D74F /* Build configuration list for PBXProject "YSYBPatient_Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39FA4E6D1EBC570700C4D74F /* Debug */,
-				39FA4E6E1EBC570700C4D74F /* Release */,
+				39FA4E6D1EBC570700C4D74F /* Dev */,
+				39FA4E6E1EBC570700C4D74F /* LANRelease */,
+				39EAF9351EC06A9A0062B21A /* OutSideRelease */,
+				39EAF9371EC06AC90062B21A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = LANRelease;
 		};
 		39FA4E6F1EBC570700C4D74F /* Build configuration list for PBXNativeTarget "YSYBPatient_Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39FA4E701EBC570700C4D74F /* Debug */,
-				39FA4E711EBC570700C4D74F /* Release */,
+				39FA4E701EBC570700C4D74F /* Dev */,
+				39FA4E711EBC570700C4D74F /* LANRelease */,
+				39EAF9361EC06A9A0062B21A /* OutSideRelease */,
+				39EAF9381EC06AC90062B21A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+			defaultConfigurationName = LANRelease;
 		};
 /* End XCConfigurationList section */
 	};
