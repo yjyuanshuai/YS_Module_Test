@@ -15,7 +15,7 @@ class YSRootVC: UIViewController {
 
         // Do any additional setup after loading the view.
 
-        self.view.backgroundColor = kDefaultBackgroundColor
+        self.commonUISetting()
     }
 
     override func didReceiveMemoryWarning() {
@@ -23,8 +23,24 @@ class YSRootVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
 
+    func commonUISetting() -> () {
+        self.view.backgroundColor = kDefaultBackgroundColor
+
+        let backBtn:UIButton = UIButton(type: .custom)
+        backBtn.frame = CGRect(x: 0, y: 0, width: 60, height: 40)
+        backBtn.setImage(UIImage(named: "hx_back_green"), for: .normal)
+        backBtn.setTitle(" 返回", for: .normal)
+
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(customView: backBtn)
+    }
+
+    // MARK: - 重写方法
     // 这个方法 Swift 3 后不再是方法，而变成了属性
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return UIStatusBarStyle.lightContent
+    }
+
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
     }
 }

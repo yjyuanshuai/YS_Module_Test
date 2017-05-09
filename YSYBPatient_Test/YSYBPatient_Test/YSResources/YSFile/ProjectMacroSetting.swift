@@ -39,6 +39,14 @@ let kMainColor = kRGBColorFromHex(rgbValue: 0x05b89b)               // 主题色
 
 
 
+// MARK: - 字体
+func kSystemFontWithSize(_ size: CGFloat) -> UIFont {
+    return UIFont.systemFont(ofSize: size)
+}
+
+
+let kDefaultSystemFont = kSystemFontWithSize(14.0)
+
 
 // MARK: - 用户定义宏
 let kUserHasLoginKey = "ys_kUserHasLoginKey"
