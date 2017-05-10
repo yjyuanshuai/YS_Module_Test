@@ -11,15 +11,35 @@ import UIKit
 class YSRegistOrForgetPassVC: YSRootVC {
 
     var currentType:Enum_LoginPushVCType = Enum_LoginPushVCType.pushToForget
+    var account:String? = ""
 
-//    func initWithLoginPushToType(_ currentVCType: Enum_LoginPushVCType) -> YSRegistOrForgetPassVC {
-//
-//    }
+    init(currentType:Enum_LoginPushVCType, account:String?) {
+        self.currentType = currentType
+        if account == nil {
+            self.account = ""
+        }
+        else {
+            self.account = account
+        }
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    init(currentType:Enum_LoginPushVCType) {
+        self.currentType = currentType
+        self.account = ""
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
 
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
-        self.navigationController?.setNavigationBarHidden(false, animated: false)
+        if (self.navigationController?.isNavigationBarHidden)! {
+            self.navigationController?.setNavigationBarHidden(false, animated: false)
+        }
     }
 
     override func viewDidLoad() {
@@ -33,5 +53,20 @@ class YSRegistOrForgetPassVC: YSRootVC {
         // Dispose of any resources that can be recreated.
     }
 
+    func createUIAndData() -> () {
+        switch currentType {
+        case .pushToForget:
+            self.createForgetPassWordUI()
+        case .pushToRegist:
+            self.createRegistUI()
+        }
+    }
 
+    func createForgetPassWordUI() -> () {
+        self.title = "找回密码"
+    }
+
+    func createRegistUI() -> () {
+        self.title = "注册"
+    }
 }

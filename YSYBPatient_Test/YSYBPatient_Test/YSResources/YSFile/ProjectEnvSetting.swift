@@ -8,3 +8,12 @@
 
 import Foundation
 
+#if Dev
+
+#elseif LANRealse
+
+#elseif OutSideRealse
+
+#elseif AppStore
+
+#endif

@@ -11,7 +11,6 @@
 		3962BCF81EC0412E00D7472C /* ProjectEnvSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCF71EC0412E00D7472C /* ProjectEnvSetting.swift */; };
 		3962BCFB1EC041C100D7472C /* YSLoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCFA1EC041C100D7472C /* YSLoginVC.swift */; };
 		3962BCFD1EC041D800D7472C /* YSRegistOrForgetPassVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3962BCFC1EC041D800D7472C /* YSRegistOrForgetPassVC.swift */; };
-		39EAF92E1EC06A190062B21A /* YSDeugConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */; };
 		39EAF9301EC06A470062B21A /* YSLANRealseConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */; };
 		39EAF9341EC06A880062B21A /* YSAppStoreConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = 39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */; };
 		39FA4E661EBC570700C4D74F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 39FA4E641EBC570700C4D74F /* Main.storyboard */; };
@@ -47,7 +46,7 @@
 		3962BCF71EC0412E00D7472C /* ProjectEnvSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProjectEnvSetting.swift; sourceTree = "<group>"; };
 		3962BCFA1EC041C100D7472C /* YSLoginVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSLoginVC.swift; sourceTree = "<group>"; };
 		3962BCFC1EC041D800D7472C /* YSRegistOrForgetPassVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YSRegistOrForgetPassVC.swift; sourceTree = "<group>"; };
-		39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YSDeugConfig.xcconfig; sourceTree = "<group>"; };
+		39B8380D1EC2F6F10071D21E /* YSDevConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = YSDevConfig.xcconfig; sourceTree = "<group>"; };
 		39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YSLANRealseConfig.xcconfig; sourceTree = "<group>"; };
 		39EAF9311EC06A6B0062B21A /* YSOutSideRealseConfig.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = YSOutSideRealseConfig.xcconfig; sourceTree = "<group>"; };
 		39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = YSAppStoreConfig.xcconfig; sourceTree = "<group>"; };
@@ -90,7 +89,7 @@
 		39EAF92A1EC069C70062B21A /* YSConfiguration */ = {
 			isa = PBXGroup;
 			children = (
-				39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */,
+				39B8380D1EC2F6F10071D21E /* YSDevConfig.xcconfig */,
 				39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */,
 				39EAF9311EC06A6B0062B21A /* YSOutSideRealseConfig.xcconfig */,
 				39EAF9331EC06A880062B21A /* YSAppStoreConfig.xcconfig */,
@@ -342,7 +341,6 @@
 				39FA4E6B1EBC570700C4D74F /* LaunchScreen.storyboard in Resources */,
 				39FA4E681EBC570700C4D74F /* Assets.xcassets in Resources */,
 				39EAF9341EC06A880062B21A /* YSAppStoreConfig.xcconfig in Resources */,
-				39EAF92E1EC06A190062B21A /* YSDeugConfig.xcconfig in Resources */,
 				39FA4E661EBC570700C4D74F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -394,6 +392,69 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		39B8380B1EC2F6CE0071D21E /* Dev */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Dev;
+		};
+		39B8380C1EC2F6CE0071D21E /* Dev */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 39B8380D1EC2F6F10071D21E /* YSDevConfig.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = MNH692X4AB;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/YSYBPatient_Test/YSLibs",
+				);
+				INFOPLIST_FILE = YSYBPatient_Test/SupportFile/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.yjyuanshuai.YSYBPatient-Test";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Dev;
+		};
 		39EAF9351EC06A9A0062B21A /* OutSideRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -520,56 +581,6 @@
 			};
 			name = AppStore;
 		};
-		39FA4E6D1EBC570700C4D74F /* Dev */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_ANALYZER_NONNULL = YES;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INFINITE_RECURSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_SUSPICIOUS_MOVES = YES;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_TESTABILITY = YES;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_NO_COMMON_BLOCKS = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 10.1;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
-				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
-				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				TARGETED_DEVICE_FAMILY = "1,2";
-			};
-			name = Dev;
-		};
 		39FA4E6E1EBC570700C4D74F /* LANRelease */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -613,26 +624,6 @@
 			};
 			name = LANRelease;
 		};
-		39FA4E701EBC570700C4D74F /* Dev */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 39EAF92D1EC06A190062B21A /* YSDeugConfig.xcconfig */;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = MNH692X4AB;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"$(PROJECT_DIR)/YSYBPatient_Test/YSLibs",
-				);
-				INFOPLIST_FILE = YSYBPatient_Test/SupportFile/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.yjyuanshuai.YSYBPatient-Test";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-			};
-			name = Dev;
-		};
 		39FA4E711EBC570700C4D74F /* LANRelease */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 39EAF92F1EC06A470062B21A /* YSLANRealseConfig.xcconfig */;
@@ -659,24 +650,24 @@
 		39FA4E581EBC570600C4D74F /* Build configuration list for PBXProject "YSYBPatient_Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39FA4E6D1EBC570700C4D74F /* Dev */,
 				39FA4E6E1EBC570700C4D74F /* LANRelease */,
+				39B8380B1EC2F6CE0071D21E /* Dev */,
 				39EAF9351EC06A9A0062B21A /* OutSideRelease */,
 				39EAF9371EC06AC90062B21A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = LANRelease;
+			defaultConfigurationName = Dev;
 		};
 		39FA4E6F1EBC570700C4D74F /* Build configuration list for PBXNativeTarget "YSYBPatient_Test" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				39FA4E701EBC570700C4D74F /* Dev */,
 				39FA4E711EBC570700C4D74F /* LANRelease */,
+				39B8380C1EC2F6CE0071D21E /* Dev */,
 				39EAF9361EC06A9A0062B21A /* OutSideRelease */,
 				39EAF9381EC06AC90062B21A /* AppStore */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = LANRelease;
+			defaultConfigurationName = Dev;
 		};
 /* End XCConfigurationList section */
 	};

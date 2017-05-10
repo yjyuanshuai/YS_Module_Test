@@ -8,8 +8,14 @@
 
 import UIKit
 
-class YSLoginVC: YSRootVC {
+class YSLoginVC: YSRootVC, UITextFieldDelegate {
 
+    // MARK: -
+    var accountTextDeild = UITextField()
+    var passwordTextFeild = UITextField()
+
+
+    // MARK: -
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
 
@@ -37,6 +43,8 @@ class YSLoginVC: YSRootVC {
         // Dispose of any resources that can be recreated.
     }
 
+    // MARK: -
+
     func initUIAndData() -> () {
 
     }
@@ -56,21 +64,23 @@ class YSLoginVC: YSRootVC {
         acPassBackgroundView.backgroundColor = UIColor.white
         contentView.addSubview(acPassBackgroundView)
 
-        let accountTextDeild = UITextField(frame: CGRect(x: 15, y: 0, width: kScreenWidth-15, height: 45))
+        accountTextDeild = UITextField(frame: CGRect(x: 15, y: 0, width: kScreenWidth-15, height: 45))
         accountTextDeild.keyboardType = .numbersAndPunctuation
         accountTextDeild.leftView = UIImageView(image: UIImage(named: "hx_icon_number"))
         accountTextDeild.leftViewMode = .always
         accountTextDeild.placeholder = "账号"
+        accountTextDeild.delegate = self
         acPassBackgroundView.addSubview(accountTextDeild)
 
         let middleLine:UIView = UIView(frame: CGRect(x: 0, y: 45, width: kScreenWidth, height: 1))
         middleLine.backgroundColor = kDefaultBackgroundColor
         acPassBackgroundView.addSubview(middleLine)
 
-        let passwordTextFeild = UITextField(frame: CGRect(x: 15, y: 46, width: kScreenWidth-15, height: 45))
+        passwordTextFeild = UITextField(frame: CGRect(x: 15, y: 46, width: kScreenWidth-15, height: 45))
         passwordTextFeild.keyboardType = .default
         passwordTextFeild.leftViewMode = .always
         passwordTextFeild.placeholder = "密码"
+        passwordTextFeild.delegate = self
         passwordTextFeild.leftView = UIImageView(image: UIImage(named: "hx_icon_code"))
         acPassBackgroundView.addSubview(passwordTextFeild)
 
@@ -106,16 +116,32 @@ class YSLoginVC: YSRootVC {
 
     func clickForgetPassword(button: UIButton) {
         // 忘记密码
-        let forgetVC = YSRegistOrForgetPassVC()
+        let forgetVC = YSRegistOrForgetPassVC(currentType: .pushToForget, account:accountTextDeild.text)
+        self.navigationController?.pushViewController(forgetVC, animated: true)
+    }
+
+    func clickRegist(button: UIButton) {
+        // 注册
+        let forgetVC = YSRegistOrForgetPassVC(currentType: .pushToRegist)
         self.navigationController?.pushViewController(forgetVC, animated: true)
     }
 
     func clickLogin(button: UIButton) {
         // 登录
+        
     }
 
-    func clickRegist(button: UIButton) {
-        // 注册
+    // MERK: - UITextFieldDelegate
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == accountTextDeild {
+            NSLog("\(accountTextDeild.text)")
+        }
+        else if textField == passwordTextFeild {
+            NSLog("\(passwordTextFeild.text)")
+        }
+        else {
+
+        }
     }
 }
 
