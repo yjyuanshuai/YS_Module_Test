@@ -7,12 +7,12 @@
 //
 
 //:configuration = Dev
-CODE_SIGN_IDENTITY =
+//CODE_SIGN_IDENTITY =
 
 //:completeSettings = none
 
 //:configuration = Dev
-//GCC_PREPROCESSOR_DEFINITIONS = $(inherited)
-OTHER_CODE_SIGN_FLAGS = $(inherited) "-D" "OutSideRelease"
+GCC_PREPROCESSOR_DEFINITIONS = $(inherited) OUTSIDERELEASE=3
+OTHER_SWIFT_FLAGS = $(inherited) "-D" "OUTSIDERELEASE"
 
 //:completeSettings = none

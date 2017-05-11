@@ -131,6 +131,10 @@ class YSLoginVC: YSRootVC, UITextFieldDelegate {
         
     }
 
+    func interfaceLogin() -> () {
+
+    }
+
     // MERK: - UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {
         if textField == accountTextDeild {
