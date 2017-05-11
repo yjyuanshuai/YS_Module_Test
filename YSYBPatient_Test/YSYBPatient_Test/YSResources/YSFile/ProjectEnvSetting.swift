@@ -8,12 +8,22 @@
 
 import Foundation
 
-#if Dev
 
-#elseif LANRealse
+var YS_YBPATIENT_HTTP_SERVER:String = ""
 
-#elseif OutSideRealse
+var YS_YBPATIENT_USER_CENTER_SERVER:String = ""
 
-#elseif AppStore
+
+
+
+#if DEV
+
+//    YS_YBPATIENT_USER_CENTER_SERVER = "https://dev-passport.yibaomd.com/m/"
+
+#elseif LANRELEASE
+
+#elseif OUTSIDERELEASE
+
+#elseif APPSTORE
 
 #endif

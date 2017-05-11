@@ -13,6 +13,6 @@ CODE_SIGN_IDENTITY =
 
 //:configuration = Dev
 //GCC_PREPROCESSOR_DEFINITIONS = $(inherited)
-OTHER_CODE_SIGN_FLAGS = $(inherited) "-D" "OutSideRealse"
+OTHER_CODE_SIGN_FLAGS = $(inherited) "-D" "OutSideRelease"
 
 //:completeSettings = none
