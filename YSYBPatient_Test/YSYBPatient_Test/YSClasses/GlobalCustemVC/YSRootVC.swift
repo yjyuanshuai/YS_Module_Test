@@ -7,7 +7,6 @@
 //
 
 import UIKit
-//import alawes
 
 class YSRootVC: UIViewController {
 
@@ -33,6 +32,8 @@ class YSRootVC: UIViewController {
         backBtn.setTitle(" 返回", for: .normal)
 
         self.navigationItem.backBarButtonItem = UIBarButtonItem(customView: backBtn)
+
+        self.navigationController?.navigationBar.titleTextAttributes = [NSFontAttributeName:UIFont.systemFont(ofSize: 20.0), NSForegroundColorAttributeName:UIColor.white]
     }
 
     // MARK: - 重写方法

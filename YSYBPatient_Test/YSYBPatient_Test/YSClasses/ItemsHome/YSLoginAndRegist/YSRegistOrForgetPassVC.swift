@@ -46,6 +46,8 @@ class YSRegistOrForgetPassVC: YSRootVC {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+
+        self.createUIAndData()
     }
 
     override func didReceiveMemoryWarning() {
