@@ -2,4 +2,5 @@ platform:ios,'8.0'
 use_frameworks!
 target 'YS_iOS_Swift_Test' do
 pod 'SnapKit'
+pod 'Alamofire'
 end
