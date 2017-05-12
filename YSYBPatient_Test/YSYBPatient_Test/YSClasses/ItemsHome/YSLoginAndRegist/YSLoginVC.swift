@@ -50,9 +50,13 @@ class YSLoginVC: YSRootVC, UITextFieldDelegate {
     }
 
     func createScrollView() -> () {
-        let scrollContentView:UIView = UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 200))
+        let scrollContentView:UIView = UIView()//UIView(frame: CGRect(x: 0, y: 0, width: kScreenWidth, height: 200))
         scrollContentView.backgroundColor = kMainColor
         self.view.addSubview(scrollContentView)
+
+        scrollContentView.snp.makeConstraints { (make) in
+            make.size.equalTo(CGSize.init(width: kScreenWidth, height: 200))
+        }
     }
 
     func createAccountAndPassword() -> () {
@@ -134,6 +138,8 @@ class YSLoginVC: YSRootVC, UITextFieldDelegate {
     func interfaceLogin() -> () {
 
     }
+
+
 
     // MERK: - UITextFieldDelegate
     func textFieldDidEndEditing(_ textField: UITextField) {
