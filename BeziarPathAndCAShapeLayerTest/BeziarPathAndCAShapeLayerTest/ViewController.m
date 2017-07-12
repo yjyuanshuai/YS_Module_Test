@@ -21,8 +21,8 @@
 //    [self createRectangle];
 //    [self createRoundRectangle];
 //    [self createCircle];
-//    [self beziarLine];
-    [self animationLayer];
+    [self beziarLine];
+//    [self animationLayer];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -99,7 +99,7 @@
     CALayer * layer4 = [CALayer layer];
     layer4.frame = CGRectMake(controlPoint2.x, controlPoint2.y, 5, 5);
     layer4.backgroundColor = [UIColor redColor].CGColor;
-    
+
     //曲线
     UIBezierPath * path = [UIBezierPath bezierPath];
     CAShapeLayer * layer = [CAShapeLayer layer];
@@ -110,12 +110,20 @@
     layer.path = path.CGPath;
     layer.fillColor = [UIColor lightGrayColor].CGColor;
     layer.strokeColor = [UIColor blackColor].CGColor;
-    
+
     [self.view.layer addSublayer:layer1];
     [self.view.layer addSublayer:layer2];
     [self.view.layer addSublayer:layer3];
     [self.view.layer addSublayer:layer4];
     [self.view.layer addSublayer:layer];
+
+    UIBezierPath * path2 = [UIBezierPath bezierPath];
+    CAShapeLayer * arcLayer = [CAShapeLayer layer];
+    [path2 addArcWithCenter:CGPointMake(self.view.frame.size.width/2, self.view.frame.size.height/2) radius:100 startAngle:10 endAngle:90 clockwise:NO];
+    arcLayer.path = path2.CGPath;
+    arcLayer.fillColor = [UIColor clearColor].CGColor;
+    arcLayer.strokeColor = [UIColor redColor].CGColor;
+    [self.view.layer addSublayer:arcLayer];
 }
 
 #pragma mark - 动画1

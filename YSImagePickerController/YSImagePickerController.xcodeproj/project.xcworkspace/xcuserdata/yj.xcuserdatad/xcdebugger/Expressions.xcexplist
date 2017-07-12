@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<VariablesViewState
+   version = "1.0">
+   <ContextStates>
+      <ContextState
+         contextName = "__copy_helper_block_:MediaLibraryManager.m">
+         <PersistentStrings>
+            <PersistentString
+               value = "result">
+            </PersistentString>
+         </PersistentStrings>
+      </ContextState>
+      <ContextState
+         contextName = "__67-[MediaLibraryManager getAlbumPostImage:size:resizeMode:postBlock:]_block_invoke_2:MediaLibraryManager.m">
+      </ContextState>
+   </ContextStates>
+</VariablesViewState>

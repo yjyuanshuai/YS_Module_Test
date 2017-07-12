@@ -7,7 +7,7 @@
 //
 
 #import "ViewController.h"
-#import "EncryptionMethod.h"
+#import "YSEnDecryptionMethod.h"
 
 static NSString * des_key = @"DES_KEY";
 static NSString * aes_key = @"AES_KEY";
@@ -46,7 +46,7 @@ static NSString * aes_key = @"AES_KEY";
 - (IBAction)md5Encrypte:(id)sender {
     NSString * textToEncrypte = _text.text;
     
-    NSString * encryptionStr = [EncryptionMethod md5StringFromText:textToEncrypte];
+    NSString * encryptionStr = [YSEnDecryptionMethod encryptMD5StrForString: textToEncrypte];
     _text.text = encryptionStr;
     
 }
@@ -59,43 +59,47 @@ static NSString * aes_key = @"AES_KEY";
 #pragma mark - Base64
 - (IBAction)base64Encrypte:(id)sender {
     
-    NSString * encryptionStr = [EncryptionMethod base64StringFromText:_text.text];
+    NSString * encryptionStr = [YSEnDecryptionMethod encryptBase64StrForString: _text.text];
     _text.text = encryptionStr;
 }
 
 - (IBAction)base64UnEncrypte:(id)sender {
     
-    NSString * decryptionStr = [EncryptionMethod textFromBase64String:_text.text];
+    NSString * decryptionStr = [YSEnDecryptionMethod decryptBase64StrForString:_text.text];
     _text.text = decryptionStr;
 }
 
 #pragma mark - DES
 - (IBAction)desEncrypt:(id)sender {
     
-    NSString * encryptionStr = [EncryptionMethod encryptSting:_text.text key:des_key andDesiv:des_key];
+    NSString * encryptionStr = [YSEnDecryptionMethod encryptDESStrForSting:_text.text key:des_key andDesiv:des_key];
     _text.text = encryptionStr;
 }
 
 - (IBAction)desDecrypt:(id)sender {
-    NSString * decryptionStr = [EncryptionMethod decryptWithDESString:_text.text key:des_key andiV:des_key];
+    NSString * decryptionStr = [YSEnDecryptionMethod decryptDESStrForString:_text.text key:des_key andiV:des_key];
     _text.text = decryptionStr;
 }
 
 #pragma mark - AES
 - (IBAction)aesEncrypt:(id)sender {
     
-    NSData * encryptionData = [EncryptionMethod AES128EncryptWithKey:aes_key iv:aes_key withNSData:[_text.text dataUsingEncoding:NSUTF8StringEncoding]];
-    NSString * encryptionStr = [EncryptionMethod base64EncodedStringFrom:encryptionData];
-    _text.text = encryptionStr;
+//    NSData * encryptionData = [YSEnDecryptionMethod encryptAES128DataForData:[_text.text dataUsingEncoding:NSUTF8StringEncoding] Key:aes_key iv:aes_key];
+//    
+//    NSString * encryptionStr = [YSEnDecryptionMethod encryptbase64StrforData:encryptionData];
     
+    NSString * encryptionStr = [YSEnDecryptionMethod encryptAES128StrForString:_text.text Key:aes_key iv:aes_key];
+    _text.text = encryptionStr;
 }
 
 - (IBAction)aesDecrypt:(id)sender {
+
+//    NSData * base64Data = [YSEnDecryptionMethod decryptBase64DataForString:_text.text];
+//    NSData * decryptionData = [YSEnDecryptionMethod decryptAES128DataForData:base64Data Key:aes_key iv:aes_key];
+//    NSString * decrytionStr = [YSEnDecryptionMethod  encryptbase64StrforData:decryptionData];
+//    NSString * result = [YSEnDecryptionMethod decryptBase64StrForString:decrytionStr];
     
-    NSData * base64Data = [EncryptionMethod dataWithBase64EncodedString:_text.text];
-    NSData * decryptionData = [EncryptionMethod AES128DecryptWithKey:aes_key iv:aes_key withNSData:base64Data];
-    NSString * decrytionStr = [EncryptionMethod base64EncodedStringFrom:decryptionData];
-    NSString * result = [EncryptionMethod textFromBase64String:decrytionStr];
+    NSString * result = [YSEnDecryptionMethod decryptAES128StrForString:_text.text Key:aes_key iv:aes_key];
     _text.text = result;
 
 }

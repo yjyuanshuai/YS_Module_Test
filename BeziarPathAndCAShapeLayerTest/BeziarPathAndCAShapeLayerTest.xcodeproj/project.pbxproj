@@ -311,6 +311,7 @@
 				TargetAttributes = {
 					3979BB301C83E2AD0027B2B3 = {
 						CreatedOnToolsVersion = 7.1;
+						DevelopmentTeam = MNH692X4AB;
 					};
 					3979BB491C83E2AD0027B2B3 = {
 						CreatedOnToolsVersion = 7.1;
@@ -517,10 +518,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeziarPathAndCAShapeLayerTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.BeziarPathAndCAShapeLayerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuai.BeziarPathAndCAShapeLayerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -528,10 +533,14 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = BeziarPathAndCAShapeLayerTest/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = com.yibaomd.BeziarPathAndCAShapeLayerTest;
+				PRODUCT_BUNDLE_IDENTIFIER = com.yjyuanshuai.BeziarPathAndCAShapeLayerTest;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -602,6 +611,7 @@
 				3979BB601C83E2AD0027B2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3979BB611C83E2AD0027B2B3 /* Build configuration list for PBXNativeTarget "BeziarPathAndCAShapeLayerTestTests" */ = {
 			isa = XCConfigurationList;
@@ -610,6 +620,7 @@
 				3979BB631C83E2AD0027B2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		3979BB641C83E2AD0027B2B3 /* Build configuration list for PBXNativeTarget "BeziarPathAndCAShapeLayerTestUITests" */ = {
 			isa = XCConfigurationList;
@@ -618,6 +629,7 @@
 				3979BB661C83E2AD0027B2B3 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
